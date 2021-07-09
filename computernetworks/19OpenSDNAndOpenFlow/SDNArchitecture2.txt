@@ -1,0 +1,47 @@
+NETWORK
+--------------
+APPLICATION    [APPLICATION LAYER]
+---------------
+NORTHBOUND-API
+1. RESTFUL-API
+2. JAVA API
+---------------
+CONTROLLER [CONTROL LAYER]
+---------------
+SOUTHBOUND API       [INFRASTRUCTURE LAYER]
+OPENFLOW PROTOCOL TO ACCESS NETWORK DEVICE HARDWARE (flow tables of switches)
+------------------------------------
+NETWORK HARDWARE. (routers,swithces,firewalls,other devices)
+
+
+if using sdn via apis.
+different protocols could be used on southbound api
+like
+openflow
+netconf
+snmp
+or other protocols
+
+used to update switch tables.
+
+openflow does not update the configuration of the network devices itself
+like configure ospf, or configure usernames
+
+it just updates flow tables of switches to manipulate how network traffic
+flows through the network.
+
+
+
+we can also have multiple controllers on the east as well as the west
+
+so in northbound we had 1 single controller
+now we can have multiple controllers on east and west as well.
+
+
+southbound = control layer down to infrastructure
+northbound = application and in between controller
+east-west = is between controllers in control layer.
+
+
+
+

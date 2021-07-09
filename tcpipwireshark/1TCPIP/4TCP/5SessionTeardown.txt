@@ -1,0 +1,27 @@
+making sure that both ends of communication realize that the other end is not going to transmit data any longer.
+once data is being transmitted, It is Bi-Directional Data, with requests and responses going back and fwd.
+
+we need something to determine that communication has finally stopped. (SessionTearDown)
+
+
+
+Flags: 0x011 (FIN, ACK)
+    000. .... .... = Reserved: Not set
+    ...0 .... .... = Nonce: Not set
+    .... 0... .... = Congestion Window Reduced (CWR): Not set
+    .... .0.. .... = ECN-Echo: Not set
+    .... ..0. .... = Urgent: Not set
+    .... ...1 .... = Acknowledgment: Set
+    .... .... 0... = Push: Not set
+    .... .... .0.. = Reset: Not set
+    .... .... ..0. = Syn: Not set
+    .... .... ...1 = Fin: Set
+        [Expert Info (Chat/Sequence): Connection finish (FIN)]
+            [Connection finish (FIN)]
+            [Severity level: Chat]
+            [Group: Sequence]
+    [TCP Flags: ·······A···F]
+
+Both sides send FIN or FIN,ACK messages bi-directionally.
+both sides can be a sender or receiver. so we need to "Teardown the session from both sides."
+

@@ -1,0 +1,20 @@
+1. Public
+no shared computers , you cant see other pcs on network
+
+NOT DISCOVERABLE - BY DEFAULT IF NO PROFILE IS SPECIFIED
+
+2. Private ( home or work ) , access shared network resources like printer or backup devices
+network discovery is on so other computers can connect to this on the same network
+
+DISCOVERABLE
+
+
+3. Domain
+networks found on large companies and businesses
+what we can see is managed by network admin
+
+SET BY ADMIN - YOU CANT CHANGE THIS
+
+
+Advanced Profile Sharing
+

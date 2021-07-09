@@ -1,0 +1,6 @@
+router with lowest AD will be chosen
+
+OSPF AD = 110
+RIP AD = 120
+
+so new york router will ping san francisco.

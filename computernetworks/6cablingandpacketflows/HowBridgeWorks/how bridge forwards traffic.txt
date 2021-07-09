@@ -1,0 +1,28 @@
+A is on port 1
+C is on port 3
+
+now bridge knows A and C ports and mac addresses.
+
+subsequent frames will only now use the port1 and port3
+
+advantage is that a and c can communicate without disturbing b and d
+
+and without using bandwidth of port 2 and 4.
+
+
+each port on bridge is a different collision domain
+4 ports means 4 collision domains
+collision on any port means only traffic on that port will be affected and not other ports
+
+similiarly if a 
+hub is connected to port 4 , a hub is a single collision domain , so devices connected to hub will be affected. but not port 4 of bridge.
+
+A ,B AND C have dedicated links to the bridge, have a single broadcast domain but there are 4 collision domains for 4 ports of bridge.
+
+
+D and E are sharing bandwidth because they are connected to a hub.
+
+bridge is a single broadcast domain if a sends broadcast all devices will receive broadcast.
+
+
+

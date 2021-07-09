@@ -1,0 +1,18 @@
+1.Topology ( Physical or Logical )
+
+physical topology is the arrangement of cables, network devices and endpoints.
+
+logical topology is the actual paths that are used to transfer data in a network.
+
+e.g switch has 24 users that connect to it.
+
+when we use VLANs , we can create multiple virtual networks , it changes flow of the data
+
+
+2. Speed of a Network in Bits per second
+
+75 MBits per second
+average number of bits that can be downloaded in a second.
+
+Bits
+Bytes - 8 Bits

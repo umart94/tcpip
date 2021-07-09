@@ -1,0 +1,94 @@
+docker , if installing on windows requires :
+Windows 10 64 Bit
+Hyperv Support
+
+
+after uninstalling vmware and virtualbox, and enabling hyperv
+
+
+
+
+run this command
+
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
+PS C:\WINDOWS\system32> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All                       
+
+Path          :
+Online        : True
+RestartNeeded : False
+
+
+
+DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
+
+enable data execution prevention for all programs through control panel.
+
+
+
+from command prompt , run :
+bcdedit.exe /set {current} nx AlwaysOn
+The operation completed successfully.
+
+
+set data execution prevention to on by default.
+
+
+in device security in windows defender
+enable core isolation
+
+
+
+
+
+
+
+
+
+first install docker.
+
+download Docker for Desktop... the docker toolbox is for older versions of windows.
+
+
+Open a command-line terminal like PowerShell, and try out some Docker commands
+
+Run docker version to check the version.
+
+
+docker --version
+Docker version 19.03.13, build 4484c46d9d
+
+
+
+Run docker run hello-world to verify that Docker can pull and run images.
+
+
+>docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+0e03bdcc26d7: Pull complete
+Digest: sha256:e7c70bb24b462baa86c102610182e3efcb12a04854e8c582838d92970a09f323
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+Docker is available in any terminal as long as the Docker Desktop for Windows app is running. Settings are available on the UI, accessible from the Docker whale in the taskbar.

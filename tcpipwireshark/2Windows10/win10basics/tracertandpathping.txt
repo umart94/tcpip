@@ -1,0 +1,42 @@
+reaching a destination host
+its on different network
+
+this command passes from router to router through hops
+by calculating hops .. we detect whether host is online or off
+
+tracert www.linkedin.com
+
+tracert /?                                                                                                                                                                                                           
+Usage: tracert [-d] [-h maximum_hops] [-j host-list] [-w timeout]
+               [-R] [-S srcaddr] [-4] [-6] target_name
+
+Options:
+    -d                 Do not resolve addresses to hostnames.
+    -h maximum_hops    Maximum number of hops to search for target.
+    -j host-list       Loose source route along host-list (IPv4-only).
+    -w timeout         Wait timeout milliseconds for each reply.
+    -R                 Trace round-trip path (IPv6-only).
+    -S srcaddr         Source address to use (IPv6-only).
+    -4                 Force using IPv4.
+    -6                 Force using IPv6.
+
+
+----------------------------------
+
+local system / remote host has no way to reach the destination
+
+pathping /?                                                                                                                                                                                                          
+Usage: pathping [-g host-list] [-h maximum_hops] [-i address] [-n]
+                [-p period] [-q num_queries] [-w timeout]
+                [-4] [-6] target_name
+
+Options:
+    -g host-list     Loose source route along host-list.
+    -h maximum_hops  Maximum number of hops to search for target.
+    -i address       Use the specified source address.
+    -n               Do not resolve addresses to hostnames.
+    -p period        Wait period milliseconds between pings.
+    -q num_queries   Number of queries per hop.
+    -w timeout       Wait timeout milliseconds for each reply.
+    -4               Force using IPv4.
+    -6               Force using IPv6.

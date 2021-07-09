@@ -1,0 +1,31 @@
+onos> flows -s
+deviceId=of:0000000000000001, flowRuleCount=5
+    ADDED, bytes=396786, packets=5087, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=396786, packets=5087, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=42, packets=1, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:1, ETH_DST:00:00:00:00:00:10, ETH_SRC:00:00:00:00:00:01], treatment=[immediate=[OUTPUT:4]]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:4, ETH_DST:00:00:00:00:00:01, ETH_SRC:00:00:00:00:00:10], treatment=[immediate=[OUTPUT:1]]
+deviceId=of:0000000000000002, flowRuleCount=3
+    ADDED, bytes=388050, packets=4975, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=60522, packets=1441, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=387894, packets=4973, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+deviceId=of:000000000000000b, flowRuleCount=5
+    ADDED, bytes=189228, packets=2426, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=189228, packets=2426, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=18438, packets=439, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:3, ETH_DST:00:00:00:00:00:10, ETH_SRC:00:00:00:00:00:01], treatment=[immediate=[OUTPUT:1]]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:1, ETH_DST:00:00:00:00:00:01, ETH_SRC:00:00:00:00:00:10], treatment=[immediate=[OUTPUT:3]]
+deviceId=of:000000000000000c, flowRuleCount=3
+    ADDED, bytes=198276, packets=2542, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=210, packets=5, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=198276, packets=2542, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+deviceId=of:000000000000000d, flowRuleCount=3
+    ADDED, bytes=20706, packets=493, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=198198, packets=2541, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=198198, packets=2541, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+deviceId=of:000000000000000e, flowRuleCount=5
+    ADDED, bytes=198276, packets=2542, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=19740, packets=470, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=198276, packets=2542, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:1, ETH_DST:00:00:00:00:00:10, ETH_SRC:00:00:00:00:00:01], treatment=[immediate=[OUTPUT:3]]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:3, ETH_DST:00:00:00:00:00:01, ETH_SRC:00:00:00:00:00:10], treatment=[immediate=[OUTPUT:1]]

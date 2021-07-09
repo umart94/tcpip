@@ -1,0 +1,27 @@
+another problem that limits the automation of networking devices
+is the fact that every device has its own proprietary operating system and
+own proprietary networking interfaces.
+
+
+S1 = HP comware SWITCH
+S2 = HP provision switch
+s3 = cisco switch
+
+and so on from juniper etc.
+
+its difficult to create a new application or to create a routing protocol
+that is installed on every one of those devices
+
+
+so if there is a new protocol lets name it DDRP 
+
+it would be difficult for me to run this new routing protocol on multiple vendors
+
+reason : 
+1. there is no open interface on these devices that allow us to change the control plane,
+and hence the data plane of these switches.
+
+2. The Operating System Is Proprietary. and we have no access to the operating system.
+and we can't change the OS to install a new routing protocol.
+
+3. we cannot change the apis or interfaces on these devices because its proprietary

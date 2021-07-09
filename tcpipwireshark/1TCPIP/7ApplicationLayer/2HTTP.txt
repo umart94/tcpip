@@ -1,0 +1,46 @@
+protocol designed for transmitting messages from webserver to client pc
+
+goto
+C:\Program Files (x86)\Nmap
+
+run 
+
+ncat -C www.google.com 80
+EMPTY CURSOR TYPE 
+
+GET / HTTP/1.1
+Host: www.google.com
+
+PRESS ENTER 2 3 TIMES.
+
+AT THE END SEND A BLANK LINE, REQUEST COMPLETED will show 0
+
+HTTP/1.1 200 OK
+ domain=.google.com; HttpOnly
+SetCookies.. request headers.
+we get JS , html carried by HTTP Protocol.
+----------------------------
+
+ncat -C www.google.com 80
+GET /foo-foo-blah HTTP/1.1
+Host: www.google.com
+
+HTTP/1.1 404 Not Found
+Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1573
+Date: Thu, 11 Jun 2020 14:36:58 GMT
+
+in this case , browser sends an additional get request incase of 404 page, ( the error page that needs to be displayed)
+
+we could also get a 300 series message.
+or a 500 message.
+
+HTTP is application layer protocol, ( we handle which error page to show )
+
+-----------------------
+
+
+
+----------------------------
+

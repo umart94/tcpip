@@ -1,0 +1,286 @@
+GAMING - SECTION 
+
+-----------------------
+DESKTOP GAMES
+CounterStrike UDP: 6003,7002,27010,27015,27025
+
+Call of Duty: Modern Warfare - PC
+TCP: 3074,27014-27050
+UDP: 3074,3478,4379-4380,27000-27031,27036
+-------------------------
+
+PLATFORMS
+-------------
+STEAM
+
+Required Ports for Steam
+Which ports do I need to open on my router or firewall for Steam?
+
+To log into Steam and download content:
+HTTP (TCP remote port 80) and HTTPS (443)
+UDP remote port 27015--27030
+TCP remote port 27015--27030
+Steam Client
+UDP remote port 27000--27100: Game traffic
+UDP local port 27031-27036: Remote Play
+TCP local port 27036: Remote Play
+UDP remote port 4380
+Dedicated or Listen Servers
+TCP local port 27015 (default): SRCDS Rcon port
+UDP local port 27015 (default): gameplay traffic
+Steamworks P2P Networking and Steam Voice Chat
+UDP remote port 3478
+UDP remote port 4379
+UDP remote port 4380
+Note:
+Many university networks and proxies block required ports for Steam operation - please consult your network administrator to ensure the required ports are open if you are using a university network or a proxy. Ports required for Steam can not be re-mapped to HTTP or reconfigured to a custom port range.
+
+Advanced
+For generic Steam HTTP/HTTPS requests, your proxy should allow the following domains:
+
+steampowered.com
+steamcommunity.com
+steamgames.com
+steamusercontent.com
+steamcontent.com
+steamstatic.com
+akamaihd.net
+Most of the non-web traffic is usually UDP but can be TCP as well. For that, the IPs will all be from the Valve network (AS32590), and a list of those IP blocks can be found here:
+
+IPv4
+IPv6
+
+----------------------------
+
+Unofficial Description of how twitch / discord works.
+
+The backend has a video streaming server where the content gets pushed via a client-side streaming software. This can use UDP or TCP. It depends on how it is configured. If the content will be made available later, it is most likely using TCP.
+
+Now, the server side software can be configured to serve content directly (most likely twitch isn't doing that). I think there's a proxy server that the client connects to. It is some internal/external CDN.
+
+On the client, a web-socket connection is initiated and upgraded to TCP or downgraded to HTTP depending on what the network and browser support. I'm not sure if they intended to use it for streaming or other notifications. On my setup, it seems to use HTTP. I noticed that there's a pub-sub module setup which means they could also push the updates from the server as it would be efficient that way with thousands of clients.
+
+Twitch uses a service worker in the background. This service-worker thread fetches aggregate video frames sequentially over HTTP and caches them locally. If you pause a live feed and resume it, the client will drop expired packets and continue requesting data from the current time.
+
+When I tried this through Insomnia, I noticed that they still serve older packets which means the fee is being stored. Although, the player didn't allow me to rewind a live feed. I didn't get a chance to save these packets, but it is possible to decipher the content and play it through another video player.
+
+This is a common practice in most web-applications as it is not only easy to implement, but it also helps you get through firewalls and works via SSL.
+
+
+------------------------------
+
+Twitch
+
+Inspector
+At Twitch, the main information pipeline for a stream starts with you. A broadcaster sends a video stream to Twitch using any of several tools:
+
+A streaming encoder, some software implementation like OBS (Open Broadcaster Software) and Xsplit OR
+A Console, like the PS4 and Xbox OR
+A Hardware video encoder
+The broadcast tool sends a video signal captured from the broadcaster’s game and cameras, through the open Internet, into Twitch (live.twitch.tv), using the Real-Time Messaging Protocol (RTMP). The video enters the Twitch ingest subsystem, is authorized and registered, and then prepared for viewers.
+
+You will be required to enable 2FA (Two-Factor Authentication) before you can begin broadcasting on Twitch. Please check out our article here on how to set up 2FA on your Twitch account.
+
+Twitch has created a broadcast inspector to help ensure broadcast health and aid in the troubleshooting of any issues that might occur.
+
+To use this, check out the Inspector tool here and click Run a Stream Test to investigate the health of your broadcasts.
+
+
+Below are some tips and general recommendations to ensure the above process occurs with minimal delays and interruptions.
+
+On this page:
+Broadcast URLs and Stream Keys
+Settings and Requirements
+How to Set a Proper Bitrate
+Constant Bitrate vs Variable Bitrate
+How to Choose a Twitch Ingest Server
+How to Test Bandwidth
+How to Check Broadcast Health (Troubleshooting)
+BROADCAST URLS AND STREAM KEYS
+First, it is best to understand what a broadcast URL looks like and how it works.
+
+Each broadcast uses an RTMP URL that has the following format:
+
+rtmp://TWITCH-INGEST-SERVER/app/STREAM-KEY
+A breakdown of what this means:
+
+rtmp:// - This is the Real-Time Media Protocol, which is an industry standard for moving video around a network
+TWITCH-INGEST-SERVER - This is the ingest server from Twitch that you are connecting to, and identifies a specific Twitch server that receives this broadcast stream; e.g., live.twitch.tv. The valid values of ingest-server are listed in How to Choose a Twitch Ingest Server
+STREAM-KEY - Also known as authorization key, uniquely identifies this stream. Stream keys are assigned by Twitch, and broadcasters can retrieve the keys from the broadcaster dashboard on www.twitch.tv.
+Never share your stream key with anyone else. Doing so could compromise your channel.
+
+ 
+SETTINGS AND REQUIREMENTS
+Twitch allows viewers to watch on a variety of non-web devices, such as game consoles, tablets, and mobile phones. To broadcast on all devices, the following settings are required:
+
+VIDEO
+For Full HD High Framerate 1080p 60fsp
+Vertical Resolution: 1080
+Bitrate: 4500 to 6000 kbps
+Framerate: 60 or 50 fps
+Keyframe Interval: 2 seconds
+AVC (h.264) Profile: Main/High
+AVC (h.264) Level: 4.2
+For more information check out this page.
+
+AUDIO
+Codec: AAC-LC (Stereo or Mono)
+Maximum bit rate: 160 kbps (AAC)
+Sampling frequency: 48khz recommended (AAC)
+These settings are active by default in the latest versions of the most popular broadcast streaming encoders used on Twitch.
+
+ 
+HOW TO SET A PROPER BITRATE
+Twitch specifies a maximum bitrate (bits transferred per second of video) of 6000 kbps, but most Twitch streams use less. While a higher bitrate can result in higher quality video, it reduces the number of potential viewers, as some computers or Internet connections cannot handle higher bitrate video. Moreover, a higher bitrate does not always result in better image quality.
+
+THERE ARE GOOD REASONS TO USE A LOWER BITRATE:
+A lower bitrate often means a more stable connection, which translates into fewer problems for viewers. The higher the bitrate, the faster and more stable your connection must be. A video stream sends data continuously, so consistency and stability matter more than how fast the connection can be in short bursts.
+
+The less movement there is in your broadcast, the lower the bitrate required for it to look good on Twitch. For card games, talk shows, and illustrations, you can stream at 1500 kbps and still display a good looking, 720p broadcast.
+
+ 
+CONSTANT BITRATE VS VARIABLE BITRATE
+If you are broadcasting to Twitch using the latest version of XSplit or OBS, you may have noticed the option to select between VBR (variable bitrate) and CBR (constant bitrate). Twitch specifies using CBR, for several reasons related to the final quality of service that your viewers will experience.
+
+CBR files do not vary the amount of output data per time period. VBR files vary the amount of output data per time period. VBR encoding adjusts the data rate up and down, subject to the upper limit you set.
+
+The main problem with VBR is during lulls in the action — paused games, hero-selection screens, even famous talking heads. During these sections of video, VBR streams produce a significantly lower bitrate, which can cause issues on many end-user connections (particularly wireless) when the bitrate spikes back up during the action moments (team fights, Protoss vs. Protoss battles, 2GD petting Victory Cat, etc). These rapid changes in bitrate frequently cause frame drops for the broadcaster as well as buffering for the viewers.
+
+While VBR does not lead to better broadcasts, a similar client side technology, adaptive bitrate streaming (ABS) is often effective at helping users have a good viewing experience. You need to do nothing to enable this, as Twitch handles this on its servers.
+
+In short, VBR performs poorly for video over the Internet, so use CBR whenever possible.
+
+ 
+HOW TO CHOOSE A TWITCH INGEST SERVER
+Broadcast streams enter Twitch through an ingest server, where they are authorized and registered, then prepared for viewers. Be sure to choose a Twitch ingest server you can get to with the lowest ping timing. This may change based on how your ISP routes your traffic, so test every time you broadcast from a new location or ISP.
+
+In XSplit, ping timings are shown automatically in a drop-down box.
+For OBS and other tools, try this.
+If in doubt, use the server physically closest to you.
+
+To construct the RTMP URL for your chosen Twitch server, Please refer to Broadcast URLs and StreamKeys. and Select a server closest to your location from this list.
+
+For instance, if you live in San Francisco, using San Francisco or San Jose servers will yield a better connection than using Prague or Sao Paulo servers. When in doubt, use the Twitch main server, live.twitch.tv.
+
+ 
+HOW TO TEST BANDWIDTH
+After choosing a server, you can test your bandwidth without your stream coming online. Running a bandwidth test allows you to check your connection’s stability without going live or notifying your viewers.
+
+On XSplit, use the “Test Bandwidth” feature, located beside the server drop-down list.
+On OBS or another tool, add ?bandwidthtest to the end of your stream key.
+If you can stream for a while without any dropped frames, you have a stable connection. If not, either test again on another server (of a similar or second-highest ping) or lower your bitrate.
+
+COMMON ISSUES:
+Local Network problems
+If lowering the bitrate and checking the encoder settings does not eliminate the instability, it could be intermittent connectivity issues. This could well be a broken cable, spotty wifi, issues in the local internet, or some other processes consuming internet bandwidth inadvertently.
+
+Check no other computers or devices are consuming the internet bandwidth, the modem router is okay, and that there's no problems in the region.
+
+Dropped Frames
+Most broadcast software alerts you if frames from your broadcast are not reaching Twitch servers. If your broadcast software indicates you are dropping frames try the following:
+
+Check your ingest server. Make sure you have the best server selected for your location and network. See How to choose a Twitch Ingest Server.
+Check your upload speed. You may be getting throttled or have local network issues that prevent you from uploading at your current bitrate.
+Lower your bitrate. If you still have issues, lower your bitrate live – most broadcast software allows you to do this – until frames stop dropping.
+Streaming at a bitrate close to the limit of your internet connection’s maximum may add delay to your stream. If viewers complain about accumulating delay, and the bitrate graph shows a flat line, the connection may be hitting its limit, even though it seems okay. Lower the bitrate by 200 to 500 kbps; this should vastly improve the connection while having minimal effect on visual quality.
+ 
+HOW TO CHECK BROADCAST HEALTH (TROUBLESHOOTING)
+The easiest way to see the health of a live, or past broadcast, is to head to http://inspector.twitch.tv. This tool will show how the video data is flowing into Twitch servers, and shows some of the common errors, as well as if a broadcast has periods of instability. Most problems will appear in the Bitrate Graph displayed on Inspector. The graph displays bitrates out of the broadcaster’s encoder and how they look once they arrive to Twitch’s server.
+
+Most problems appear as unstable events on bitrate graphs. Here are the most common issues and how you can fix them:
+
+LOW INTERNET BANDWIDTH
+The stream is relatively unstable, even when lowering bitrates. In these cases, either there is not enough bandwidth between the ISP and Twitch, or something is wrong in the network path to Twitch. To resolve this, switch to a different Twitch server (see Choosing a Twitch Ingest Server), check that no other network process is using bandwidth, or contact your ISP for network diagnostics.
+
+
+EXCESSIVE HIGH BITRATE
+Here the broadcaster is streaming at 14,000 kbps. Simply using a higher bitrate does not necessarily mean better quality; in this case such high bitrate is causing instability. Remember to adhere to a maximum of 6000. In many cases, high bandwidth causes stream instability throughout a broadcast.
+
+
+NETWORK OR HARDWARE PROBLEMS
+Sometimes the machine doing the video encoding is having issues keeping up with the load (video encoding takes a lot of computing resources). In this case, verify the machine is not overloaded, running too many things at a time, and that the encoder is up to date. Possibly switch to an encoding preset that uses less CPU.
+
+
+POSSIBLE NETWORK PATH ERRORS
+If a well configured stream which used to work fine starts to show instability, it may be a case of network path errors. Try switching Twitch ingest servers (to change the network path from the encoder to Twitch) and lowering bitrate which can help a lot with stability. See How to choose a Twitch Ingest Server and Bitrate.
+
+
+BITRATE SPIKES
+This stream may be using a variable bitrate or a streaming encoder that is not correctly limiting the bitrate. While the average bitrate is around 3500 kbps, 4500 kbps spikes will cause viewers to buffer and experience issues. Also, very high bitrate spikes will cause persistent buffering for viewers. To avoid this, specify constant bitrate or lower the bitrate.
+
+
+BITRATE DIPS
+Sometimes streaming encoders try to be too smart and optimize bitrate. If the bitrate dips, when the bitrate goes back up, viewers will experience buffering from trying to load too much data. Try testing with a different encoder. Be aware that dips can also happen if your machine may not have enough CPU power for the encoder to compress video.
+
+
+ 
+Trending Articles
+Channel Points Guide
+Twitch Prime Guide
+Creating a Strong Password
+Creating an Account with Twitch
+
+--------------------
+
+Discord
+You have to open port 443 TCP for textchat. 
+ For voice, it is a random UDP port between 50.000 - 65.535
+https://blog.discord.com/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc-ce01c3187429
+From the very start, we made very conscious engineering and product decisions to keep Discord well suited for voice chat while playing your favorite game with your friends. These decisions enabled us to massively scale our operation with a small team and limited resources.
+This post gives a brief overview of the different technologies Discord uses to make audio/video communications a seamless reality.
+For clarity, we will use the term “guild” to represent a collection of users and channels — they are called “servers” in the client. The term “server” will instead be used here to describe our backend infrastructure.
+Guiding Principles
+Every audio/video communication in Discord is multiparty. Supporting large group channels (we have seen 1000 people taking turns speaking) requires client-server networking architecture because peer-to-peer networking becomes prohibitively expensive as the number of participants increases.
+Routing all your network traffic through Discord servers also ensures that your IP address is never leaked whether you use text, voice, or video — preventing anyone from finding out your IP address and launching a DDoS attack against you. Routing audio/video through media servers offers other advantages as well, such as moderation. For example, administrators can disable audio/video for offending participants.
+Client Architecture
+Discord runs on lots of platforms.
+Web (Chrome/Firefox/Edge, etc.)
+Standalone app (Windows, MacOS, Linux)
+Phone (iOS/Android).
+The only way our team can support all these platforms is to take advantage of code re-use and WebRTC. WebRTC is a specification for real-time communication comprised of networking, audio, and video components standardized by both World Wide Web Consortium and Internet Engineering Task Force. WebRTC is available in all modern browsers and also as a native library to embed into applications.
+Discord’s audio and video features are implemented using WebRTC. This means our browser app relies on the WebRTC implementation offered by the browser. Our desktop, iOS, and Android applications, however, make use of a single C++ media engine built on top of the WebRTC native library — specifically tailored to the needs of our users. This means that certain features work better in the installed application than in the browser. For example, in our native apps we can:
+Circumvent auto-ducking behavior of the default communications device on Windows. Ducking, or volume attenuation, means that Windows automatically reduces volume of all applications when communications device is used. This is undesirable when you are playing a game and using Discord to coordinate a raid.
+Implement our own volume control to avoid changing your global operating system volume.
+Access raw audio data to perform voice activity detection and share both game audio and video.
+Reduce your bandwidth and CPU consumption during periods of silence — even very large voice channels only have a few concurrent speakers at any given time.
+Provide system-wide push to talk functionality.
+Send extra information along with audio/video packets (such as indicating priority speaker).
+Having a customized version of WebRTC means that we need to keep up-to-date with frequent updates which is a painstaking process that we are working on automating. However, providing specific features to our gamers is well worth the extra effort.
+In Discord, voice/video communication is initiated by entering a voice channel or call. This means that the communication is always initiated by the client, which reduces both client and backend complexity and also increases resilience against errors. In case of infrastructure failure, participants can simply re-connect to a new backend server.
+Making It Our Own
+Since we have control of the native library, we do some things differently in the native app than what you see in the browser’s WebRTC implementation.
+First, WebRTC relies on the Session Description Protocol (SDP) to negotiate audio/video information between participants (which can be close to ten kilobytes in size round-trip). Using the WebRTC native library allows us to use a lower level API from WebRTC (webrtc::Call) to create both send stream and receive stream. We exchange a minimal amount of information when joining a voice channel. This includes the voice backend server address and port, encryption method and keys, codec, and stream identification (about 1000 bytes).
+
+Moreover, WebRTC uses Interactive Connectivity Establishment (ICE) to determine the best communication path between participants. Since every client connects to our media relay server, we do not need ICE. This allows us to provide a much more reliable connection when you’re behind a NAT, as well as keep your IP address secret from other parties in the channel. Clients send periodic ping messages to ensure that the firewall remains open all the time.
+Lastly, WebRTC uses the Secure Real-time Transport Protocol (SRTP) for media encryption. The encryption keys are set up using Datagram Transport Layer Security (DTLS), which is based on the Transport Layer Security protocol used in your browser every day. The native WebRTC library lets you implement your own transport layer using the webrtc::TransportAPI.
+Instead of DTLS/SRTP, we decided to use the faster Salsa20 encryption. In addition, we avoid sending audio data during periods of silence — a frequent occurrence especially with larger groups. This results in significant bandwidth and CPU savings — however, both client and server must be prepared to cease receiving audio data any time and rewrite audio/video packet sequence numbers.
+Because our browser app uses the browser WebRTC API, we make use of SDP/ICE/DTLS/SRTP. We exchange all necessary information between client and server (less than 1200 bytes round trip) and SDP is synthesized from this information at the clients. Our voice backend infrastructure is responsible for bridging the differences between desktop and browser applications.
+Backend Architecture
+There are several backend services that make voice possible, but we will focus on three of them — Discord Gateway, Discord Guilds and Discord Voice. All of our signaling servers are written in Elixir allowing lots of code re-use.
+When you are online, your client maintains a WebSocket connection to a Discord Gateway (we call this the gateway WebSocket connection). Your client receives events through this gateway connection related to guilds, channels, messages, presence, etc.
+When you are connected to a voice channel, the connection status is represented by the voice state object. The client updates its voice state object using the gateway WebSocket connection.
+
+When you join a voice channel, you are assigned to a Discord Voice server. The Discord Voice server is responsible for transmitting every member’s audio to the channel. All the voice channels within a guild are assigned to the same Discord Voice server. If you are the first voice participant in the guild, Discord Guilds server is responsible for assigning a Discord Voice server to the guild using the process described below.
+Assigning a Voice Server
+Each voice server periodically reports its health and load, and this information is curated and placed into our service discovery system (we use etcd) as we’ve discussed in a previous blog post.
+The Discord Guilds server watches the service discovery system and assigns the least utilized voice server in the given region to the guild. When a Discord Voice server is selected, all the voice state objects (also maintained by Discord Guilds) are pushed to voice server so it knows how to set up audio/video forwarding. Clients are also notified about the selected Discord Voice server. The client opens a second WebSocket connection to the voice server (we call this the voice WebSocket connection) which is used for setting up media forwarding and speaking indication.
+When a client displays “Awaiting Endpoint,” it means that the Discord Guilds server is looking for the best Discord Voice server. When a client displays “Voice Connected,” it means that the client successfully exchanged UDP messages with the selected Discord Voice server.
+Discord Voice server contains two components: a signaling component and a media relay component called the selective forwarding unit or SFU. The signaling component fully controls the SFU and is responsible for generating stream identifiers and encryption keys, forwarding speaking indication, etc.
+Our homegrown SFU (written in C++) is responsible for forwarding audio and video traffic within channels. Our SFU is tailored to our use case offering maximum performance and thus the lowest cost. When offending users are moderated (server mute), their audio packets are dropped. The SFU also acts as a bridge between native and browser applications. It implements a transport and encryption for both browser and standalone applications and translates between the two as it forwards media packets. Finally, the SFU is also responsible for handling the real-time control transport protocol (RTCP), which is used for video quality optimization. It collects and processes RTCP reports from receivers and notifies senders how much bandwidth is available for video.
+Failover
+Since it’s the only service directly accessible from the public Internet, we will focus on Discord Voice server failovers.
+The signaling component constantly monitors the SFU. If the SFU crashes, it is restarted right away causing minimal service interruption (few dropped packets). The state on the SFU is reconstructed by the signaling component without any client interaction. Although SFU crashes are rare, we use the same mechanism for zero-downtime SFU updates.
+When a Discord Voice server dies, it fails the periodic ping and gets removed from the service discovery system. The client also notices server failure due to the severed voice WebSocket connection and requests a voice server ping through the gateway WebSocket connection. The Discord Guilds server confirms the failure, consults the service discovery system, and assigns a new Discord Voice server to the guild. Discord Guilds then pushes all the voice state objects to the new voice server. Every client is notified about the new voice server and creates a voice WebSocket connection to the new voice server to start media setup.
+
+It is quite common that a Discord Voice server suffers a DDoS attack (which we observe from the rapid increase of incoming IP packets). We perform the same procedure as for Discord Voice server failure: remove the impacted Discord Voice server from the service discovery system, select a new Discord Voice server for the guild, push all the voice state objects to the newly selected Discord Voice server, and notify clients of the new voice server for reconnection. When a DDoS attack subsides, the server is added back to the service discovery system for serving voice traffic.
+When the guild owner decides to select a new voice region, we perform a very similar procedure as described above. The Discord Guilds server selects the best available Discord Voice server within the new voice region by consulting the service discovery system. It pushes all the voice state objects to the newly selected server and notifies clients about the new voice server. Clients tear down their voice WebSocket connection to the old Discord Voice server and create a new voice WebSocket connection to the new Discord Voice server.
+Operating at Scale
+Discord Gateway, Discord Guilds and Discord Voice are all horizontally scalable. Discord Gateway and Discord Guilds are running at Google Cloud Platform.
+We are running more than 850 voice servers in 13 regions (hosted in more than 30 data centers) all over the world. This provisioning includes lots of redundancy to handle data center failures and DDoS attacks. We use a handful of providers and use physical servers in their data centers. We just recently added a South Africa region. Thanks to all our engineering efforts on both the client and server architecture, we are able to serve more than 2.6 million concurrent voice users with egress traffic of more than 220 Gbps (bits-per-second) and 120 Mpps (packets-per-second).
+What’s Next?
+We are constantly monitoring voice quality (clients report quality metrics to our backend servers). In the future, we want to use this information to automatically detect and reduce voice degradation issues.
+Although we released video chat and screen sharing about a year ago, you can currently only use it with direct messaging. When compared to audio, video requires significantly more CPU power and bandwidth. It is a challenge to balance the amount of bandwidth and CPU/GPU resources used to provide the best video quality, especially when a group of gamers in a channel may be on a range of different devices. Scalable Video Coding could be the solution to provide seamless video experience.
+A big part of Discord is about sharing your gaming experiences with your friends. Screen sharing requires even more bandwidth due to higher frame rate and resolution than your ordinary webcam. We are adding hardware video encoding to our desktop application for a better experience.
+We have a handful of engineers working on both client and server components and looking after operations as well. We are investing heavily in our voice and video clients and infrastructure to make Discord the best voice and video experience for gamers.
+We’re always looking for the next great addition to our engineering teams at Discord. If you are passionate about working with audio and video, check out our jobs page!
+------------

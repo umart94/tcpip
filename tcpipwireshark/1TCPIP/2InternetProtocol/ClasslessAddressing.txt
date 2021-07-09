@@ -1,0 +1,27 @@
+Classless Inter-Domain Routing (CIDR):
+CIDR or Class Inter-Domain Routing was introduced in 1993 to replace classfull addressing. It allows the user to use VLSM or Variable Length Subnet Masks.
+
+CIDR notation:
+In CIDR subnet masks are denoted by /X. For example a subnet of 255.255.255.0 would be denoted by /24. To work a subnet mask in CIDR, we have to first convert each octet into its respective binary value. For example, if the subnet is of 255.255.255.0. then :
+
+    First Octet:
+
+    255 has 8 binary 1's when converted to binary 
+
+    Second Octet:
+
+    255 has 8 binary 1's when converted to binary 
+
+    Third Octet:
+
+    255 has 8 binary 1's when converted to binary 
+
+    Fourth Octet:
+
+    0 has 0 binary 1's when converted to binary 
+
+Therefore, in total there are 24 binary 1’s, so the subnet mask is /24.
+
+While creating a network in CIDR, a person has to make sure that the masks are contagious, i.e. a subnet mask like 10111111.X.X.X can’t exist.
+
+With CIDR, we can create Variable Length Subnet Masks, leading to less wastage of IP addresses. It is not necessary that the divider between the network and the host portions is at an octet boundary. For example, in CIDR a subnet mask like 255.224.0.0 or 11111111.11100000.00000000.00000000 can exist.

@@ -1,0 +1,71 @@
+communicate with all devices on a local network
+this address is filled with all Binary 1s
+
+11111111.11111111.11111111.11111111
+255.255.255.255
+
+
+This Address is used by a host to request an IP Address from a 
+DHCP Server
+
+
+	
+	
+host has mac address
+host wants ip address
+host does not know which subnet it belongs to
+
+host does not know IP Address of DHCP Server
+host sends a broadcast to local broadcast address 
+to obtain the ip address
+
+
+
+Dynamic allocation
+    A network administrator reserves a range of IP addresses for DHCP, and each DHCP client on the LAN is configured to request an IP address from the DHCP server during network initialization. The request-and-grant process uses a lease concept with a controllable time period, allowing the DHCP server to reclaim and then reallocate IP addresses that are not renewed.
+
+Automatic allocation
+    The DHCP server permanently assigns an IP address to a requesting client from the range defined by the administrator. This is like dynamic allocation, but the DHCP server keeps a table of past IP address assignments, so that it can preferentially assign to a client the same IP address that the client previously had.
+
+Manual allocation
+    Also commonly called static allocation and reservations.The DHCP server issues a private IP address dependent upon each client's client id (or, traditionally, the client MAC address), based on a predefined mapping by the administrator. This feature is variously called static DHCP assignment by DD-WRT, fixed-address by the dhcpd documentation, address reservation by Netgear, DHCP reservation or static DHCP by Cisco and Linksys, and IP address reservation or MAC/IP address binding by various other router manufacturers. If no match for the client's client ID (if provided) or MAC address (if no client id is provided) is found, the server may or may not fall back to either Dynamic or Automatic allocation.
+	
+
+Local Broadcast Packets are always dropped by LAYER 3 Devices 
+such as routers and layer 3 switches
+
+we can disable this property by DHCP forwarding or DHCP Relay
+
+
+
+
+
+
+
+
+If there is a VLAN 10
+and Our Device is in VLAN 10
+
+connected to the Switch
+
+
+the DHCP Server is on a device that is in VLAN 20
+
+Then :
+
+the DHCP request from VLAN 10 will not be received.
+
+we will have to enable dhcp forwarding on LAYER 3 SWITCH / ROUTER
+
+Then :
+
+type ip helper address, specify dhcp server ip address.
+router or switch still blocks local broadcast.
+
+the local broadcast will be dropped
+but the switch sends a unicast dhcp request to dhcp server on vlan 20 on behalf of the device on vlan 10
+
+
+routers and switches on layer 3 block all local broadcast requests on the address 255.255.255.255
+
+

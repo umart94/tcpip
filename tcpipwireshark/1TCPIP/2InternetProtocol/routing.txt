@@ -1,0 +1,29 @@
+routing gets packets from 1 network to another network
+
+192.168.1.22
+netmask 0xffffff00 255.255.255.0
+
+first 3 octets 192.168.1 belong to network
+4th octet is host
+
+this is network masking and subnet masking
+this tells us which range of ips are on which networks
+
+--------------------------
+
+view routing tables
+netstat -rn (cmd)
+
+ Type in `route print -4.`
+
+The ‘-4’ specifies the IPv4 routing table and not the IPv6. Using that switch will simplify the output.
+
+--------------------------
+any route that we do not know about, we first send it to default gateway.
+
+traceroute ipaddress (apple shell)
+tracert ipaddress (windows cmd)
+
+first it will hop to default gateway
+then it hops over routers to get from Point A to Point B.
+the first hop/step is always default gateway

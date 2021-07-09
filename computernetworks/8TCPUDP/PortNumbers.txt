@@ -1,0 +1,52 @@
+When a PC is connecting to a server on the internet. traffic will be sent from a source ip address to a destination ip adddress.
+
+SA : 10.1.1.1
+DA : 10.1.2.1
+
+server needs to differentiate which application to send this traffic to
+well known port numbers are used for various applications
+
+port 80 used for http e.g
+Apache server on the server PC will be listening for network traffic on port 80 of server.
+
+Our source PC will open a connection to the server on that servers IP and Port number automatically ( from our application on the Client PC)
+
+
+When that traffic arrives at the transport layer TCP will send that traffic to port 80,and send it to apache server application that was listening for network traffic.
+which will process this data.
+
+PC will use a random source port number in a range.
+RANDOM port number is used for source.
+
+When reply from server is sent back to PC
+
+Source will now be Server IP , port 80
+and Destination will be client IP and that random port
+
+PC web browser on client will be listening on the random port for http traffic. TCP will push that traffic to this random port on application layer.
+
+well known port numbers <=1023
+
+APPLICATION = HTTP = PORT NUMBER 80 = TCP TRANSPORT LAYER PROTOCOL
+APPLICATION = FTP = PORT NUMBER 21 = TCP TRANSPORT LAYER PROTOCOL
+APPLICATION = FTP DATA = PORT NUMBER 20 = TCP TRANSPORT LAYER PROTOCOL
+APPLICATION = TELNET = PORT NUMBER 23 = TCP TRANSPORT LAYER PROTOCOL
+APPLICATION = DNS = PORT NUMBER 53 = TCP/UDP TRANSPORT LAYER PROTOCOL (USES BOTH TCP AND UDP) typically udp is used. but when response size increases more than 512 bits then TCP used.
+or for tasks such as zone transfers for replication of databases containing dns data across dns servers.
+APPLICATION = TFTP = PORT NUMBER 69 = UDP USER DATAGRAM PROTOCOL
+APPLICATION = SNMP = PORT NUMBER 161 = UDP USER DATAGRAM PROTOCOL
+
+
+well known port numbers <=1023
+registered ports - 1024 to 49151
+Dynamically assigned ports - 49152 to 65535
+
+
+Ephemeral port numbers are short lived ports used for client side of the connection
+temporary and only last for duration of the session
+IANA range - 49152 to 65535
+BSD uses ports 1024 - to 4999
+Linux uses ports 32768 to 61000
+Windows through server 2003 uses 1025 to 5000
+vista / windows 7 uses IANA range. - IANA range - 49152 to 65535
+free BSD uses iana range since release 4.6 -IANA range - 49152 to 65535

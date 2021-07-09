@@ -1,0 +1,34 @@
+dns looks up ipaddressses from hostnames
+
+computer uses the logical addresses.
+
+
+also looks up hostname from an ip address
+
+DNS is on top of UDP
+
+DNS servers are : multiple
+requests are recursive and not connection-oriented
+1st server sends to second server. and so on.
+the first reply is sent back.
+
+--------
+flags - standard query
+Query is for www.google.com type A class IN
+
+A Record Lookup.
+
+A Record. is address lookup
+we want ip address based on this hostname
+
+reverse lookup.
+
+
+recursion desired, available
+
+some servers cant go to root servers.
+they can only respond about particular dns entries that only they themselves know about and configured.
+
+we got different ip addresses for www.google.com
+time to live
+data length

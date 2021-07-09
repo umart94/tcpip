@@ -1,0 +1,35 @@
+in ethernet devices use CSMA CD
+
+when a device wants to send traffic .. it checks to see if anyone else is transmitting
+this is called carrier sense
+
+
+multiple access means that any device can communicate across that segment.
+
+in ethernet , distributed environment without taking permission from any device.
+
+collision detection
+in ethernet every device is independent of other devices.
+
+detect collisions..
+a device sends a backoff or jamming signal to indicate that collision has taken place.
+
+terminators are used to indicate signals do not bounce back.
+
+in a given scenario two devices communicate at exactly the same time.
+then
+
+
+A - B - C - D 
+
+A wants to communicate with C
+D also wants to communicate with B
+
+carrier sense is used.
+
+both a and d send traffic onto network
+only 1 signal is allowed across the network (so collision in 10base2)
+
+after collision devices wait for random time called random backoff time.
+
+probability of collisions becomes greater as cable length increases and more devices connect.

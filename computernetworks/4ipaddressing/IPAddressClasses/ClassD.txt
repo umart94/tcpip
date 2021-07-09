@@ -1,0 +1,23 @@
+Class A,B,C = Unicast
+Class D = multicast
+
+the 0 is in 4th bit position
+
+a multicast address starts with a binary 1110
+
+11100000 = decimal 224
+
+with multicast addresses , the first octet
+
+First Octet Binary 		First Octet Decimal
+11100000					224 (Start)
+11101111					239(End)
+
+239.1.1.1 is a private multicast address
+
+OSPF uses multicast 224.0.0.5 and 224.0.0.6
+these are Link Local Multicasts
+they do not propagate off the local link segment
+multicasts in this range are used by routing protocols
+
+this implies that 1 device is talking to a group of devices.

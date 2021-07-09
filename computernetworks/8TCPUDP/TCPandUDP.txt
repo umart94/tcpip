@@ -1,0 +1,83 @@
+UDP is connectionless.
+
+TCP is connection oriented. sequence numbers are used
+
+
+
+What is a socket
+
+a socket is combination of the ipaddress of a host computer and the port number used. to identify the application and the transport protocol used.
+
+1. ip address of a host
+2. port number used.
+3. transport protocol used.
+
+
+TCP AND UDP allow for session multiplexing.
+
+single user can communicate with multiple servers . using multiple sessions.
+Information may be segmented.
+
+Maximum transmission unit of fast ethernet is 1500 bytes.
+TCP can theoretically support 65495 bits.
+
+
+maximum segment size is the largest amount of data that tcp can send.
+MSS should be set small enough.
+
+TCP supports MSS and Path MTU discovery.
+sender and receiver can determine automatically these parameters.
+TCP sends minimum data to avoid fragmentation and reordering of packets.
+
+UDP does not support this
+
+-----------------
+
+
+TCP uses flow control to avoid sending data too quickly..
+
+if sender sends data faster than receiver can handle receiver drops data and require retransmission.
+
+e.g Server PC sends data to mobile device.
+
+
+
+TCP has sliding window to control flow of data.
+in each tcp segment, receiver will specify the amount of additional data it is willing to buffer for connection.
+
+sending computer can send only this much amount of data.
+
+UDP does not implement flow control.
+
+-------------------------------------
+
+
+UDP does not set up sessions
+tcp has sessions and termination of sessions at the end of transmission.
+
+UDP does not implement reliability.
+------------------------------------------
+
+UDP is a transport layer protocol that provides access to layer 3 without the overhead of reliability mechanisms.
+
+it is a connectionless protocol.
+provides limited error delivery.
+optional checksum value for integrity of data.
+UDP header includes a destination port number, if receiving device has inactive port. return message transmitted to indicate that this port is unreachable.
+
+UDP provides best effort delivery.
+
+packets maybe misdirected lost or duplicated.
+no guarantee or receipt.
+
+no data recovery features.
+
+higher layer protocols must recover the packets.
+------------------------------------------
+
+UDP HEADER.
+length in bytes.
+minimum size is 8 bits. length of header.
+
+maximum 65535 bits.
+

@@ -1,0 +1,2 @@
+configure in email client
+these are used to retreive the email messages sent through smtp

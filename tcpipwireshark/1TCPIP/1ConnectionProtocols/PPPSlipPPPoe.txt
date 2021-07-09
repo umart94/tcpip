@@ -1,0 +1,63 @@
+Layer 2 protocol PPP
+
+Point to Point Protocol - identical to SLIP (Serial Line IP)
+used in modems, capable of setting up connection btw devices ( between two routers directly without any host or any other networking in between  ) as well as encapsulate higher layer protocols
+
+PPP frame
+Structure
+
+PPP frames are variants of HDLC frames:
+Name 	Number of bytes 	Description
+Flag 	1 	0x7E, the beginning of a PPP frame
+Address 	1 	0xFF, standard broadcast address
+Control 	1 	0x03, unnumbered data
+Protocol 	2 	PPP ID of embedded data
+Information 	variable (0 or more) 	datagram
+Padding 	variable (0 or more) 	optional padding
+Frame Check Sequence 	2 	frame checksum
+Flag 	1 	0x7E, omitted for successive PPP packets 
+
+
+Encapsulation
+
+PPP frames are encapsulated in a lower-layer protocol that provides framing and may provide other functions such as a checksum to detect transmission errors. PPP on serial links is usually encapsulated in a framing similar to HDLC, described by IETF RFC 1662.
+Name 	Number of bytes 	Description
+Flag 	1 	indicates frame's begin or end
+Address 	1 	broadcast address
+Control 	1 	control byte
+Protocol 	1 or 2 or 3 	l in information field
+Information 	variable (0 or more) 	datagram
+Padding 	variable (0 or more) 	optional padding
+FCS 	2 (or 4) 	error check 
+
+
+
+--------------------------
+PPP Frames : capture file ppp_lcp_ipcp.pcap
+
+configuration request
+LinkControl Protocol
+
+Data Terminal Equipment (DTE)
+Data Communications Equipment (DCE)
+
+https://packetlife.net/blog/2010/jun/14/ppp-authentication-eap/
+
+md5 challenge -> authentication -> password
+
+PPP / CHAP / PPP WITH EAP
+
+in EAP -> value -> if request matches the response... we have a successfull authentication
+after which transmission proceeds
+
+
+PPP over Ethernet -> PPP over ATM
+
+automatically configure connections between 2 different endpoints and handle authentication
+
+
+
+
+
+
+

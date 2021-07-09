@@ -1,0 +1,60 @@
+Reverse Address Resolution Protocol
+
+in ARP .. we have IP Address and we are looking for MAC Address
+
+in RARP we have MAC Address and we are looking for IP Address
+
+-------------------------
+in cases we don't have a hard disk... only a machine running with memory. (Physical RAM)
+we can't store configuration details. somewhere.
+
+we send out RARP request. to get IP Address. to configure NIC. then we can configure server.
+the server that runs OS
+and we can boot OS .. etc.
+
+-------------------------------
+
+Address Resolution Protocol (reverse request)
+    Hardware type: Ethernet (1)
+    Protocol type: IPv4 (0x0800)
+    Hardware size: 6
+    Protocol size: 4
+    Opcode: reverse request (3)
+    Sender MAC address: Marquett_12:dd:88 (00:00:a1:12:dd:88)
+    Sender IP address: 0.0.0.0
+    Target MAC address: Marquett_12:dd:88 (00:00:a1:12:dd:88)
+    Target IP address: 0.0.0.0
+
+-----------------------------------
+
+opcode 3
+sender and target mac address is KNOWN
+we populate these fields.
+and we want our IP Address. so we dont have Sender / Target IP Address.
+--------------------------------------
+
+Ethernet II, Src: Marquett_12:dd:88 (00:00:a1:12:dd:88), Dst: Broadcast (ff:ff:ff:ff:ff:ff)
+    Destination: Broadcast (ff:ff:ff:ff:ff:ff)
+    Source: Marquett_12:dd:88 (00:00:a1:12:dd:88)
+    Type: ARP (0x0806)
+    Padding: 000000000000000000000000000000000000
+---------------------------
+
+broadcast destination ( all f's is a broadcast )
+
+------------------------
+
+primary use is to boot up diskless systems that do not have ip configuration stored on them
+PXE
+
+
+Short for Pre-Boot Execution Environment. Pronounced pixie, PXE is one of the components of Intel's WfM specification. It allows a workstation to boot from a server on a network prior to booting the operating system on the local hard drive. A PXE-enabled workstation connects its NIC to the LAN via a jumper, which keeps the workstation connected to the network even when the power is off. Because a network administrator does not have to physically visit the specific workstation and manually boot it, operating systems and other software, such as diagnostic programs, can be loaded onto the device from a server over the network.
+
+PXE is a mandatory element of the WfM specification. To be considered compliant, the PXE must be supported by the computer's BIOS and its NIC.
+
+-----------------------------------------------
+the target machine doesnt have to be diskless
+
+if we want to boot an installation off the network.. we can use this method.
+
+

@@ -1,0 +1,161 @@
+Network Address Portion (Network ID)
+
+Identifies a specific network
+routers maintain routing tables that contain the network
+Routers Look at destination of IP Address and match to network address
+
+
+Host Address Portion(Host ID)
+
+This is the part that identifies a specific endpoint on a network
+server, printers, PCS, phones etc. including IP Phones.
+
+
+e.g for a network portion 10.1.1.0
+
+10.1.1.1 PC1
+10.1.1.2 PC2
+10.1.1.3 PC3
+10.1.1.4 PC4
+10.1.1.5 PC5
+
+
+Packets first arrive at 10.1.1.0
+
+IP is assigned to a Physical Device.
+so we should say that the Physical MAC Address is Mapped to an IP Address.
+
+
+at the sending end : data sent through Application(Sender Layer7) goes through the 
+data format process then arrives at Physical(Sender Layer1)
+
+At senders side whenever we want to send data FROM PC1 TO PC2 the ARP request Happens BEFORE the ICMP REQUEST. i.e
+
+IP Addresses are known
+But the Receivers MAC Addresses Are NOT Known
+
+
+
+Source MAC ADDRESS OF PC1 SENDS BROADCAST ARP REQUEST ALL DEVICES TO FIND MAC ADDRESS OF PC2
+WHICH LOOKS LIKE
+
+WHO HAS 192.168.1.1 TELL 192.168.10.6
+
+The Request is BROADCAST
+the Reply is UNICAST
+
+so we found MAC Address of Destination
+
+Now when we PING 192.168.1.1(PC2) from 192.168.1.6(PC1) it will work
+and the entry will be added in ARP table.
+
+
+
+
+
+PC1 GETS MAC ADDRESS OF PC2 THROUGH ARP REQUEST AND ARP REPLIES.
+PC1 SENDS THE ICMP PACKET TO THE MAC ADDRESS THAT HAS THE IP.
+
+AND THEN THE DATA PACKET KNOWS to which MAC ADDRESS AND THEN WHICH IP TO ROUTE TO so 
+at the receiving end it goes from Physical(Receivers Layer1) through All Layers to Layer7(Receivers Application Layer) e.g browser.
+
+
+Routing, a.k.a. packet forwarding, is a wonderful thing. It enables a computer to communicate with other computers that are not on the same network or subnet. What vehicles do for human transportation, routers do for computer communications—without them, we would be stuck in our own “neighborhood,” able to interact only with those who live close by.
+
+Most network administrators have at least a basic idea of how IP routing works. A router (either a dedicated device or a multihomed computer configured for IP forwarding) is connected to at least two networks and makes decisions about where to send the packets it receives based on the destination address. Routers connect multiple networks or subnets in an internetwork.
+
+But how does the router determine where a packet with a particular destination address should be sent? One way is by using dynamic routing protocols, such as the Routing Information Protocol (RIP) or Open Shortest Path First (OSPF), which automatically create and update a database, or routing table. Another way is by static routing, consulting a manually created routing table in which an administrator has entered a series of routes, each of which contains information about how to get to a specific network ID within the internetwork.
+
+In this Daily Feature, I will discuss how routing tables are used, the information they contain, and how to view and configure a static routing table.
+
+How routing tables work
+Static routing uses a routing table that has been preconfigured manually; all entries will remain the same unless they are changed manually. This works fine if all machines remain on the same subnet and always have the same IP address (and assuming all routers remain functional). Unfortunately, this ideal set of circumstances doesn’t always apply. Dynamic routing protocols allow routers to get information from other (peer) routers on the network in order to update routing table entries without human intervention.
+
+Whichever way the table is built, when a router or host computer on which IP forwarding is enabled sends an IP datagram, it must determine which physical interface address to use. (Remember that it is connected to at least two networks, with a separate interface to each network.) If the packet is destined for an address on a subnet to which it is not connected, it will use the routing table to determine that the packet should be sent to a gateway. The routing table contains the (logical) IP address of the gateway. The Address Resolution Protocol (ARP) will then use the IP address to determine the physical (MAC) address of the gateway. The datagram will be forwarded from router to router until it eventually reaches the router that is connected to the destination subnet or host.
+Default gateway
+A gateway is the entrance point to another network. A default gateway is the address to which packets are sent if there is no specific gateway for a given destination listed in the routing table.
+The default gateway is important because it is generally not feasible for all hosts to maintain knowledge of the routes to all other networks on the internetwork. The hosts can set a particular router as their default gateway, and only that router must maintain the routes to remote network IDs. However, if there are networks that are heavily used (a large number of packets are destined for those networks), you can manually add routes for them to the routing tables to optimize the process.
+
+Routing tables can be maintained by individual host computers as well as by routers.
+
+Routing table entries
+Each entry in the routing table defines a route. The routing table will contain at least one entry: the default route. This route typically forwards the datagram to the default gateway for the local subnet. There are two other types of routes:
+
+    ·        Network routes
+    ·        Host routes
+
+
+Network routes are entries that contain information on how to reach a specific network ID (a network or subnet) within the internetwork. A host route provides information to reach a particular node or host on a particular network or subnet.
+
+A typical IP routing table entry contains the following information:
+
+    ·        Network ID or host route internetwork address.
+    ·        Subnet mask (netmask), used to determine the network ID from the IP address.
+    ·        Forwarding address or gateway. (This may be the address of the network interface that is attached to the network, if the address is on a network/subnet to which the router is directly attached.)
+    ·        Port number (or other logical identifier) of the network interface used to forward packets to the network ID.
+    ·        The metric, which is a number that indicates the preference level or priority of a particular route (with the lowest metric usually indicating the most preferred route). The metric indicates the cost of using a particular route; usually it is expressed as the number of hops (the number of routers that must be crossed) to reach a particular destination.
+
+
+In addition to the default route, the routing table may contain routes to the loopback network address (127.0.0.0), the local network, the local IP address of the host, and multicast and broadcast addresses.
+
+A multihomed computer (one with multiple network interfaces) will have the above entries for each interface.
+
+Viewing and configuring the routing table
+The commands used to view and create entries in the routing table depend on the router being used and the operating system it is running. (For example, Cisco routers use the IOS; operating systems such as Windows 2000 and UNIX have routing functionality built into the operating systems.)
+
+Our examples will use a Windows 2000 multihomed server. There are two ways to view the routing table; the first uses the GUI, and the second uses the command line.
+
+To use the GUI, select Start | Programs | Administrative Tools | Routing And Remote Access. In the RRAS console, expand the server name in the left pane, expand the IP Routing node, and right-click Static Routes. Choose Show IP Routing Table from the context menu, as shown in Figure A.
+
+Figure A
+In Windows 2000, you can view the IP routing table using the RRAS console.
+
+
+The routing table will be displayed, as shown in Figure B.
+
+Figure B
+Routing table entries for the multihomed Windows 2000 server are displayed.
+
+
+You can add a new static route by selecting New Static Route from the context menu shown in the first figure. You will be prompted to select the interface for which you want to add a route, the destination address, mask, and gateway, and to set a metric. (The default metric is 1.)
+Refresh
+You can refresh the routing table by right-clicking anywhere in the table and selecting Refresh.
+To view the routing table via the command line (cmd at the Start | Run box), type route print at the command prompt. This will display the active routes, as shown in Figure C.
+
+Figure C
+You can display the routing table at the command line using the route print command.
+
+
+You can perform many administrative tasks with the route command. Typing route will display a list of switches and associated commands. Use the ADD, DELETE, and CHANGE commands to add a new route to the table, remove an existing route, or modify a route entry.
+Route command missing
+Note that the route command will not be available at the Windows 2000 command prompt unless the TCP/IP protocol is installed.
+See this sidebar for the syntax of the route command.
+
+If no subnet mask is specified, the default 255.255.255.255 will be used.
+
+
+---------------------------
+
+
+In routers you normally have two separate planes, often called "control plane" and "forwarding plane".
+
+The control plane is the "brain" of the router and handles things as management of the device and routing protocols among other things. It is sometimes called a "routing engine" or "supervisor" by vendors.
+
+The forwarding plane is responsible for the actual packet forwarding. In bigger routers it is often implemented by specialized chips and very fast memory for route lookups.
+
+The routing table (or more than one routing table) resides in the control plane. It contains routing information received through routing protocols (OSPF, BGP, ...) and from configuration (connected routes, static routes). There may be more than one entry for a given prefix if multiple routing information is received by the control plane.
+
+From all these information the "best" path for a prefix is selected. This selection is then collected in the forwarding table. The forwarding table has the definitive destination information where a packet is routed for any given IP prefix (or MAC address depending on the layer). This forwarding table is then pushed into the forwarding plane of the router and often distributed into each linecard in bigger chassis based routers.
+
+
+
+
+
+
+
+
+
+
+
+
+

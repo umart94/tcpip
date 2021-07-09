@@ -1,0 +1,52 @@
+Stateful Firewall
+IP Tables
+
+iptables is a command line interface used to set up and maintain tables for the Netfilter firewall for IPv4, included in the Linux kernel. The firewall matches packets with rules defined in these tables and then takes the specified action on a possible match.
+
+Tables is the name for a set of chains.
+Chain is a collection of rules.
+Rule is condition used to match packet.
+Target is action taken when a possible rule matches. Examples of the target are ACCEPT, DROP, QUEUE.
+Policy is the default action taken in case of no match with the inbuilt chains and can be ACCEPT or DROP.
+
+we configure it using text rules
+
+append to output chain (rule chains)
+rule chains for input output and forwarding
+
+this will affect TCP traffic going out
+sudo iptables -A OUTPUT -p tcp -m state --state NEW -j DROP
+
+telnet www.google.com 80
+get
+any new outgoing traffic will be blocked
+
+to remove the rule , flush the rule
+
+sudo iptables -F
+telnet www.google.com 80
+now we get
+
+
+list all rules.
+
+sudo iptables -L -v
+this will affect ICMP (e.g ping) traffic going out
+sudo iptables -A OUTPUT -p icmp -m state --state NEW -j DROP
+
+
+Filtering based on ports
+
+
+sudo iptables -A OUTPUT -p tcp --dport 80 state --state NEW,ESTABLISHED,RELATED
+
+any state will be disabled if it is on port 80
+
+telnet www.google.com 80
+telnet www.google.com 443
+will work
+
+-------------------
+
+
+

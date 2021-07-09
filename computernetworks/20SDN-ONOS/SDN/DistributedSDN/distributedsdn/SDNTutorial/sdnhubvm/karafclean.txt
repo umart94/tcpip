@@ -1,0 +1,23 @@
+ubuntu@sdnhubvm:~/onos[00:51] (master)$ karaf clean
+karaf: Enabling Java debug options: -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+Listening for transport dt_socket at address: 5005
+Welcome to Open Network Operating System (ONOS)!
+     ____  _  ______  ____   
+    / __ \/ |/ / __ \/ __/    
+   / /_/ /    / /_/ /\ \       
+   \____/_/|_/\____/___/      
+                             
+
+Hit '<tab>' for a list of available commands
+and '[cmd] --help' for help on a specific command.
+Hit '<ctrl-d>' or type 'system:shutdown' or 'logout' to shutdown ONOS.
+
+onos> 
+
+
+
+
+In our VM installation, we have pre-loaded certain features by including it in ~/onos/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg file in the featuresBoot key. This runs the single-instance (trivial) ONOS core, simple L2 forwarding, and Web GUI modules.
+
+
+

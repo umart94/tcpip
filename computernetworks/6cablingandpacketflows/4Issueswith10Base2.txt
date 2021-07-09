@@ -1,0 +1,17 @@
+longer the cable length - the greater the signal degradation
+cable break - if someone broke the cable host a cannot communicate with another host
+
+signals get reflected. if terminators are not used causing collisions in the network.
+
+10base2 is 10megabits per second
+its not 10megabits for each device - this is shared between the devices on that network
+we can only use 30 to 40 %
+collisions increase if we use it more.
+
+10Mbps is shared.
+10/4 * 30% = 0.75 Mbps.
+
+as more devices are added , bandwidth decreases. called single collision domain
+
+if collision occurs all devices suffer it and send backoffs.
+

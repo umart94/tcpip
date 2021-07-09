@@ -1,0 +1,28 @@
+edp intune
+enterprise data protection
+remotely wipe data without that fired employees personal data being affected.
+
+outlook app.. personal app and enterprise app
+sensitive business data seperated from personal data
+
+edp takes container approach
+policies -> for storing encrypted content seperately from personal data
+
+
+business resources
+ip addresses
+domains
+email addresses
+
+BUSINESS DATA
+windows automatically encrypts this data and stores this in a container
+Outlook , Sharepoint , In-house apps (custom) erps etc.
+
+Benefits
+Block -> block copy paste functions if user copy pastes data from enterprise app to unauthorized app
+Override -> audit log will be generated to document that action
+Audit
+Off
+
+if you turn off edp .. you will have to reconfigure all policies
+however... the data will remain encrypted

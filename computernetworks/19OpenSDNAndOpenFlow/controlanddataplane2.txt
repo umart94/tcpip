@@ -1,0 +1,29 @@
+how is the traffic forwarded through the device using data plane
+traffic arrives at port 1 of switch 1 and is forwarded out of port2switch1
+
+this information is programmed using the control plane inside a routing information
+base or a mac address table as an example. where devices learn where the mac addresses are 
+in a topology.
+
+that information can then be pushed into hardware into the data plane
+
+the control plane is typically running software
+
+the data plane is a copy of the routing table as an example running hardware
+to allow for high throughput forwarding of network traffic from one port to
+another port
+
+from a management point of view, each device has its own management plane
+in other words you need to configure each device individually
+
+if you had a 100 switches or 100 routers
+
+we would have
+
+100 control planes
+100 data planes
+and 100 management interfaces. to manage those devices.
+
+we would need to connect to the cli of each device.
+to configure for example ospf or spanning tree.
+

@@ -1,0 +1,44 @@
+minimum window size can be 1
+this reduces the throughput.
+because it needs to receive acknowledgement of that segment.
+
+TCP allows for greater window sizes to allow more segments to be sent
+
+window is number of data segments the sender is allowed to send without getting an acknowledgement.
+
+
+A needs to buffer outgoing segments until it receives acknowledgement.
+
+If window Size is set to 1
+
+1 second to transfer from a to b
+1 second to transfer from b to a
+
+if a sends 3 segments to b
+it will take 6 seconds 
+
+Flow control - Fixed window Size.
+
+if window size is set to 3
+
+if 3 segments sent in 1 second
+and b acknowledgement is 1 second.
+
+even if there is a delay of 1 second.
+it will take at max 3 seconds.
+
+so time decreased from 6 to 3 seconds.
+
+Sliding window allows hosts to gauge the amount of data hosts can receive.
+
+when a packet is dropped by network, the hosts will slow down. and reduce the window size.
+
+Window size is either the window size granted to the sender
+or congestion window (CWND)
+
+CWND is initially set to a very low value and then increases at exponential rate.
+
+Weighted Random Early Detection. improves efficiency of tcp transmission
+
+this avoids global synchronization issue.
+

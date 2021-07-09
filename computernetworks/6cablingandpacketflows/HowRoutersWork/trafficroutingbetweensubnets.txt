@@ -1,0 +1,30 @@
+when a device wants to communicate with another device within the same subnet
+it sends a broadcast onto the local segment (ARP REQUEST) to find MAC Address of the destination device. (while knowing already the ip address)
+
+it looks like
+
+Who has 10.1.1.2 tell ..
+
+
+NIC only accepts unicast traffic sent to their mac address
+or they accept broadcast traffic as well as accepting multicast traffic.
+
+
+Router does not accept broadcast traffic.. it is disabled
+
+so within subnet. the NIC of C device receives frames from device A 
+and replies with a ARP reply.
+
+Destination Address is : A so router will drop the packet.
+
+
+when a receives frame it will receive it, update its arp cache,
+
+with ip entry of Device C ,and Mac Address of Device C
+
+no user traffic is transmitted
+devices have simply worked out which mac address is associated with which ip address.
+
+
+ping echo message is unicast message from machine to router
+and from router back to the PC.

@@ -1,0 +1,57 @@
+Routing Information Protocol - very old , not used in large organizations , used in small networks that don't require admin.
+
+distance vector protocol - > uses hop count
+we have a distance, and we have hop count ( intermediate systems ) and vectors that gives us interface 
+that is used to know how to reach from point a to point b
+
+----------
+split horizon -> prevent incorrect routing information , keeps routing loops from happening
+we don't send the message back out from that interface
+
+------
+
+RIP sends out routing tables / partial routing tables
+so the entries increase
+
+Split horizon is a method to not enter duplicate entries, incase our network already knows about a destination
+we don't need to add it again.
+
+-----------------
+
+RIP_v1 --- Request
+
+Routing Information Protocol
+    Command: Request (1)
+    Version: RIPv1 (1)
+    Address not specified, Metric: 16
+        Address Family: Unspecified (0)
+        Metric: 16
+
+
+
+-----------------------
+
+RIP_v1 --- Response
+
+Routing Information Protocol
+    Command: Response (2)
+    Version: RIPv1 (1)
+    IP Address: 200.0.1.0, Metric: 1
+        Address Family: IP (2)
+        IP Address: 200.0.1.0
+        Metric: 1
+
+metric 1 means its 1 hop away.
+
+
+no indication of how big this network is
+RIP makes assumptions of network size based on the 1st octet
+A -- 0 to 127
+B -- 128 to 191
+C -- 192 to 223
+
+RIP assumes network mask for ip address to be 255.255.255.0 for the ip 200.0.2.0
+
+it does not have this ability (to assume network mask ) for classless addresses.
+no authentication ( only requests and responses ) to broadcast addresses. to detect whether message comes from the right source address
+---------------------------

@@ -1,0 +1,27 @@
+onos> links
+
+Links command
+ Similarly, the links command is used to list the links detected by ONOS. At the ONOS prompt run
+onos> links
+and you should get the following output:
+
+
+src=of:0000000000000001/1, dst=of:000000000000000b/1, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000001/2, dst=of:000000000000000c/1, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000001/3, dst=of:000000000000000d/1, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000001/4, dst=of:000000000000000e/1, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000002/1, dst=of:000000000000000b/2, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000002/2, dst=of:000000000000000c/2, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000002/3, dst=of:000000000000000d/2, type=DIRECT, state=ACTIVE, expected=false
+src=of:0000000000000002/4, dst=of:000000000000000e/2, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000b/1, dst=of:0000000000000001/1, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000b/2, dst=of:0000000000000002/1, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000c/1, dst=of:0000000000000001/2, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000c/2, dst=of:0000000000000002/2, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000d/1, dst=of:0000000000000001/3, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000d/2, dst=of:0000000000000002/3, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000e/1, dst=of:0000000000000001/4, type=DIRECT, state=ACTIVE, expected=false
+src=of:000000000000000e/2, dst=of:0000000000000002/4, type=DIRECT, state=ACTIVE, expected=false
+
+
+The output shows you the list of discovered links. Reported links are formatted by source device-port pair to destination device-port pair. The type field indicates whether the link is a direct connection between two devices or not. 

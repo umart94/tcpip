@@ -1,0 +1,5 @@
+connect securely to a network remotely
+built in sec and encryption
+allows remote access to intranet resources
+acts like remote computer is a local node
+try it with adding private ip to server ip

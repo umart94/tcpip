@@ -1,0 +1,1 @@
+The tutorial instructions require prior knowledge of SDN in general, and OpenFlow and Mininet in particular. So please first complete the OpenFlow tutorial and the Mininet walkthrough. Although not a requirement, completing the FlowVisor tutorial before starting this one is highly recommended. Also being familiar with Apache Karaf would be helpful although not entirely required.

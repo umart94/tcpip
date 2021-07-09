@@ -1,0 +1,95 @@
+in class A
+
+0.0.0.0 to 127.255.255.255
+the first 8 bits denote network
+the remaining 24 bits denote Host
+
+
+10.1.1.1 implies that this is a classA address in which
+
+00000000.00000000.00000000.00000000
+NETWORK.HOST.HOST.HOST
+
+
+in class B
+
+range: 128.0.0.0 to 191.255.255.255
+
+SO 16 Bits are reserved for Network Portion
+16 Bits reserved for host portion
+
+
+00000000.00000000.00000000.00000000
+network.network.host.host
+
+
+e.g
+
+172.16.1.1
+
+
+
+in class C
+
+192.0.0.0 to 223.255.255.255
+
+First two octets for network
+last two octets for Host
+
+24 Bits Reserved for network and 8 bits for host
+
+
+
+00000000.00000000.00000000.00000000
+NETWORK.NETWORK.NETWORK.Host
+
+
+192.168.1.4
+
+network = 192.168.1
+host = 4
+
+--------------------------------------
+Routing in Class A,B and C addresses.
+
+
+Class A:
+8 bits =network
+24 bits = host
+
+Network 10.0.0.0 = Network Address
+10.1.2.3 = Host Address
+
+Class A Networks 1 to 126
+
+PC1
+NETWORK 10.0.0.0
+ADDRESS 10.1.1.1
+00000000.00000000.00000000.00000000
+NETWORK.HOST.HOST.HOST
+
+ROUTER
+
+PC2
+NETWORK 12.0.0.0
+ADDRESS 12.1.1.1
+
+
+
+NETWORK PORTION OF TWO ADDRESSES CAN NEVER BE SAME (different networks)
+HOST PORTIONS of different networks can be same
+
+
+
+
+ClassB example
+
+00000000.00000000.00000000.00000000
+network.network.host.host
+
+
+172.16.0.0 = network
+172.16.1.2 = host
+
+128 to 191
+

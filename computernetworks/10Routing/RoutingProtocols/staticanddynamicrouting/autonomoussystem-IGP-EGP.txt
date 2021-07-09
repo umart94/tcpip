@@ -1,0 +1,43 @@
+Autonomous system is a grouping of networks under a single administrative domain
+routers within an autonomous system are under control of a group of people or company.
+
+1 autonomous system cannot allow some other AS to manage their network..
+eg. coca cola and pepsi. (seperate autonomous systems)
+
+various IGPs can be used within an AS. such as RIP,EIGRP,OSPF.
+
+
+
+AS connects to ISP using BGP
+
+within AS they may be using OSPF.
+
+but between ASystems, BGP is used.
+
+
+very large companies use BGP and receive routes from ISP using BGP.
+
+ISPs which carry routes of customers in internet use BGP.
+
+so ISPs also use BGP.
+
+internally within AS they may be using OSPF and IS-IS etc.
+
+each isp determines which routing protocol to use internally.
+
+
+AS are similiar to registered numbers on the internet.
+
+before connecting on internet using bgp, we have to register
+within an AS no need to register.
+
+as soon as we connect to internet, we have to use a publically ASN number.
+
+this doesnt apply if we use static routes, or already an ISP assigned an ASN number to us..
+
+if we want to create our own isp, asn number has to be registered.
+
+
+
+
+

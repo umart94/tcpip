@@ -1,0 +1,39 @@
+we can telnet to live bgp routers on internet
+
+telnet route-server.ip.att.net
+
+we can login with read only access to router.
+
+show route summary
+
+8.5 million routes with destinations
+
+
+bgp is routing protocol used on internet
+
+a small router is not going to be able to handle a large number of routes.
+
+small routers will not handle those routes.
+
+a default route will be used as a last resort , pointing device to a gateway of last resort.
+similiar to default gateway on pc.
+
+so we can use static routes upto a certain extent, after that on the internet we use dynamic routing protocols. ( large scale networks )
+
+dynamic routing protocols such as ospf or eigrp are used to dynamically add or remove routes from routing table.
+
+dynamic routing protocols
+- use routing protocol
+- automatically adjusts based on topology changes or traffic changes.
+
+as soon as we enable a routing protocol such as ospf or eigrp
+routers exchange information about networks with each other
+and learn and maintain routes by exchanging routing updates.
+
+
+OSPF uses link state updates to advertise / update routing information about networks
+this puts overhead on network because additional traffic is sent by routers 
+advantage is that it uses few commands
+
+so dynamic protocols put less overhead on network administrators.
+routers automatically learn about any network.

@@ -1,0 +1,49 @@
+Classful Addressing:
+Introduced in 1981, with classful routing, IP v4 addresses were divided into 5 classes(A to E).
+
+Classes A-C: unicast addresses
+Class D: multicast addresses
+Class E: reserved for future use 
+
+    Class A
+    In a class A address, the first bit of the first octet is always ‘0’. Thus, class A addresses range from 0.0.0.0 to 127.255.255.255(as 01111111 in binary converts to 127 in decimal). The first 8 bits or the first octet denote the network portion and the rest 24 bits or the 3 octets belong to the host portion.
+
+    Example: 10.1.1.1 
+
+    Exception:
+
+
+    - 127.X.X.X is reserved for loopback
+    - 0.X.X.X is reserved for default network 
+
+    Therefore, the actual range of class A addresses is: 1.0.0.0 to 126.255.255.255
+    Class B
+    In a class B address, the first octet would always start with ’10’. Thus, class B addresses range from 128.0.0.0 to 191.255.255.255. The first 16 bits or the first two octets denote the network portion and the remaining 16 bits or two octets belong to the host portion.
+
+    Example: 172.16.1.1 
+
+    Class C
+    In a class C address, the first octet would always start with ‘110’. Thus, class C addresses range from 192.0.0.0 to 223.255.255.255. The first 24 bits or the first three octets denote the network portion and the rest 8 bits or the remaining one octet belong to the host portion.
+
+    Example: 192.168.1.1 
+
+    Class D
+    Class D is used for multicast addressing and in a class D address the first octet would always start with ‘1110’. Thus, class D addresses range from 224.0.0.0 to 239.255.255.255.
+
+    Example: 239.2.2.2 
+
+    Class D addresses are used by routing protocols like OSPF, RIP, etc.
+    Class E
+    Class E addresses are reserved for research purposes and future use. The first octet in a class E address starts with ‘1111’. Thus, class E addresses range from 240.0.0.0 to 255.255.255.255.
+
+Disadvantage of Classful Addressing:
+
+    Class A with a mask of 255.0.0.0 can support 16, 777, 214 addresses
+    Class B with a mask of 255.255.0.0 can support 65, 534 addresses
+    Class C with a mask of 255.255.255.0 can support 254 addresses
+
+But what if someone requires 2000 addresses ?
+One way to address this situation would be to provide the person with class B network. But that would result in a waste of so many addresses.
+Another possible way is to provide multiple class C networks, but that too can cause a problem as there would be too many networks to handle.
+
+To resolve problems like the one mentioned above CIDR was introduced.

@@ -1,0 +1,18 @@
+host only adapter is on.
+dhcp is on
+vm gets inet6 and mac address but not inet.. ipv4
+
+so
+
+sudo ifconfig eth1 down
+edit network interfaces file
+
+auto eth1
+allow-hotplug eth1
+iface eth1 inet dhcp
+
+
+
+sudo ifconfig eth1 up
+sudo dhclient eth1
+sudo ifconfig -a

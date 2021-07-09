@@ -1,0 +1,5 @@
+bgIperf h11 h41
+To send a more significant amount of traffic, than a mere ICMP ping, between the two hosts you can use the bgPerf mininet command as follows:
+
+mininet> bgIperf h11 h41
+

@@ -1,0 +1,73 @@
+We have provided a simple mechanism which allows you to setup (or reset) the tutorial from scratch. Simply, click on the Setup ONOS Cluster icon on your desktop and this will reset ONOS cluster to its initial state. It'll take a few seconds for ONOS cluster be formed. During that time you may not be able to launch the ONOS CLI. Double click the Setup ONOS Cluster icon now and wait for ONOS to start-up. When ready, you should see the following:
+
+
+Destroying onos-1...
+onos-1
+Destroying onos-2...
+onos-2
+Destroying onos-3...
+onos-3
+Destroying atomix-1...
+atomix-1
+Destroying atomix-2...
+atomix-2
+Destroying atomix-3...
+atomix-3
+Deleted Containers:
+f645532c23161d42ebc4dd5caa6f393c95e251b1ce8db15473d6b688a6ec5635
+6efaf196cb282b8d63dfeff9c7c9cd604382dab6e1aec629d410520f172ae60a
+7a194ce2dbe531f769f356c203c70459296790b5fb8cbbeb03c3f500e70cd2d9
+1390392cfa846bce7e3fb1add15b4c8e3022206fe6312d8deb2a7d27c977685d
+14664998db22b13cf36ef7fce2fa21958938a4d33f9436b92c268668495591ac
+0d11c26eefcc57f1aef5c516a8574a1ad160cf74b74471565be8ece03ff13d7b
+
+Total reclaimed space: 1.143GB
+Setting up atomix-1...
+ee37f65c51fe8f25c9be6a011fddf14999792d313c652d35fada3cc483f253b3
+Setting up atomix-2...
+ad39b1a6af3ab386c716569de97122d46f109ae555252f5152e462c7b4b4be74
+Setting up atomix-3...
+8782136e537849a6e6895336e4a87d232d9bb7d8f856ae2137bd79ee6472b41f
+Setting up onos-1...
+670a936230177b7b89071eab91556a21a5ba96c21db0799e13d63060dafd11d5
+Setting up onos-2...
+08ce2e2d70c255662090224579235d8c0e56581269d6e10e54b3046cd8422dfb
+Setting up onos-3...
+89f5bd54f05b81a5951f387164b15c68b83bdeb72274fd2b6798c39c75b9efa1
+Waiting for onos-1 startup...
+Waiting for onos-2 startup...
+Waiting for onos-3 startup...
+Activating OpenFlow and ProxyARP applications...
+Activated org.onosproject.openflow
+Activated org.onosproject.proxyarp
+Activated org.onosproject.layout
+Welcome to Open Network Operating System (ONOS)!
+     ____  _  ______  ____     
+    / __ \/ |/ / __ \/ __/   
+   / /_/ /    / /_/ /\ \     
+   \____/_/|_/\____/___/     
+                               
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '<tab>' for a list of available commands
+and '[cmd] --help' for help on a specific command.
+Hit '<ctrl-d>' or type 'system:shutdown' or 'logout' to shutdown ONOS.
+
+onos> 
+
+
+
+
+the onos-1,onos-2,onos-3 etc. are the instances of onos
+atomix-1, atomix-2,atomix-3 ,
+
+Atomix 3.0 is a fully featured framework for building fault-tolerant distributed systems. It provides a set of high-level primitives commonly needed for building scalable and fault-tolerant distributed systems. These primitives include:
+
+Cluster management and failure detection
+
+now when onos shows in terminal we can install and add our own applications inside the onos cluster, activate or deactivate them and create our own virtual networks.
+

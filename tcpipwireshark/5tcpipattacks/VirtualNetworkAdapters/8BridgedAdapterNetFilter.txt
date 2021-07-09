@@ -1,0 +1,31 @@
+Bridged Adapters use the 'net-filter' driver on the HOST to directly intercept data packets.
+
+VM uses net-filter Adapter. ON THE HOST to access Physical Ports on the HOST
+this creates a new virtualized interface along with PC Host Adapter.
+This enables Virtual Machines to Directly Communicate With Host Machine and enable routing and switching.
+
+
+VM Settings -> Network -> Bridged Adapter
+
+the ip will be assigned according to the Home Router Default Gateway. used by the HOST Machine i.e
+
+HOST = 192.168.100.2
+VM = 192.168.10.3
+
+so by using Bridged Mode, we connected directly to the HOST Network.
+
+and EVERY VIRTUAL MACHINE WILL CONNECT TO HOME ROUTER AS A NEW HOST COMPUTER.
+
+we can assign static ip and manually assign dns. 
+
+
+IN BRIDGED MODE:
+
+1. [YES] ACCESS FROM OUTSIDE NETWORK
+2. [YES] NETWORK BETWEEN HOST AND VM
+3. [YES] NETWORK BETWEEN VMs
+4. [YES] ACCESS TO EXTERNAL NETWORK / INTERNET.
+
+
+this is a direct access to the network.
+so the host network will be affected if anything fails.

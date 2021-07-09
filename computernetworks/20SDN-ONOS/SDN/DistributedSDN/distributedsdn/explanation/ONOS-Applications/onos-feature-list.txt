@@ -1,0 +1,29 @@
+onos> feature:list -i
+Name                         | Version          | Installed | Repository                                   | Description                             
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+onos-thirdparty-base         | 1.15.0           | x         | onos-1.15.0                                  | ONOS 3rd party dependencies             
+onos-thirdparty-web          | 1.15.0           | x         | onos-1.15.0                                  | ONOS 3rd party dependencies for web apps
+onos-api                     | 1.15.0           | x         | onos-1.15.0                                  | ONOS services and model API             
+onos-core                    | 1.15.0           | x         | onos-1.15.0                                  | ONOS core components                    
+onos-incubator               | 1.15.0           | x         | onos-1.15.0                                  | ONOS core incubator components          
+onos-cli                     | 1.15.0           | x         | onos-1.15.0                                  | ONOS admin command console components   
+onos-rest                    | 1.15.0           | x         | onos-1.15.0                                  | ONOS REST API components                
+onos-gui                     | 1.15.0           | x         | onos-1.15.0                                  | ONOS GUI console components             
+onos-apps-proxyarp           | 1.15.0           | x         | org.onosproject-onos-apps-proxyarp           | Proxy ARP/NDP                           
+standard                     | 3.0.8            | x         | standard-3.0.8                               | Karaf standard feature                  
+http                         | 3.0.8            | x         | standard-3.0.8                               | Implementation of the OSGI HTTP Service 
+war                          | 3.0.8            | x         | standard-3.0.8                               | Turn Karaf as a full WebContainer       
+webconsole                   | 3.0.8            | x         | standard-3.0.8                               | Base support of the Karaf WebConsole    
+ssh                          | 3.0.8            | x         | standard-3.0.8                               | Provide a SSHd server on Karaf          
+scr                          | 3.0.8            | x         | standard-3.0.8                               | Declarative Service support             
+onos-providers-host          | 1.15.0           | x         | org.onosproject-onos-providers-host          | Host Location Provider                  
+onos-providers-openflow-base | 1.15.0           | x         | org.onosproject-onos-providers-openflow-base | OpenFlow Base Provider                  
+onos-providers-openflow-app  | 1.15.0           | x         | org.onosproject-onos-providers-openflow-app  | OpenFlow Provider Suite                 
+onos-drivers-default         | 1.15.0           | x         | org.onosproject-onos-drivers-default         | Default Drivers                         
+onos-providers-lldp          | 1.15.0           | x         | org.onosproject-onos-providers-lldp          | LLDP Link Provider                      
+onos-apps-layout             | 1.15.0           | x         | org.onosproject-onos-apps-layout             | UI Auto-Layout                          
+onos-apps-optical-model      | 1.15.0           | x         | org.onosproject-onos-apps-optical-model      | Optical Network Model                   
+pax-jetty                    | 8.1.19.v20160209 | x         | org.ops4j.pax.web-3.2.9                      | Provide Jetty engine support            
+pax-http                     | 3.2.9            | x         | org.ops4j.pax.web-3.2.9                      | Implementation of the OSGI HTTP Service 
+pax-http-whiteboard          | 3.2.9            | x         | org.ops4j.pax.web-3.2.9                      | Provide HTTP Whiteboard pattern support 
+pax-war                      | 3.2.9            | x         | org.ops4j.pax.web-3.2.9                      | Provide support of a full WebContainer  

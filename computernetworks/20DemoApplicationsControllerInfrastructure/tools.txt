@@ -1,0 +1,12 @@
+mininet
+ONOS virtual machine.
+HP SDN App Store
+HP VAN SDN Controller App
+(VirtualApplicationNetworkSoftware-DefinedNetworking)Controllersoftware)
+OpenFlow
+HP Network Protector / Sentinel
+
+SDN using REST API.
+
+(some external server has a web app that can be used to manage SDN.)
+we can create it and also manage openflow ACLs,openflow switches and tables and flow of the network.

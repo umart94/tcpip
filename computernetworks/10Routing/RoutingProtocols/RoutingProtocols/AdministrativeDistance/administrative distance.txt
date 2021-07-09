@@ -1,0 +1,61 @@
+AD = administrative distance
+
+believability factor of a route
+when multiple routing protocols are configured on a router, and are putting routing information into the Routing information base or RIB. (routing table)
+
+router will need to decide who to believe ?
+if OSPF says go left and eigrp says go right to go to network, which routing protocol does a router believe and which route does a router insert into its routing table.
+ 
+--------------
+values determine which way to forward network traffic to
+
+routing protocol with the lowest adminsitrative distance is more believable and its routing information is inserted in routing table in preference of other protocols with higher
+administrative distance.
+
+range for ad is 0 - 255
+a directly connected interface has AD of 0 - lowest adminsitrative distance means higher believability factor of a route.
+
+a static route configured to a nexthop ip address has AD of 1
+
+when a static route is configured to a directly connected interface, its deemed to be directly connected and therefore has AD of 0
+
+
+the reason why static routes have low AD is that  we as administrator are believed by a router, that we configured it as nexthop or directly connected interface.
+
+Internal EIGRP has an administrative distance of 90 for internal routes, routes that originated in eigrp and not redistributed to a different routing protocol and put into internal eigrp.
+
+Administrative distances of different routes.
+
+
+CONNECTED INTERFACE = 0 
+STATIC ROUTE = 1
+INTERNAL EIGRP = 90
+OSPF = 110
+RIP = 120
+Unknown routes = 255
+Internal BGP = 200
+External BGP = 20
+IS-IS = 115
+
+
+----------------------------------
+
+San Jose advertising network 10.0.0.0/8 to san francisco router using RIPv2. so AD is 120
+
+if this same network was advertised by new york router to san fran using eigrp the AD will be 90
+
+thus san fran will choose eigrp new york route.
+
+
+Administrative distance is a tie breaker in deciding which routes to route traffic to and add into routing tables
+
+so san francisco router will install new york route with ad of 90. which is less than ripv2 ad of 120
+
+
+if however the eigrp route was not available then the rip route would be added to san francisco router.
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+switch - layer 2 device
+advantage is that ports are high in number
+also processing is done at hardware level using ASICS
+
+
+no degradation performance between two devices
+
+can move traffic at wire speed
+
+Mac address table
+
+star topology
+
+switch learns where devices are , stores mac addresses in mac table.
+
+
+A port - 0/1
+C port 0/3
+
+
+Each interface on a switch is a seperate collision domain
+
+4 ports means 4 collision domains
+
+hub is also a single collision domain
+
+
+switch is a single broadcast domain
+broadcasts are flooded out of all ports
+
+
+frame consisting of 8 F's floods it out of each port.
+broadcast is supposed to go everywhere.
+
+broadcast address is never addes to mac address table .
+

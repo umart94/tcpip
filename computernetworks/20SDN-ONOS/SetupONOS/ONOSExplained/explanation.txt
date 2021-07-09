@@ -1,0 +1,32 @@
+ubuntu is the virtual machine operating system.
+
+ONOS is a software that is installed in the Operating System.
+
+
+The ONOS software is written in Java and provides a distributed SDN applications platform atop Apache Karaf OSGi container.
+
+The system is designed to operate as a cluster of nodes that are identical in terms of their software stack and can withstand failure of individual nodes without causing disruptions in its ability to control the network operation.
+
+While ONOS leans heavily on standard protocols and models, e.g. OpenFlow, NETCONF, OpenConfig, its system architecture is not directly tied to them. Instead, ONOS provides its own set of high-level abstractions and models, which it exposes to the application programmers. These models can be extended by the applications at run-time. To prevent the system from becoming tied to a specific configuration or control protocol, any software in direct contact with protocol-specific libraries and engaging in direct interactions with network environment is deliberately isolated into its own tier referred to as a provider or a driver. Likewise, any software in direct contact with intra-cluster communication protocols is deliberately isolated into its own tier referred to as a store.
+
+
+The platform provides applications with a number of high-level abstractions, through which the applications can learn about the state of the network and through which they can control the flow of traffic through the network. The network graph abstraction provides information about the structure and topology of the network. The flow objective is a device-centric abstraction that allows applications to direct flow of traffic through a specific device without the need to be aware of the device table pipeline. Similarly, the intent is a network-centric abstraction that gives application programmers the ability to control network by specifying what they wish to accomplish rather than specifying how they want to accomplish it. This simplifies application development and at the same time provides the platform with added degrees of freedom to resolve what would normally be considered conflicting requests.
+
+
+Applications (core extensions) can be loaded and unloaded dynamically, via REST API or GUI, and without the need to restart the cluster or its individual nodes. ONOS application management subsystem assumes the responsibility for distributing the application artifacts throughout the cluster to assure that all nodes are running the same application software. ONOS base distribution contains over 175 applications, which fall into numerous categories, e.g. traffic steering apps, device drivers, ready-to-use YANG models, utilities, monitoring apps.
+
+The system provides REST API, CLI and an extensible, dynamic web-based GUI. gRPC interfaces for ONOS are under active development.
+
+
+
+
+ONOS stands for Open Network Operating System. ONOS provides the control plane for a software-defined network (SDN), managing network components, such as switches and links, and running software programs or modules to provide communication services to end hosts and neighboring networks.
+
+If you are familiar with server operating systems, you will find that ONOS provides some analogous types of functionality, including APIs and abstractions, resource allocation, and permissions, as well as user-facing software such as a CLI, a GUI, and system applications.
+If you are familiar with traditional "inside the box" switch operating systems, you will find that ONOS manages your entire network rather than a single device, which can dramatically simplify management, configuration, and deployment of new software, hardware and services.
+If you are familiar with SDN controllers, you should feel right at home because the ONOS platform and applications act as an extensible, modular, distributed SDN controller.
+
+
+
+
+

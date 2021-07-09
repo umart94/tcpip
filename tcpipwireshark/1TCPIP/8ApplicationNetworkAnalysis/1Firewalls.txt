@@ -1,0 +1,95 @@
+Physical Devices or softwares that allow / block network traffic
+resides on computer
+
+Firewalls are often categorized as either network firewalls or host-based firewalls
+
+
+
+First generation: packet filters
+The first reported type of network firewall is called a packet filter. Packet filters act by inspecting packets transferred between computers. When a packet does not match the packet filter's set of filtering rules, the packet filter either drops (silently discards) the packet, or rejects the packet (discards it and generates an Internet Control Message Protocol notification for the sender) else it is allowed to pass.[6] Packets may be filtered by source and destination network addresses, protocol, source and destination port numbers.
+
+RULE BASED
+
+Second generation: stateful filters
+From 1989–1990, three colleagues from AT&T Bell Laboratories, Dave Presotto, Janardan Sharma, and Kshitij Nigam, developed the second generation of firewalls, calling them circuit-level gateways.[10]
+
+Second-generation firewalls perform the work of their first-generation predecessors but also maintain knowledge of specific conversations between endpoints by remembering which port number the two IP addresses are using at layer 4 (transport layer) of the OSI model for their conversation, allowing examination of the overall exchange between the nodes.
+
+This type of firewall is potentially vulnerable to denial-of-service attacks that bombard the firewall with fake connections in an attempt to overwhelm the firewall by filling its connection state memory
+
+WHETHER CONNECTION IS OPEN OR NOT
+
+
+Third generation: application layer
+Marcus Ranum, Wei Xu, and Peter Churchyard released an application firewall known as Firewall Toolkit (FWTK) in October 1993.[12] This became the basis for Gauntlet firewall at Trusted Information Systems.[13][14]
+
+The key benefit of application layer filtering is that it can understand certain applications and protocols (such as File Transfer Protocol (FTP), Domain Name System (DNS), or Hypertext Transfer Protocol (HTTP)). This is useful as it is able to detect if an unwanted application or service is attempting to bypass the firewall using a disallowed protocol on an allowed port, or detect if a protocol is being abused in any harmful way.
+
+As of 2012, the so-called next-generation firewall (NGFW) is a wider or deeper inspection at the application layer. For example, the existing deep packet inspection functionality of modern firewalls can be extended to include:
+
+Intrusion prevention systems (IPS)
+User identity management integration (by binding user IDs to IP or MAC addresses for "reputation")
+Web application firewall (WAF). WAF attacks may be implemented in the tool "WAF Fingerprinting utilizing timing side channels" (WAFFle)[15]
+
+PROTOCOL COMMANDS, PROTECT APP FROM CRASHING FROM MALFORMED REQUESTS.
+
+
+NextGen Firewall
+a next-generation firewall includes additional features like application awareness and control, integrated intrusion prevention, and cloud-delivered threat intelligence.
+
+A traditional firewall provides stateful inspection of network traffic. It allows or blocks traffic based on state, port, and protocol, and filters traffic based on administrator-defined rules.
+
+A next-generation firewall (NGFW) does this, and so much more. In addition to access control, NGFWs can block modern threats such as advanced malware and application-layer attacks. According to Gartner's definition, a next-generation firewall must include:
+
+Standard firewall capabilities like stateful inspection
+Integrated intrusion prevention
+Application awareness and control to see and block risky apps
+Threat intelligence sources
+Upgrade paths to include future information feeds
+Techniques to address evolving security threats
+
+
+------
+HARDWARE : DSL MODEM (we can edit custom config, of firewall)
+
+Checkpoint firewall vendor
+Cisco ASA 5500 Series Adaptive Security Appliances.
+
+
+
+
+
+
+
+
+----------------
+Hardware Firewalls - The Good
+In control of 100% of the traffic on your network.
+Excellent at blocking entire websites and categories of websites.
+Able to restrict access on gaming consoles, phones, Smart TV, and your kitchen refrigerator if you have that fancy of a kitchen refrigerator.
+Relatively easy to install since there is a single device that needs to be physically added to your network.
+Possibly cheaper because they frequently do not have monthly or annual fees.
+Almost impossible to hack or disable if physically located in a secure spot.
+Exceptionally fast and should not affect network performance at all.
+Very good at limiting a devices total internet time or traffic.
+A single point of installation means less overall maintenance in the long run.
+Can also function as a whole house ad block.
+Hardware Firewalls - The Bad
+Not able to filter network traffic based on content.
+Not able to restrict access based on user, only based on device.
+While usually easy to install some networks may be setup in a way that prevents installation challenges since the devices physical location must be between the internet and the home network.
+Easy to bypass on roaming devices like tablets and phones.
+Usually offer very limited logs and very limited instant alerts based on user activity.
+Remember that a router does not count as a hardware firewall.
+--------------
+Software Firewalls - The Good
+Much greater granularity of control because it is installed on each device.
+Has ability to block based on not only site name but also content.
+Usually has excellent reporting and alerts.
+Much better for cyber security with kids.
+Software Firewalls - The Bad
+Needs to be installed on every single device you own.
+May not be supported on every device.
+Not available for gaming consoles, Smart TV, or other network devices.
+Can make your computer or device run slower, sometimes much slower.
+Tend to be more costly in the long run.

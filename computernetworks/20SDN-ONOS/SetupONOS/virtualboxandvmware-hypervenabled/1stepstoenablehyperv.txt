@@ -1,0 +1,52 @@
+uninstall vmware
+uninstall virtualbox
+
+go to control panel
+
+turn on each and every hyperv option
+
+now check that hyperv is running by using services.msc
+
+You can check if the services are running:
+
+Win+R -> services.msc Look in the list for all services beginning with Hyper-V. If any of them are Running, it's on. (Specifically, the core of it I believe is labelled Hyper-V Virtual Machine Management)
+
+You can check the system log to see if any activity has occurred guide here:
+
+Open Event Viewer. Click Start, click Administrative Tools, and then click Event Viewer.
+
+Open the Hyper-V-Hypervisor event log. In the navigation pane, expand Applications and Services Logs, expand Microsoft, expand Hyper-V-Hypervisor, and then click Operational.
+
+If Windows hypervisor is running, no further action is needed. If Windows hypervisor is not running, perform the following steps.
+
+Open the System log. (In the navigation pane, expand Windows Logs and then select System.)
+
+Look for events from Hyper-V-Hypervisor for more information. For example, event ID 41 indicates a problem with the BIOS configuration: “Hyper-V launch failed; Either VMX not present or not enabled in BIOS.” (To filter for these events, from the Actions pane, click Filter Current Log, and then for Event sources, specify “Hyper-V-Hypervisor”.)
+
+
+
+
+
+
+
+
+
+
+or :
+Run Powershell as Administrator.
+
+PS C:\Windows\system32>
+Run the command:
+
+Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V
+
+this should show :
+
+FeatureName      : Microsoft-Hyper-V
+DisplayName      : Hyper-V Platform
+Description      : Provides the services that you can use to create and manage virtual machines and their resources.
+RestartRequired  : Possible
+State            : Enabled
+CustomProperties :
+
+

@@ -1,0 +1,7 @@
+*.*.*.*
+
+4 octets
+8 bits in length , each
+in range of 0 - 255
+
+

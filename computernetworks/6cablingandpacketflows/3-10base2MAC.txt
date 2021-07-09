@@ -1,0 +1,48 @@
+10base2 - coax cable - maximum speed of 10 megabits per second.
+10 indicates 10 megabits
+2 indicates max segment length of 185 meters
+base indicates baseband instead of broadband
+
+
+-------------------
+
+
+baseband allows only a single signal to traverse along the line
+the signal uses all the frequencies.
+
+
+broadband uses coax cable
+multiple signals to be sent across
+
+-----------------------
+
+Ethernet uses baseband signalling
+
+in 10base2 coaxial cables were used
+DNC connectors are used.
+T connector is used.
+
+
+single cable would have dnc t connectors
+devices would connect to these t connectors 
+
+at the end there is terminator to stop signal from bouncing back
+
+
+baseband only allows a single signal.. so signal will not bounce back if terminator is used.
+
+---------------------------
+
+MAC Address = 48 bits.
+unique identifier assigned to network interfaces.
+
+built in by manufacturer.
+first 24 bits are OUI portion Organizational Unique identifier identifies a vendor ( cisco , dell , hp ) 
+rest 24 bits are station address
+these station addresses should be unique.. designed by manufacturers.
+
+on ethernet all devices have different mac addresses.
+
+in OUI 1st octet 8 bits
+the last bit from right ( LSB ) bit1 .. is either 0=unicast , or 1=multicast
+bit2 is 0=globally unique or 1=locally administered.

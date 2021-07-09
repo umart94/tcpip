@@ -1,0 +1,5 @@
+Production deployments run at least three instances of ONOS, but this is more for availability than performance. Each instance runs on a 32-Core/128GB-RAM server, and is deployed as a Docker container using Kubernetes. Each instance bundles an identical (but configurable) collection of core services, control applications, and protocol providers, where ONOS uses Karaf as its internal modularity framework. The bundle also includes Atomix, although ONOS supports an optional configuration that scales the key/value store independently from the rest of ONOS.
+
+onosinstances.png file : illustrates ONOS scaling across multiple instances, where the set of instances share network state via Atomix Maps. The figure also shows each instance being responsible for a subset of the underlying hardware switches. Should a given instance fail, the remaining instances use the Atomix leader-election primitive to select a new instance to take its place, thereby ensuring high availability.
+
+https://sdn.systemsapproach.org/onos.html

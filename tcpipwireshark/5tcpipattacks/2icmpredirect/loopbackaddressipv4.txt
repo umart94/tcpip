@@ -1,0 +1,15 @@
+IPv4 has special reserved addresses called as loopback addresses. An entire Class A network itself is reserved as loopback network. The loopback network in IPv4 is 127.0.0.0 with a subnet mask of 255.0.0.0.
+
+So, the range of loopback addresses in IPv4 is from 127.0.0.1 to 127.255.255.254. As mentioned in previous lessons, 127.0.0.0 is the network address and 127.255.255.255 is the directed broadcast address for 127.0.0.0 255.0.0.0 network.
+
+Loopback IP addresses are managed by the TCP/IP protocol suite within the operating system. Loopback addresses mock TCP/IP Client/Server on the same machine. The loopback IP addresses are always available. Hence you can use the loopback IP addresses for TCP/IP troubleshooting purposes.
+
+When any program/protocol sends data from a computer with any IPv4 loopback address as the destination address, the TCP/IP protocol stack on that computer process the traffic within itself without sending it to the network. In other words, if you ping to a loopback address, you get the reply from the TCP/IP protocol stack running on the same computer. Any data traffic sent to IPv4 loopback addresses from 127.0.0.1 to 127.255.255.254 as the destination IPv4 address will never appear on network.
+
+
+The most widely used IPv4 loopback address is 127.0.0.1. Loopback address is 127.0.0.1 is mapped to hostname localhost internally. Other IPv4 addresses in 127.0.0.0 255.0.0.0 network (from 127.0.0.1 to 127.255.255.254) are also up and reachable. For example; below two screen shots show the output of ping command (from a Windows machine) from two IPv4 loopback addresses. Both screen shots show that ping command got reply from loopback addresses.
+
+Below screenshot shows ping reply from localhost IPv4 loopback address, 127.0.0.1.
+
+
+Network address and directed broadcast address of loopback address range are not reachable. Please check below ping results to 127.0.0.0 and 127.255.255.255, which shows "General failure" in Windows TCP/IP implementation.

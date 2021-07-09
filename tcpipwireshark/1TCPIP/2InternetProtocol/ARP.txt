@@ -1,0 +1,85 @@
+Address Resolution Protocol
+
+provides lookup between a Layer3 Address. And a Layer2 Address
+
+in order to send message to Layer3 Address
+we need a MAC Address(Layer2) Address. as well 
+
+ARP is a two step process : 
+
+1. Who has . . . . [ ARP Request ] opcode(1)
+2. Is At .... [ARP Reply ]  opcode(2)
+
+
+cmd :
+
+
+arp -a
+
+Displays and modifies the IP-to-Physical address translation tables used by
+address resolution protocol (ARP).
+
+ARP -s inet_addr eth_addr [if_addr]
+ARP -d inet_addr [if_addr]
+ARP -a [inet_addr] [-N if_addr] [-v]
+
+  -a            Displays current ARP entries by interrogating the current
+                protocol data.  If inet_addr is specified, the IP and Physical
+                addresses for only the specified computer are displayed.  If
+                more than one network interface uses ARP, entries for each ARP
+                table are displayed.
+  -g            Same as -a.
+  -v            Displays current ARP entries in verbose mode.  All invalid
+                entries and entries on the loop-back interface will be shown.
+  inet_addr     Specifies an internet address.
+  -N if_addr    Displays the ARP entries for the network interface specified
+                by if_addr.
+  -d            Deletes the host specified by inet_addr. inet_addr may be
+                wildcarded with * to delete all hosts.
+  -s            Adds the host and associates the Internet address inet_addr
+                with the Physical address eth_addr.  The Physical address is
+                given as 6 hexadecimal bytes separated by hyphens. The entry
+                is permanent.
+  eth_addr      Specifies a physical address.
+  if_addr       If present, this specifies the Internet address of the
+                interface whose address translation table should be modified.
+                If not present, the first applicable interface will be used.
+Example:
+  > arp -s 157.55.85.212   00-aa-00-62-c6-09  .... Adds a static entry.
+  > arp -a                                    .... Displays the arp table.
+
+
+--------------
+Address Resolution Protocol (request)
+    Hardware type: Ethernet (1)
+    Protocol type: IPv4 (0x0800)
+    Hardware size: 6
+    Protocol size: 4
+    Opcode: request (1)
+    Sender MAC address: ABC
+    Sender IP address: DEF
+    Target MAC address: GHI
+    Target IP address: JKL
+
+Opcode request (1) tells us that this is a ARP Request.
+00 01
+
+Address Resolution Protocol (reply)
+    Hardware type: Ethernet (1)
+    Protocol type: IPv4 (0x0800)
+    Hardware size: 6
+    Protocol size: 4
+    Opcode: reply (2)
+    Sender MAC address: MNO
+    Sender IP address: PQR
+    Target MAC address: STU
+    Target IP address: VWX
+
+--------------------------------
+
+on cmd 
+
+arp -a
+
+store entries so that everytime we connect to network we don't have to keep sending arp request / replies.
+

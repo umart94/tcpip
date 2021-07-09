@@ -1,0 +1,8 @@
+dhcp automatically assigns private ips to each host on network
+otherwise we would have to manually assign ips
+
+APIPA
+
+DNS
+translates domain names to numerical addresses
+allows more easily remembered address names than address numbers

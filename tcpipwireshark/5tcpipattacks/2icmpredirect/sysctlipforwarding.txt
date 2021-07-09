@@ -1,0 +1,11 @@
+IP forwarding is the ability for an operating system to accept incoming network packets on one interface, recognize that it is not meant for the system itself, but that it should be passed on to another network, and then forwards it accordingly. This is what you need when you have for example a system setup that is sitting between two different networks and needs to pass traffic between them. On pretty much any Linux system, barring a few exceptions, this can be accomplished by editing the /etc/sysctl.conf file and adding or uncommenting a specific line. To enable IP forwarding on Ubuntu/Debian for example you can do this:
+
+Open the file /etc/sysctl.conf in the nano text editor:
+
+nano /etc/sysctl.conf
+Uncomment or add this line:
+
+net.ipv4.ip_forward=1
+Press ctrl+x, then press y, and then press enter, to save and exit the file. Next run this command:
+
+sysctl -p

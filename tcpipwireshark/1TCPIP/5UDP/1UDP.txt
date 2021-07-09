@@ -1,0 +1,354 @@
+uses of udp -- user datagram protocol
+
+used when we need
+speed
+when we dont care about message order.
+
+DNS Packet. dns lookup. we need the name / ip address / return to be quick and fast.
+no worries about sequencing or whether it gets there or not.
+
+we just send another request.
+fast and non efficient
+
+gaming protocols use udp
+e.g 
+
+Before You Forward a Port
+Before you can forward a port you need to know the following things:
+
+Your router's IP address.
+Your gaming machine's IP address.
+The TCP and UDP ports that need to be forwarded.
+
+-----------------------------------------------
+GAMING - SECTION 
+
+-----------------------
+DESKTOP GAMES
+CounterStrike UDP: 6003,7002,27010,27015,27025
+
+Call of Duty: Modern Warfare - PC
+TCP: 3074,27014-27050
+UDP: 3074,3478,4379-4380,27000-27031,27036
+-------------------------
+
+PLATFORMS
+-------------
+STEAM
+
+Required Ports for Steam
+Which ports do I need to open on my router or firewall for Steam?
+
+To log into Steam and download content:
+HTTP (TCP remote port 80) and HTTPS (443)
+UDP remote port 27015--27030
+TCP remote port 27015--27030
+Steam Client
+UDP remote port 27000--27100: Game traffic
+UDP local port 27031-27036: Remote Play
+TCP local port 27036: Remote Play
+UDP remote port 4380
+Dedicated or Listen Servers
+TCP local port 27015 (default): SRCDS Rcon port
+UDP local port 27015 (default): gameplay traffic
+Steamworks P2P Networking and Steam Voice Chat
+UDP remote port 3478
+UDP remote port 4379
+UDP remote port 4380
+Note:
+Many university networks and proxies block required ports for Steam operation - please consult your network administrator to ensure the required ports are open if you are using a university network or a proxy. Ports required for Steam can not be re-mapped to HTTP or reconfigured to a custom port range.
+
+Advanced
+For generic Steam HTTP/HTTPS requests, your proxy should allow the following domains:
+
+steampowered.com
+steamcommunity.com
+steamgames.com
+steamusercontent.com
+steamcontent.com
+steamstatic.com
+akamaihd.net
+Most of the non-web traffic is usually UDP but can be TCP as well. For that, the IPs will all be from the Valve network (AS32590), and a list of those IP blocks can be found here:
+
+IPv4
+IPv6
+
+----------------------------
+
+Unofficial Description of how twitch / discord works.
+
+The backend has a video streaming server where the content gets pushed via a client-side streaming software. This can use UDP or TCP. It depends on how it is configured. If the content will be made available later, it is most likely using TCP.
+
+Now, the server side software can be configured to serve content directly (most likely twitch isn't doing that). I think there's a proxy server that the client connects to. It is some internal/external CDN.
+
+On the client, a web-socket connection is initiated and upgraded to TCP or downgraded to HTTP depending on what the network and browser support. I'm not sure if they intended to use it for streaming or other notifications. On my setup, it seems to use HTTP. I noticed that there's a pub-sub module setup which means they could also push the updates from the server as it would be efficient that way with thousands of clients.
+
+Twitch uses a service worker in the background. This service-worker thread fetches aggregate video frames sequentially over HTTP and caches them locally. If you pause a live feed and resume it, the client will drop expired packets and continue requesting data from the current time.
+
+When I tried this through Insomnia, I noticed that they still serve older packets which means the fee is being stored. Although, the player didn't allow me to rewind a live feed. I didn't get a chance to save these packets, but it is possible to decipher the content and play it through another video player.
+
+This is a common practice in most web-applications as it is not only easy to implement, but it also helps you get through firewalls and works via SSL.
+
+
+------------------------------
+gaming chat platforms and broadcast tv's etc. such as twitch and discord.. ( in another file)
+
+--------------------------
+https://hbr.org/2005/09/using-voip-to-compete
+In the Avaya demo, the VoIP platform “knew” whom to contact and how, because it linked into corporate directories, databases, and supply chain management applications. 
+liveops , amicus
+
+
+VoIP , Video Streaming
+e.g Skype , Microsoft Teams
+
+For Skype to work correctly, the following ports need to be open in your firewall:
+
+443/TCP
+3478-3481/UDP
+50000-60000/UDP
+For the best possible call quality experience, these ports are needed too:
+1000-10000/TCP
+50000-65000/TCP
+16000-26000/TCP
+Make sure your firewall or security software is configured correctly with these ports. If your firewall restricts access to these ports, check your firewall or security software settings or check with your system administrator. 
+
+
+Apps that do not show / give a tcp/udp port config, you have to manuually do netstat or network config and find out which ports that app uses/is currently using
+
+---------------
+WhatsApp , Snapchat , Facebook Messenger
+
+
+
+https://www.reddit.com/r/sysadmin/comments/1qwaz7/snapchat/
+1. Starting with Snapchat :
+
+I work for an educational content filtering company and things like snapchat are a constant pain to keep up with.
+
+Snapchat primarily works over SSL (TCP 443). There are 2 domains you need to blacklist:
+
+feelinsonice.appspot.com
+
+feelinsonice-hrd.appspot.com
+
+If you are blocking them on the DNS level, you should be ok. Blocking them on the web level creates an issue, since google uses a wildcard cert for all of appspot (*.appspot.com), and snapchat does not send SNI information in the handshake. The only real course of action is to either block all of appspot (which as mentioned will block a LOT of things you probably use in the school), or use a proxy device that does SSL decryption (which requires installing a cert in all of your devices).
+
+DNS is probably be path of least resistance.
+
+Edit: While you are in there, you will probably also want to block cloudmosa.com (Puffin web browser), as well as UDP 4500 (IPSec VPN), since both of these are popular ways kids have found to bypass any content filtering you have set up.
+
+
+addlive.io
+feelinsonice-hrd.appspot.com
+feelinsonice.appspot.com
+feelinsonice.com
+sc-analytics.appspot.com
+sc-cdn.net
+sc-corp.net
+sc-gw.com
+sc-jpl.com
+sc-prod.net
+sc-static.net
+snap-dev.net
+snapads.com
+snapchat.com
+snapkit.com
+
+https://www.netify.ai/resources/applications/snapchat
+https://www.zscaler.com/blogs/research/phishing-attacks-abusing-appspotcom-and-webapp-domains-google-cloud#:~:text=app.,by%20Appspot.com%20and%20Web.
+https://www.zscaler.com/blogs/research/abusing-microsofts-azure-domains-host-phishing-attacks
+
+phishing domains and where the data is sent : 
+Phishing domains
+As of the writing of this blog, we have collected the following phishing domains.
+
+uy67dass[.]appspot[.]com
+ja8fspxzosaa[.]appspot[.]com
+gjf9pxzosa[.]appspot[.]com
+egoew023pzas[.]appspot[.]com
+vhkad03pas[.]appspot[.]com
+kda8gazxa[.]appspot[.]com
+adgkao93pz[.]appspot[.]com
+l9rwpodsxcs[.]appspot[.]com
+cvgfsaz[.]appspot[.]com
+jga9spzas[.]appspot[.]com
+jjad9gdpxzsa[.]appspot[.]com
+vadgka932oa[.]appspot[.]com
+ls9ixosdsasa[.]appspot[.]com
+qwsa92oozxa[.]appspot[.]com
+adlg402ooz[.]appspot[.]com
+bnb932psiz[.]appspot[.]com
+authofisaiz[.]web[.]app
+Telecomm-uk[.]web[.]app
+f45ghdsas[.]appspot[.]com
+Derr9qepzxas[.]appspot[.]com
+Vgdikad9oqww[.]appspot[.]com
+dsa3aszxsa[.]appspot[.]com
+weotwe0dpa[.]appspot[.]com
+Wy6fxsa[.]appspot[.]com
+Yu56sdzsa[.]appspot[.]com
+Vbhg45as[.]appspot[.]com
+Hds9pzoas[.]appspot[.]com
+khs9dpas[.]appspot[.]com
+u76dfsdasa[.]appspot[.]com
+y56fds[.]appspot[.]com
+vfhgj3sz[.]appspot[.]com
+eyq246ddpoas[.]appspot[.]com
+h45dsagga[.]appspot[.]com
+sds43dza[.]appspot[.]com
+yt76uyhxzz[.]appspot[.]com
+jh54dfaz[.]appspot[.]com
+ ytyfazxz[.]appspot[.]com
+
+ 
+
+Where information is sent 
+Below are the locations where the phishing page is sending credentials entered by the user. 
+
+https://osipz[.]c3y5-tools[.]com/1[.]newsvpost_ads_auto/loading[.]php
+https://osipz[.]kute[.]pw/1[.]newsvpost_ads/loading[.]php
+https://xotpe[.]c3y5-tools[.]com/1[.]newsvpost_ads/loading[.]php
+https://uiufz[.]c3y5-tools[.]com/1[.]newsvpost_ads/loading[.]php
+https://xotpe[.]kute[.]pw/1[.]newsvpost_ads/loading[.]php
+https://xotpe[.]bugcart[.]com/1[.]newsvpost_ads/loading[.]php
+https://xotpe[.]dtvd[.]biz/1[.]newsvpost_ads/loading[.]php
+https://uy6x[.]c3y5-tools[.]com/1[.]newsvpost_ads/loading[.]php
+https://h76fg[.]c3y5-tools[.]com/1[.]newsvpost_ads/loading[.]php
+ https://hjif[.]c3y5-tools[.]com/1[.]newsvpost_ads/loading[.]php
+
+ 
+
+
+Also look into blocking Snapchat through Router / Firewall.
+
+
+---------------------
+2. WhatsApp
+
+WhatsApp is a popular voice over IP service owned by Facebook. The WhatsApp Video protocol uses STUN along with some customized protocols.
+
+KNOWN PORTS
+TCP 5349 - WhatsApp port for TCP/TLS.
+UDP 3478 - WhatsApp port for UDP.
+
+
+STUN along with some customized protocols.
+
+STUN i.e Simple Traversal of User Datagram Protocol (UDP) through Network Address Translators
+Session Traversal Utilities for NAT (STUN) is a standardized set of methods, including a network protocol, for traversal of network address translator (NAT) gateways in applications of real-time voice, video, messaging, and other interactive communications.
+
+Simple Traversal of User Datagram Protocol (UDP) through Network Address Translators
+
+Limitations of STUN i.e Simple Traversal of User Datagram Protocol (UDP) through Network Address Translators : 
+
+Limitations
+Network address translation is implemented via a number of different address and port mapping schemes, none of which is standardized.
+
+STUN is not a self-contained NAT traversal solution applicable in all NAT deployment scenarios and does not work correctly with all of them. It is a tool among other methods and it is a tool for other protocols in dealing with NAT traversal, most notably Traversal Using Relay NAT (TURN) and Interactive Connectivity Establishment (ICE).
+
+STUN does work with three types of NAT: full cone NAT, restricted cone NAT, and port restricted cone NAT. In the cases of restricted cone or port restricted cone NATs, the client must send out a packet to the endpoint before the NAT will allow packets from the endpoint through to the client. STUN does not work with symmetric NAT (also known as bi-directional NAT) which is often found in the networks of large companies. Since the IP address of the STUN server is different from that of the endpoint, in the symmetric NAT case, the NAT mapping will be different for the STUN server than for an endpoint. TURN offers better results with symmetric NAT.
+
+
+unofficial summary : 
+
+WhatsApp or most of the other messaging apps rarely work on a peer to peer basis. So it wouldn't open a connection (from your device) to each of your friends' devices. Instead your device connects to their server. It could then use a custom TCP protocol or maybe HTTP to communicate your messages to the server. The server in return would dispatch them to your friends' devices. If your friend had their app open or at least the app process running there might be a live connection to the server. WhatsApp will use that connection to send them your messages. If their app is "offline" then they might choose to send them a push notification instead. WhatsApp has chosen Erlang a language built for writing scalable applications that are designed to withstand errors. Erlang uses an abstraction called the Actor model for it's concurrency - http://en.wikipedia.org/wiki/Act.... Instead of the more traditional shared memory approach, actors communicate by sending each other messages. Actors unlike threads are designed to be lightweight. Actors could be on the same machine or on different machines and the message passing abstractions works for both. A simple implementation of WhatsApp could be: Each user/device is represented as an actor. This actor is responsible for handling the inbox of the user, how it gets serialized to disk, the messages that the user sends and the messages that the user receives. Let's assume that Alice and Bob are friends on WhatsApp. So there is an an Alice actor and a Bob actor.
+
+Let's trace a series of messages flowing back and forth: Alice decides to message Bob. Alice's phone establishes a connection to the WhatsApp server and it is established that this connection is definitely from Alice's phone. Alice now sends via TCP the following message: "For Bob: A giant monster is attacking the Golden Gate Bridge". One of the WhatsApp front end server deserializes this message and delivers this message to the actor called Alice. Alice the actor decides to serialize this and store it in a file called "Alice's Sent Messages", stored on a replicated file system to prevent data loss due to unpredictable monster rampage. Alice the actor then decides to forward this message to Bob the actor by passing it a message "Msg1 from Alice: A giant monster is attacking the Golden Gate Bridge". Alice the actor can retry with exponential back-off till Bob the actor acknowledges receiving the message. Bob the actor eventually receives the message from (2) and decides to store this message in a file called "Bob's Inbox". Once it has stored this message durably Bob the actor will acknowledge receiving the message by sending Alice the actor a message of it's own saying "I received Msg1". Alice the actor can now stop it's retry efforts. Bob the actor then checks to see if Bob's phone has an active connection to the server. It does and so Bob the actor streams this message to the device via TCP. Bob sees this message and replies with "For Alice: Let's create giant robots to fight them". This is now received by Bob the actor as outlined in Step 1. Bob the actor then repeats Step 2 and 3 to make sure Alice eventually receives the idea that will save mankind.
+
+WhatsApp actually uses the XMPP protocol instead of the vastly superior protocol that I outlined above, but you get the point.
+
+For your own application things to consider: You might not have control over clients sending GPS coordinates to the server every 10 minutes. If your client is running on a mobile device, the OS might decide to starve you from resources or just kill your process. You need to maintain state for clients that are connected to your server to make sure you can send messages to active clients when your requirements are met. This is a slight modification of the stock "Comet app" example that almost every framework has. Establishing a TCP connection is not a very big waste of resources either from the client's side or from the server's side. If your server software ecosystem supports non blocking IO, the state required per connection is tiny. You could support upwards of 100k connections on a mediocre box if you tried hard. If you are on the JVM Netty might help you here. Python has Twisted and Tornado. C++/ C can make use of epoll, kqueue or select if you are on a *NIX system. Golang supports a high number of connections through it's standard library. We have addressed vertical scalability here i.e. how many users could you support on a simple box. If you really want to scale out and build a distributed system that maintains state, you might want to consider Erlang (with OTP) or other implementations of the Actor model, like Akka (JVM) which also supports remote messages. A combination of event sourcing and a message passing architecture could get you all horizontal scalability you need.
+
+
+
+some more unofficial working : 
+
+My answer is bit technical but have made sure that it is understandable by a person who has basic knowledge of languages and concurrency.
+
+Concurrency in Erlang (vs Java) :
+
+a) Introduction
+
+Erlang run its program in its own VM, just like Java, which is independent of platform.
+
+It is referred as concurrent language at many places because threads are part of the programming language, they do not belong to the operating system, unlike in Java. At OS level, the memory management in the operating system protects whole pages of memory, so the smallest size that a thread can be is the smallest size*usually 512KB) of a page. That's actually too big. This is 1 of the major thing Erlang has modified. Usually the memory requirements for a thread is very low in Erlang is about 512 bytes.
+
+b) Creation of processes :
+
+The processes in Erlang are created and handled in its VM.
+
+Moreover, these processes do not create an OS thread for every created process and are lightweight. As a result, process creation time is of the order of microseconds and independent of the number of concurrently existing processes. While in Java, every process an underlying OS thread is created.
+
+c) Handling of processes :
+
+Apart from creation of processes, it is much cheaper to switch context, because they only switch at known, controlled points and therefore don't have to save the entire CPU state. It is usually single-threaded, meaning that there is no requirement to ensure thread-safety between processes. However, it now supports SMP, but the interaction between Erlang processes on the same scheduler/core is still very lightweight (there are separate run queues per core).
+
+d) How the concurrency works in Erlang vs Java :
+
+The current JVM uses shared heap topology. There is one big heap that is used by all threads. Most memory is allocated on that heap. In addition to the heap, the JVM uses some specialised data areas like the code cache and the permanent generation. These too are shared between all threads.
+
+e) Block Diagram :
+
+
+https://mydevelopedworld.files.wordpress.com/2012/12/message-passing-in-shared-heap-system.png?w=529&h=364
+
+By contrast, Erlang uses a private heap topology. Each thread has its own tiny heap that contains all data the thread uses and the thread’s stack as well. All data for a thread is on that local heap. It is reserved when the thread is created. When the thread dies, the entire heap is simply returned to the pool of free memory.
+
+Block Diagram :
+
+
+https://mydevelopedworld.files.w...
+
+Aside from the private heaps, all threads share access to a so-called binary heap and a message heap. These are specialised heaps. The binary heap is for allocating large chunks of arbitrary data that are likely to be shared between threads.
+
+The message heap is a heap for data that is used in messages. Messages too are shared between processes. Messages are passed between threads by copying a pointer over from the sending thread to the receiving thread. The data for the message is stored on the message heap.
+
+f) Performance Tests :
+
+It is observed that the time taken to create an Erlang process is constant 1µs up to 2,500 processes; thereafter it increases to about 3µs for up to 30,000 processes. In Java, for a small number of processes it takes about 300µs to create a process. Creating more than two thousand processes is impossible.
+
+However, these metrics are not absolute and depends on the enviornment and the requirement.
+
+g) Problems / Limitations against Java :
+
+It was observed for requirements of manjor mathematical calculations and benchmark system, Erlang is slower than Java.
+If we anyways require very less no of threads and task can be done using primitives in Java (i.e. Not Heap/GC), Java performs better
+No such active community support or libraries as in Java
+Java gives a better development features in case of enterprise level software where the workflow of the software is huge and scalability is not the only concern
+h) When to use what in brief :
+
+Erlang was not built for math. It was built with communication, parallel processing and scalability in mind. So for projects which has high incoming request and does less processing can be built over erlang for better scalability
+Erlang can be used in case where we have a stream oriented messaging system. That’s when the Erlang programming model really shines.
+Erlang can be used when no of threads to be opened to achieve high level of parallelism is huge.
+i) References :
+
+http://citeseerx.ist.psu.edu/vie...
+https://mydevelopedworld.wordpre...
+https://www.javacodegeeks.com/20...
+http://stackoverflow.com/questio...
+http://stackoverflow.com/questio...
+
+google Erlang and Akka. and xmpp
+
+Extensible Messaging and Presence Protocol (XMPP) is a communication protocol for message-oriented middleware based on XML (Extensible Markup Language).[1] It enables the near-real-time exchange of structured yet extensible data between any two or more network entities.[2] Originally named Jabber,[3] the protocol was developed by the eponymous open-source community in 1999 for near real-time instant messaging (IM), presence information, and contact list maintenance. Designed to be extensible, the protocol has been used also for publish-subscribe systems, signalling for VoIP, video, file transfer, gaming, the Internet of Things (IoT) applications such as the smart grid, and social networking services.
+
+---------------------------------------------------
+
+Facebook Messenger
+
+domains 
+
+www.facebook.com
+orcart.facebook.com
+fbstatic-a.akamaihd.net
+api.facebook.com
+orcart.facebook.com
+fbexternal-a.akamaihd.net
+fbcdn-profile-a.akamaihd.net
+graph.facebook.com
+
+----------------------------------------------
+
+VoIP programs can be blocked through 
+Firewalls and by blocking the domains they use

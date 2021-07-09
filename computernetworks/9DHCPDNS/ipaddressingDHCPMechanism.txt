@@ -1,0 +1,47 @@
+hosts can be manually configured with an ip address or automatically
+
+if we use subnet mask of 24 in a subnet, then for 254 hosts we would have to manually configure ip of each machine.
+
+we configure only 1 server to provide ip addresses to multiple PCs
+
+
+DHCP is a client server model
+DHCP Server is providing ip addresses to a Client, PC or IP phone etc.
+
+device requests from dhcp server
+dhcp server allocates ip address for limited period of time with some other parameters.
+
+this allows for reuse the use of ip addresses by multiple devices 
+
+Client
+device requires initialization parameters from dhcp servers.
+
+
+DHCP 3 Mechanisms
+
+Automatic Allocation - DHCP server assigns a permanent address to a client. - lease set to infinity. - lease does not expire.
+in automatic allocation we create a pool and scope of addresses that are allocated on first come first serve basis.
+
+once device gets this ip it always will use this ip address.
+
+
+
+
+Dynamic Allocation - DHCP server assigns an address to a client for a limited period of time. in IP telephony a least period of 7 days is used.
+least period can be set to 1 day. ( sales people in an office using lot of devices. )
+
+dynamic allocation allows for reuse of an ip address. to another device.
+
+
+Manual Allocation - 
+once device gets this ip it always will use this ip address.
+adminstrator configures a pre allocated ip address to a single device.
+
+when a device with a mac address connects, we configure on the dhcp server the ip address and then convey this ip address to the client machine on the network. ( a single device )
+in manual configuration we have to manually configure the mac address and the ip address that is going to be allocated for a client.
+
+
+
+these allocation methods are specific configurations on DHCP Server and NOT on the client PC.
+
+

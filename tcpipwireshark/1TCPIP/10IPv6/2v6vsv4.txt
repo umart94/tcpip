@@ -1,0 +1,169 @@
+differences between v6 and v4
+
+IPv4
+
+DHCP is done
+Automatically
+Manually
+Link-Local Only
+
+provide a router address
+network address
+number of bits in network portion
+
+prefix length
+
+
+IPv4
+2^32
+
+--------------
+
+IPv6
+Large address space
+2^128
+
+Multicasting
+streaming media
+its done in ipv4
+
+ipv6 allows transmission to multiple addresses
+
+stateless address autoconfiguration using neighbor discovery protocol
+
+
+---------------------
+IPSec
+In computing, Internet Protocol Security (IPsec) is a secure network protocol suite that authenticates and encrypts the packets of data to provide secure encrypted communication between two computers over an Internet Protocol network. It is used in virtual private networks (VPNs).
+
+IPsec includes protocols for establishing mutual authentication between agents at the beginning of a session and negotiation of cryptographic keys to use during the session. IPsec can protect data flows between a pair of hosts (host-to-host), between a pair of security gateways (network-to-network), or between a security gateway and a host (network-to-host).[1] IPsec uses cryptographic security services to protect communications over Internet Protocol (IP) networks. It supports network-level peer authentication, data-origin authentication, data integrity, data confidentiality (encryption), and replay protection.
+
+The initial IPv4 suite was developed with few security provisions. As a part of the IPv4 enhancement, IPsec is a layer 3 OSI model or internet layer end-to-end security scheme. In contrast, while some other Internet security systems in widespread use operate above layer 3, such as Transport Layer Security (TLS) that operates at the Transport Layer and Secure Shell (SSH) that operates at the Application layer. IPsec can automatically secure applications at the IP layer.
+
+------------
+Internet Key Exchange IKE
+
+In computing, Internet Key Exchange (IKE, sometimes IKEv1 or IKEv2, depending on version) is the protocol used to set up a security association (SA) in the IPsec protocol suite. IKE builds upon the Oakley protocol and ISAKMP.[1] IKE uses X.509 certificates for authentication ‒ either pre-shared or distributed using DNS (preferably with DNSSEC) ‒ and a Diffie–Hellman key exchange to set up a shared session secret from which cryptographic keys are derived.[2][3] In addition, a security policy for every peer which will connect must be manually maintained.[2]
+
+------------------------
+IKEv1 is vulnerable to Bleichenbacher oracle attacks, a cryptographic attack technique that has been known for almost two decades. A Bleichenbacher attack involves sending modified ciphertext to a device and obtaining information about its unencrypted value based on the device’s response. When applied to IKEv1, the attack can be used to obtain the plaintext of the secret nonces exchanged during a handshake and which are normally encrypted with the public keys of the communicating parties.
+
+Furthermore, many implementations reuse the same RSA public-private key pair for all variants of the IKE protocol they support, making the attack worse. In fact, Huawei gear also reuses the device key pair for SSH.
+
+“With our attacks we can impersonate an IKE device: If the attack is successful, we share a set of (falsely) authenticated symmetric keys with the victim device, and can successfully complete the handshake – this holds for both IKEv1 and IKEv2,” said Dennis Felsch, a researcher at Ruhr-University Bochum, in a blog post. “The attacks are based on Bleichenbacher oracles in the IKEv1 implementations of four large network equipment manufacturers: Cisco, Huawei, Clavister, and ZyXEL. These Bleichenbacher oracles can also be used to forge digital signatures, which breaks the signature based IKEv1 and IKEv2 variants.”
+
+Leaked NSA presentations released by Der Spiegel indicate that IKE is being exploited in an unknown manner to decrypt IPSec traffic, as is ISAKMP.[17] The researchers who discovered the Logjam attack state that breaking a 1024-bit Diffie–Hellman group would break 66% of VPN servers, 18% of the top million HTTPS domains, and 26% of SSH servers, which the researchers claim is consistent with the leaks.[18]. This claim was refuted by both Eyal Ronen and Adi Shamir in their paper "Critical Review of Imperfect Forward Secrecy" [19] and by Paul Wouters of Libreswan in an article "66% of VPN’s are not in fact broken" [20]
+
+IPSec VPN configurations which allow for negotiation of multiple configurations are subject to MITM-based downgrade attacks between the offered configurations, with both IKEv1 and IKEv2.[21] This can be avoided by careful segregation of client systems onto multiple service access points with stricter configurations.
+
+Both versions of the IKE standard are susceptible for an offline dictionary attack when a low entropy password is used. For the IKEv1 this is true for main mode and aggressive mode.[22][23][24]
+
+
+
+In 2013, as part of Snowden leaks, it was revealed that the US National Security Agency had been actively working to "Insert vulnerabilities into commercial encryption systems, IT systems, networks, and endpoint communications devices used by targets" as part of the Bullrun program.[37] There are allegations that IPsec was a targeted encryption system.[38]
+
+The NRL-developed IPsec stack was the first implementation that was available under a permissive open-source license (specifically a BSD license), was distributed by MIT, and was therefore copied widely in 1st generation IPsec-enabled products.
+
+The OpenBSD IPsec stack came later on and also was widely copied. In a letter which OpenBSD lead developer Theo de Raadt received on 11 Dec 2010 from Gregory Perry, it is alleged that Jason Wright and others, working for the FBI, inserted "a number of backdoors and side channel key leaking mechanisms" into the OpenBSD crypto code. In the forwarded email from 2010, Theo de Raadt did not at first express an official position on the validity of the claims, apart from the implicit endorsement from forwarding the email.[39] Jason Wright's response to the allegations: "Every urban legend is made more real by the inclusion of real names, dates, and times. Gregory Perry's email falls into this category. … I will state clearly that I did not add backdoors to the OpenBSD operating system or the OpenBSD crypto framework (OCF)."[40] Some days later, de Raadt commented that "I believe that NETSEC was probably contracted to write backdoors as alleged. … If those were written, I don't believe they made it into our tree."[41] This was published before the Snowden leaks.
+
+An alternative explanation put forward by the authors of the Logjam attack suggests that the NSA compromised IPsec VPNs by undermining the Diffie-Hellman algorithm used in the key exchange. In their paper[42] they allege the NSA specially built a computing cluster to precompute multiplicative subgroups for specific primes and generators, such as for the second Oakley group defined in RFC 2409. As of May 2015, 90% of addressable IPsec VPNs supported the second Oakley group as part of IKE. If an organization were to precompute this group, they could derive the keys being exchanged and decrypt traffic without inserting any software backdoors.
+
+A second alternative explanation that was put forward was that the Equation Group used zero-day exploits against several manufacturers' VPN equipment which were validated by Kaspersky Lab as being tied to the Equation Group[43] and validated by those manufacturers as being real exploits, some of which were zero-day exploits at the time of their exposure.[44][45][46] The Cisco PIX and ASA firewalls had vulnerabilities that were used for wiretapping by the NSA[citation needed].
+
+Furthermore, IPsec VPNs using "Aggressive Mode" settings send a hash of the PSK in the clear. This can be and apparently is targeted by the NSA using offline dictionary attacks.[47][48][49]
+
+
+The attack targets IKE’s handshake implementation used for IPsec-based VPN connections, opening the door for MiTM attacks or for bad actors to access data carried in VPN sessions.
+
+A new Bleichenbacher oracle cryptographic attack has been set loose on the world, using a 20-year-old protocol flaw to compromise the Internet Key Exchange (IKE) protocol used to secure IP communications.
+
+Specifically, the attack targets IKE’s handshake implementation used for IPsec-based VPN connections. Attackers might be able to use the vulnerability to retrieve IKEv1 session keys and decrypt connections, ultimately opening the door to man-in-the-middle (MitM) attacks or for bad actors to access data carried in VPN sessions.
+
+The consequences could be far-ranging; as is commonly known, VPNs allow employees to securely access a corporate network while they are outside the office. However, they also allow companies to connect their local networks over the public internet, as is the case with the Automotive Network Exchange (ANX), which connects automakers with their suppliers; and in wireless 4G networks, wireless carriers use VPNs to secure the backhaul links between their cell towers and the core network. Dissidents and journalists also use VPNs to circumvent geo-restrictions, hostile surveillance and censorship.
+
+The technique, uncovered by a team of academic researchers from the Ruhr-University Bochum, Germany and the University of Opole, Poland, involves reusing a key pair across different versions and modes of IKE, which can lead to cross-protocol authentication bypass. That allows an attacker to spoof the targeted IPSec endpoint, and to eventually break the encryption mechanism.
+
+“We exploit a Bleichenbacher oracle in an IKEv1 mode, where RSA encrypted nonces are used for authentication,” explained the team, in a paper set to be presented at the Usenix Security Symposium this week. “[The attack covers] all available authentication mechanisms of IKE.”
+
+How It Works
+IPsec (Internet Protocol Security) is a protocol stack that protects network packets at the IP layer. But to establish a shared secret for an IPsec connection, the IKE protocol has to be executed. IKE consists of two phases, where Phase 1 is used to establish initial authenticated keying material between two peers. Phase 2 is used to negotiate further derived keys for many different IP-based connections between the two.
+
+The proof-of-concept targets only Phase 1 in IKEv1 and IKEv2, where the attacker impersonates an IKE device.
+
+“Once attackers succeed with this attack on Phase 1, they share a set of (falsely) authenticated symmetric keys with the victim device, and can successfully complete Phase 2 – this holds for both IKEv1 and IKEv2,” the paper detailed.
+
+In IKEv1, four authentication methods are available for Phase 1: Two RSA encryption-based methods, one signature-based method, and a pre-shared key (PSK)-based method.
+
+In IKEv2, Phase 1 omits the encryption-based authentication methods, leaving only signature- and PSK-based authentication methods.
+
+The attacks are based on Bleichenbacher oracles – a 20-year-old protocol threat that has been used through the years to break the confidentiality of TLS when used with RSA encryption. The researchers have now found that these same oracles “can very efficiently be used to decrypt nonces,” which breaks the RSA-encrypted authentication in IKE’s Phase 1.
+
+Also, the paper shows that they can be used to forge digital signatures, which breaks the signature-based authentication in Phase 1; and on the PSK front, offline dictionary attacks are possible, according the researchers, rounding out the protection compromises.
+
+Patches Roll Out
+Cisco and Huawei issued patches for the issue yesterday.
+
+For Cisco, the flaw exists in its flagship Internetworking Operating System (IOS), which powers most of its routers and switches, and in its Linux-based offshoot, IOS XE – if the “authentication rsa-encr” option is enabled. Another operating system branch, IOS XR, is used for carrier-grade infrastructure and is not affected.
+
+“The vulnerability exists because the affected software responds incorrectly to decryption failures. An attacker could exploit this vulnerability sending crafted ciphertexts to a device configured with IKEv1 that uses RSA-encrypted nonces,” Cisco explained in its security advisory.
+
+For Huawei’s part, the issue targets IPSec IKEv1 implementations of Huawei Firewall products.
+
+“Remote attackers can decrypt IPSec tunnel ciphertext data by leveraging a Bleichenbacher RSA padding oracle,” the Chinese giant noted in its own advisory. “Successful exploitation of this vulnerability can impact IPSec tunnel security.”
+
+The attack is known to affect IKEv1 implementations by Cisco (CVE-2018-0131), Huawei (CVE-2017-17305), Clavister (CVE-2018-8753, already patched, affecting the Clavister cOS Core) and ZyXEL (CVE-2018-9129, also already patched, affecting all ZyWALL/USG devices).
+
+The academic team previously privately disclosed the problem to the four vendors; however, the paper noted that all versions and variants of the IPsec’s IKE protocol can be broken, if weak PSKs and Bleichenbacher oracles in the IKEv1 PKE and RPKE variants are present – thus, more implementations in major operating systems and network devices could be affected, depending on configuration.
+
+ https://www.exploit-db.com/exploits/39823
+
+
+----------------------
+Cisco patched a critical flaw that allowed an unauthenticated, remote attacker to reload the affected Cisco Adaptive Security Appliance (ASA) or remotely execute code on them using the vulnerability in the Internet Key Exchange (IKE) version 1 (v1) and IKE version 2 (v2) code of Cisco ASA Software.
+
+Cisco rated the vulnerability with the maximum score of 10 in the Common Vulnerability Scoring System. The vulnerability is due to a buffer overflow in the affected code area. An attacker could exploit this vulnerability by sending crafted UDP packets to the affected system. An exploit could allow the attacker to execute arbitrary code and obtain full control of the system or to cause a reload of the affected system.
+
+Only the traffic which is directed to the affected system can be used to exploit this vulnerability. This vulnerability affects systems configured in routed firewall mode only and in single or multiple context mode. This vulnerability can be triggered by IPv4 and IPv6 traffic.
+
+Cisco ASA Software is affected by this vulnerability if the system is configured to terminate IKEv1 or IKEv2 VPN connections.
+This includes the following:
+
+LAN-to-LAN IPsec VPN
+Remote access VPN using the IPsec VPN client
+Layer 2 Tunneling Protocol (L2TP)-over-IPsec VPN connections
+IKEv2 AnyConnect
+Cisco ASA Software is not affected by this vulnerability if the system is configured to terminate only the following VPN connections:
+
+Clientless SSL
+AnyConnect SSL
+
+
+
+https://www.exploit-db.com/exploits/39823
+
+How to find if you are vulnerable or not?
+To determine whether the Cisco ASA is configured to terminate IKEv1 or IKEv2 VPN connections, a crypto map must be configured for at least one interface.
+Administrators should use the show running-config crypto map | include interface command and verify that it returns output. A product is vulnerable if a crypto map is returned. There is no workaround, but Cisco has released patched firmware for affected devices.
+
+The following example shows a crypto map called outside_map configured on the outside interface:
+
+ciscoasa# show running-config crypto map | include interface crypto map outside_map interface outside
+
+https://www.cisco.com/c/en/us/td/docs/wireless/asr_5000/21/IPSec/21_IPSec-Reference/b_21_IPSec_chapter_0110.pdf
+
+-------------------------
+
+simplified processing by routers
+
+Mobile IPv6
+smartphone , tablet etc.
+
+Mobile IPv6 avoids triangular routing
+IPv6 allows entire subnets to move to new router connection point without renumbering
+
+
+Jumbograms - large packets.
+64K packets.
+
+2^32-1 octets. large chunks of data , used over high MTU links.
+

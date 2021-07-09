@@ -1,0 +1,19 @@
+
+onos> app deactivate fwd
+Deactivated org.onosproject.fwd
+
+
+onos> add-host-intent 00:00:00:00:00:01/None 00:00:00:00:00:10/None
+Host to Host intent submitted:
+HostToHostIntent{id=0x0, key=0x0, appId=DefaultApplicationId{id=3, name=org.onosproject.cli}, priority=100, resources=[00:00:00:00:00:01/None, 00:00:00:00:00:10/None], selector=DefaultTrafficSelector{criteria=[]}, treatment=DefaultTrafficTreatment{immediate=[NOACTION], deferred=[], transition=None, meter=[], cleared=false, StatTrigger=null, metadata=null}, constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}], resourceGroup=null, one=00:00:00:00:00:01/None, two=00:00:00:00:00:10/None}
+
+
+
+
+
+mininet> h11 arp -an
+? (10.0.0.16) at 00:00:00:00:00:10 [ether] on h11-eth0
+mininet> h41 arp -an
+? (10.0.0.1) at 00:00:00:00:00:01 [ether] on h41-eth0
+app activate org.onosproject.fwd
+

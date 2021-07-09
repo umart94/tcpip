@@ -1,0 +1,26 @@
+Hosts command
+A network without hosts is a little like a city without bars, it would be a ridiculously boring place. Fortunately, ONOS has the ability to list the hosts (as opposed to bars, although that would be a great feature) currently in the system.
+onos> hosts
+
+Which displays the hosts' id as well as its mac address and where in the network it is connected.
+onos> hosts
+id=00:00:00:00:00:01/None, mac=00:00:00:00:00:01, locations=[of:000000000000000b/3], vlan=None, ip(s)=[10.0.0.1], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:02/None, mac=00:00:00:00:00:02, locations=[of:000000000000000b/2], vlan=None, ip(s)=[10.0.0.2], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:03/None, mac=00:00:00:00:00:03, locations=[of:0000000000000002/3], vlan=None, ip(s)=[10.0.0.3], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:04/None, mac=00:00:00:00:00:04, locations=[of:000000000000000b/6], vlan=None, ip(s)=[10.0.0.4], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:05/None, mac=00:00:00:00:00:05, locations=[of:000000000000000b/7], vlan=None, ip(s)=[10.0.0.5], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:06/None, mac=00:00:00:00:00:06, locations=[of:000000000000000c/3], vlan=None, ip(s)=[10.0.0.6], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:07/None, mac=00:00:00:00:00:07, locations=[of:000000000000000c/4], vlan=None, ip(s)=[10.0.0.7], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:08/None, mac=00:00:00:00:00:08, locations=[of:000000000000000c/5], vlan=None, ip(s)=[10.0.0.8], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:09/None, mac=00:00:00:00:00:09, locations=[of:000000000000000c/6], vlan=None, ip(s)=[10.0.0.9], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:0A/None, mac=00:00:00:00:00:0A, locations=[of:000000000000000c/7], vlan=None, ip(s)=[10.0.0.10], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:0B/None, mac=00:00:00:00:00:0B, locations=[of:000000000000000d/3], vlan=None, ip(s)=[10.0.0.11], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:0C/None, mac=00:00:00:00:00:0C, locations=[of:000000000000000d/4], vlan=None, ip(s)=[10.0.0.12], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:0D/None, mac=00:00:00:00:00:0D, locations=[of:000000000000000d/5], vlan=None, ip(s)=[10.0.0.13], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:0E/None, mac=00:00:00:00:00:0E, locations=[of:000000000000000d/6], vlan=None, ip(s)=[10.0.0.14], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:0F/None, mac=00:00:00:00:00:0F, locations=[of:000000000000000d/7], vlan=None, ip(s)=[10.0.0.15], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:10/None, mac=00:00:00:00:00:10, locations=[of:000000000000000e/3], vlan=None, ip(s)=[10.0.0.16], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:11/None, mac=00:00:00:00:00:11, locations=[of:000000000000000e/4], vlan=None, ip(s)=[10.0.0.17], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:12/None, mac=00:00:00:00:00:12, locations=[of:000000000000000e/5], vlan=None, ip(s)=[10.0.0.18], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:13/None, mac=00:00:00:00:00:13, locations=[of:000000000000000e/6], vlan=None, ip(s)=[10.0.0.19], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false
+id=00:00:00:00:00:14/None, mac=00:00:00:00:00:14, locations=[of:000000000000000e/7], vlan=None, ip(s)=[10.0.0.20], innerVlan=None, outerTPID=unknown, provider=of:org.onosproject.provider.host, configured=false

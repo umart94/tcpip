@@ -1,0 +1,32 @@
+sudo apt-get install packeth
+ethernet packet generator
+
+sudo packeth &
+
+link layer
+
+ver II
+802.3
+802.1q
+
+
+MAC Header
+destination
+source
+
+we have complete control over generating a
+custom Ethernet Packet File.
+
+TOS = TYPE OF SERVICE
+
+
+so when we sent
+we get
+in wireshark in kali
+
+
+[Malformed Packet: LLC]
+    [Expert Info (Error/Malformed): Malformed Packet (Exception occurred)]
+        [Malformed Packet (Exception occurred)]
+        [Severity level: Error]
+        [Group: Malformed]

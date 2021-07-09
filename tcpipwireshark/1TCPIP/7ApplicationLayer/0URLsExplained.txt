@@ -1,0 +1,195 @@
+scheme://host:port/path?query-string#fragment-id
+
+
+
+
+*******Scheme/Protocol****************
+https://www.w3.org/2001/tag/doc/SchemeProtocols.html
+
+
+The protocol declares how your web browser should communicate with a web server when sending or fetching a web page or document. The most common protocol is http which stands for Hypertext Transfer Protocol.
+Another common protocol is https which stands for Hypertext Transfer Protocol Secure. You'll see this on secure pages, like shopping sites and log in pages. If you're visiting a site where you need to enter sensitive information, like bank details and passwords, make sure the protocol is declared as https. This means your web browser encrypts any information you provide so it can't be understood by any phishers who try to intercept the page during transfer.
+Some protocols you're less likely to see include ftp (File Transfer Protocol) pop (Post Office Protocol), smtp (Simple Mail Transfer Protocol) and imap (Internet Message Access Protocol). 
+
+
+For FTP : 
+ftp://ftp.funet.fi/pub/standards/RFC/rfc959.txt
+
+
+For SMTP : 
+You should get your SMTP settings from your ISP, hosting provider, webmaster, email provider etc.
+
+Using every option SMTP URI formally looks like this:
+
+
+smtpTLS://USERNAME:PASSWORD@HOST:PORT
+Authenticated connection to localhost on port 25
+
+`
+smtp://john.doe:Secretpwd1@localhost
+`
+
+"@" sign in the username, a Gmail example
+
+
+`
+smtps://your.address%40gmail.com:Gmail_password@smtp.gmail.com
+`
+
+Sendgrid example
+
+`
+smtpTLS://CREDENTIAL-USERNAME:PASSWORD@smtp.sendgrid.net
+`
+
+Mandrill example
+
+`
+smtpTLS://REGISTERED%40EMAIL:API-KEY@smtp.mandrillapp.com
+`
+
+Unauthenticated SMTP server on a custom port
+
+`
+smtpTLS://mail.server.net:2525
+`
+
+for testing on gmail : 
+
+Incoming connections to the IMAP server at imap.gmail.com:993 and the POP server at pop.gmail.com:995 require SSL. The outgoing SMTP server, smtp.gmail.com, requires TLS. Use port 465, or port 587 if your client begins with plain text before issuing the STARTTLS command.
+
+*************HOST = SUBDOMAIN+DOMAIN***************
+
+WWW IS NOT PART OF A DOMAIN NAME
+The www is not part of your domain name. It is a web server configuration setting that some servers use and some do not. By default a web server will show your website at both www.mywebsite.com and mywebsite.com. This can lead to duplicate content problems that affect search engine optimization. To avoid these SEO issues Google's webmaster guidelines say that we should allow either the www version or the non-www version, but not both. This is known as canonicalization. On our servers we have chosen the non-www version, however you can still feel free to write your website address either way on your business cards, etc. if you prefer the aesthetics of the www version.
+
+www.secondleveldomain.topleveldomain
+
+www.hostname.topleveldomain
+hostname must have an ip.. it is a domain name that has atleast one associated ip address.
+some topleveldomains (country code top leveldomains also have ip addresses)
+
+An autonomous system (AS) is a collection of connected Internet Protocol (IP) routing prefixes under the control of one or more network operators on behalf of a single administrative entity or domain that presents a common, clearly defined routing policy to the internet.[1]
+
+An autonomous system number (ASN) is a unique number assigned to an autonomous system (AS) by the Internet Assigned Numbers Authority (IANA).
+
+An AS consists of blocks of IP addresses which have a distinctly defined policy for accessing external networks and are administered by a single organization but may be made up of several operators.
+
+Below you will find a list of public ASN's listed by country.
+https://www.whatismyip.com/asn/
+
+Bulk Domain WHOIS Lookup
+https://www.infobyip.com/ipbulklookup.php
+
+done through : 
+IP,Domain,server log lines containing IPs or domains.
+
+*************Subdomain*************
+A subdomain is a sub-division of the main domain name. For example, mail.doepud.com and calendar.doepud.com are subdomains of the domain name doepud.com.
+
+
+
+
+*************Domain name*************
+A domain name is a unique reference that identifies a web site on the internet, for example doepud.co.uk. A domain name always includes the top-level domain (TLD), which in Doepud's case is uk. The co part is shorthand for commercial and combined .co.uk is called a second-level domain (SLD).
+
+
+
+
+
+*************--Top Level Domain*************
+A top-level domain (TLD) is one of the domains at the highest level in the hierarchical Domain Name System of the Internet.[10] The top-level domain names are installed in the root zone of the name space. For all domains in lower levels, it is the last part of the domain name, that is, the last label of a fully qualified domain name. For example, in the domain name www.example.com, the top-level domain is com. Responsibility for management of most top-level domains is delegated to specific organizations by the Internet Corporation for Assigned Names and Numbers (ICANN), which operates the Internet Assigned Numbers Authority (IANA), and is in charge of maintaining the DNS root zone.
+
+
+Types
+As of 2015, IANA distinguishes the following groups of top-level domains:[13]
+
+infrastructure top-level domain (ARPA): This group consists of one domain, the Address and Routing Parameter Area. It is managed by IANA on behalf of the Internet Engineering Task Force for various purposes specified in the Request for Comments publications.
+generic top-level domains (gTLD): Top-level domains with three or more characters
+restricted generic top-level domains (grTLD): These domains are managed under official ICANN accredited registrars.
+sponsored top-level domains (sTLD): These domains are proposed and sponsored by private agencies or organizations that establish and enforce rules restricting the eligibility to use the TLD. Use is based on community theme concepts; these domains are managed under official ICANN accredited registrars.
+country-code top-level domains (ccTLD): Two-letter domains established for countries or territories. With some historical exceptions, the code for any territory is the same as its two-letter ISO 3166 code.
+internationalized country code top-level domains (IDN ccTLD): ccTLDs in non-Latin character sets (e.g., Arabic, Cyrillic, Hebrew, or Chinese).
+test top-level domains (tTLD): These domains were installed under .test for testing purposes in the IDN development process; these domains are not present in the root zone.
+Countries are designated in the Domain Name System by their two-letter ISO country code;[14] there are exceptions, however (e.g., .uk). This group of domains is therefore commonly known as country-code top-level domains (ccTLD). Since 2009, countries with non–Latin-based scripts may apply for internationalized country code top-level domain names, which are displayed in end-user applications in their language-native script or alphabet, but use a Punycode-translated ASCII domain name in the Domain Name System.
+
+Generic top-level domains (formerly Categories) initially consisted of gov, edu, com, mil, org, and net. More generic TLDs have been added, such as info.
+
+The authoritative list of currently existing TLDs in the root zone is published at the IANA website at https://www.iana.org/domains/root/db/.
+
+
+
+*************--Second Level Domain*************
+In the Domain Name System (DNS) hierarchy, a second-level domain (SLD or 2LD) is a domain that is directly below a top-level domain (TLD). For example, in example.com, example is the second-level domain of the .com TLD.
+
+Second-level domains commonly refer to the organization that registered the domain name with a domain name registrar. Some domain name registries introduce a second-level hierarchy to a TLD that indicates the type of entity intended to register an SLD under it. For example, in the .uk namespace a college or other academic institution would register under the .ac.uk ccSLD, while companies would register under .co.uk. Some TLDs now break the traditional rule that a TLD is the right most node in a URL. A TLD can have multiple nodes, like pvt.k12.ma.us. A list of the official TLDs can be found at icann.org and iana.org. An ordinal-free term to denote domains under which people can register their own domain name is public suffix domain (PSD).
+
+Second-level and lower level domains
+Below the top-level domains in the domain name hierarchy are the second-level domain (SLD) names. These are the names directly to the left of .com, .net, and the other top-level domains. As an example, in the domain example.co.uk, co is the second-level domain.
+
+Next are third-level domains, which are written immediately to the left of a second-level domain. There can be fourth- and fifth-level domains, and so on, with virtually no limitation. An example of an operational domain name with four levels of domain labels is sos.state.oh.us. Each label is separated by a full stop (dot). 'sos' is said to be a sub-domain of 'state.oh.us', and 'state' a sub-domain of 'oh.us', etc. In general, subdomains are domains subordinate to their parent domain. An example of very deep levels of subdomain ordering are the IPv6 reverse resolution DNS zones, e.g., 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa, which is the reverse DNS resolution domain name for the IP address of a loopback interface, or the localhost name.
+
+Second-level (or lower-level, depending on the established parent hierarchy) domain names are often created based on the name of a company (e.g., bbc.co.uk), product or service (e.g. hotmail.com). Below these levels, the next domain name component has been used to designate a particular host server. Therefore, ftp.example.com might be an FTP server, www.example.com would be a World Wide Web server, and mail.example.com could be an email server, each intended to perform only the implied function. Modern technology allows multiple physical servers with either different (cf. load balancing) or even identical addresses (cf. anycast) to serve a single hostname or domain name, or multiple domain names to be served by a single computer. The latter is very popular in Web hosting service centers, where service providers host the websites of many organizations on just a few servers.
+
+The hierarchical DNS labels or components of domain names are separated in a fully qualified name by the full stop (dot, .).
+
+
+
+
+
+*************Internationalized domain names*************
+The character set allowed in the Domain Name System is based on ASCII and does not allow the representation of names and words of many languages in their native scripts or alphabets. ICANN approved the Internationalized domain name (IDNA) system, which maps Unicode strings used in application user interfaces into the valid DNS character set by an encoding called Punycode. For example, københavn.eu is mapped to xn--kbenhavn-54a.eu. Many registries have adopted IDNA.
+
+
+
+
+*************Port*************
+The port number is rarely visible in URLs but always required. When declared in a URL it comes right after the TLD, separated by a colon. When it's not declared and in most cases where the protocol is http, port 80 is used. For https (secure) requests port 443 is used.
+Read more about port numbers in URLs.
+
+
+
+
+*************Path*************
+The path typically refers to a file or directory on the web server, e.g. /directory/file.php.
+Sometimes the file name won't be specified, e.g. https://doepud.co.uk/blog/ so a web browser will automatically look inside the /blog/ folder for a file called index or default. If neither can be found, a 404 Not Found error will usually be returned by the server.
+
+
+
+
+*************Query*************
+A query is commonly found in the URL of dynamic pages (ones which are generated from database or user-generated content) and is represented by a question mark followed by one or more parameters. The query directly follows the domain name, path or port number.
+For example, have a look at this URL which was generated by Google when doing a search for the word URL:
+
+http://www.google.co.uk/search?q=url&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-GB:official&client=firefox-a.
+The query part is
+
+?q=url&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-GB:official&client=firefox-a.
+
+
+
+
+*************Parameters*************
+Parameters are snippets of information found in the query string of a URL. With reference to the Google query above, the parameters follow the question mark and are separated by an ampersand (&) character so they can be understood individually and used to display content on that page. The parameters are:
+q=url
+ie=utf-8
+oe=utf-8
+aq=t
+rls=org.mozilla:en-GB:official
+client=firefox-a
+
+^^ combined - called query parameters.
+
+*************Fragment*************
+A fragment is an internal page reference, sometimes called a named anchor. It usually appears at the end of a URL and begins with a hash (#) character followed by an identifier. It refers to a section within a web page.
+
+1. A Fragment URL Specifies A Location Within A Page
+2. Fragments Are not Sent in HTTP Request Messages
+3. Anything After the First # is a Fragment Identifier
+http://example.com/?color=#ffff&amp;shape=circle
+4. Changing A Fragment ID Doesn’t Reload a Page but Does Create History
+5. JavaScript Can Use window.location.hash to Change Fragment IDs
+6. Googlebot Ignores Fragments By Default
+
+^
+sections of the html page - on clicking .. goes to that section of the html page.

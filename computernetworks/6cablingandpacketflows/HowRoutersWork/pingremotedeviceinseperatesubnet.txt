@@ -1,0 +1,60 @@
+A is pinging B
+
+we are using /24 subnet mask
+
+a ip is 10.1.1.1
+b ip is 10.1.2.1
+
+so router first checks the ip address of A vs B subnet mask whether it is in the same subnet.
+it does this by doing a logical AND using network mask.
+
+network portion is different.
+so traffic is sent from Device A to the local gateway and then sent to remote device.
+
+Device A must be configured with the local gateway of router. - 10.1.1.100
+
+Device A does this by sending the broadcast ARP request. to the local gateway first WHO HAS 10.1.1.100 tell 10.1.1.1
+
+ARP request to lookup the mac address of local gateway.
+
+the Hub floods it out of all the ports PC C will drop arp request using destination address.
+
+the router receives this arp request. using destination address.
+
+and router replies with arp reply - unicast address.
+
+packet goes to device a at 
+Layer2
+then layer3
+
+now pc a has a mappping for mac address of router.
+
+
+PC can send traffic to the network
+
+but note that the mac address is of the local network segment.
+
+
+
+now Router sees destination address and it sends out of fast ethernet interface FA 0/1 - MAC ADDRESS H
+
+now suppose if the router does not know mac address of 10.1.2.1 - it will then send a broadcast message so that it can find the mac address of the device 10.1.2.1 i.e device B
+
+SOURCE ADDRESS : H , DESTINATION ADDRESS: FFFFFFFF , SOURCE ADDRESS = 10.1.2.100 , DESTINATION  ADDRESS = 10.1.2.1
+
+
+SO NOW HOST b WILL RECEIVE THE arp request and send back an arp reply to the hub
+
+it goes from hub to router interface H
+and now traffic can go from router to hub
+
+hub will again flood it out of all ports
+
+now packet arrives at Device B and router knows mac address of device B.
+
+
+SOURCE ADDRESS : H , DESTINATION ADDRESS: B , SOURCE ADDRESS = 10.1.1.1 , DESTINATION  ADDRESS = 10.1.2.1
+
+
+When we ping  the layer 2 information is updated at each hop, but the layer 3 information remains the same.
+when we move from one vlan to another on switch or 1 interface to another on router, the layer 2 information is updated at each hop, but the layer 3 information remains the same.

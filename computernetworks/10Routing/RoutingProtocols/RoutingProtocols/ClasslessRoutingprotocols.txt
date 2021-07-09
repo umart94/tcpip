@@ -1,0 +1,17 @@
+classless routing protocols do advertise the subnet mask, ( now subnet masks are considered different for 2 or more networks)
+
+10.0.0.0/24 or 10.0.0.0/30
+
+routers see exact network mask and do not work on assumptions
+
+classless networks also support VLSM or variable length subnet masks I.E
+masks of all interfaces do not have to be the same
+
+
+classless networks also support manual summarization of routes.
+
+examples:
+OSPF (AREA BORDER ROUTERS OR Autonomous System Border Routers )
+EIGRP
+RIP v2
+IS-IS

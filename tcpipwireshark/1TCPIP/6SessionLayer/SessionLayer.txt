@@ -1,0 +1,35 @@
+Session management.
+Application does this
+
+this layer handles session,authentication and authorization and recovering a session
+
+if data is lost or connection is abnormally terminated.
+
+--------
+Where are session layer services used ?
+
+Remote Procedure Call RPCs
+
+A Library exists on another system.
+
+application from one machine, makes a procedure/ function call to a library on another system .
+make use of info on another system through that library.
+
+Protocols
+ADSP, AppleTalk Data Stream Protocol
+ASP, AppleTalk Session Protocol
+H.245, Call Control Protocol for Multimedia Communication
+ISO-SP, OSI session-layer protocol (X.225, ISO 8327)
+iSNS, Internet Storage Name Service
+L2F, Layer 2 Forwarding Protocol
+L2TP, Layer 2 Tunneling Protocol
+NetBIOS, Network Basic Input Output System
+PAP, Password Authentication Protocol
+PPTP, Point-to-Point Tunneling Protocol
+RPC, Remote Procedure Call Protocol
+RTCP, Real-time Transport Control Protocol
+SMPP, Short Message Peer-to-Peer
+SCP, Session Control Protocol
+SOCKS, the SOCKS internet protocol
+ZIP, Zone Information Protocol
+SDP, Sockets Direct Protocol

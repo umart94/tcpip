@@ -1,0 +1,7 @@
+in autosummarization, two routers have same networks but different subnets.
+so since classful routing assumes that network masks are same, the router 2 is configured with classful routing protocol
+
+so when it sends traffic out, it will send one packet to router1 and 1 packet to router2
+
+so that half of the pings will succeed and half of the pings will fail.
+

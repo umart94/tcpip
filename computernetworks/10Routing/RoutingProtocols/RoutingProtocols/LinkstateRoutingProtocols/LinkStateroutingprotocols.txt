@@ -1,0 +1,21 @@
+link state routing protocols have greater visibility of the network and are more powerful than distance vector routing protocols.
+
+flood network with LSAs. - Link State Advertisements
+
+this information is flooded through entire network if in entire area recevied by all routers in the area.
+
+all routers will create a topological database , it is the same on all routers in an area
+this contains information about all routers in that area, links and states.
+Link state routing protocol.. is the  link up or link is down..
+
+routers run SPF algorithm shortest path first.
+
+OSPF is a standard SPF algorithm
+
+when the routers run SPF algorithm, they are at root of SPF tree and then calculate the best path or route from their perspective.
+
+the best route for one router will be different for all routers.
+
+SPF algorithm is run against the topological database.
+
+Examples are : OSPF, IS-IS

@@ -1,0 +1,52 @@
+advantages 
+
+
+fast convergence
+changes reported immediately
+robust against routing loops as routers know entire topology
+link state packets are sequenced and acknowledged. within ospf
+if an update is not received by a router , it will be retransmitted , rip does not form neighbour (peer) relationships but ospf does
+
+
+so if one router sends an update to a peer neighbour and that peer does not acknowledge the reciept of the routing update
+the router will retransmit the update
+
+hierarchical design enables optimization of resources.
+
+can scale to much larger environments than DVR .. large ISPS may run OSPF or IS-IS internally within Autonomous systems.
+
+
+OSPF and IS-IS are preferred as they are more scalable.
+
+
+
+
+
+
+
+
+
+------------------------------
+
+disadvantages
+
+drawbacks of link state routing
+significant demand of resources.
+
+require more
+memory - adjacency , topology (LSDB database ) and forwarding table
+cpu - more demand on cpu Djikstra algorithm is process intensive due to frequent link state changes  
+
+requires strict design
+
+OSPF
+
+area 0 is always required when we have more than 1 area
+
+all other areas have to touch the backbone area
+all traffic from 1 area to another area has to traverse through backbone area.
+
+
+
+
+

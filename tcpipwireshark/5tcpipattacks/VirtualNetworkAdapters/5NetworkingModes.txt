@@ -1,0 +1,57 @@
+VirtualBox Networking (NAT & Port Forwarding, Bridged, Internal, Host-Only)
+
+Internet Service Provider
+ISP WAN Network
+External IP *.*.*.*
+
+
+
+Home Wi-Fi Router
+
+Ethernet Adapter Ethernet:
+Connection-specific DNS Suffix : 
+Description : Intel(R) Ethernet Connection (7) I219-V
+Physical Address
+DHCP Enabled
+Autoconfiguration Enabled
+IPv4 Address
+Subnet Mask
+Lease Obtained
+Lease Expires
+
+
+1. Default Gateway
+192.168.100.1
+
+2. DHCP Server
+192.168.100.1
+
+3.DNS Servers
+
+4.NetBIOS over Tcpip
+
+-------------------------------------
+Internal Network
+192.168.100.*
+
+PC
+Laptop
+Smartphone
+
+
+--------------------------------
+Each Virtual Machine can have upto a total of 8 Virtual Network Adapters.
+--------------------
+in Virtual Box , configure 4 through the Settings Network.
+configure other 4 adapters using VboxManage (cmd line tool) , for advanced users.
+
+Adapter Types are the virtualized adapter hardware types supported by VirtualBox.
+compatibility with host os.
+
+
+
+--------------------------
+
+
+
+

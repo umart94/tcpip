@@ -1,0 +1,67 @@
+authorization
+verify that you have access to something
+
+harddisk or a folder
+
+WHAT YOU ARE ALLOWED TO DO
+
+
+AUTHENTICATION
+it is about who someone is
+
+
+2 ways to secure data in windows 10
+
+1.) sharing permissions
+share permissions file explorer
+
+
+NTFS permissions
+only drives formatted using ntfs
+user admin types -> user account types
+right click properties security
+
+special permissions
+security descriptors
+individual and global etc.
+
+2 settings conflict with each other
+then windows will enforce more restrictive setting
+see permissions relationships
+
+Group or usernames -> with access to resource and folder
+change using edit
+
+
+
+Full control -> shared permissions
+do anything with folder and files within that folder
+it also enables other options
+
+Modify allows users to change files inside folders
+view access rights and modify attributes
+
+read and execute
+read and run files
+open launch files
+folder items etc.
+
+
+list folder contents
+view files , folders only ( subfolders only, not files in folders)
+
+read write ( basic permissions read or write)
+
+Special Permissions
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+onos> app activate org.onosproject.openflow 
+Activated org.onosproject.openflow
+onos> app activate org.onosproject.drivers
+Activated org.onosproject.drivers
+onos> app activate org.onosproject.mobility
+Activated org.onosproject.mobility
+onos> app activate org.onosproject.fwd
+Activated org.onosproject.fwd
+onos> 
+
+using 
+app activate
+command

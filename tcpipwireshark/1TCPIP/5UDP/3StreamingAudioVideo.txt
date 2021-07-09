@@ -1,0 +1,727 @@
+The Session Initiation Protocol (SIP) is a signaling protocol used for initiating, maintaining, and terminating real-time sessions that include voice, video and messaging applications.[1] SIP is used for signaling and controlling multimedia communication sessions in applications of Internet telephony for voice and video calls, in private IP telephone systems, in instant messaging over Internet Protocol (IP) networks as well as mobile phone calling over LTE (VoLTE).
+
+
+The Session Description Protocol (SDP) is a format for describing multimedia communication sessions for the purposes of session announcement and session invitation.[1] Its predominant use is in support of streaming media applications, such as voice over IP (VoIP) and video conferencing. SDP does not deliver any media streams itself but is used between endpoints for negotiation of network metrics, media types, and other associated properties. The set of properties and parameters are often called a session profile.
+
+
+SIP/SDP Protocol. Request.
+
+when both sides are using same codecs , same compression methods , and same audio parameters.
+decoding methods to convert digital audio back to analog audio.
+
+SIP MESSAGE Using udp
+
+it can use tcp and udp
+in this case we use udp for transport layer protocol for session Initiation protocol
+
+we are going to transfer audio and signalling over UDP
+
+Call Setup Request. from caller to callee.
+
+trying message.. status 100
+ringing message .. status 100
+
+-----------------------
+
+1xx—Provisional Responses
+100 Trying
+Extended search being performed may take a significant time so a forking proxy must send a 100 Trying response.[1]:§21.1.1
+180 Ringing
+Destination user agent received INVITE, and is alerting user of call.[1]:§21.1.2
+181 Call is Being Forwarded
+Servers can optionally send this response to indicate a call is being forwarded.[1]:§21.1.3
+182 Queued
+Indicates that the destination was temporarily unavailable, so the server has queued the call until the destination is available. A server may send multiple 182 responses to update progress of the queue.[1]:§21.1.4
+183 Session Progress
+This response may be used to send extra information for a call which is still being set up.[1]:§21.1.5
+199 Early Dialog Terminated
+Can be used by User Agent Server to indicate to upstream SIP entities (including the User Agent Client (UAC)) that an early dialog has been terminated.[3]
+2xx—Successful Responses
+200 OK
+Indicates that the request was successful.[1]:§21.2.1
+202 Accepted
+Indicates that the request has been accepted for processing, but the processing has not been completed.[4]:§7.3.1[5] Deprecated.[6]:§8.3.1[2]
+204 No Notification
+Indicates the request was successful, but the corresponding response will not be received.[7]
+3xx—Redirection Responses
+300 Multiple Choices
+The address resolved to one of several options for the user or client to choose between, which are listed in the message body or the message's Contact fields.[1]:§21.3.1
+301 Moved Permanently
+The original Request-URI is no longer valid, the new address is given in the Contact header field, and the client should update any records of the original Request-URI with the new value.[1]:§21.3.2
+302 Moved Temporarily
+The client should try at the address in the Contact field. If an Expires field is present, the client may cache the result for that period of time.[1]:§21.3.3
+305 Use Proxy
+The Contact field details a proxy that must be used to access the requested destination.[1]:§21.3.4
+380 Alternative Service
+The call failed, but alternatives are detailed in the message body.[1]:§21.3.5
+4xx—Client Failure Responses
+400 Bad Request
+The request could not be understood due to malformed syntax.[1]:§21.4.1
+401 Unauthorized
+The request requires user authentication. This response is issued by UASs and registrars.[1]:§21.4.2
+402 Payment Required
+Reserved for future use.[1]:§21.4.3
+403 Forbidden
+The server understood the request, but is refusing to fulfill it.[1]:§21.4.4 Sometimes (but not always) this means the call has been rejected by the receiver.
+404 Not Found
+The server has definitive information that the user does not exist at the domain specified in the Request-URI. This status is also returned if the domain in the Request-URI does not match any of the domains handled by the recipient of the request.[1]:§21.4.5
+405 Method Not Allowed
+The method specified in the Request-Line is understood, but not allowed for the address identified by the Request-URI.[1]:§21.4.6
+406 Not Acceptable
+The resource identified by the request is only capable of generating response entities that have content characteristics but not acceptable according to the Accept header field sent in the request.[1]:§21.4.7
+407 Proxy Authentication Required
+The request requires user authentication. This response is issued by proxys.[1]:§21.4.8
+408 Request Timeout
+Couldn't find the user in time. The server could not produce a response within a suitable amount of time, for example, if it could not determine the location of the user in time. The client MAY repeat the request without modifications at any later time. [1]:§21.4.9
+409 Conflict
+User already registered.[8]:§7.4.10 Deprecated by omission from later RFCs[1] and by non-registration with the IANA.[2]
+410 Gone
+The user existed once, but is not available here any more.[1]:§21.4.10
+411 Length Required
+The server will not accept the request without a valid Content-Length.[8]:§7.4.12 Deprecated by omission from later RFCs[1] and by non-registration with the IANA.[2]
+412 Conditional Request Failed
+The given precondition has not been met.[9]
+413 Request Entity Too Large
+Request body too large.[1]:§21.4.11
+414 Request-URI Too Long
+The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret.[1]:§21.4.12
+415 Unsupported Media Type
+Request body in a format not supported.[1]:§21.4.13
+416 Unsupported URI Scheme
+Request-URI is unknown to the server.[1]:§21.4.14
+417 Unknown Resource-Priority
+There was a resource-priority option tag, but no Resource-Priority header.[10]
+420 Bad Extension
+Bad SIP Protocol Extension used, not understood by the server.[1]:§21.4.15
+421 Extension Required
+The server needs a specific extension not listed in the Supported header.[1]:§21.4.16
+422 Session Interval Too Small
+The received request contains a Session-Expires header field with a duration below the minimum timer.[11]
+423 Interval Too Brief
+Expiration time of the resource is too short.[1]:§21.4.17
+424 Bad Location Information
+The request's location content was malformed or otherwise unsatisfactory.[12]
+428 Use Identity Header
+The server policy requires an Identity header, and one has not been provided.[13]:p11
+429 Provide Referrer Identity
+The server did not receive a valid Referred-By token on the request.[14]
+430 Flow Failed
+A specific flow to a user agent has failed, although other flows may succeed. This response is intended for use between proxy devices, and should not be seen by an endpoint (and if it is seen by one, should be treated as a 400 Bad Request response).[15]:§11.5
+433 Anonymity Disallowed
+The request has been rejected because it was anonymous.[16]
+436 Bad Identity-Info
+The request has an Identity-Info header, and the URI scheme in that header cannot be dereferenced.[13]:p11
+437 Unsupported Certificate
+The server was unable to validate a certificate for the domain that signed the request.[13]:p11
+438 Invalid Identity Header
+The server obtained a valid certificate that the request claimed was used to sign the request, but was unable to verify that signature.[13]:p12
+439 First Hop Lacks Outbound Support
+The first outbound proxy the user is attempting to register through does not support the "outbound" feature of RFC 5626, although the registrar does.[15]:§11.6
+440 Max-Breadth Exceeded
+If a SIP proxy determines a response context has insufficient Incoming Max-Breadth to carry out a desired parallel fork, and the proxy is unwilling/unable to compensate by forking serially or sending a redirect, that proxy MUST return a 440 response. A client receiving a 440 response can infer that its request did not reach all possible destinations. [17]
+469 Bad Info Package
+If a SIP UA receives an INFO request associated with an Info Package that the UA has not indicated willingness to receive, the UA MUST send a 469 response, which contains a Recv-Info header field with Info Packages for which the UA is willing to receive INFO requests. [18]
+470 Consent Needed
+The source of the request did not have the permission of the recipient to make such a request.[19]
+480 Temporarily Unavailable
+Callee currently unavailable.[1]:§21.4.18
+481 Call/Transaction Does Not Exist
+Server received a request that does not match any dialog or transaction.[1]:§21.4.19
+482 Loop Detected
+Server has detected a loop.[1]:§21.4.20
+483 Too Many Hops
+Max-Forwards header has reached the value '0'.[1]:§21.4.21
+484 Address Incomplete
+Request-URI incomplete.[1]:§21.4.22
+485 Ambiguous
+Request-URI is ambiguous.[1]:§21.4.23
+486 Busy Here
+Callee is busy.[1]:§21.4.24
+487 Request Terminated
+Request has terminated by bye or cancel.[1]:§21.4.25
+488 Not Acceptable Here
+Some aspect of the session description or the Request-URI is not acceptable.[1]:§21.4.26
+489 Bad Event
+The server did not understand an event package specified in an Event header field.[4]:§7.3.2[6]:§8.3.2
+491 Request Pending
+Server has some pending request from the same dialog.[1]:§21.4.27
+493 Undecipherable
+Request contains an encrypted MIME body, which recipient can not decrypt.[1]:§21.4.28
+494 Security Agreement Required
+The server has received a request that requires a negotiated security mechanism, and the response contains a list of suitable security mechanisms for the requester to choose between,[20]:§§2.3.1–2.3.2 or a digest authentication challenge.[20]:§2.4
+5xx—Server Failure Responses
+500 Internal Server Error
+The server could not fulfill the request due to some unexpected condition.[1]:§21.5.1
+501 Not Implemented
+The server does not have the ability to fulfill the request, such as because it does not recognize the request method. (Compare with 405 Method Not Allowed, where the server recognizes the method but does not allow or support it.)[1]:§21.5.2
+502 Bad Gateway
+The server is acting as a gateway or proxy, and received an invalid response from a downstream server while attempting to fulfill the request.[1]:§21.5.3
+503 Service Unavailable
+The server is undergoing maintenance or is temporarily overloaded and so cannot process the request. A "Retry-After" header field may specify when the client may reattempt its request.[1]:§21.5.4
+504 Server Time-out
+The server attempted to access another server in attempting to process the request, and did not receive a prompt response.[1]:§21.5.5
+505 Version Not Supported
+The SIP protocol version in the request is not supported by the server.[1]:§21.5.6
+513 Message Too Large
+The request message length is longer than the server can process.[1]:§21.5.7
+555 Push Notification Service Not Supported
+The server does not support the push notification service identified in a 'pn-provider' SIP URI parameter[21]:§14.2.1
+580 Precondition Failure
+The server is unable or unwilling to meet some constraints specified in the offer.[22]
+6xx—Global Failure Responses
+600 Busy Everywhere
+All possible destinations are busy. Unlike the 486 response, this response indicates the destination knows there are no alternative destinations (such as a voicemail server) able to accept the call.[1]:§21.6.1
+603 Decline
+The destination does not wish to participate in the call, or cannot do so, and additionally the destination knows there are no alternative destinations (such as a voicemail server) willing to accept the call.[1]:§21.6.2 The response may indicate a better time to call in the Retry-After header field.
+604 Does Not Exist Anywhere
+The server has authoritative information that the requested user does not exist anywhere.[1]:§21.6.3
+606 Not Acceptable
+The user's agent was contacted successfully but some aspects of the session description such as the requested media, bandwidth, or addressing style were not acceptable.[1]:§21.6.4
+607 Unwanted
+The called party did not want this call from the calling party. Future attempts from the calling party are likely to be similarly rejected.[23]
+608 Rejected
+An intermediary machine or process rejected the call attempt.[24] This contrasts with the 607 (Unwanted) SIP response code in which the called party rejected the call. The response may include the contact entities that blocked the call in Call-Info header containing. This provides a remediation mechanism for legal callers that find their calls blocked.
+
+
+
+
+
+
+
+
+
+
+
+Now we go to RTP protocol - this is 
+
+The Real-time Transport Protocol (RTP) is a network protocol for delivering audio and video over IP networks. RTP is used in communication and entertainment systems that involve streaming media, such as telephony, video teleconference applications including WebRTC, television services and web-based push-to-talk features.
+
+RTP typically runs over User Datagram Protocol (UDP). RTP is used in conjunction with the RTP Control Protocol (RTCP). While RTP carries the media streams (e.g., audio and video), RTCP is used to monitor transmission statistics and quality of service (QoS) and aids synchronization of multiple streams. RTP is one of the technical foundations of Voice over IP and in this context is often used in conjunction with a signaling protocol such as the Session Initiation Protocol (SIP) which establishes connections across the network.
+
+RTP was developed by the Audio-Video Transport Working Group of the Internet Engineering Task Force (IETF) and first published in 1996 as RFC 1889 which was then superseded by RFC 3550 in 2003.
+
+this is where the real audio / video stream happens.
+
+we want messages to be sent quickly without overhead.
+
+source port
+destination port
+length
+checksum
+
+RTP Protocol.
+stream setup by SDP. Session Description Protocol (SDP)
+ this portion deals with making sure we are talking to the right party.
+
+Payload type. if we use wrong codec. other party wont be able to decode it.
+
+
+The SIP protocol deals with Session EstablishMent.. so we do not need 3 way handshake , or worry about retransmitting or message ordering.
+
+if we miss audio or video we drop packets for ~15ms.
+
+info shows codec , type of audio ,  sequence number , and time.
+
+522	8.529324	200.57.7.196	200.57.7.204	RTP	214	PT=ITU-T G.711 PCMA, SSRC=0x58F33DEA, Seq=11331, Time=289878434
+
+
+
+So firstly 
+PT=ITU-T G.711 PCMA VOICE CODEC
+G.711 is an ITU-T standard (Recommendation) for audio companding, titled Pulse code modulation (PCM) of voice frequencies, it is a required standard in many technologies, such as in the H.320 and H.323 standards.[1] It was originally designed for use in telephony and was released for use in 1972. It can also be used for fax communication over IP networks (as defined in T.38 specification). G.711 is a narrowband audio codec that provides toll-quality audio at 64 kbit/s. G.711 passes audio signals in the range of 300–3400 Hz and samples them at the rate of 8,000 samples per second, with the tolerance on that rate of 50 parts per million (ppm). Non-uniform (logarithmic) quantization with 8 bits is used to represent each sample, resulting in a 64 kbit/s bit rate. There are two slightly different versions: μ-law, which is used primarily in North America and Japan, and A-law, which is in use in most other countries outside North America.
+
+
+
+
+SSRC=0x58F33DEA
+
+
+
+SSRC Identifier Allocation and Use
+
+   The SSRC identifier carried in the RTP header and in various fields
+   of RTCP packets is a random 32-bit number that is required to be
+   globally unique within an RTP session.  It is crucial that the number
+   be chosen with care in order that participants on the same network or
+   starting at the same time are not likely to choose the same number.
+
+   It is not sufficient to use the local network address (such as an
+   IPv4 address) for the identifier because the address may not be
+   unique.  Since RTP translators and mixers enable interoperation among
+   multiple networks with different address spaces, the allocation
+   patterns for addresses within two spaces might result in a much
+   higher rate of collision than would occur with random allocation.
+
+   Multiple sources running on one host would also conflict.
+
+   It is also not sufficient to obtain an SSRC identifier simply by
+   calling random() without carefully initializing the state.  An
+   example of how to generate a random identifier is presented in
+   Appendix A.6.
+
+8.1 Probability of Collision
+
+   Since the identifiers are chosen randomly, it is possible that two or
+   more sources will choose the same number.  Collision occurs with the
+   highest probability when all sources are started simultaneously, for
+   example when triggered automatically by some session management
+   event.  If N is the number of sources and L the length of the
+   identifier (here, 32 bits), the probability that two sources
+   independently pick the same value can be approximated for large N
+   [26] as 1 - exp(-N**2 / 2**(L+1)).  For N=1000, the probability is
+   roughly 10**-4.
+
+   The typical collision probability is much lower than the worst-case
+   above.  When one new source joins an RTP session in which all the
+   other sources already have unique identifiers, the probability of
+   collision is just the fraction of numbers used out of the space.
+   Again, if N is the number of sources and L the length of the
+   identifier, the probability of collision is N / 2**L.  For N=1000,
+   the probability is roughly 2*10**-7.
+
+   The probability of collision is further reduced by the opportunity
+   for a new source to receive packets from other participants before
+   sending its first packet (either data or control).  If the new source
+   keeps track of the other participants (by SSRC identifier), then
+
+
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 59]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+   before transmitting its first packet the new source can verify that
+   its identifier does not conflict with any that have been received, or
+   else choose again.
+
+8.2 Collision Resolution and Loop Detection
+
+   Although the probability of SSRC identifier collision is low, all RTP
+   implementations MUST be prepared to detect collisions and take the
+   appropriate actions to resolve them.  If a source discovers at any
+   time that another source is using the same SSRC identifier as its
+   own, it MUST send an RTCP BYE packet for the old identifier and
+   choose another random one.  (As explained below, this step is taken
+   only once in case of a loop.)  If a receiver discovers that two other
+   sources are colliding, it MAY keep the packets from one and discard
+   the packets from the other when this can be detected by different
+   source transport addresses or CNAMEs.  The two sources are expected
+   to resolve the collision so that the situation doesn't last.
+
+   Because the random SSRC identifiers are kept globally unique for each
+   RTP session, they can also be used to detect loops that may be
+   introduced by mixers or translators.  A loop causes duplication of
+   data and control information, either unmodified or possibly mixed, as
+   in the following examples:
+
+   o  A translator may incorrectly forward a packet to the same
+      multicast group from which it has received the packet, either
+      directly or through a chain of translators.  In that case, the
+      same packet appears several times, originating from different
+      network sources.
+
+   o  Two translators incorrectly set up in parallel, i.e., with the
+      same multicast groups on both sides, would both forward packets
+      from one multicast group to the other.  Unidirectional translators
+      would produce two copies; bidirectional translators would form a
+      loop.
+
+   o  A mixer can close a loop by sending to the same transport
+      destination upon which it receives packets, either directly or
+      through another mixer or translator.  In this case a source might
+      show up both as an SSRC on a data packet and a CSRC in a mixed
+      data packet.
+
+   A source may discover that its own packets are being looped, or that
+   packets from another source are being looped (a third-party loop).
+   Both loops and collisions in the random selection of a source
+   identifier result in packets arriving with the same SSRC identifier
+   but a different source transport address, which may be that of the
+   end system originating the packet or an intermediate system.
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 60]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+   Therefore, if a source changes its source transport address, it MAY
+   also choose a new SSRC identifier to avoid being interpreted as a
+   looped source.  (This is not MUST because in some applications of RTP
+   sources may be expected to change addresses during a session.)  Note
+   that if a translator restarts and consequently changes the source
+   transport address (e.g., changes the UDP source port number) on which
+   it forwards packets, then all those packets will appear to receivers
+   to be looped because the SSRC identifiers are applied by the original
+   source and will not change.  This problem can be avoided by keeping
+   the source transport address fixed across restarts, but in any case
+   will be resolved after a timeout at the receivers.
+
+   Loops or collisions occurring on the far side of a translator or
+   mixer cannot be detected using the source transport address if all
+   copies of the packets go through the translator or mixer, however,
+   collisions may still be detected when chunks from two RTCP SDES
+   packets contain the same SSRC identifier but different CNAMEs.
+
+   To detect and resolve these conflicts, an RTP implementation MUST
+   include an algorithm similar to the one described below, though the
+   implementation MAY choose a different policy for which packets from
+   colliding third-party sources are kept.  The algorithm described
+   below ignores packets from a new source or loop that collide with an
+   established source.  It resolves collisions with the participant's
+   own SSRC identifier by sending an RTCP BYE for the old identifier and
+   choosing a new one.  However, when the collision was induced by a
+   loop of the participant's own packets, the algorithm will choose a
+   new identifier only once and thereafter ignore packets from the
+   looping source transport address.  This is required to avoid a flood
+   of BYE packets.
+
+   This algorithm requires keeping a table indexed by the source
+   identifier and containing the source transport addresses from the
+   first RTP packet and first RTCP packet received with that identifier,
+   along with other state for that source.  Two source transport
+   addresses are required since, for example, the UDP source port
+   numbers may be different on RTP and RTCP packets.  However, it may be
+   assumed that the network address is the same in both source transport
+   addresses.
+
+   Each SSRC or CSRC identifier received in an RTP or RTCP packet is
+   looked up in the source identifier table in order to process that
+   data or control information.  The source transport address from the
+   packet is compared to the corresponding source transport address in
+   the table to detect a loop or collision if they don't match.  For
+   control packets, each element with its own SSRC identifier, for
+   example an SDES chunk, requires a separate lookup.  (The SSRC
+   identifier in a reception report block is an exception because it
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 61]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+   identifies a source heard by the reporter, and that SSRC identifier
+   is unrelated to the source transport address of the RTCP packet sent
+   by the reporter.)  If the SSRC or CSRC is not found, a new entry is
+   created.  These table entries are removed when an RTCP BYE packet is
+   received with the corresponding SSRC identifier and validated by a
+   matching source transport address, or after no packets have arrived
+   for a relatively long time (see Section 6.2.1).
+
+   Note that if two sources on the same host are transmitting with the
+   same source identifier at the time a receiver begins operation, it
+   would be possible that the first RTP packet received came from one of
+   the sources while the first RTCP packet received came from the other.
+   This would cause the wrong RTCP information to be associated with the
+   RTP data, but this situation should be sufficiently rare and harmless
+   that it may be disregarded.
+
+   In order to track loops of the participant's own data packets, the
+   implementation MUST also keep a separate list of source transport
+   addresses (not identifiers) that have been found to be conflicting.
+   As in the source identifier table, two source transport addresses
+   MUST be kept to separately track conflicting RTP and RTCP packets.
+   Note that the conflicting address list should be short, usually
+   empty.  Each element in this list stores the source addresses plus
+   the time when the most recent conflicting packet was received.  An
+   element MAY be removed from the list when no conflicting packet has
+   arrived from that source for a time on the order of 10 RTCP report
+   intervals (see Section 6.2).
+
+   For the algorithm as shown, it is assumed that the participant's own
+   source identifier and state are included in the source identifier
+   table.  The algorithm could be restructured to first make a separate
+   comparison against the participant's own source identifier.
+
+      if (SSRC or CSRC identifier is not found in the source
+          identifier table) {
+          create a new entry storing the data or control source
+              transport address, the SSRC or CSRC and other state;
+      }
+
+      /* Identifier is found in the table */
+
+      else if (table entry was created on receipt of a control packet
+               and this is the first data packet or vice versa) {
+          store the source transport address from this packet;
+      }
+      else if (source transport address from the packet does not match
+               the one saved in the table entry for this identifier) {
+
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 62]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+          /* An identifier collision or a loop is indicated */
+
+          if (source identifier is not the participant's own) {
+              /* OPTIONAL error counter step */
+              if (source identifier is from an RTCP SDES chunk
+                  containing a CNAME item that differs from the CNAME
+                  in the table entry) {
+                  count a third-party collision;
+              } else {
+                  count a third-party loop;
+              }
+              abort processing of data packet or control element;
+              /* MAY choose a different policy to keep new source */
+          }
+
+          /* A collision or loop of the participant's own packets */
+
+          else if (source transport address is found in the list of
+                   conflicting data or control source transport
+                   addresses) {
+              /* OPTIONAL error counter step */
+              if (source identifier is not from an RTCP SDES chunk
+                  containing a CNAME item or CNAME is the
+                  participant's own) {
+                  count occurrence of own traffic looped;
+              }
+              mark current time in conflicting address list entry;
+              abort processing of data packet or control element;
+          }
+
+          /* New collision, change SSRC identifier */
+
+          else {
+              log occurrence of a collision;
+              create a new entry in the conflicting data or control
+                  source transport address list and mark current time;
+              send an RTCP BYE packet with the old SSRC identifier;
+              choose a new SSRC identifier;
+              create a new entry in the source identifier table with
+                  the old SSRC plus the source transport address from
+                  the data or control packet being processed;
+          }
+      }
+
+   In this algorithm, packets from a newly conflicting source address
+   will be ignored and packets from the original source address will be
+   kept.  If no packets arrive from the original source for an extended
+   period, the table entry will be timed out and the new source will be
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 63]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+   able to take over.  This might occur if the original source detects
+   the collision and moves to a new source identifier, but in the usual
+   case an RTCP BYE packet will be received from the original source to
+   delete the state without having to wait for a timeout.
+
+   If the original source address was received through a mixer (i.e.,
+   learned as a CSRC) and later the same source is received directly,
+   the receiver may be well advised to switch to the new source address
+   unless other sources in the mix would be lost.  Furthermore, for
+   applications such as telephony in which some sources such as mobile
+   entities may change addresses during the course of an RTP session,
+   the RTP implementation SHOULD modify the collision detection
+   algorithm to accept packets from the new source transport address.
+   To guard against flip-flopping between addresses if a genuine
+   collision does occur, the algorithm SHOULD include some means to
+   detect this case and avoid switching.
+
+   When a new SSRC identifier is chosen due to a collision, the
+   candidate identifier SHOULD first be looked up in the source
+   identifier table to see if it was already in use by some other
+   source.  If so, another candidate MUST be generated and the process
+   repeated.
+
+   A loop of data packets to a multicast destination can cause severe
+   network flooding.  All mixers and translators MUST implement a loop
+   detection algorithm like the one here so that they can break loops.
+   This should limit the excess traffic to no more than one duplicate
+   copy of the original traffic, which may allow the session to continue
+   so that the cause of the loop can be found and fixed.  However, in
+   extreme cases where a mixer or translator does not properly break the
+   loop and high traffic levels result, it may be necessary for end
+   systems to cease transmitting data or control packets entirely.  This
+   decision may depend upon the application.  An error condition SHOULD
+   be indicated as appropriate.  Transmission MAY be attempted again
+   periodically after a long, random time (on the order of minutes).
+
+8.3 Use with Layered Encodings
+
+   For layered encodings transmitted on separate RTP sessions (see
+   Section 2.4), a single SSRC identifier space SHOULD be used across
+   the sessions of all layers and the core (base) layer SHOULD be used
+   for SSRC identifier allocation and collision resolution.  When a
+   source discovers that it has collided, it transmits an RTCP BYE
+   packet on only the base layer but changes the SSRC identifier to the
+   new value in all layers.
+
+
+
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 64]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+9. Security
+
+   Lower layer protocols may eventually provide all the security
+   services that may be desired for applications of RTP, including
+   authentication, integrity, and confidentiality.  These services have
+   been specified for IP in [27].  Since the initial audio and video
+   applications using RTP needed a confidentiality service before such
+   services were available for the IP layer, the confidentiality service
+   described in the next section was defined for use with RTP and RTCP.
+   That description is included here to codify existing practice.  New
+   applications of RTP MAY implement this RTP-specific confidentiality
+   service for backward compatibility, and/or they MAY implement
+   alternative security services.  The overhead on the RTP protocol for
+   this confidentiality service is low, so the penalty will be minimal
+   if this service is obsoleted by other services in the future.
+
+   Alternatively, other services, other implementations of services and
+   other algorithms may be defined for RTP in the future.  In
+   particular, an RTP profile called Secure Real-time Transport Protocol
+   (SRTP) [28] is being developed to provide confidentiality of the RTP
+   payload while leaving the RTP header in the clear so that link-level
+   header compression algorithms can still operate.  It is expected that
+   SRTP will be the correct choice for many applications.  SRTP is based
+   on the Advanced Encryption Standard (AES) and provides stronger
+   security than the service described here.  No claim is made that the
+   methods presented here are appropriate for a particular security
+   need.  A profile may specify which services and algorithms should be
+   offered by applications, and may provide guidance as to their
+   appropriate use.
+
+   Key distribution and certificates are outside the scope of this
+   document.
+
+9.1 Confidentiality
+
+   Confidentiality means that only the intended receiver(s) can decode
+   the received packets; for others, the packet contains no useful
+   information.  Confidentiality of the content is achieved by
+   encryption.
+
+   When it is desired to encrypt RTP or RTCP according to the method
+   specified in this section, all the octets that will be encapsulated
+   for transmission in a single lower-layer packet are encrypted as a
+   unit.  For RTCP, a 32-bit random number redrawn for each unit MUST be
+   prepended to the unit before encryption.  For RTP, no prefix is
+   prepended; instead, the sequence number and timestamp fields are
+   initialized with random offsets.  This is considered to be a weak
+
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 65]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+   initialization vector (IV) because of poor randomness properties.  In
+   addition, if the subsequent field, the SSRC, can be manipulated by an
+   enemy, there is further weakness of the encryption method.
+
+   For RTCP, an implementation MAY segregate the individual RTCP packets
+   in a compound RTCP packet into two separate compound RTCP packets,
+   one to be encrypted and one to be sent in the clear.  For example,
+   SDES information might be encrypted while reception reports were sent
+   in the clear to accommodate third-party monitors that are not privy
+   to the encryption key.  In this example, depicted in Fig. 4, the SDES
+   information MUST be appended to an RR packet with no reports (and the
+   random number) to satisfy the requirement that all compound RTCP
+   packets begin with an SR or RR packet.  The SDES CNAME item is
+   required in either the encrypted or unencrypted packet, but not both.
+   The same SDES information SHOULD NOT be carried in both packets as
+   this may compromise the encryption.
+
+             UDP packet                     UDP packet
+   -----------------------------  ------------------------------
+   [random][RR][SDES #CNAME ...]  [SR #senderinfo #site1 #site2]
+   -----------------------------  ------------------------------
+             encrypted                     not encrypted
+
+   #: SSRC identifier
+
+       Figure 4: Encrypted and non-encrypted RTCP packets
+
+   The presence of encryption and the use of the correct key are
+   confirmed by the receiver through header or payload validity checks.
+   Examples of such validity checks for RTP and RTCP headers are given
+   in Appendices A.1 and A.2.
+
+   To be consistent with existing implementations of the initial
+   specification of RTP in RFC 1889, the default encryption algorithm is
+   the Data Encryption Standard (DES) algorithm in cipher block chaining
+   (CBC) mode, as described in Section 1.1 of RFC 1423 [29], except that
+   padding to a multiple of 8 octets is indicated as described for the P
+   bit in Section 5.1.  The initialization vector is zero because random
+   values are supplied in the RTP header or by the random prefix for
+   compound RTCP packets.  For details on the use of CBC initialization
+   vectors, see [30].
+
+   Implementations that support the encryption method specified here
+   SHOULD always support the DES algorithm in CBC mode as the default
+   cipher for this method to maximize interoperability.  This method was
+   chosen because it has been demonstrated to be easy and practical to
+   use in experimental audio and video tools in operation on the
+   Internet.  However, DES has since been found to be too easily broken.
+
+
+
+Schulzrinne, et al.         Standards Track                    [Page 66]
+ 
+RFC 3550                          RTP                          July 2003
+
+
+   It is RECOMMENDED that stronger encryption algorithms such as
+   Triple-DES be used in place of the default algorithm.  Furthermore,
+   secure CBC mode requires that the first block of each packet be XORed
+   with a random, independent IV of the same size as the cipher's block
+   size.  For RTCP, this is (partially) achieved by prepending each
+   packet with a 32-bit random number, independently chosen for each
+   packet.  For RTP, the timestamp and sequence number start from random
+   values, but consecutive packets will not be independently randomized.
+   It should be noted that the randomness in both cases (RTP and RTCP)
+   is limited.  High-security applications SHOULD consider other, more
+   conventional, protection means.  Other encryption algorithms MAY be
+   specified dynamically for a session by non-RTP means.  In particular,
+   the SRTP profile [28] based on AES is being developed to take into
+   account known plaintext and CBC plaintext manipulation concerns, and
+   will be the correct choice in the future.
+
+   As an alternative to encryption at the IP level or at the RTP level
+   as described above, profiles MAY define additional payload types for
+   encrypted encodings.  Those encodings MUST specify how padding and
+   other aspects of the encryption are to be handled.  This method
+   allows encrypting only the data while leaving the headers in the
+   clear for applications where that is desired.  It may be particularly
+   useful for hardware devices that will handle both decryption and
+   decoding.  It is also valuable for applications where link-level
+   compression of RTP and lower-layer headers is desired and
+   confidentiality of the payload (but not addresses) is sufficient
+   since encryption of the headers precludes compression.
+
+9.2 Authentication and Message Integrity
+
+   Authentication and message integrity services are not defined at the
+   RTP level since these services would not be directly feasible without
+   a key management infrastructure.  It is expected that authentication
+   and integrity services will be provided by lower layer protocols.
+
+
+
+
+we dont need udp to verify that messages are coming in order or not.
+RTP does the message ordering here.. we don't need tcp to do this..

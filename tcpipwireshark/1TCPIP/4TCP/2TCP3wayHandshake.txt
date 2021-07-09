@@ -1,0 +1,172 @@
+website traffic is http http uses tcp
+
+how tcp works..
+we want to access https://www.google.com.pk
+TCP port 443 is the standard TCP port that is used for website which use SSL (destination port)
+
+
+1.) A client sends the server a SYN packet—a connection request from its source port to a server’s destination port.
+
+This is a synchronize message. sent from source. through port source port 50504
+
+Transmission Control Protocol, Src Port: 50504, Dst Port: 443, Seq: 0, Len: 0
+    Source Port: 50504
+    Destination Port: 443
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 0    (relative sequence number)
+    Sequence number (raw): 2699307568
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 0
+    Acknowledgment number (raw): 0
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x002 (SYN)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...0 .... = Acknowledgment: Not set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..1. = Syn: Set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ··········S·]
+    Window size value: 64240
+    [Calculated window size: 64240]
+    Checksum: 0xfaee [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    Options: (12 bytes), Maximum segment size, No-Operation (NOP), Window scale, No-Operation (NOP), No-Operation (NOP), SACK permitted
+        TCP Option - Maximum segment size: 1460 bytes
+            Kind: Maximum Segment Size (2)
+            Length: 4
+            MSS Value: 1460
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Window scale: 8 (multiply by 256)
+            Kind: Window Scale (3)
+            Length: 3
+            Shift count: 8
+            [Multiplier: 256]
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - SACK permitted
+            Kind: SACK Permitted (4)
+            Length: 2
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.000000000 seconds]
+        [Time since previous frame in this TCP stream: 0.000000000 seconds]
+
+---------------------------
+
+2.) The server responds with a SYN/ACK packet, acknowledging the receipt of the connection request.
+
+(SYN,ACK) Point B does not know if Point A is being spoofed so 
+Destination sends a SYN,ACK packet.(Point B) so that Point A has to send back an acknowledgement. so in order to avoid spoofing
+we need a third step. the acknowledgement step.
+
+Transmission Control Protocol, Src Port: 443, Dst Port: 50504, Seq: 0, Ack: 1, Len: 0
+    Source Port: 443
+    Destination Port: 50504
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 0    (relative sequence number)
+    Sequence number (raw): 4153136725
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Acknowledgment number (raw): 2699307569
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x012 (SYN, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..1. = Syn: Set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······A··S·]
+    Window size value: 60720
+    [Calculated window size: 60720]
+    Checksum: 0x3b0c [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    Options: (12 bytes), Maximum segment size, No-Operation (NOP), No-Operation (NOP), SACK permitted, No-Operation (NOP), Window scale
+        TCP Option - Maximum segment size: 1380 bytes
+            Kind: Maximum Segment Size (2)
+            Length: 4
+            MSS Value: 1380
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - SACK permitted
+            Kind: SACK Permitted (4)
+            Length: 2
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Window scale: 8 (multiply by 256)
+            Kind: Window Scale (3)
+            Length: 3
+            Shift count: 8
+            [Multiplier: 256]
+    [SEQ/ACK analysis]
+        [This is an ACK to the segment in frame: 181]
+        [The RTT to ACK the segment was: 0.033990000 seconds]
+        [iRTT: 0.034095000 seconds]
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.033990000 seconds]
+        [Time since previous frame in this TCP stream: 0.033990000 seconds]
+
+
+
+---------------
+
+3.) The client receives the SYN/ACK packet and responds with an ACK packet of its own.
+
+Point B sends a ack message.
+
+Transmission Control Protocol, Src Port: 50504, Dst Port: 443, Seq: 1, Ack: 1, Len: 0
+    Source Port: 50504
+    Destination Port: 443
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 1    (relative sequence number)
+    Sequence number (raw): 2699307569
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Acknowledgment number (raw): 4153136726
+    0101 .... = Header Length: 20 bytes (5)
+    Flags: 0x010 (ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······A····]
+    Window size value: 512
+    [Calculated window size: 131072]
+    [Window size scaling factor: 256]
+    Checksum: 0x66c0 [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    [SEQ/ACK analysis]
+        [This is an ACK to the segment in frame: 188]
+        [The RTT to ACK the segment was: 0.000105000 seconds]
+        [iRTT: 0.034095000 seconds]
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.034095000 seconds]
+        [Time since previous frame in this TCP stream: 0.000105000 seconds]
+
+-------------------------------
+

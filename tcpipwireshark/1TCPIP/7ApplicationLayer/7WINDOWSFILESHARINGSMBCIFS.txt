@@ -1,0 +1,47 @@
+For Windows File Sharing
+Print Sharing
+communication between network systems
+
+Protocol : SMB
+Server Message Block
+
+protocol implemented for windows systems to transmit information from windows to windows over network
+NetBIOS
+NetBEUI
+LAN MANAGER(IBM PROTOCOL)
+
+-------------------------
+NetBIOS Session Service
+Server Message Block Header
+NT STATUS
+SMB COMMAND Trans2
+Flags
+Tree ID
+
+we are looking at a windows share thats at private_ip\test
+share name is test.
+Process ID
+User ID
+
+these ids tell us whether the user is authenticated to access these resources.
+
+Trans2 Transfer command
+query path , level of interest \ info standard(1)
+
+filename
+--------------------------
+
+
+in packet capture, we issued directory delete request. that faied with IS_ADIRECTORY
+
+then we issue the Delete Request: with filename \testsfileinfo\*
+
+Trans2 requests get info about the files.
+
+. means current directory
+.. means 1 directory above this path.
+
+------------------
+
+
+Set Information on files

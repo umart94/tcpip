@@ -1,0 +1,79 @@
+Intent Command
+The intent command allows one to see what intents are stored in the system. Intents can be in several states:
+•	SUBMITTED - The intent has been submitted and will be processed soon.
+•	COMPILING - The intent is being compiled. This is a transient state.
+•	INSTALLING - The intent is in the process of being installed. 
+•	INSTALLED - The intent has been installed.
+•	RECOMPILING - The intent is being recompiled after a failure.
+•	WITHDRAWING - The intent is being withdrawn.
+•	WITHDRAWN - The intent has been removed.
+•	FAILED - The intent is in a failed state because it cannot be satisfied.
+For more information about Intents go here.
+onos> intents
+id=0x0, state=INSTALLED, type=HostToHostIntent, appId=org.onlab.onos.gui
+    constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}]
+id=0x1, state=WITHDRAWN, type=HostToHostIntent, appId=org.onlab.onos.cli
+    constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}]
+Note: You will not see any intents until some have been added. In the next section of the tutorial, you will add explicit host connectivity intent.
+
+
+
+
+
+
+
+
+
+The command can also tell you what type of sub-intents the intent has been compiled to:
+onos> intents -i
+id=0x2, state=INSTALLED, type=HostToHostIntent, appId=org.onlab.onos.ifwd
+    constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}]
+    installable=[
+PathIntent{id=0x4, appId=DefaultApplicationId{id=2, name=org.onlab.onos.ifwd}, 
+    selector=DefaultTrafficSelector{criteria=[ETH_SRC{mac=00:00:00:00:00:0D}, ETH_DST{mac=00:00:00:00:00:07}]}, 
+    treatment=DefaultTrafficTreatment{instructions=[]}, constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}],
+    path=DefaultPath{src=ConnectPoint{elementId=00:00:00:00:00:0D/-1, portNumber=0},
+                        dst=ConnectPoint{elementId=00:00:00:00:00:07/-1, portNumber=0}, type=INDIRECT, state=ACTIVE, durable=false}},
+PathIntent{id=0x5, appId=DefaultApplicationId{id=2, name=org.onlab.onos.ifwd},
+    selector=DefaultTrafficSelector{criteria=[ETH_SRC{mac=00:00:00:00:00:07}, ETH_DST{mac=00:00:00:00:00:0D}]},
+    treatment=DefaultTrafficTreatment{instructions=[]}, constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}],    
+    path=DefaultPath{src=ConnectPoint{elementId=00:00:00:00:00:07/-1, portNumber=0}, 
+                        dst=ConnectPoint{elementId=00:00:00:00:00:0D/-1, portNumber=0}, type=INDIRECT, state=ACTIVE, durable=false}}]
+For example, this host to host intent has been compiled to two path intents with the appropriate traffic selections and actions computed on your behalf.
+State your intentions
+One major advantage of using intents over simply using flow entries to program your network is that intents track the state of the network and reconfigure themselves in order to satisfy your intention. For example, if link were to go down the intent framework would reroute your intent (ie. your flows) onto an alternative path. But, what if there are no alternative path? Well, in this case the intent would enter the failed state and remain there until a path becomes available. Pretty cool, eh? Let's check this out in action.
+First, let's deactivate the Reactive Forwarding application though:
+onos> app deactivate fwd
+Deactivated org.onosproject.fwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Next, let's add a host connectivity intent for some two end-station hosts. You can use argument completion by pressing the Tab key.
+onos> add-host-intent 00:00:00:00:00:01/None 00:00:00:00:00:10/None
+Host to Host intent submitted:
+HostToHostIntent{id=0x0, key=0x0, appId=DefaultApplicationId{id=2, name=org.onosproject.cli}, priority=100, resources=[00:00:00:00:00:01/None, 00:00:00:00:00:10/None], selector=DefaultTrafficSelector{criteria=[]}, treatment=DefaultTrafficTreatment{immediate=[NOACTION], deferred=[], transition=None, meter=[], cleared=false, StatTrigger=null, metadata=null}, constraints=[LinkTypeConstraint{inclusive=false, types=[OPTICAL]}], resourceGroup=null, one=00:00:00:00:00:01/None, two=00:00:00:00:00:10/None}
+This command will provision a path between 10.0.0.1 (h11) and 10.0.0.16 (h41) and you can see that the intent is installed.
+onos> intents
+Id: 0x0
+State: INSTALLED
+Key: 0x0
+Intent type: HostToHostIntent
+Application Id: org.onosproject.cli
+Resources: [00:00:00:00:00:01/None, 00:00:00:00:00:10/None]
+Treatment: [NOACTION]
+Constraints: [LinkTypeConstraint{inclusive=false, types=[OPTICAL]}]
+Source host: 00:00:00:00:00:01/None
+Destination host: 00:00:00:00:00:10/None
+
+

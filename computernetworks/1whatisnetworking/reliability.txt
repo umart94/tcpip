@@ -1,0 +1,7 @@
+reliability is the dependability of the components
+
+measured as probability of failure
+or mean time before failure
+
+also called MTBF
+

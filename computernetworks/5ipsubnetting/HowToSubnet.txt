@@ -1,0 +1,416 @@
+CIDR replaces classful IP Addressing
+CIDR introduces variable length subnet masks (VLSM)
+
+10.0.0.0/8 notation
+
+rather than 10.0.0.0 255.0.0.0 notation.
+
+
+Subnetting Part 1 : 
+
+Two methods of Subnetting : 
+
+- Subnetting method 1 - Binary Method
+- Subnetting method 2 - Quick Method
+
+Subnetting Part 2 : 
+
+to answer questions like
+what subnet is this host on ?
+what is the last host in this subnet ?
+
+
+Subnetting Part 1 : 
+When given an IP Address, we will learn how to work out:
+
+Subnet Address
+1st Host Address
+Last Host Address
+Broadcast Address
+
+
+PC1 : 
+192.168.10.18/24
+
+Q: what ip address would router1 be configured with if it is to use the first IP Address in the same subnet as PC1 ?
+
+Q: what broadcast address is used by PC1 ?
+
+Q: What IP Address would router1 be configured with if it is to use the last IP Address in the same subnet as PC1 ?
+
+Q: What Subnet is PC1 a  part of ?
+
+
+
+
+
+Binary Method 1 : 
+
+Rules:
+
+1. To work out the network/subnet address
+Fill the Host Portion of an address with binary 0's
+
+
+2. To work out the broadcast address
+Fill the host portion of an address with binary 1's
+
+3. To Work out the first host.
+
+Fill the host portion of an address with binary 0's except for the last bit which is set to binary 1
+
+4. to work out the last Host
+Fill the host portion of an address with binary 1's except for the last bit which is set to binary 0
+
+
+
+Example:
+
+IP ADDRESS OF PC is
+
+192.168.1.18/24 or
+192.168.1.18 255.255.255.0
+
+/24 means 24 bits are for network so 32-24 = 8
+the last 8 bits are host.
+
+the .18 is the host portion
+
+
+
+
+1. To work out the network/subnet address
+Fill the Host Portion of an address with binary 0's
+Subnet = 192.168.1.00000000
+= 192.168.1.0
+
+
+2. To work out the broadcast address
+Fill the host portion of an address with binary 1's
+192.168.1.11111111
+Broadcast Address = 192.168.1.255
+
+
+
+3. To Work out the first host.
+Fill the host portion of an address with binary 0's except for the last bit which is set to binary 1
+
+First Host = 192.168.1.00000001
+192.168.1.1
+
+
+
+4. to work out the last Host
+Fill the host portion of an address with binary 1's except for the last bit which is set to binary 0
+
+Last Host = 192.168.1.11111110
+Last Host = 192.168.1.254
+
+
+
+Subnet/Network Address = 192.168.1.00000000 = 192.168.1.0/24
+
+Broadcast Address = 192.168.1.11111111 = 192.168.1.255/24
+
+First Host Address = 192.168.1.00000001 = 192.168.1.1/24
+
+Last Host Address = 192.168.1.11111110 = 192.168.1.254/24
+
+
+
+
+-----------------------------------
+Example 2
+
+PC with IP Address of
+
+172.16.35.123/20 or
+172.16.35.123 255.255.240.0
+
+
+Q:  Where are the subnet and host portions split ?
+
+Q: In this example, /20 means that 20 bits of the 32 bit IP Address are used for network/subnet and remaining 12 bits are used as host portion.
+
+
+172.16.35.123/20
+8.8.8.8
+8+8=16
+then 8+8+8 = 24
+
+so the split is in the 3rd octet.
+in third octet. 32-20 = 12.
+
+32-12 = 20
+24 bits in 3 octets.
+24-20 = 4
+4thbit of 3rd octet.
+
+Since the split occured in the 3rd octet.
+
+thus, the network portion is the first 2 octets. and 
+the host bits are in the 3rd and 4th octet.
+
+We will not consider the 3rd octet for network portion.. 3 and 4 are host.
+
+
+so we need to convert Only the 3rd and 4th octet. to binary.
+
+172.16.35.123/20
+
+there is no need to convert the 1st 2 octets here to binary.
+because no host bits found in the first 2 octets.
+
+IP address = 172.16.00100011.01111011 = 172.16.35.123/20
+			   8.8.4 = 20
+			   
+			   thus we have
+			   
+172.16.0010 = NETWORK
+and
+0011.01111011 as = HOST BITS.
+
+
+TOTAL - NETWORK = HOST
+Thus we have 32-20 = 12 bits for the HOST portion.
+
+
+
+
+
+IP address = 172.16.00100011.01111011 = 172.16.35.123/20
+			   8.8.4 = 20
+			   
+			   thus we have
+			   
+172.16 = NETWORK
+and
+0010
+
+0011.01111011 as = HOST BITS.
+
+
+TOTAL - NETWORK = HOST
+Thus we have 32-20 = 12 bits for the HOST portion.
+
+
+
+Binary Method 1 : 
+
+Rules:
+
+1. To work out the network/subnet address
+Fill the Host Portion of an address with binary 0's
+172.16.0010 0000.00000000
+172.16.00100000.00000000
+
+100000 in decimal is 32
+
+172.16.32.0 = Subnet / Network Address.
+
+2. To work out the broadcast address
+Fill the host portion of an address with binary 1's
+
+172.16.0010 1111.11111111
+172.16.00101111.11111111
+
+101111 = 47 in decimal
+11111111 = 255 in decimal
+
+so we have
+
+
+Broadcast Address = 172.16.47.255
+
+
+3. To Work out the first host.
+
+Fill the host portion of an address with binary 0's except for the last bit which is set to binary 1
+
+172.16.0010 0000.00000001
+172.16.00100000.00000001
+
+172.16.32.1 = First Host
+
+
+
+4. to work out the last Host
+Fill the host portion of an address with binary 1's except for the last bit which is set to binary 0
+
+
+172.16.0010 1111.11111110
+172.16.00101111.11111110
+
+101111 = 47
+11111110 = 254
+
+
+172.16.47.254 = Last Host
+
+
+
+
+Subnet/Network Address = 172.16.00100000.00000000 = 172.16.32.0/20
+
+Broadcast Address = 172.16.00101111.11111111 = 172.16.47.255/20
+
+First Host = 172.16.00100000.00000001 = 172.16.32.1/20
+
+Last Host = 172.16.00101111.11111110 = 172.16.47.254/20
+
+
+-------------------------------------------------
+Example 3
+
+PC with IP Address of
+
+172.16.129.1/17 or
+172.16.129.1 255.255.128.0
+
+
+Q:  Where are the subnet and host portions split ?
+
+Q: In this example, /17 means that 17 bits of the 32 bit IP Address are used for network/subnet and remaining 15 bits are used as host portion.
+
+
+172.16.129.1/17
+8.8.8.8
+8+8=16
+then 8+8+8 = 24
+
+so the split is in the 3rd octet.
+in third octet. 
+TOTAL - NETWORK = HOST
+32-17 = 15
+
+8+8 = 16.
+that means in reverse. we have 15 bits.
+so split occurs from first bit of 3rd octet.
+
+thus, the network portion is the first 2 octets. and 
+the host bits are in the 3rd and 4th octet.
+
+so we need to convert Only the 3rd and 4th octet. to binary.
+
+172.16.129.1/17
+
+there is no need to convert the 1st 2 octets here to binary.
+because no host bits found in the first 2 octets.
+
+IP address = 172.16.10000001.00000001 = 172.16.129.1/17
+			   8.8.1 = 17
+			   
+			   thus we have
+			   
+172.16 = NETWORK
+and
+1(split here)/17
+
+0000001.00000001 as = HOST BITS. (15 bits)
+
+
+TOTAL - NETWORK = HOST
+Thus we have 32-17 = 15 bits for the HOST portion.
+
+
+
+
+
+IP address = 172.16.10000001.00000001 = 172.16.129.1/17
+			   8.8.4 = 20
+			   
+			   thus we have
+			   
+172.16 = NETWORK
+and
+1
+0000001.00000001 as = HOST BITS.
+
+TOTAL - NETWORK = HOST
+Thus we have 32-17 = 15 bits for the HOST portion.
+
+
+
+Binary Method 1 : 
+172.16.10000001.00000001 = 172.16.129.1/17
+Rules:
+
+1. To work out the network/subnet address
+Fill the Host Portion of an address with binary 0's
+172.16.1 0000001.00000001
+172.16.10000000.00000000
+
+
+10000000 in decimal is 128
+
+172.16.128.0 = Subnet / Network Address.
+
+2. To work out the broadcast address
+Fill the host portion of an address with binary 1's
+
+172.16.1 0000001.00000001
+172.16.11111111.11111111
+172.16.255.255
+11111111 = 255 in decimal
+
+so we have
+
+
+Broadcast Address = 172.16.255.255
+
+
+3. To Work out the first host.
+
+Fill the host portion of an address with binary 0's except for the last bit which is set to binary 1
+
+172.16.1 0000001.00000001
+172.16.10000000.00000001
+
+172.16.128.1 = First Host
+
+
+
+4. to work out the last Host
+Fill the host portion of an address with binary 1's except for the last bit which is set to binary 0
+
+
+172.16.1 11111111.11111110
+172.16.111111111.11111110
+
+11111110 = 254
+
+
+172.16.255.254 = Last Host
+
+
+
+
+Subnet/Network Address = 172.16.10000000.00000000 = 172.16.128.0/17
+
+Broadcast Address = 172.16.11111111.11111111 = 172.16.255.255/17
+
+First Host = 172.16.10000000.00000001 = 172.16.32.1/17
+
+Last Host = 172.16.111111111.11111110 = 172.16.255.254/17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

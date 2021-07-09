@@ -1,0 +1,28 @@
+unicast traffic : sent to one machine only
+broadcast traffic : multiple systems and broad spectrum of hosts
+
+wireshark by default puts network traffic in promiscuous mode , that means that we see all traffic on this network
+if firewall or antivirus is enabled, it would affect promiscuous mode
+
+Filter : tcp
+will filter by tcp traffic
+but we also see TLS as well, this means that we see other protocols that are on top of TCP ( tls encryption over tcp)
+
+Filter : ip.addr == YOU_IP_ADDRESS_HERE
+
+ipconfig /all
+
+private ip assigned set to preferred / default
+
+
+Filter : ip.src == your_ip_address_here
+
+this will only sort packets by exact source id, and not any other traffic
+
+we can also right click choose apply as filter and choose selected
+this will sort packets out by only this type of packet
+
+right click -> follow tcp stream
+shows messages related to that tcp stream
+
+double click -> http get request .. we see request and response of 200 ( pick any http traffic )

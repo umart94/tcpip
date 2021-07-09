@@ -1,0 +1,149 @@
+bootp - bootstrap protocol - is older protocol. it does not have configuration options that dhcp offers
+
+dhcp - dynamic host configuration protocol
+
+dhcp packets.
+
+DHCP DISCOVER
+A CLIENT SENDS A MESSAGE looking for dhcp address.
+DHCP uses UDP for transport protocol
+
+source port : bootp client port (67)
+destination port : bootp server port (68)
+
+
+source sending to destination using UDP
+it may not have ip address. we may not establish connection with server
+we negotiate a ip address from (dhcp server.) send all zeroes in source and all 255 in destination.
+
+Dynamic Host Configuration Protocol (Discover)
+    Message type: Boot Request (1)
+    Hardware type: Ethernet (0x01)
+    Hardware address length: 6
+    Hops: 0
+    Transaction ID: 0x00003d1d
+    Seconds elapsed: 0
+    Bootp flags: 0x0000 (Unicast)
+    Client IP address: 0.0.0.0
+    Your (client) IP address: 0.0.0.0
+    Next server IP address: 0.0.0.0
+    Relay agent IP address: 0.0.0.0
+    Client MAC address: Grandstr_01:fc:42 (00:0b:82:01:fc:42)
+    Client hardware address padding: 00000000000000000000
+    Server host name not given
+    Boot file name not given
+    Magic cookie: DHCP
+    Option: (53) DHCP Message Type (Discover)
+    Option: (61) Client identifier
+    Option: (50) Requested IP Address (0.0.0.0)
+    Option: (55) Parameter Request List
+    Option: (255) End
+    Padding: 00000000000000
+
+We need an ipaddress
+--------------------------------
+DHCP OFFER
+
+Dynamic Host Configuration Protocol (Offer)
+    Message type: Boot Reply (2)
+    Hardware type: Ethernet (0x01)
+    Hardware address length: 6
+    Hops: 0
+    Transaction ID: 0x00003d1d
+    Seconds elapsed: 0
+    Bootp flags: 0x0000 (Unicast)
+    Client IP address: 0.0.0.0
+    Your (client) IP address: 192.168.0.10
+    Next server IP address: 192.168.0.1
+    Relay agent IP address: 0.0.0.0
+    Client MAC address: Grandstr_01:fc:42 (00:0b:82:01:fc:42)
+    Client hardware address padding: 00000000000000000000
+    Server host name not given
+    Boot file name not given
+    Magic cookie: DHCP
+    Option: (53) DHCP Message Type (Offer)
+    Option: (1) Subnet Mask (255.255.255.0)
+    Option: (58) Renewal Time Value
+    Option: (59) Rebinding Time Value
+    Option: (51) IP Address Lease Time
+    Option: (54) DHCP Server Identifier (192.168.0.1)
+    Option: (255) End
+    Padding: 000000000000000000000000000000000000000000000000…
+
+this ip address is offered
+----------------------------------------
+DHCP REQUEST 
+
+Dynamic Host Configuration Protocol (Request)
+    Message type: Boot Request (1)
+    Hardware type: Ethernet (0x01)
+    Hardware address length: 6
+    Hops: 0
+    Transaction ID: 0x00003d1e
+    Seconds elapsed: 0
+    Bootp flags: 0x0000 (Unicast)
+    Client IP address: 0.0.0.0
+    Your (client) IP address: 0.0.0.0
+    Next server IP address: 0.0.0.0
+    Relay agent IP address: 0.0.0.0
+    Client MAC address: Grandstr_01:fc:42 (00:0b:82:01:fc:42)
+    Client hardware address padding: 00000000000000000000
+    Server host name not given
+    Boot file name not given
+    Magic cookie: DHCP
+    Option: (53) DHCP Message Type (Request)
+    Option: (61) Client identifier
+    Option: (50) Requested IP Address (192.168.0.10)
+    Option: (54) DHCP Server Identifier (192.168.0.1)
+    Option: (55) Parameter Request List
+    Option: (255) End
+    Padding: 00
+
+Renewal time is the half of release time.
+at this time , renew your ip and make sure you have that ip
+-------------------------------------
+DHCP ACK
+
+Dynamic Host Configuration Protocol (ACK)
+    Message type: Boot Reply (2)
+    Hardware type: Ethernet (0x01)
+    Hardware address length: 6
+    Hops: 0
+    Transaction ID: 0x00003d1e
+    Seconds elapsed: 0
+    Bootp flags: 0x0000 (Unicast)
+    Client IP address: 0.0.0.0
+    Your (client) IP address: 192.168.0.10
+    Next server IP address: 0.0.0.0
+    Relay agent IP address: 0.0.0.0
+    Client MAC address: Grandstr_01:fc:42 (00:0b:82:01:fc:42)
+    Client hardware address padding: 00000000000000000000
+    Server host name not given
+    Boot file name not given
+    Magic cookie: DHCP
+    Option: (53) DHCP Message Type (ACK)
+    Option: (58) Renewal Time Value
+    Option: (59) Rebinding Time Value
+    Option: (51) IP Address Lease Time
+    Option: (54) DHCP Server Identifier (192.168.0.1)
+    Option: (1) Subnet Mask (255.255.255.0)
+    Option: (255) End
+    Padding: 000000000000000000000000000000000000000000000000…
+
+
+Reply to the server. after configuring.
+we now have the ip with half of release time.
+
+on mac -> /etc/udhcpd.conf file is the configguration file for dhcp
+
+start ipaddress
+end ipaddress
+
+clients can use this range for dhcp ip addresses.
+
+we have lease , renewal times .. these are configurable.
+
+we can statically set dns , subnet , router , wins server , append dns , domain name , lease time e.g. 10 days of seconds = 864000
+
+
+log server, cookie server ,time server.. etc.

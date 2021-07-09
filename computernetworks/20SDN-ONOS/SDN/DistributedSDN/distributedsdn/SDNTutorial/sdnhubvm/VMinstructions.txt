@@ -1,0 +1,6 @@
+Instructions to use the VM
+Import the OVA (i.e., SDN Hub Tutorial VM) into Virtualbox or VMware Player and boot it. Feel free to change any of the VM attributes, but we highly recommend allocating at least 2 vCPUs and 2GB memory.
+In case the OVA (version 1.0) does not work on your VirtualBox or VMware player, unzip the OVA to extract the VMDK file. That file can be used to create a VM in your environment.
+Ensure you have connectivity to the Internet from the VM. If not, please ensure your Virtualbox/VMware network settings are correct for the VM’s network adapter (should be in NAT mode).
+Username and passwd are both “ubuntu”
+You will need to open a Terminal Emulator to create and run network topologies using mininet. A link is placed right on the desktop.

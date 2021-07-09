@@ -1,0 +1,5 @@
+rollover cable - used in cisco environment
+
+connect from serial com port of PC to console of a router using rollover cable.
+
+modern day PCs dont thave a serial port. - USB to serial port connector.

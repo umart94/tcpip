@@ -1,0 +1,5 @@
+install virtual box with run as administrator privilege.
+
+(make sure that hyperv and docker for desktop are uninstalled)
+
+make sure that you run as administrator, now the oracle virtual box host only adapter shows.

@@ -1,0 +1,144 @@
+HOST DISCOVERY:
+  -sL: List Scan - simply list targets to scan
+  -sn: Ping Scan - disable port scan
+  -Pn: Treat all hosts as online -- skip host discovery
+  -PS/PA/PU/PY[portlist]: TCP SYN/ACK, UDP or SCTP discovery to given ports
+  -PE/PP/PM: ICMP echo, timestamp, and netmask request discovery probes
+  -PO[protocol list]: IP Protocol Ping
+  -n/-R: Never do DNS resolution/Always resolve [default: sometimes]
+  --dns-servers <serv1[,serv2],...>: Specify custom DNS servers
+  --system-dns: Use OS's DNS resolver
+  --traceroute: Trace hop path to each host
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+  -sU: UDP Scan
+  -sN/sF/sX: TCP Null, FIN, and Xmas scans
+  --scanflags <flags>: Customize TCP scan flags
+  -sI <zombie host[:probeport]>: Idle scan
+  -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+  -sO: IP protocol scan
+  -b <FTP relay host>: FTP bounce scan
+PORT SPECIFICATION AND SCAN ORDER:
+  -p <port ranges>: Only scan specified ports
+    Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+  --exclude-ports <port ranges>: Exclude the specified ports from scanning
+  -F: Fast mode - Scan fewer ports than the default scan
+  -r: Scan ports consecutively - don't randomize
+  --top-ports <number>: Scan <number> most common ports
+  --port-ratio <ratio>: Scan ports more common than <ratio>
+
+
+
+
+
+Port Number
+
+Usage
+
+20
+
+File Transfer Protocol (FTP) Data Transfer
+
+21
+
+File Transfer Protocol (FTP) Command Control
+
+22
+
+Secure Shell (SSH)
+
+23
+
+Telnet - Remote login service, unencrypted text messages
+
+25
+
+Simple Mail Transfer Protocol (SMTP) E-mail Routing
+
+53
+
+Domain Name System (DNS) service
+
+80
+
+Hypertext Transfer Protocol (HTTP) used in World Wide Web
+
+110
+
+Post Office Protocol (POP3) used by e-mail clients to retrieve e-mail from a server
+
+119
+
+Network News Transfer Protocol (NNTP)
+
+123
+
+Network Time Protocol (NTP)
+
+143
+
+Internet Message Access Protocol (IMAP) Management of Digital Mail
+
+161
+
+Simple Network Management Protocol (SNMP)
+
+194
+
+Internet Relay Chat (IRC)
+
+443
+
+HTTP Secure (HTTPS) HTTP over TLS/SSL
+
+
+
+-sT TCP SYN/Connect()/ACK/Window/Maimon scans
+-p <port ranges>: Only scan specified ports
+
+nmap -sT -p 20,21,22,23,25,53,67,68,80,110,119,123,143,161,194,443,3389 YOUR_PRIVATE_IP
+
+Starting Nmap some version ( https://nmap.org ) at some date some time
+
+Nmap scan report for YOUR_PRIVATE_IP
+Host is up.
+
+
+
+PORT     STATE    SERVICE
+yahan ports with states and services show honge.
+Nmap done: abc IP address (def host up) scanned in xyz seconds
+
+The state is either open, filtered, closed, or unfiltered. 
+
+Open means that an application on the target machine is listening for connections/packets on that port. 
+
+Filtered means that a firewall, filter, or other network obstacle is blocking the port so that Nmap cannot tell whether it is open or closed. 
+
+Closed ports have no application listening on them, though they could open up at any time. 
+
+Ports are classified as unfiltered when they are responsive to Nmap's probes, but Nmap cannot determine whether they are open or closed. Nmap reports the state combinations open|filtered and closed|filtered when it cannot determine which of the two states describe a port. The port table may also include software version details when version detection has been requested. When an IP protocol scan is requested (-sO), Nmap provides information on supported IP protocols rather than listening ports.
+
+
+we can compare nmaps result with wireshark result.
+in TCP portion of the capture, see Src Port and Dst Port. Port states should match
+
+a closed port, on network capture , will give the RST,ACK packet.
+this is the RESET Flag. 0x14
+
+if port is closed, RFC specifies that it should send a RESET.
+
+but we don't want this incase adversaries are attacking a system. so what we can do
+
+in case of someone scanning our ports. is drop those packets. and do not send a respond back
+( any kind of response ) 
+
+
+
+Open port -> 3 way handshake
+
+
+Closed Port -> RESET
+
+
+Filtered Port -> the initial message gets dropped, no response is generated.

@@ -1,0 +1,25 @@
+cost of establishing , installing and maintaining a network
+
+security
+indicates how well a network is protected
+
+availability
+measure of probability - percentage of time
+uptime
+
+
+network not available for 15 minutes per year.
+
+( (Number of minutes in a year - Downtime ) / (number of minutes in a year ) ) * 100 = percentage of downtime.
+
+Uffh.
+
+365 days in a year
+365 * 24(hours) * 60(minutes) = 525600
+
+525600 - 15(downtime) = 525585
+
+
+525585 / 525600 = 0.99997146118721461187214611872146
+
+0.99997146118721461187214611872146 * 100 = 99.9971 % is the Network Availability Percentage.

@@ -1,0 +1,43 @@
+Ping message will return an echo back to tell that system is up
+ICMP works on top of layer 3
+
+when we ping a pc at home
+we get
+------------------------------
+
+Echo Ping Request
+Internet Control Message Protocol
+    Type: 8 (Echo (ping) request)
+    Code: 0
+    Checksum: 0x4d5a [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 1 (0x0001)
+    Identifier (LE): 256 (0x0100)
+    Sequence number (BE): 1 (0x0001)
+    Sequence number (LE): 256 (0x0100)
+    [Response frame: 53]
+    Data (32 bytes)
+
+Data (32 bytes)
+    Data: 6162636465666768696a6b6c6d6e6f707172737475767761…
+    [Length: 32]
+-------------------------------
+Echo Ping Reply
+Internet Control Message Protocol
+    Type: 0 (Echo (ping) reply)
+    Code: 0
+    Checksum: 0x555a [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 1 (0x0001)
+    Identifier (LE): 256 (0x0100)
+    Sequence number (BE): 1 (0x0001)
+    Sequence number (LE): 256 (0x0100)
+    [Request frame: 52]
+    [Response time: 123.238 ms]
+    Data (32 bytes)
+        Data: 6162636465666768696a6b6c6d6e6f707172737475767761…
+        [Length: 32]
+-----------------------------------
+
+we can specify packet size and other parameters .. in ping command
+

@@ -1,0 +1,32 @@
+Request timed out means that the host you're pinging might be: down or unreachable 
+
+(e.g. because it's on a different network/subnet, it's shut down, etc.) 
+
+behind a firewall that drops your ICMP echo request packets. 
+
+the ping command has been disabled for that network by the syadmin.
+
+
+
+ssh 127.0.0.1
+ssh: connect to host 127.0.0.1 port 22: Connection refused
+
+
+
+Microsoft does not currently provide SSH server software for its Windows operating system. However, if you haven't already installed SSH server software on your Windows system, there are quite a few commercial SSH server packages available for Windows and there is also free SSH server software. Some companies that provide commercial versions will allow you to use their software for free for noncommercial use. Some free versions that I've used:
+
+Bitvise SSH Server - free for personal use
+
+Copssh - the name is from "Cygwin" + "OpenSSH"
+
+freeSSHd
+
+OpenSSH for Windows - the software hasn't been updated since, 2004. I found it worked well under Windows XP, but I experienced problems with it on later operating systems and wouldn't recommend it.
+
+PowerShell SSH Server for Windows - the Personal Edition is free; it limits you to one SSH connection to the server at a time.
+
+SilverSHield - free for personal use version limited to one concurrent SSH connection
+
+If you've got Cygwin installed already, you can install OpenSSH server software for Cygwin.
+
+Microsoft has, apparently, "seen the light" and has announced that it intends to provide SSH server software for its Windows operating systems, e.g., see the June 2, 2015 Ars Technica article Microsoft bringing SSH to Windows and PowerShell.

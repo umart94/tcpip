@@ -1,0 +1,61 @@
+in a server environment we can create a application that talks to an abstraction layer
+or operating system such as windows
+
+windows hides the complexity of the hardware that app is installed on.
+
+
+with opensdn and openflow, the idea is to create an open interface on networking devices 
+and create an abstraction layer to allow for rapid app development.
+
+1. APP TALKS TO CONTROLLER
+2. CONTROLLER TALKS TO NETWORKING DEVICES
+
+using an openstandard protocol openflow
+
+openflow provides an open api or open interface to networking devices
+
+
+
+it doesn't matter which vendor the networking devices are using there
+is an open interface to manage the flow table of that device
+
+this is known as the southbound api
+
+
+on northbound api we have 2 interfaces
+
+1. restful api
+2. java api
+
+these are two interfaces that allows an application developer to manipulate flow tables
+and flow entries on networking devices without communicating directly to those networking devices.
+
+
+the app developer is not required to know about hardware.
+
+
+NETWORK
+--------------
+APPLICATION
+---------------
+NORTHBOUND-API
+1. RESTFUL-API
+2. JAVA API
+---------------
+CONTROLLER
+---------------
+SOUTHBOUND API
+OPENFLOW PROTOCOL TO ACCESS NETWORK DEVICE HARDWARE
+------------------------------------
+NETWORK HARDWARE.
+
+
+WE USE HIGH level api rest / java api to communicate to controller
+and controller will then take care of updating the flow tables on the network devices.
+
+
+
+
+
+
+

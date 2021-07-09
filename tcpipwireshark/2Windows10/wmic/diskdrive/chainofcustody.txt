@@ -1,0 +1,30 @@
+My own suggestions about keeping a Digital Chain of Custody
+
+In forensic scope, the “chain of custody” refers to
+
+the chronological documentation or paper trail that records the sequence of custody, control, transfer, analysis, and disposition of physical or electronic evidence.
+
+Particularly important in criminal cases, the concept is also applied in civil litigation—and sometimes more broadly in drug testing of athletes, and in supply chain management, e.g. to improve the traceability of food products, or to provide assurances that wood products originate from sustainably managed forests.
+
+In a digital forensic context, digital evidences are different from physical evidence, in that a carefully protected image of a hard drive is as valid as the original hard drive in the eyes of a court: the first image of a hard drive that investigators take is known as the “best evidence,” because it’s closest to the original source.
+
+At this “best evidence” must be attached a chain of custody form and both should be stored under lock and key.
+
+The Chain of Custody Form
+To prove chain of custody, you’ll need a form that details how the evidence was handled every step of the way.
+The form should answer these questions:
+
+What is the evidence?
+For example: hardware information (photos, description, serial number, asset ID, hostname) and digital information (filename, md5 hash)
+How did you get it?
+Information about used tools, type of acquisition (live or offline), storage format
+When was it collected?
+Who has handled it?
+Why did that person handle it?
+Where was it stored?
+Information about the physical location in which the proof is stored, or information (model/SN/IP) of the storage/NAS used to store the forensic image.
+The CoC Form must be keep up-to-date: every single time the best evidence is handed off, the chain of custody form needs to be updated.
+Furthermore, if the best evidence is duplicated, an hashing process should be performed on both digital copies, in order to prove that the evidence you started with is the same as the evidence you ended up with.
+
+Every forensic investigator could be develop his own Chain-Of-Custody form.
+In my case, was useful this template provided by NIST:

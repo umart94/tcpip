@@ -1,0 +1,60 @@
+Logical Address in a Layer 3 Protocol
+
+10.118.10.1
+
+4 octets
+1 octet = 8 bits
+1 octet = 1 byte
+4 octets = 4 bytes
+
+
+
+1 byte = 8 bits
+4 bytes * 8 bits = 32 bits.
+IPv4 uses a 32-bit address space which provides 4,294,967,296 (232) unique addresses
+
+--------------------
+10.118.10.1
+
+00000000
+
+1st digit from far left. go towards right
+
+2^7 = 128
+2^6 = 64
+2^5 = 32
+2^4 = 16
+2^3 = 8
+2^2 = 4
+2^1 = 2
+2^0 = 1
+
+DECIMAL TO BINARY
+10 =====> 00001010
+118 =====> 011100110
+
+------------------------
+
+Subnet Mask
+
+255.255.255.0
+
+figure out
+which part of the ipv4 address is the network
+and which part of the ipv4 address is the host
+
+10.118.10.1
+
+3 octets are for the network 10.118.10
+1 octet for host
+
+we need subnet and the ip address so we can figure out this ( ipv4 Classes and ranges)
+
+--------------------------
+Range of Addresses
+Network Address (network address is the low level address) 10.118.10.0
+Broadcast Address ( where we send messages, so all devices on that network get the message) 10.118.10.255
+
+we cant use these 2
+256-2 = 254 addresses are usable.
+---------------------------------------

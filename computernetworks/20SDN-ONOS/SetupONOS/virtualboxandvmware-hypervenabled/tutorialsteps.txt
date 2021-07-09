@@ -1,0 +1,37 @@
+First, clone a repository
+The Getting Started project is a simple GitHub repository which contains everything you need to build an image and run it as a container.
+
+Clone the repository by running Git in a container.
+
+You can also type the command directly in a command line interface.
+
+
+First, clone a repository
+The Getting Started project is a simple GitHub repository which contains everything you need to build an image and run it as a container.
+
+Clone the repository by running Git in a container.
+
+You can also type the command directly in a command line interface.
+
+First, clone a repository
+The Getting Started project is a simple GitHub repository which contains everything you need to build an image and run it as a container.
+
+Clone the repository by running Git in a container.
+
+You can also type the command directly in a command line interface.
+
+First, clone a repository
+The Getting Started project is a simple GitHub repository which contains everything you need to build an image and run it as a container.
+
+Clone the repository by running Git in a container.
+
+You can also type the command directly in a command line interface.
+
+
+
+
+
+
+
+Now, build the image
+A Docker image is a private file system just for your container. It provides all the files and code your container needs.

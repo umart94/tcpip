@@ -1,0 +1,9 @@
+Internal VirtualBox Networks
+
+Virtual Machines can only talk on the internal network. not to any external network
+(PC Host adapter cant be connected)
+
+all vms will be part of internal network inet
+
+VMS cannot be accessed from external network or host
+

@@ -1,0 +1,33 @@
+in HOST ONLY MODE
+
+in addition to creating an internal network , HOST ONLY MODE ALSO ALLOWS CONNECTION TO THE HOST
+
+VIRTUAL BOX CREATES A SEPERATE NETWORK ADAPTER FOR THE HOST TO CONNECT TO THE INTERNAL 
+HOST-ONLY NETWORK.
+
+WE can create multiple Host only networks.
+
+
+add Host Only Network Adapter in virtual machine settings network
+
+
+in HOST ONLY NETWORK :
+1. [NO] Access from outside network
+2. [YES] Network between Host and VM
+3. [YES] Network between VMs
+4. [NO] Access to external network / internet.
+
+
+VMs connect to 192.168.56.1 Host Only Network Adapter.
+this adapter is on the Host, called Virtual Box Host-Only Adapter
+
+Host Only Network IP Range is 192.168.56.*
+
+
+So we are unable to connect to any external network through pc host adapter
+but we are ABLE to communicate between virtual machines, and between host and vm.
+
+
+in this mode, locally ping and ICMP should work from host to VM and vm to host
+
+but External network will not work inside the virtual machine.

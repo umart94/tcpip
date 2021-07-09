@@ -1,0 +1,41 @@
+Domain Name System - set of protocols and procedures to lookup ipaddresses,hostnames
+when parsing a hostname we go from right to left
+that is top level domains to second and third level domains ( the subdomains)
+
+its a tree like structure.
+
+
+Root Files
+Root Hints
+Operators who manage a DNS recursive resolver typically need to configure a "root hints file". This file contains the names and IP addresses of the authoritative name servers for the root zone, so the software can bootstrap the DNS resolution process. For many pieces of software, this list comes built into the software.
+
+Root Hints File (FTP)
+Root Hints File (HTTP)
+Root Zone File
+The complete root zone is available for download at the following locations. Ordinarily there should be no need to download this file on a regular basis, as the contents of the file are served via the DNS system itself.
+
+Root Zone File (FTP)
+Root Zone File (HTTP)
+Root Trust Anchor
+The Root Trust Anchor, or Key Signing Key, is used by DNSSEC-enabled software to verify the contents of the DNS root zone is valid. It additionally enables a single chain of trust to DNSSEC-enabled top-level domains and beyond.
+
+Root Trust Anchors
+Top-Level Domains
+A plain-text list of top-level domains, the delegated children in the root zone, are provided for sofware applications that need to be aware of current top-level domains.
+
+Top-Level Domain List
+
+
+cache files running on servers
+these hint files allow lookups for top level domains
+
+used to figure out which of the root servers we need to ask for the top level domain
+
+queries originate locally.
+then a lookup query is done recursively.
+
+caching it locally helps speeding up the lookup process.
+
+
+until cache times out. local server will reply..
+when cache times out the process begins again

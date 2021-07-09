@@ -1,0 +1,43 @@
+have complete map of the area,
+every router builds its own internal map of the entire network topology. in its link state, also called topology database.
+
+
+each router then runs its own shortest path first algorithm. to calculate the shortest paths to all known destinations.
+
+
+an example of a link state routing protocol is OSPF.
+
+it uses cost as routing metric, based on bandwidth.
+
+they cant make bad routing decisions, they have a full view of network topology.
+
+they have full view of a path of network.
+
+link state, this name means that each router originates information about itself. its directly connected interfaces or links.
+
+this information is then passed between all routers. each router makes a copy, but does not change information..
+
+so each router has same topological database of routes of a local network..
+
+
+link state algorithms use Shortest Path first algorithm. such as OSPF and IS-IS.
+
+difficult to configure, they require a hierarchial network topology
+
+backbone area
+area zero
+and multiple other areas.
+
+link state routing protocols
+require more memory and processing power.
+
+they maintain multiple tables.
+
+such as neighbour table
+link state database table
+routing tables.
+
+SPF algorithm can also be process intensive, thus link state routing protocols require more powerful cpus and more memory in routers than DVR do.
+
+
+

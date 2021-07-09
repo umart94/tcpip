@@ -1,0 +1,150 @@
+What is SDN ?
+
+1. Open SDN based on the original work at stanford
+
+Definition : The physical separation of the network control plane from the forwarding plane, and where a control plane controls several devices.
+
+Software-Defined Networking (SDN) is an emerging architecture that is dynamic, manageable, cost-effective, and adaptable, making it ideal for the high-bandwidth, dynamic nature of today’s applications. This architecture decouples the network control and forwarding functions enabling the network control to become directly programmable and the underlying infrastructure to be abstracted for applications and network services. The OpenFlow® protocol is a foundational element for building SDN solutions. For an in-depth understanding of SDN-based networking and use cases, check out the open source micro-book https://sdn.systemsapproach.org/
+(“Software-Defined Networks: A Systems Approach”.)
+
+
+Implementations of Software Defined Networking Controllers include :
+
+OpenDaylight (ODL)
+ONOS
+NOX
+POX
+Floodlight
+RYU
+HP
+Brocade
+and others
+
+
+2. SDN via Overlays
+
+NSX from Vmware.
+
+underlay network is the concept of physical network devices
+virtual network that can automatically be deployed across physical network.
+
+VXLAN
+NVGRE
+Nuage Networks
+
+high scale , multi datacenter multi hypervisor virtual networks.
+
+
+
+
+3. Brite Box / White Boxes
+
+Pica8 , Cumulus Networks
+
+why run proprietary operating systems tied to proprietary hardware
+why not run an operating system that can be run on multiple vendor devices.
+
+physical switch with an os
+we can install a different os on those switches.
+
+another example is
+Facebook Open Compute Switches such as 6 pack and Wedge.
+
+
+
+
+
+
+4. SDN via APIs (Application Programming Interfaces)
+
+rather than being limited to configuring a network device via a command line
+interface which is very restrictive, why don't we have richer programmatic interfaces on network devices.
+
+
+for example, let's use a RESTful API with SDN controller. rather than basic CLI.
+
+other protocols like OVSDB and Netconf could be used to programmatically change configuration of network device
+
+
+Open vSwitch Database Management Protocol
+The Open vSwitch Database Management Protocol (OVSDB) is an OpenFlow configuration protocol that is designed to manage Open vSwitch implementations. Open vSwitch is a virtual switch that enables network automation, while supporting standard management interfaces and protocols, like NetFlow.
+
+
+we may use SNMP but SNMP has restrictions and does not work well while changing configuration of a device.
+ 
+5. SDN using ASICs
+
+Cisco ACI Application Centric Infrastructure.
+OPFLEX
+
+using SDN using Hardware using application-specific integrated circuits
+
+
+other terms
+
+cloud automation using OpenStack
+manage all networking devices, servers, storage from a single management console.
+
+NFV
+
+visit opnfv website.
+
+nfv - why do you run specific operating systems on specific hardware to provide a function
+
+why do you have a hardware firewall that provides that function
+
+in past we had servers that had specific functions installed on specific hardware
+
+for e.g an exchange server or a database server or a file server every server was running on dedicated hardware.
+
+
+servers got virtualized
+
+run servers inside virtual machines ( many vms in a hardware)
+
+in the same way
+why dont we virtualize networking devices.
+ 
+we might virtualize cisco router using CSR [Cloud Services Router]
+or HP router using VSR [Virtual Services Router]
+or switch using OVS
+
+Open vSwitch, sometimes abbreviated as OVS, is an open-source implementation of a distributed virtual multilayer switch. The main purpose of Open vSwitch is to provide a switching stack for hardware virtualization environments, while supporting multiple protocols and standards used in computer networks
+written in C
+
+in vmware vmware have virtual switches running in hypervisors
+
+why dont we virtualize networking devices rather than having a dedicated router or a dedicated firewall.
+
+
+
+Why don't we just have a virtual machine with that function.
+so we can virtualize a router or virtualize a firewall.
+
+virtualize the operating system as well
+run multiple applications seperated from each other
+as they are in seperate vms or containers
+and seperate apps from each other but have multiple applications running on
+a single server.
+
+why don't we virtualize a function such as VRRP 
+The Virtual Router Redundancy Protocol (VRRP) is a computer networking protocol that provides for automatic assignment of available Internet Protocol (IP) routers to participating hosts. This increases the availability and reliability of routing paths via automatic default gateway selections on an IP subnetwork.
+or virtualize a firewall function
+
+rather than running a full operating system and dedicated hardware PER FUNCTION.
+
+why don't we run just a single Operating System and run many network functions on OS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Is This SDN actually real ? and is OpenFlow and SDN the same thing ?

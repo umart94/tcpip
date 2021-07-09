@@ -1,0 +1,63 @@
+if we need to send message within network to 2 machines
+Or we need to send to different network
+
+we need mac addresses and ip addresses of default gateway as well as each devices's (ip address,mac address)
+
+
+there is no authenticaion on arp
+
+so we can spoof arp addresses
+https://www.practicalnetworking.net/series/arp/gratuitous-arp/
+
+Traditional ARP, where a node is requesting another node’s MAC address.
+Proxy ARP, where a node is answering an ARP request on behalf of another node. 
+
+
+Gratuitous ARP.
+
+A Gratuitous ARP is an ARP Response that was not prompted by an ARP Request. The Gratuitous ARP is sent as a broadcast, as a way for a node to announce or update its IP to MAC mapping to the entire network.
+
+There are three typical use cases for Gratuitous ARP, and we will look at each of them after looking at the packet structure.
+
+
+On linux / macs -> arpspoof
+--------------------------------------
+Attack known as ARP Spoofing / ARP Poisoning
+https://www.comparitech.com/blog/vpn-privacy/arp-poisoning-spoofing-detect-prevent/
+ARP poisoning involves sending forged ARP reply packets to a gateway over the local network. Attackers typically use spoofing tools like Arpspoof or Arppoison to make the job easy. They set the IP address of the tool to match the address of their target. The tool then scans the target LAN for the IP and MAC addresses of its hosts.
+
+Once the attacker has the addresses of the hosts, they start sending forged ARP packets over the local network to the hosts. The fraudulent messages tell the recipients that the attacker’s MAC address should be connected to the IP address of the machine they are targeting.
+
+This results in the recipients updating their ARP cache with the attacker’s address. When the recipients communicate with the target in the future, their messages will actually be sent to the attacker instead.
+
+At this point, the attacker is secretly in the middle of the communications and can leverage this position to read the traffic and steal data. The attacker can also alter messages before they get to the target, or even stop the communications completely.
+
+Attackers can use this information to mount further attacks, like denial-of-service or session hijacking:
+
+    Denial-of-service – These attacks can link a number of separate IP addresses to the MAC address of a target. If enough addresses are sending requests to the target, it can become overloaded by traffic, which disrupts its service and makes it unusable.
+    Session Hijacking – ARP spoofing can be leveraged to steal session IDs, which hackers use to gain entry into systems and accounts. Once they have access, they can launch all kinds of havoc against their targets.
+----------------------------------------
+
+arpspoof 192.168.1.1 (send reply without getting a request)
+get messages that were destined for default gateway
+
+we can get messages that the device on that network was sending to the default gateway. (broadcasts)
+
+---------------------------
+
+sudo tcpdump -i br0 host 192.168.1.1
+
+-------------------------------
+on windows 
+nighthawk
+https://web.archive.org/downloads/winarpspoof/WinArpSpoofer053.exe
+
+-------------------------------
+network traffic on victims machine will be redirected / stopped.
+
+
+
+
+
+
+ 

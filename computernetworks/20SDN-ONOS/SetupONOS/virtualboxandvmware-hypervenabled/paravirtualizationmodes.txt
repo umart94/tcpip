@@ -1,0 +1,15 @@
+The VirtualBox Manual, in the section titled Paravirtualization providers explains very clearly when each should be used (emphasis added):
+
+Minimal: Announces the presence of a virtualized environment. Additionally, reports the TSC and APIC frequency to the guest operating system. This provider is mandatory for running any Mac OS X guests.
+
+KVM: Presents a Linux KVM hypervisor interface which is recognized by Linux kernels starting with version 2.6.25. VirtualBox's implementation currently supports paravirtualized clocks and SMP spinlocks. This provider is recommended for Linux guests.
+
+Hyper-V: Presents a Microsoft Hyper-V hypervisor interface which is recognized by Windows 7 and newer operating systems. VirtualBox's implementation currently supports paravirtualized clocks, APIC frequency reporting, guest debugging, guest crash reporting and relaxed timer checks. This provider is recommended for Windows guests.
+
+The other options in the drop down do the following, as explained in the vboxmanage docs:
+
+None: Specifying none explicitly turns off exposing any paravirtualization interface.
+
+Default: The option default, will pick an appropriate interface depending on the guest OS type while starting the VM. This is the default option chosen while creating new VMs.
+
+Legacy: The legacy option is chosen for VMs which were created with older VirtualBox versions and will pick a paravirtualization interface while starting the VM with VirtualBox 5.0 and newer.

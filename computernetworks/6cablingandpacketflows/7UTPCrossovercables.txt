@@ -1,0 +1,3 @@
+MDI device connected to MDIX device.
+MDI also used by routers and uplink ports on ethernet switches..
+this allows to connect 1 switch to another switch using straight cable.

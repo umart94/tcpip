@@ -1,0 +1,52 @@
+application firewall is capable of understanding application protocol
+
+
+proxy server is an example
+squid - runs on linux
+
+we can limit rate
+we can use particular protocols only
+we can block specific websites.
+
+users can only go to approved websites.
+
+in business situations, we can block ESPN sports news
+important match araha hai
+
+squid.conf
+
+go to browsers preferences.
+e.g firefox.
+
+go to advanced network settings do auto/system/manual proxy settings ( port 8080 )
+
+browser connects proxy server to port 8080 on local system
+proxy server forwards request o behalf of my local system
+filters and avoids crashing
+
+so we can speed up the network
+
+--------------
+protect mail servers and web servers from malformed http requests.
+BlueCoat makes proxy servers
+that have functionality to protect from malware, and these malformed requests.
+
+-----------------
+
+Session Border Controllers - Acme Packet.
+
+rate limiting
+bandwidth policing
+it also makes something for 
+VoIP Protocols - VoIP App layer gateways.
+
+Cisco ASA standard protocol fixup , deny malformed packets.
+
+these all are application layer firewalls.
+
+
+
+
+
+
+

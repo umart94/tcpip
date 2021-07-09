@@ -1,0 +1,33 @@
+how does data flow through hub, switch or routers ?
+
+on a switch - a frame is forwarded out of a port
+on a router - a packet is forwarded out of a port
+
+---------------------------------------------------
+Types of Communication
+
+1. Unicast
+one device communicates with one other device - one to one communication
+one server - communicates with one client
+
+
+
+2. Multicast
+one device to some devices.
+broadcast send traffic to people that dont want traffic
+multicast sends traffic to only the people that subscribe to traffic.
+they wont receive the traffic if they 
+
+
+
+
+3. Broadcast
+one to all communication
+one server - communicates with many clients
+broadcasts are dropped by layer 3 and 2 devices in networks. they degrade network traffic.
+
+can be useful.
+if 2 windows machines are configured with same name, broadcast is sent to networks.
+
+in ipv6 broadcast support is removed.
+

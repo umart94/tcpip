@@ -1,0 +1,24 @@
+the multicast DNS (mDNS) protocol resolves hostnames to IP addresses within small networks that do not include a local name server
+The mDNS protocol is published as RFC 6762, uses IP multicast User Datagram Protocol (UDP) packets, and is implemented by the Apple Bonjour and open source Avahi software packages, included in most Linux distributions. mDNS has also been implemented in Windows 10, initially limited to discovering networked printers[2], later becoming capable of resolving hostnames as well.
+
+example udp packet : 
+
+
+The field size sets a theoretical limit of 65,535 bytes (8 byte header + 65,527 bytes of data) for a UDP datagram. 
+However the actual limit for the data length, which is imposed by the underlying IPv4 protocol, is 65,507 bytes (65,535 − 8 byte UDP header − 20 byte IP header).
+
+UDP Packet.
+MDNS Protocol
+
+source port
+destination port
+length
+checksum
+
+------------------
+udp
+small sized packets
+gaming , multiplayer / online
+streaming audio/video
+multiplexing information inside packets.
+checksum indicates that traffic is corrupted or not, checked on both sender / receiver end

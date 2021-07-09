@@ -1,0 +1,19 @@
+Flows command
+The flows command allows you to observe which flow entries are currently registered in the system. Flow entries may be in several states:
+•	PENDING_ADD - The flow has been submitted and forwarded to the switch.
+•	ADDED - The flow has been added to the switch.
+•	PENDING_REMOVE - The request to remove the flow has been submitted and forwarded to the switch.
+•	REMOVED - The rule has been removed.
+So let's start some traffic by going to the mininet window and running
+
+
+
+in mininet run , 
+h11 ping h41
+
+in onos run , 
+
+flows
+
+
+As you can see from the above output, ONOS provides many details about he the flows at the switches. For example each flow entry defines a selector and treatment which is the set of traffic matched by the the flow entry and how this traffic should be handled. Notice as well that each flow entry it tagged by an appId (application id), this appId identifies which application installed this flow entry. This is a useful feature because it can help an admin identify which application may be misbehaving or consuming many resources.

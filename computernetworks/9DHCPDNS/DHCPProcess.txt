@@ -1,0 +1,33 @@
+When a client device boots up, it notes that it does not have an ip address.
+it will send a dhcp discover message, which is a broadcast
+client does not know which subnet it belongs to
+
+client sends broadcast to 255.255.255.255 to the whole network.
+
+when DHCP server receives this message, the dhcp server responds with a DHCP OFFER MESSAGE.
+this is unicast and contains initial configuration such as IP ADDRESS, SUBNET MASK, DEFAULT GATEWAY DNS etc.)
+
+client and server are on different subnet - unicast.
+client and server on same subnet - can be a broadcast message. lease offers and lease acknowledgements are sent as brooadcast messages
+
+
+Multiple dhcp servers may respond , typically client sends dhcp request message to the first respond message it receives from a dhcp server. indicating to accept the parameter.
+
+
+
+DHCP server then acknowledges that request and thus completes the initialization process.
+
+ipconfig /release
+this will generate a new ip address.
+
+
+ipconfig /renew
+this will renew ip address.
+
+DHCP predecessor was BootP
+
+wireshark uses bootp as filter for dhcp requests.
+
+src port = bootpc (68) port and dst port bootps (67) [ bootp client and bootp server ]
+
+command ip-helper-address 10.1.1.1 ( this address will receive the broadcast messages for the dhcp requests )

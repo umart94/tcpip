@@ -1,0 +1,63 @@
+Architectural components
+
+The following list defines and explains the architectural components:[28]
+
+SDN Application
+SDN Applications are programs that explicitly, directly, and programmatically communicate their network requirements and desired network behavior to the SDN Controller via a northbound interface (NBI). In addition, they may consume an abstracted view of the network for their internal decision-making purposes. An SDN Application consists of one SDN Application Logic and one or more NBI Drivers. SDN Applications may themselves expose another layer of abstracted network control, thus offering one or more higher-level NBIs through respective NBI agents.
+
+
+
+
+
+SDN Controller
+The SDN Controller is a logically centralized entity in charge of (i) translating the requirements from the SDN Application layer down to the SDN Datapaths and (ii) providing the SDN Applications with an abstract view of the network (which may include statistics and events). An SDN Controller consists of one or more NBI Agents, the SDN Control Logic, and the Control to Data-Plane Interface (CDPI) driver. Definition as a logically centralized entity neither prescribes nor precludes implementation details such as the federation of multiple controllers, the hierarchical connection of controllers, communication interfaces between controllers, nor virtualization or slicing of network resources.
+
+
+
+
+
+
+SDN Datapath
+The SDN Datapath is a logical network device that exposes visibility and uncontested control over its advertised forwarding and data processing capabilities. The logical representation may encompass all or a subset of the physical substrate resources. An SDN Datapath comprises a CDPI agent and a set of one or more traffic forwarding engines and zero or more traffic processing functions. These engines and functions may include simple forwarding between the datapath's external interfaces or internal traffic processing or termination functions. One or more SDN Datapaths may be contained in a single (physical) network element—an integrated physical combination of communications resources, managed as a unit. An SDN Datapath may also be defined across multiple physical network elements. This logical definition neither prescribes nor precludes implementation details such as the logical to physical mapping, management of shared physical resources, virtualization or slicing of the SDN Datapath, interoperability with non-SDN networking, nor the data processing functionality, which can include OSI layer 4-7 functions.
+
+
+
+
+
+
+SDN Control to Data-Plane Interface (CDPI)
+The SDN CDPI is the interface defined between an SDN Controller and an SDN Datapath, which provides at least (i) programmatic control of all forwarding operations, (ii) capabilities advertisement, (iii) statistics reporting, and (iv) event notification. One value of SDN lies in the expectation that the CDPI is implemented in an open, vendor-neutral and interoperable way.
+SDN Northbound Interfaces (NBI)
+SDN NBIs are interfaces between SDN Applications and SDN Controllers and typically provide abstract network views and enable direct expression of network behavior and requirements. This may occur at any level of abstraction (latitude) and across different sets of functionality (longitude). One value of SDN lies in the expectation that these interfaces are implemented in an open, vendor-neutral and interoperable way.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SDN Control Plane
+Centralized - Hierarchical - Distributed
+The implementation of the SDN control plane can follow a centralized, hierarchical, or decentralized design. Initial SDN control plane proposals focused on a centralized solution, where a single control entity has a global view of the network. While this simplifies the implementation of the control logic, it has scalability limitations as the size and dynamics of the network increase. To overcome these limitations, several approaches have been proposed in the literature that fall into two categories, hierarchical and fully distributed approaches. In hierarchical solutions,[29][30] distributed controllers operate on a partitioned network view, while decisions that require network-wide knowledge are taken by a logically centralized root controller. In distributed approaches,[31][32] controllers operate on their local view or they may exchange synchronization messages to enhance their knowledge. Distributed solutions are more suitable for supporting adaptive SDN applications.
+
+Controller Placement
+A key issue when designing a distributed SDN control plane is to decide on the number and placement of control entities. An important parameter to consider while doing so is the propagation delay between the controllers and the network devices,[33] especially in the context of large networks. Other objectives that have been considered involve control path reliability,[34] fault tolerance,[35] and application requirements.[36]
+
+
+
+
+
+
+
+SDN flow forwarding (sdn)
+Proactive vs Reactive vs Hybrid[37][38]
+OpenFlow uses TCAM tables to route packet sequences (flows). If flows arrive at a switch, a flow table lookup is performed. Depending on the flow table implementation this is done in a software flow table if a vSwitch is used or in an ASIC if it's implemented in hardware. In the case when no matching flow is found, a request to the controller for further instructions is sent. This is handled in one of three different modes. In reactive mode the controller acts after these requests and creates and installs a rule in the flow table for the corresponding packet if necessary. In proactive mode the controller populates flow table entries for all possible traffic matches possible for this switch in advance. This mode can be compared with typical routing table entries today, where all static entries are installed ahead of time. Following this, no request is sent to the controller since all incoming flows will find a matching entry. A major advantage in proactive mode is that all packets are forwarded in line rate (considering all flow table entries in TCAM) and no delay is added. The third mode, hybrid mode, follows the flexibility of a reactive mode for a set of traffic and the low-latency forwarding (proactive mode) for the rest of the traffic.

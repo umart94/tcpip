@@ -1,0 +1,44 @@
+UNICAST TRAFFIC
+----------
+Class A
+Class B
+Class C
+----------
+
+Class D - Multicast
+
+Class E - reserved for future or experimental purposes.
+
+ipv6 does not use address classes
+in ipv4 we have replaced classes with CIDR Notation
+
+----------------------------
+
+done to accomodate different sizes of networks
+classifying networks
+determined by IANA
+
+
+
+-----------------
+in Class A, Each Address has 16 million IP Addresses
+e.g
+18.0.0.0/8 reserved by MIT
+etc.
+
+
+the slash /8 means 8 network bits.
+
+so 32 total
+8 for network
+32 - 8 = 24 bits for HOST
+
+------------
+
+classful addresses were replaced by CIDR in 1993
+
+
+some commands still use classful address format
+
+e.g network command RIP
+

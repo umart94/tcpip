@@ -1,0 +1,9 @@
+Criteria for Routing
+
+RIP - uses hop count
+OSPF - bandwidth
+other parameters
+
+cost
+
+longest match of network address

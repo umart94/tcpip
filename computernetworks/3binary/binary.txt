@@ -1,0 +1,42 @@
+subnetting and access lists
+
+e.g
+10.1.1.0/24
+change to
+10.1.1.0/28
+
+access lists use inverse masks
+
+0.0.0.255
+inverse of 255.255.255.0
+
+
+0 = Off
+1 = On
+
+so 2 cables
+2 states per cable
+
+gives 2^nStates
+
+2^2 = 4 states
+
+00 = both cables off current
+01 = 1 cable on current
+10 = 1 cable on current
+11 = both cables on current
+
+
+Eight Cables, ipv4 consists of 4 , 8bit values
+
+since there are 8 bits
+
+and 2 states OFF,ON
+
+we have 2 ^ 8
+
+2^ n
+
+n = no if bits
+
+2^8 = 256

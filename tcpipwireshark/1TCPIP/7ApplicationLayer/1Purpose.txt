@@ -1,0 +1,18 @@
+Application level handling is done at application layer.
+anything not handled by any other layers , gets handled at application layer
+
+e.g
+remote login
+telnet , ssh
+file transfers ftp,tftp
+
+smtp , pop
+
+server message block protocol -> transfer files 
+dns -> app level protocol -> lookup ip addresses from hostnames
+retransmissions etc.
+
+
+application layer implements the SMTP , IMAP , POP protocol
+Email Clients then send message to lower layer
+

@@ -1,0 +1,76 @@
+TCP is
+Transport Layer Protocol
+Access to the network layer for applications
+connection oriented - before transmission a session is established between two devices.
+full duplex mode operation - tcp connection is a pair of virtual circuits - one in each direction which operate in full duplex mode
+transmission and receiving at both ends is done at the same time
+
+error checking - 
+sequencing of data
+acknowledgement of receipt
+
+
+
+
+TCP header follows the IP Header.
+16 bit source and destination ports.
+
+if SYN BIt is set, then the 32 bit sequence number in the header is the actual sequence number plus 1. - FOR THE DATA
+if SYN BIT IS NOT SET, THEN the sequence number is the accumulated sequence number.
+
+
+if the ACK Bit is set then ACK number value is equal to the next sequence number that receiver is expecting to receive.
+
+header specifies length / size of tcp header
+in 32 bit words.
+
+minimum size is 5 words
+maximum size is 15 words
+
+minimum size of header is 20 bits.
+maximum size of header is 60 bits.
+
+40 bits options in the header.
+
+reserved bit is set to 0 - for future use.
+
+The Congestion Window Reduced (CWR) Flag - is part of congestion reduction mechanism
+used in conjunction with ECE flag - Echo Congestion Notification Echo field or Flag - these two CWR AND ECE are used in QoS
+to indicate to the transmitter to slow down transmission.
+
+URG is URGENT FLAG - this segment is urgent.
+ACKNOWLEDGEMENT FLAG - used for acknowledgement of data.
+PUSH - Is a flag set by tcp sender to cause tcp receiver to immediately pass the segment to application socket along with all in ordered data.
+RESET - RESETS THE CONNECTION, THE CONNECTION IS TORN DOWN.
+SYN - SYNCHRONIIZE SEQUENCE NUMBERS - ONLY first packet sent will have this flag on each side.
+finish flag no more data to send.
+
+Window size - the number of bits the receiver is willing to recieve.
+
+TCP also uses a 16 bit TCP checksum
+and a 16 bit urgent pointer.
+used with urgent flag, when set means that offset from sequence number indicating the last urgent byte.
+
+Options - out of scope
+
+Data - encapsulated in tcp header.
+
+Applications File transfer - ftp,tftp,nfs
+
+email smtp pop , imap
+remote login telnet, ssh
+
+network mgmt - SNMP
+
+name mgmt - domain name system.
+
+
+At Layer 2 there is a field called Type number in ethernet frame - that allows to differentiate betwen multiple layer 3 protocols.(ipv4,ipv6,ipx,appletalk)
+The NIC needs to know which Layer3 protocol to send frame to
+
+
+At Layer 3 A protocol number is used to differentiate the different protocols being used at layer 4
+whether tcp or udp is used.
+
+At Layer 4 a port number is used to indicate multiple applications being used at layer 7
+

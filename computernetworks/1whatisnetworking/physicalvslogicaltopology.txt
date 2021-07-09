@@ -1,0 +1,8 @@
+bus host devices connected using fddi to a hardware device. using coaxial cable.
+
+ring topology - from last device to the first device in network we cable together devices.
+
+
+mesh topology - every device connected to multiple other devices
+redundant links
+physical connection is fiber - logical topology is different

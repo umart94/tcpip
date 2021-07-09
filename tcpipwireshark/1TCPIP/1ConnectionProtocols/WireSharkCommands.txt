@@ -1,0 +1,38 @@
+Filter : tcp
+will filter by tcp traffic
+but we also see TLS as well, this means that we see other protocols that are on top of TCP ( tls encryption over tcp)
+
+--------------------------------------------
+Filter : ip.addr == your_ip_address_here
+
+ipconfig /all
+
+private ip assigned set to preferred / default
+
+
+Filter : ip.src == your_ip_address_here
+
+this will only sort packets by exact source id, and not any other traffic
+
+we can also right click choose apply as filter and choose selected
+this will sort packets out by only this type of packet
+
+right click -> follow tcp stream
+shows messages related to that tcp stream
+
+double click -> http get request .. we see request and response of 200 ( pick any http traffic )
+
+----------------------------------------------
+tcp.stream eq 10
+
+tcp.stream eq 8
+It indicates that this is the 8th TCP or UDP stream found in the trace.
+
+Before we had stream numbers a filter to identify the stream would specify a pair of IP addresses and port numbers, 
+resulting in much longer display filters.
+
+When tcp.stream was implemented, the number had no significance and would show some gaps. 
+In recent (development) versions of Wireshark the number represents order in which wireshark detected tcp streams,
+ the first gets tcp.stream==0, the next tcp.stream==1 etc.
+
+----------------------------------------------------

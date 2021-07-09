@@ -1,0 +1,21 @@
+icmp
+ping
+v6
+
+different than ipv4
+------
+neighbor solicitation
+-----
+info about neighbours on ipv6
+-------
+auto config based on network on which we are
+---------
+neighbor advertisement
+solicited field set
+
+router not set
+override not set
+reserved : 0
+--------------
+systems on network communicate using these flags.
+this is different than the ipv4 ping.

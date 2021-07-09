@@ -1,0 +1,16 @@
+Usergroups
+
+1.) NO DELETE
+User -> ReadAndExecute Only.
+
+
+2.) DELETE
+Creator_Owner account
+give it full control
+whoever creates a file, he can also delete file
+but other non admin users cannot modify the files
+
+3.) NO DELETE 
+
+Creative
+if we want users to modify files or change files but not delete them

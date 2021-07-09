@@ -1,0 +1,19 @@
+Nuage Networks Virtualized Services Platform (VSP). With VSP you can provide SDN and SD-WAN network automation across networks and clouds of all sizes and architectures from data center private clouds to large enterprise WANs to the largest public clouds in the world.
+
+The Nuage Virtualized Services Platform (VSP) is a software-defined networking (SDN) product that enables virtualization of any data center network infrastructure, and automatically connects compute resources once created
+
+In the last decade, companies and organizations have rapidly been adopting network virtualization (NV) in an effort to take advantage of the flexibility offered by software-based computing and storage resources. With software-defined networking (SDN) and network functions virtualization (NFV) promoting decoupling of the control and forwarding planes, more emphasis has been put on NV as of late. For example, Nuage Networks uses network virtualization to give customers a policy-driven NV platform for enterprises and cloud service providers to increase flexibility and responsiveness of networking assets, while keeping a controlled and secured infrastructure.
+
+How Does Nuage Network Virtualization Work?
+VSP uses programmable business logic and a policy engine to offer an open and highly responsive product with scalability intended to address the challenges of multi-tenant data centers
+
+Virtualized Service Directory (VSD): Is the policy engine for the overall platform; network engineers use VSD to make templates that define network functionality for a specific set of resources and users.
+Virtualized Service Controller (VSC): Uses OpenFlow and OVSDB management protocol to distribute important switching and routing information to hypervisors within the virtual data center network.
+Virtual Routing and Switching (VRS): Acts as Nuage’s own version of the Open vSwitch, and installs into the hypervisor for software networking.
+Benefits of Nuage Network Virtualization
+Several benefits can be achieved from a policy-based view of data center networking that openly separates control from the infrastructure. Some of the advantages of Nuage network virtualization include:
+
+Full control and visibility across network slices that can be managed and customized across a role-based hierarchy of service providers, tenants, groups, and users
+Virtualization and automation of any existing data center infrastructure
+An open, software-based product that works with OpenStack, CloudStack, and VMware cloud environments
+Delivers full virtualization and automation of network connectivity inside and between data centers, including data center-to-Enterprise VPN connectivity

@@ -1,0 +1,113 @@
+sudo ifconfig
+
+find your kali vm private ip.
+
+You can do this by configuring port forwarding on the NAT network configuration.
+
+You forgot to mention the product you are using, but if it is VMware Workstation Professional then you can set the port forwarding as follows:
+
+Go to the menu -> Edit -> Virtual Network Editor
+Select the row with "VMNET8 NAT NAT "
+Click on the button "NAT Settings"
+Button "Add"
+Here you can add the port on your host that you want to accept your SSH on. I would suggest to use something else as 22, so that your host can use SSH if needed. So for example enter 2022 for the host port.
+Add the virtual machine IP address
+Add virtual machine port 22
+Add a description
+Click OK
+
+You should now be able to access the VM via SSH by connecting to your host on port 2022.
+
+----------------------------------------------
+
+First Method:
+
+USING BRIDGED ADAPTER
+
+Setup your SSH in the host machine:
+
+Open your terminal and run this command to set up ssh properly:
+
+ssh-keygen -t rsa -b 4096 # generates ssh key so others know you, add values, but leave the default setup location
+ssh-add   # adds it to the client
+Using Network Bridged Adapter settings:
+
+Go to the Settings --> Network choose the device name, in my case eth0
+Choose Bridged Adapter for option Attached to
+
+enter image description here
+
+Note: no need to switch off or shutdown the VM it will pick up the new settings
+Go to your Ubuntu virtual machine from the terminal run:
+
+ifconfig
+look for the IP address associated with the network device (not lo device)
+Now back in the host machine connect to Ubuntu virtual machine using the IP gotten in step 3:
+
+ssh -l <user_name_of_vm_user> <IP_address> #OR
+
+ssh <user_name_of_vm_user>@<IP_address>
+Second method:
+
+USING NAT ADAPTER
+
+Setup your SSH in the host machine:
+
+Open your terminal and run this command to set up ssh properly:
+
+ssh-keygen -t rsa -b 4096 # generates ssh key so others know you, add values, but leave the default setup location
+ssh-add   #adds it to the client
+Using Network NAT Adapter settings:
+
+Go to the Settings --> Network choose NAT (which is the default)
+Select Advanced option
+Select Port Forwarding
+Add the following to the table that appears:
+
+Name: any name you like
+Protocol: leave as is or change
+Host ip: ignore
+Host port: any number say 3003 (but not one already being used in host)
+Guest ip: ignore
+Guest port: 22
+
+enter image description here
+
+enter image description here
+
+Note: no need to switch off or shutdown the VM it will pick up the new settings
+Now back in the host machine connect to Ubuntu virtual machine using the IP gotten in step 3:
+
+ssh -p 3003 -l <user_name_of_vm_user> 127.0.0.1 #OR
+
+ssh -p 3003 <user_name_of_vm_user>@127.0.0.1
+Note:
+
+Free ports chosen if using firewall both on host and guest
+
+Virtualbox Networking
+
+
+
+
+
+
+
+-------------
+C:\WINDOWS\system32>ssh -p PORT USER@127.0.0.1
+kali@127.0.0.1's password:
+Linux kali 5.4.0-kali3-amd64 #1 SMP Debian 5.4.13-1kali1 (2020-01-20) x86_64
+
+The programs included with the Kali GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+kali@kali:~$
+
+--------------
+
+kali@kali:~/Documents$ logout
+Connection to 127.0.0.1 closed.
+C:\WINDOWS\system32>

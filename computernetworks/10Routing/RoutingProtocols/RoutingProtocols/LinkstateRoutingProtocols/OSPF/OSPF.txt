@@ -1,0 +1,46 @@
+allow for division of large autonomous systems into smaller groups called areas.
+routers within the autonomous system are in a common administrative domain
+
+they are part of the same autonomous system
+
+ospf Autonomous Systems  can be broken into multiple areas so that we have:
+
+smaller routing tables
+reduction of flooding of LSA
+route summarization
+efficient usage of resources.
+
+
+the routers on boundary of AREA 0  and area 1 2 and 3 are known as area border routers, they have interfaces in other areas.
+
+
+the routers within area 1, area2, area3 routers etc. and more are known as internal routers as they are only a part of single area.
+
+
+the router that connects AREA 0 to the router configured with routing protocol is known as autonomous system border router. as it connects ospf to an
+external autonomous system (RIP)
+
+routers within area 0 are backbone routers, internal routers.
+
+link changes in 1 area are hidden with other routers within other areas.
+
+
+if a router went down in 1 area, that information will be hidden from routers in other areas.
+they would not have to run the SPF algorithm again as they are unaware of the router going down.
+
+
+
+this can be tested using totally stubby areas inside area2 and area3
+we can also use route summarization to avoid to rerun spf algorithm in case a router goes down.
+
+link state - contained within an area
+summary  lsa - advertised to other areas as well
+
+summary lsa are blocked by area border routers. so they dont go to other areas such as area2
+
+to enable connectivity a summary route can be propagated in area2.
+
+
+
+
+

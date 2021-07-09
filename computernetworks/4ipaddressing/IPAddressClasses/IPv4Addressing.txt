@@ -1,0 +1,76 @@
+IP Address is a layer 3 Logical Address
+It is at Layer 3 , Network Layer
+used to uniquely identify a device on a network
+and router uses this address to identify where to route the packets.
+every device on internet has unique ip address, no two device can have same ip address.
+
+
+a private rfc1918 address when Network Address Translated to a Public IP Address
+that public IP Address needs to be unique. otherwise there will be conflicts on network.
+
+
+a lot of websites do not allow icmp requests.
+but domain will still be translated to an ip address.
+
+OSPF uses Bandwidth
+RIP uses Hopcount
+
+TCP is the protocol that will deal with the retransmission of lost packets. i.e 
+
+The Internet Protocol is only responsible for routing and IP Address assignment.
+
+
+-------------------
+IP ADDRESS FORMAT
+
+X.X.X.X
+32 bit address
+
+Hierarchical structure to enable routing
+
+Network Portion
+
+Host Portion
+
+
+IPv4 addresses (and subnet masks) are merely displayed in dot-decimal notation simply as a means of making them more readable to humans. Within the computer, they are simply 4 bytes of contiguous memory (often stored, for example, within a long int):
+
+Stored in computer:    11000000 10101000 00100001 00010110
+Displayed for human:        192.     168.      33.      22
+
+Stored in computer:    11111111 11111111 11100000 00000000
+Displayed for human:        255.     255.     224.       0
+
+The 1s in the mask indicate bits that identify the network number, thus one merely need use a bitwise AND operation to extract the network number:
+
+address   11000000 10101000 00100001 00010110    192.168.33.22
+mask      11111111 11111111 11100000 00000000    255.255.224.0
+(AND)     -----------------------------------    -------------
+network   11000000 10101000 00100000 00000000    192.168.32.0
+
+Since the introduction of CIDR (prior to which the address's class indicated the network/host boundary), hosts usually only know the mask of their own network and are therefore unable to divide arbitrary addresses (e.g. that of a datagram's destination) into network and host numbers.
+
+So what's the point? Well, a source host can still take the bitwise AND of the destination's address and its (the source's) own network mask. Whilst the result of that operation will not necessarily produce a meaningful network number, it will match the source's network number if and only if they are on the same network:
+
+    if they match, the destination should be reachable at the link layer (e.g. by looking up its MAC address, perhaps via broadcasting an ARP request, and then encapsulating the datagram in a frame that is addressed to that MAC);
+
+    if they differ, the source must send the datagram to a router that is on its own network (using the above process to reach that router); the router will see that the frame is addressed to it, but that the datagram is not, and should then forward the datagram (encapsulated in a different frame) towards the destination. Many hosts only know of one router, their "default gateway", although other configurations are possible.
+
+Those address bits that don't identify the source's network number, evidently indicated by 0s in its network mask, can be considered to form its host number—although it's really neither meaningful nor useful to extract it in the same way as was done above: even when communicating with a host on one's own network, its full address is used for identification, never the host number alone.
+
+That said, as a purely academic exercise it is of course possible to perform a bitwise AND with the complement of the mask:
+
+address   11000000 10101000 00100001 00010110    192.168.33.22
+~mask     00000000 00000000 00011111 11111111    0.0.31.255
+(AND)     -----------------------------------    -------------
+host      00000000 00000000 00000001 00010110    0.0.1.22
+
+So, to address your questions:
+
+        Is the host ID the public part? Is the network ID the private part for locating the computer within the local network?
+
+    The entire address is "public"; there are no "private" parts. Lookup protocols like ARP (which uses the full address) are used to locate computers within the local network.
+
+        If the subnet mask is a value smaller than 255 the corresponding octet in the IP address must be broken down into binary to determine which part of the number is the host ID and which portion is the network ID. Is the result binary number always split in two?
+
+    Nothing is "split in two". It only appears that way because dot-decimal notation was intended to make IPv4 addresses more readable to humans (albeit that decision was taken prior to the invention of CIDR, when network numbers were always aligned to byte boundaries and thus never caused the apparent "split" of a decimal number).

@@ -1,0 +1,21 @@
+import the virtual machine in the same way,
+now we have to re-configure the network
+
+select mac address policy : generate new mac addresses for all adapters.
+
+( to avoid conflict with previous vm)
+
+and after importing : 
+
+change display from vbox to vmsvga.
+
+
+
+we need to configure network and install virtualbox guest additions in the same way :
+
+1. bridged mode
+2. host only mode
+3. NatNetwork
+
+or
+4. NAT

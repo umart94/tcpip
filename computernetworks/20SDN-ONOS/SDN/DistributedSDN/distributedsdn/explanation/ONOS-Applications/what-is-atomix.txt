@@ -1,0 +1,9 @@
+Atomix 3.0 is a fully featured framework for building fault-tolerant distributed systems. It provides a set of high-level primitives commonly needed for building scalable and fault-tolerant distributed systems. These primitives include:
+
+Cluster management and failure detection
+Direct and publish-subscribe messaging
+Distributed coordination primitives built on a novel implementation of the Raft consensus protocol
+Scalable data primitives built on a multi-primary protocol
+Synchronous and asynchronous Java APIs
+Standalone agent
+REST API

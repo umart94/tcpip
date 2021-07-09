@@ -1,0 +1,57 @@
+Layer1 - Physical
+RJ45
+
+Layer2 = Data Link
+MAC Address
+
+Layer3 - Network
+IP Address
+
+Layer4 - Transport
+TCP / UDP
+
+
+in a Bus Topology - each device is connected to a single cable ( shared communications line bus)
+clients share communication line or bus
+similiar to telephone party line
+
+single cable and multiple telephones would be there
+before we call we listen, if no one else was using the line
+
+all telephones connected to the line would ring
+
+
+all devices receive frames from any device.
+
+
+10 base5 - thinnet - 500 meters segment size
+10 base2 - thinnet - 185 meters - bus topology
+
+when device sends a signal on line, all devices receive the signal
+
+
+
+10base2 - coax cable - maximum speed of 10 megabits per second.
+10 indicates 10 megabits
+2 indicates max segment length of 185 meters
+base indicates baseband instead of broadband
+
+
+-------------------
+
+
+baseband allows only a single signal to traverse along the line
+the signal uses all the frequencies.
+
+
+broadband uses coax cable
+multiple signals to be sent across
+
+
+
+
+
+
+
+
+

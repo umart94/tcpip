@@ -1,0 +1,48 @@
+Packet designed to do something bad to a system
+Protocol USED : ICMP
+
+if we use ping
+
+we can send ping with a really large byte count
+we can overwhelm the systems.
+
+
+ping -l (size) (ipaddress)
+ping -l 3310 192.168..
+
+theres no way to find out whos sending address
+we can spoof these addresses
+then send these ping requests with large byte sizes
+
+Most modern OS reject these broadcast ping requests
+
+in linux, we can do sysctl net.ipv4.icmp_echo_ignore_broadcasts=0 , in shell to enable broadcast address pings.
+
+If you want to perform host discovery, don't use broadcast pings, just simply ping each possible permutation for a given subnet. It sounds heavy, but it actually takes seconds (brackets are important):
+
+$ time ( s=192.168.0 ; for i in $(seq 1 254) ; do ( ping -n -c 1 -w 1 $s.$i 1>/dev/null 2>&1 && printf "%-16s %s\n" $s.$i responded ) & done ; wait ; echo )
+192.168.0.5      responded
+192.168.0.11     responded
+192.168.0.2      responded
+192.168.0.254    responded
+192.168.0.4      responded
+
+real    0m1.317s
+user    0m0.004s
+sys 0m0.084s
+
+---------------------------
+This Attack Is Called The Smurf Attack
+its useful if i can spoof source address ,  i can get the hosts replying to attacker rather than those replying to me.
+
+send messages to broadcast address, if the network is large it will overwhelm the network..
+
+most devices and modern os have configs that prevent pinging to broadcast addresses.
+on windows
+//FOR /L %i in (1,1,255) do @ping -n 1 192.168.100.%i | find "Reply" - hangs on find Reply.
+
+FOR /L %i in (1,1,255) do @ping -n 1 192.168.100.%i works..
+
+arp -a > filename.txt
+
+

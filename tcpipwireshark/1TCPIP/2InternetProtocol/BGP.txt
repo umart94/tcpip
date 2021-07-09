@@ -1,0 +1,82 @@
+https://wiki.wireshark.org/SampleCaptures
+
+used by large service providers
+it is a distance vector routing protocol
+
+information is shared between routers to get to a path, as well as how to get there
+
+By using Metrics and Rules :
+
+open bgp.pcap
+
+line 5 -> info -> elatelink > bgp. we are opening a bgp session
+
+5	7.999977	192.168.0.15	192.168.0.33	TCP	74	2124 → 179 [SYN] Seq=0 Win=32120 Len=0 MSS=1460 SACK_PERM=1 TSval=181687325 TSecr=0 WS=1
+
+this is a synchronize message , the bgp port is Dst Port : bgp (179)
+BGP uses TCP messages to transfer data between neighbour routers
+
+we configure routers to be neighbours, and someone we can share router information with
+from 5 to 6 to 7 there is a 3 way handshake ending with ACK.
+
+bgp can be slow because we have to set up this connection
+afterwards the message is originating from verified router devices.
+bgp is more secure than other routing protocols.
+---------------
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 29
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65033
+    Hold Time: 180
+    BGP Identifier: 192.168.0.15
+    Optional Parameters Length: 0
+
+version : 
+Open message :
+autonomous system number : 
+My AS : 65033
+routing area that exists within particular network... ip addresses and blocks that the network knows about.
+these pieces of information are shared with neighbour routers.
+
+keep alives : connection between 2 routers stays online
+
+--------
+update message : information about a particular network, how far it would be, and information about it
+
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 64
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 39
+    Path attributes
+        Path Attribute - ORIGIN: EGP
+        Path Attribute - AS_PATH: empty
+        Path Attribute - NEXT_HOP: 192.168.0.33 
+        Path Attribute - MULTI_EXIT_DISC: 0
+        Path Attribute - LOCAL_PREF: 100
+        Path Attribute - COMMUNITIES: 65033:500 65033:600 
+    Network Layer Reachability Information (NLRI)
+        10.0.0.0/8
+
+network to reach is 10.0.0.0/8
+
+local pref = 100 is weight that is assigned
+
+1 hop knows about the network
+we need to update Routing tables.
+no ASPATH in this case
+
+192.168.0.33 knows about network 10.0.0.0/8
+192.168.0.15 will update routing table based on this information
+so that if it receives any message about network 10.0.0.0/8
+it will send it to 192.168.0.33
+
+this is implemented at large scale service providers
+IBGP , EBGP (interior , exterior)
+also interacts with other service providers.
+internal is for internal service provider only.
+----------------------------------------- 
+

@@ -1,0 +1,8 @@
+Given a network topology, ONOS computes all the shortest paths between any two nodes.  This is especially useful for your applications to obtain path information for either flow installation or some other use. The paths command takes two arguments, both of them are devices. To make things easy for you ONOS provides CLI autocompletion by simply hitting the <TAB> key.
+onos> paths <TAB>
+of:0000000000000001   of:0000000000000002   of:000000000000000b  
+of:000000000000000c   of:000000000000000d   of:000000000000000e
+ONOS lists device options for you, thereby making it easier to find the devices you would like. For example, the output of the command below shows two paths of equal costs.
+onos> paths of:000000000000000e of:000000000000000b
+of:000000000000000e/2-of:0000000000000002/4==>of:0000000000000002/1-of:000000000000000b/2; cost=2.0
+of:000000000000000e/1-of:0000000000000001/4==>of:0000000000000001/1-of:000000000000000b/1; cost=2.0

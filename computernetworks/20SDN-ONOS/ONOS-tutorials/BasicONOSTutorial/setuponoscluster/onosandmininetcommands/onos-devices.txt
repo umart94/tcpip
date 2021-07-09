@@ -1,0 +1,24 @@
+An SDN Controller would be nothing without devices to control. Luckily, ONOS has a convenient command to list the device currently known in the system. Running
+onos> devices
+will return the following information,
+
+
+
+
+
+
+onos> devices
+id=of:0000000000000001, available=true, local-status=connected 11m30s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.5.5, serial=None, chassis=1, driver=ovs, channelId=172.17.0.1:56816, locType=none, managementAddress=172.17.0.1, name=Spine-1, protocol=OF_13
+id=of:0000000000000002, available=true, local-status=connected 11m29s ago, role=STANDBY, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.5.5, serial=None, chassis=2, driver=ovs, channelId=172.17.0.1:56834, locType=none, managementAddress=172.17.0.1, name=Spine-2, protocol=OF_13
+id=of:000000000000000b, available=true, local-status=connected 11m30s ago, role=MASTER, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.5.5, serial=None, chassis=b, driver=ovs, channelId=172.17.0.1:56774, locType=none, managementAddress=172.17.0.1, name=Leaf-1, protocol=OF_13
+id=of:000000000000000c, available=true, local-status=connected 11m29s ago, role=STANDBY, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.5.5, serial=None, chassis=c, driver=ovs, channelId=172.17.0.1:56830, locType=none, managementAddress=172.17.0.1, name=Leaf-2, protocol=OF_13
+id=of:000000000000000d, available=true, local-status=connected 11m30s ago, role=STANDBY, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.5.5, serial=None, chassis=d, driver=ovs, channelId=172.17.0.1:56794, locType=none, managementAddress=172.17.0.1, name=Leaf-3, protocol=OF_13
+id=of:000000000000000e, available=true, local-status=connected 11m30s ago, role=STANDBY, type=SWITCH, mfr=Nicira, Inc., hw=Open vSwitch, sw=2.5.5, serial=None, chassis=e, driver=ovs, channelId=172.17.0.1:56818, locType=none, managementAddress=172.17.0.1, name=Leaf-4, protocol=OF_13
+
+
+
+
+
+
+
+which consists of a device id, and a boolean value which indicates whether this devices is currently up. You also get the type of device and well as it's role relationship with this ONOS instance and other various attributes attached to each device.

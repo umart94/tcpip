@@ -1,0 +1,53 @@
+Network Address Translation is Different
+
+And NATNetwork is Different
+
+Ok So in default mode remember that :
+
+In this NAT NETWORKING MODE THERE WILL BE :
+1. No Access from Outside Network Into This Virtual Machine.
+2. No Network Between Host And Virtual Machine.
+3. No Network Between Virtual Machines Themselves.
+
+THERE WILL ONLY BE :
+4. [YES] Access the Outside network using host as proxy.
+
+
+
+we still do not have network between virtual machines themselves.
+
+now we worked through ssh , host -> vm
+
+now we want vm -> vm connections
+
+so VM1,VM2,VM3 etc. will be on the same INTERNAL NETWORK. using A "NATNetwork" Adapter.
+
+
+
+in NAT, each virtual machine had a seperate ip and was a seperate desktop computer and
+its address was being translated to host computer. AS SEPERATE PRIVATE IP BEING ASSIGNED ON
+HOST MACHINE.
+
+
+
+
+IN NATNETWORK THERE WILL BE :
+
+1. [YES] Access from Outside Network Into This Virtual Machine.
+2. [YES] Network Between Host And Virtual Machine.
+3. [YES] Network Between Virtual Machines Themselves.
+4. [YES] Access the Outside network using host as proxy.
+
+
+go to file preferences network -> create new NATNetwork
+Network CIDR configure and DHCP Settings
+
+
+Now when we go to network adapters and select NAT Network select network that we just created.
+
+
+
+
+
+
+

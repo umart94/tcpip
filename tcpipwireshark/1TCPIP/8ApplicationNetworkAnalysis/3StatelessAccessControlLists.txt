@@ -1,0 +1,26 @@
+Stateless
+
+Emulate a router on console.
+go to its config
+
+go to access-list
+
+access-list 101 permit tcp any 192.168.1.245 0.0.0.0 eq 80
+we can specify destination address
+
+specify wildcard
+
+access list allows packets coming in port 80
+
+access list 101 deny icmp ?
+access list 101 deny icmp any any
+
+deny -- specify packets to reject
+dynamic -- specify a dynamic list of permits or denys
+permit -- specify packets to forward
+remark -- access list entry comment
+
+https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/addr_serv/command/reference/ir40asrbook_chapter1.html
+
+---------------------
+

@@ -1,0 +1,60 @@
+Routed Protocol - carries user data , examples are ipv4 or ipv6
+
+when we use higher layer protocol such as http it uses ipv4 or ipv6 to carry user information 
+
+data from web servers being routed to our pc
+
+addressing scheme used by routed protocols based on ipv4 32 bit. and ipv6 128 bit.
+
+How Do Routers know that devices are in a network ?
+
+each router making independent decision in determining path.
+
+PC in UK, goes to facebook.com, traffic sent from pc to fb.com in usa , california . how is user data forwarded and sent back to client pc.
+
+
+so client pc will make independent routing decisions.
+
+cmd command : tracert -w 50 www.facebook.com
+
+every one of these routers is a hop
+
+traffic goes from hop to hop until it goes to facebook.com
+
+hop by hop routing paradigm
+
+
+Hop-by-hop transport is a principle of controlling the flow of data in a network. With hop-by-hop transport, chunks of data are forwarded from node to node in a store-and-forward manner.
+
+As hop-by-hop transport involves not only the source and destination node, but rather some or all of the intermediate nodes as well, it allows data to be forwarded even if the path between source and destination is not permanently connected during communication.
+
+However, the End-to-end principle claims that transport control should be implemented end-to-end unless implementing hop-by-hop transport achieves considerably better performance. Moreover, hop-by-hop transport requires per-flow state information at intermediate nodes, which limits its scalability. This is one of the reasons why almost all communication today is controlled by end-to-end transport protocols such as TCP.
+
+Current research in the area of sparse mobile networks is considering hop-by-hop transport for application scenarios where end-to-end connectivity is only available intermittently, as under such conditions, hop-by-hop transport can achieve substantial performance gains.
+
+
+with unicast traffic , routing is based on destination address only and not on source address.
+every router along this path needs to implement an outgoing interface. to forward traffic to reach destination ip address
+
+to do this, routers communicate information about networks using routing protocols
+examples are : 
+
+EIGRP, = BANDWIDTH and delay
+OSPF, = bandwidth
+RIP, = hopcount
+ISIS, = 
+BGP etc. = 
+
+they will then determine the best route between networks.
+
+they are used to tell routers about other networks and information about other networks.
+networks between routers
+
+if a router does not know about destination ip address, it is not in routing table, then router will drop unicast traffic.
+destinations are matched with routing tables inside routing tables.
+
+
+
+
+
+

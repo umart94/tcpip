@@ -1,0 +1,103 @@
+deviceId=of:0000000000000001, flowRuleCount=5
+    ADDED, bytes=327834, packets=4203, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=327834, packets=4203, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=42, packets=1, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:1, ETH_DST:00:00:00:00:00:10, ETH_SRC:00:00:00:00:00:01], treatment=[immediate=[OUTPUT:4]]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:4, ETH_DST:00:00:00:00:00:01, ETH_SRC:00:00:00:00:00:10], treatment=[immediate=[OUTPUT:1]]
+deviceId=of:0000000000000002, flowRuleCount=3
+    ADDED, bytes=327990, packets=4205, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=60522, packets=1441, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=327834, packets=4203, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+deviceId=of:000000000000000b, flowRuleCount=5
+    ADDED, bytes=163722, packets=2099, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=163722, packets=2099, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=18438, packets=439, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:3, ETH_DST:00:00:00:00:00:10, ETH_SRC:00:00:00:00:00:01], treatment=[immediate=[OUTPUT:1]]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:1, ETH_DST:00:00:00:00:00:01, ETH_SRC:00:00:00:00:00:10], treatment=[immediate=[OUTPUT:3]]
+deviceId=of:000000000000000c, flowRuleCount=3
+    ADDED, bytes=163800, packets=2100, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=210, packets=5, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=163800, packets=2100, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+deviceId=of:000000000000000d, flowRuleCount=3
+    ADDED, bytes=20706, packets=493, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=163722, packets=2099, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=163722, packets=2099, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+deviceId=of:000000000000000e, flowRuleCount=5
+    ADDED, bytes=163800, packets=2100, table=0, priority=40000, selector=[ETH_TYPE:lldp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=19740, packets=470, table=0, priority=40000, selector=[ETH_TYPE:arp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=163800, packets=2100, table=0, priority=40000, selector=[ETH_TYPE:bddp], treatment=[immediate=[OUTPUT:CONTROLLER], clearDeferred]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:1, ETH_DST:00:00:00:00:00:10, ETH_SRC:00:00:00:00:00:01], treatment=[immediate=[OUTPUT:3]]
+    ADDED, bytes=1078, packets=11, table=0, priority=100, selector=[IN_PORT:3, ETH_DST:00:00:00:00:00:01, ETH_SRC:00:00:00:00:00:10], treatment=[immediate=[OUTPUT:1]]
+
+
+
+
+
+
+Please note that the output from the tutorial and what you see may vary slightly as all alternate paths here have equal cost and therefore ONOS is free to pick either one.
+
+
+You can visualize the intent using ONOS GUI by selecting the Leaf-1 node in the GUI and press the V key to show paths provisioned by intents that pass through the selected node. You should see something like this:
+
+
+
+
+/ for quick help legend on the ui
+
+cmd+scroll to zoom in zoom out.
+
+
+
+:D
+
+DISABLE 
+
+app deactivate fwd
+
+thanks to Jonathan Hart at google groups.
+
+I think the reason the host-to-host intent doesn't seem to be working is because ARPs are not resolved. You can check this by running 'h1 arp -an' in the mininet console, and it should say 'incomplete'.
+
+Try running the 'org.onosproject.proxyarp' app to let ONOS forward ARP packets for you. The fwd app will forward ARP packets as well as ICMP, so that is why that works.
+
+Thanks,
+
+Jono
+
+
+
+1. app deactivate fwd
+2. add-host-intent 00:00:00:00:00:01/None 00:00:00:00:00:10/None
+3. app activate org.onosproject.proxyarp
+4.
+
+onos> intents
+onos> intents
+Id: 0x2
+State: INSTALLED
+Key: 0x2
+Intent type: HostToHostIntent
+Application Id: org.onosproject.cli
+Leader Id: 172.17.0.7
+Resources: [00:00:00:00:00:01/None, 00:00:00:00:00:10/None]
+Treatment: [NOACTION]
+Constraints: [LinkTypeConstraint{inclusive=false, types=[OPTICAL]}]
+Source host: 00:00:00:00:00:01/None
+Destination host: 00:00:00:00:00:10/None
+
+
+
+the goal is to make the ping work without reactive forwarding app ( i think)
+
+If you still have the h11 ping h41 command running, you will see that the ICMP pings are still working beetween the two hosts.
+So now that the intent is installed, let's have a look what path it is using by using the flows command with summarized output using the -s flag for better readability:
+mininet> h11 ping h41
+PING 10.0.0.16 (10.0.0.16) 56(84) bytes of data.
+64 bytes from 10.0.0.16: icmp_seq=1 ttl=64 time=0.737 ms
+64 bytes from 10.0.0.16: icmp_seq=2 ttl=64 time=0.034 ms
+64 bytes from 10.0.0.16: icmp_seq=3 ttl=64 time=0.035 ms
+64 bytes from 10.0.0.16: icmp_seq=4 ttl=64 time=0.034 ms
+^C
+--- 10.0.0.16 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 2999ms
+rtt min/avg/max/mdev = 0.034/0.210/0.737/0.304 ms

@@ -1,0 +1,112 @@
+Network Address
+
+used to determine which portion of IP Address is the network portion and which part is the host portion
+
+IS A Device remote or local ?
+
+if two pcs are on the same subnet then they can communicate
+without the default gateway.
+
+but if these two devices are on different subnets different networks they need a default gateway
+
+
+Local VLAN
+Inter-VLAN Routing
+or Route traffic through traditional routers.
+
+e.g layer 3 switch may route between 2 vlans
+or router may route this traffic
+
+If they are in different subnets
+
+Question : How to determine That 2 Devices are on the same subnet 
+or they are on the different subnet / network ?
+
+
+10.1.1.1 and device 10.1.2.1 are on the same subnet If
+
+they are using the same mask /16
+
+if they are using a /24 mask that means that the devices are on
+different subnets
+
+
+
+Determine:
+
+if the 2nd Device is Remote:
+Thus can be reached through default gateway - diferent subnet
+
+if the 2nd device is Local:
+and Therefore does not require use of default gateway - same subnet
+
+
+
+
+Class A B AND C networks have default masks also known as natural masks
+
+
+Class A : 255.0.0.0
+Class B : 255.255.0.0
+Class C : 255.255.255.0
+
+
+
+10.1.1.1 = 00001010.00000001.00000001.00000001
+255.0.0.0 = 1111111.00000000.00000000.00000000
+in any network mask continouous 1's in network portion indicate network.
+and continuous 0's indicate host.
+NETWORK.HOST.HOST.HOST
+
+
+1. Any address bits which have corresponding mask bit set to 1 represent network ID
+2. any address bits that have corresponding mask bits set to 0 represent the node ID
+
+
+Network ID = 10
+host ID = 1.1.1
+
+Network is 10.0.0.0
+
+1.1.1.1 255.255.0.0
+
+1.1.1.1 = 00000001.00000001.00000001.00000001
+255.255.0.0 = 11111111.11111111.00000000.00000000
+
+NetworkId = 1.1
+host ID = 1.1
+
+Network is 1.1.0.0
+
+to work out if another host is local
+- check the network portion of the address.
+- compare to the other host.
+
+If the network portion is same, they are local devices.
+if network portion is not the same, the devices are remote devices.
+
+
+the network id is checked using Logical AND
+and the local devices communicate using arp message directly, and not default gateway.
+
+if the subnets are different the devices send data to default gateway. and use router to communicate.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

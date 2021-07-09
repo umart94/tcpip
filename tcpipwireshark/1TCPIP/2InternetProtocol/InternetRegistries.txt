@@ -1,0 +1,30 @@
+its a place where data regarding what goes on the internet is stored
+
+we store :
+
+1. who owns a ip address
+2. who owns a domain
+3. different contacts on internet
+4. administrative contact or technical contact on the domain
+
+i have to have a contact on an internet registry/ies
+
+
+www.icann.org/en/about
+
+icann is responsible for managing root servers.
+Authoritative Root for DNS
+Overseeing the Internet DNS Servers.
+
+----------------------
+Regional - ARIN American Registry for Internet Numbers
+
+managing IP Address allocations for North America
+
+The African Network Information Center (AFRINIC) serves Africa.[2] The American Registry for Internet Numbers (ARIN) serves Antarctica, Canada, parts of the Caribbean, and the United States.[3] The Asia-Pacific Network Information Centre (APNIC) serves East Asia, Oceania, South Asia, and Southeast Asia.[4] The Latin America and Caribbean Network Information Centre (LACNIC) serves most of the Caribbean and all of Latin America.[5] The Réseaux IP Européens Network Coordination Centre (RIPE NCC) serves Europe, Central Asia, Russia, and West Asia.[6]
+
+
+
+
+
+

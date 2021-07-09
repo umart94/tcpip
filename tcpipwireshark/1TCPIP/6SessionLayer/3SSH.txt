@@ -1,0 +1,168 @@
+Secure Shell
+
+session layer protocol
+establishment of encrypted communication channel
+
+purpose : we can do remote logins, replacement of telnet (security)
+file transfers 
+
+---------------------
+command ssh
+
+usage: ssh [] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+
+-b bind_address
+         Use bind_address on the local machine as the source address of the connection.  Only useful on systems with more than one address.
+
+
+-----------------------------
+Don't Use PuTTY
+Install OpenSSH Client and OpenSSH Server as Optional Features in Windows 10
+
+i want to access windows 10 host from kali linux vm
+or kali linux vm from windows 10 ssh server.
+
+Don't Use Admin Accounts. use User Account with lower privileges / permissions.
+
+
+If we want to explicitly connect to kali root, For connecting to kali root we can do : 
+
+You have two options in order to be able to SSH into your Kali Linux. First option is to create a new non-privileged user and use its credentials to log in. Second, allow the root user to access the secure shell. To do so, either edit or insert the following line within the /etc/ssh/sshd_config SSH config file:
+FROM:
+#PermitRootLogin prohibit-password
+TO:
+PermitRootLogin yes
+
+
+so we adduser to kali using
+
+adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]
+[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid ID]
+[--disabled-password] [--disabled-login] [--add_extra_groups] USER
+   Add a normal user
+
+adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]
+[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-password]
+[--disabled-login] [--add_extra_groups] USER
+   Add a system user
+
+adduser --group [--gid ID] GROUP
+addgroup [--gid ID] GROUP
+   Add a user group
+
+addgroup --system [--gid ID] GROUP
+   Add a system group
+
+adduser USER GROUP
+   Add an existing user to an existing group
+
+general options:
+  --quiet | -q      don't give process information to stdout
+  --force-badname   allow usernames which do not match the
+                    NAME_REGEX configuration variable
+  --help | -h       usage message
+  --version | -v    version number and copyright
+  --conf | -c FILE  use FILE as configuration file
+
+Normal non-root user
+
+sudo adduser --home /home/umar umar
+Adding user `umar' ...
+Adding new group `umar' (1001) ...
+Adding new user `umar' (1001) with group `umar' ...
+Creating home directory `/home/umar' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for umar
+Enter the new value, or press ENTER for the default
+        Full Name []: Muhammad Umar Tariq
+        Room Number []: 1
+        Work Phone []: N/A        
+        Home Phone []: N/A
+        Other []: N/A
+Is the information correct? [Y/n] Y
+
+
+
+
+connect to a machine using ssh
+
+step-1 : install sudo apt-get install openssh-server openssh-client
+
+step-2 : run the server on admin account, but give access to the user with less permissions.
+
+step-3 : 
+
+If you are only planning on using SSH briefly the defaults are probably fine.  If you think you will use it for a length of time I would recommend at minimum enabling public key authentication:
+
+
+sudo nano /etc/ssh/sshd_config (vim jokes)
+
+PubkeyAuthentication yes
+Then disabling password authentication:
+
+PasswordAuthentication no
+PermitEmptyPasswords no
+set 
+
+PermitRootLogin to prohibit-password/without-password/yes.
+
+
+
+never give access to the root users through ssh or any method... unless you know how to configure it.
+
+
+
+
+after every change of sshd_config file.. do
+
+service ssh restart
+
+sudo service ssh status
+
+-----------------
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+OpenSSH version , OpenSSL Version
+
+first it does config
+Remote protocol version
+
+SSH2_MSG_KEXINIT sent
+SSH2_MSG_KEXINIT received
+
+now we see key exchange server-> client ciphers and
+key exchange client -> server ciphers being used
+
+check the host key
+
+public keys sent
+then password is tried
+if all methods fail. we cant ssh
+
+to logout.. type logout command.
+debug1: Exit Status. Session Teardown
+
+
+After the public key , password .. other authentication verified.
+
+we have SSHv2 Encrypted packets as traffic. (Session Established)
+logout -> session teardown with fin,ack
+
+
+
+------------------------------------
+
+Wireshark SSH
+
+
+
+

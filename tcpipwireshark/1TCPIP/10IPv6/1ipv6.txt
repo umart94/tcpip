@@ -1,0 +1,23 @@
+version number
+
+for QoS
+traffic class
+flow label
+
+these two fields provide quality of service which differentiate traffic from one another
+
+payload length
+next header field
+
+hop limit
+time to live field
+
+source and destination ip address
+
+128 bits
+broken up into 16 bytes.
+
+8 fields
+2 bytes in each field
+
+first big difference is the size of address space difference between ipv6 and ipv4

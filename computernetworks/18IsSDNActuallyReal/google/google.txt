@@ -1,0 +1,17 @@
+Google - OpenFLOW
+
+network utilization to 100 %
+why they used openflow in core network
+
+reason is networking costs do not go down as you scale up.
+
+this is in contrast to compute and storage.
+
+datacenter at scale, we need savings.
+but cost of networking stayed linear and increased.
+
+
+this is different to compute and storage, where the price went down
+as you scaled.
+
+by implementing openflow and sdn google were able to manage many networking devices as a single unit rather than lots of individual networking devices.

@@ -1,0 +1,17 @@
+when a device receives a broadcast it will process it on NIC and forward it to upper layers.
+
+CPU of a PC would be interrupted.
+if device A starts sending many broadcasts onto the network it would be received by all devices on the network
+and PC's would be interrupted.
+
+
+C and D will also receive broadcast from A and cpu of c and d will be interrupted.
+
+10base2 was thus replaced with 10baseT
+T means twisted pair
+twisted pair ethernet
+insulated copper wires with pairs - max distance of 100 meters.
+we use unshielded twisted pair cables.
+
+RJ45 connectors.
+

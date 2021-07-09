@@ -1,0 +1,76 @@
+hp network protector / sentinel
+intercepts dns queries checks them against a tipping point database
+
+makes sure that users are not going to malicious websites
+
+
+Network Protector application is installed on controller
+and it used java based api for the controller.
+
+
+the application also references a copy of the tipping point databases
+that contains a million website entries.
+
+
+the controller uses openflow to update the switches
+to intercept dns queries
+
+
+if a pc is in the network and sends dns request for a bad malicious website
+
+like suppose 
+
+www.maliciouswebsite.com at 1.2.3.4
+
+then
+
+www.maliciouswebsite.com at 1.2.3.4 is a bad or malicious website we dont want
+user to visit this.
+
+
+the dns query for www.maliciouswebsite.com at 1.2.3.4
+
+
+arrives at the switch
+
+the APPLICATION using java api to the CONTROLLER has already pre programmed a 
+
+flow entry, that says when The SWITCH receives a dns query, send it to the controller.
+
+
+STEPS :
+
+1. WHEN PC SENDS DNS QUERY TO www.maliciouswebsite.com at 1.2.3.4 TO SWITCH
+2. THIS DNS QUERY IS SENT TO THE CONTROLLER 
+3. THE CONTROLLER SENDS THE QUERY TO THE NETWORK PROTECTOR APPLICATION
+4. THE NETWORK PROTECTOR APPLICATION SENDS THE REQUEST TO THE TIPPING POINT DATABASE
+5. RETURNED BACK FROM TIPPING DATABASE TO NETWORK PROTECTOR APPLICATION AS BAD
+WEBSITE
+6. THE APPLICATION THEN SENDS A MESSAGE TO THE CONTROLLER AND IT TRAVELS 
+7. TO THE CLIENT PC THAT THE WEBSITE IS MALICIOUS
+8. PC believes it has gotten a response from dns HOWEVER this is a response from the Network protector application.
+
+
+
+THE REQUEST DOES NOT GO TO THE SWITCH , AND THE REQUEST DOES NOT GO OVER TO AN ACTUAL DNS SERVER.
+
+
+the network protector has fabricated a dns response and intercepted it and sent 
+a response back to the pc that this is a non existent domain.
+
+
+
+if dns request arrives for a good website, THEN the controller forwards it to the switch, and the switch then forwards to the dns server
+
+
+the dns server then sends response back to the switch and switch then sends the response back to the PC.
+
+
+hybrid processing , switch has its own decisions. and network protector uses its own databases.
+
+
+
+
+
+
+

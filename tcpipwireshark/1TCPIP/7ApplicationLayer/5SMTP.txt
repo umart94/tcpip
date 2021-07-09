@@ -1,0 +1,419 @@
+SMTP - SIMPLE MAIL TRANSFER PROTOCOL
+
+It is just a protocol to SEND the message.
+on the receiving end something else may be in use
+
+for e.g different email client applications have the IMAP,POP options.
+
+--------------------
+C:\Program Files (x86)\Nmap>ncat -C localhost 25
+Ncat: No connection could be made because the target machine actively refused it. .
+we dont have a smtp server locally on our windows.. this error means that either
+
+port 25 is being blocked through your firewall or some other software.
+you dont have a local smtp server installed ( or any smtp config)
+
+------------------------
+Email Providers use an outgoing SMTP Server
+
+An outgoing SMTP mail server is the machine speaking SMTP protocol that handles all email delivery process (hence the name, outgoing: it takes care of sent emails). Any common email provider – the likes of Gmail, Yahoo, AOL etc. – has an own SMTP server that can be easily configured on a mail client or software (Thunderbird, Outlook…) to send your messages directly from the desktop. The whole setup process is very quick, but you’ll need the right SMTP details.
+
+Using an outgoing SMTP server is the traditional method of sending emails. An alternative solution is to bypass the SMTP server and send directly to the destination. It’s known as Direct Send, and you can use it through specific email software programs. Direct Send is not very reliable though, and here is why:
+
+It cannot be used if port 25 is blocked by your ISP.
+It’s unfit for bulk email due to multiple connections to many different servers.
+It cannot send non-personalized emails.
+It can be blocked by email filters because emails are not sent from a regular SMTP server.
+Let’s put Direct Send away. What you may be interested in is why you would run your own SMTP server.
+
+
+--------------------Local SMTP Server ----------------------
+Pros
+no daily or hourly limit on the number of outgoing emails
+instant reporting
+privacy and control of all your outgoing mail
+no shared IP
+
+Cons
+running a local SMTP server takes time and effort
+the bounce rate may increase by 20-30%
+
+a bounced email? It’s a message sent to a recipient whose incoming server has refused: so even if the email has been correctly sent out, it has not been delivered.
+
+ a soft bounce is “temporary”: the email is rejected because the server is down, the recipient’s inbox is full, or there’s an auto-reply activated.
+
+A hard bounce, on the contrary, is permanent: the incoming email cannot be delivered because the address is invalid or non-existent, or your outgoing server has been blocked.
+
+It’s essential for any email campaign – but also for your daily email flow – to keep track of all bounces, both soft and hard.
+
+ideally : a bounce rate between 2 and 3 percent
+
+This largely depends with your email service provider. However, in most cases, an email address that returns 5 soft bounces with no clicks or opens during a specified period of time is automatically converted into a hard bounce. If the recipient interacts with the emails later, the recorded number of soft bounces for that address is reset to zero.
+
+How do you avoid high bounce rates?
+1.    Use confirmed opt-in
+A confirmed opt-in is perhaps one of the best ways to collect valid emails from interested subscribers. By making sure that people who subscribe to your emailing confirm their email addresses, you eliminate the probability of erroneous emails finding their way into your mailing list. Apart from significantly reducing the bounce rate, this method also ensures that you get an interactive and active subscriber list. This way, the audience becomes more engaged, increasing the chances of a conversion.
+
+2.    Don’t use a free domain send-from address
+Free domains email addresses like outlook, Hotmail and Google might end up failing a DMARC check. If this happens, all of your emails will automatically bounce and if they are received, the recipient’s server is going to route them into spam or junk categories, and the intended person will never get the chance of receiving it. If you are after better results, send your emails from an authenticated business domain. This prevents emails from being classified under the spam or junk category. This will significantly improve your email deliverability and also boost your bounce rate.
+
+3.    Send frequently and consistently
+Contacting your subscribers regularly and consistently is an integral ingredient for a successful and productive email marketing campaign. In as little as 6 months, subscriber lists can become stale. I mean, disengagement for a very long time could result in bounces or spam reports.
+
+Start by sending your subscribers a welcome message, then regularly send them relevant and useful information. Subscribers also regular change their email addresses or leave old ones for new ones. By maintain constant communication with them, interested ones will always update their emailing information and this will not result in high bounce rates. If left for so long or contacted sporadically, subscribers who change or abandon their email addresses will not the chance to update their contact information.
+
+There is no holy Mary grill guide with the number of times of you should contact your subscribers. However, with a couple of emails monthly, you should be able to establish a lasting relationship with your subscribers. Just contact them regularly with what they want to hear.
+
+4.    Include a preference center
+Always include a preference center where subscribers can update their contact information when need be. This will not only prevent bounces when subscribers change emails or abandon old ones, but also give them the autonomy to decide the email address that should receive your newsletters. In the long run, this will cultivate trust between you and them.
+
+5.    Use a List Verification Service or an online Email Validation API
+If your list has been receiving high bounce rates or has been dormant for some time, it will pay off to use an email verification service. Such a service will help you identify and get rid of invalid addresses before launching your next marketing campaign.
+
+Removing invalid addresses is not that simple. That’s the reason it is wise to contact a professional company to help you out. When validating emails, some might be classified as unknown or risky. In such a situation, completely removing them from your subscriber list might not be the best option. Staggering sends should be done to ensure that they are indeed invalid.
+
+This should be done by adding a few of the suspicious emails in your emailing list then look at what happens. If they end up to be valid, you can go ahead and permanently add them to your mailing list. Otherwise, you should get rid of them. Do not use a large number of them at once because this will destroy your bounce rate, which will negatively affect your deliverability. Spam filters and internet service providers pay close attention to bounce rates and the attempts to send emails to invalid addresses. Eventually, you could end up being spammed or blocked altogether.
+
+By getting your list verified, you minimize the risk of damaging your reputation by only sending emails to valid addresses.
+
+Clean Your Email List Now!
+
+6.    Be vigilant and monitor your results
+As with deliverability and engagement, the longer you leave bounce issues unsolved, the more damage you cause to your reputation. Therefore, monitor your campaigns closely and whenever you notice a spike in your bounce rate, take action immediately. Perhaps, a particular domain could be the problem or some emails could have become invalid.
+
+It is also important to double check your email sources, improve your sign up form, and frequently update your subscriber’s list. Make sure that you always send your emails with an authentication and also from the same domain. If you are not sure why you are receiving a very high bounce rate, contact an email verification company for advice on how to proceed.
+
+7.    Validate your emails
+Validating your emails (using services like online API that validates your emails in real-time) is very important in an email marketing campaign. Failing to validate your emails will most likely end up in junk folders or bounce back to you because receivers cannot verify the legitimacy of your sends. By authenticating your domain, you give authenticity and legitimacy to your emails. Receiving ISPs and spam filters will no longer categorize your emails as junk. This will significantly boost your bounce rates and also improve the deliverability of your emails.
+
+
+-----------------------------------End Local SMTP Server--------------------------------
+
+
+
+***************CREATE LOCAL SMTP SERVER**************************************
+Requirements for a local SMTP server
+There are no specific requirements so far. Nevertheless, you should be prepared for the following:
+
+Some ISPs may block the port 25. You can solve this by contacting your ISP provider and learning about the limitations they may impose. Also, you need to request a correct DNS server and permission for MX record resolution.
+For bulk emails, you should probably opt for a domain and a fixed IP address associated with it – this will increase your resistance to spam filters.
+
+
+Software Used : hMailServer
+set a fake domain in hMailServer
+set a garbage address plus password in accounts
+uncheck imap and pop in protocols under settings
+
+Enter localhost under Advanced -> General -> domain
+go to advanced -> auto-ban
+
+The Auto-ban feature is designed to block IP addresses after too many failed login attempts. This SMTP server is our personal SMTP server and we will be doing tests. I would recommend unchecking the “Enabled” box.
+IP Ranges shows name,lowerip,upperip,priority,expires.
+
+TCP/IP ports shows ports for the protocols. (smtp,imap) etc.
+
+-------------
+telnet hmailserver.com 25
+Connecting To hmailserver.com...Could not open connection to the host, on port 25: Connect failed
+
+--------------------------
+
+
+
+Overview
+This page describes the basics of configuring hMailServer. It does not include information on how to set up virus scanners or spam protection. If you are unsure about how hMailServer works, you should read this page before configuring the server.
+
+Connecting to hMailServer
+From the Start menu, select hMailServer Administrator
+Now the hMailServer Administrator - Connect dialog is opened. This dialog allows you to connect to different hMailServer services.
+Double-click on the "localhost" host name to connect to the hMailServer instance running on localhost.
+In the password dialog, specify the password you specified during the installation of hMailServer - the main hMailServer administration password, and then click OK
+Now hMailServer Administrator is started.
+Domains & Accounts
+Every hMailServer domain should be connected to an internet domain. Say that you're the owner of the domain something.com, then you should add something.com as a domain in hMailAdmin:
+
+Start hMailAdmin.
+Click Add domain.
+Enter something.com as domain name.
+Click Save
+The next step is to add accounts to your server. The normal setup is to have one account per email address you want to be able to send and receive email from. If you want the addresses webmaster@something.com and info@something.com, simply add this to hMailAdmin:
+
+Start hMailAdmin
+Expand the Domains node in the tree to the left
+Click on the domain something.com
+Click Add account
+Enter webmaster as the account address, set the password and click Save
+Click on the domain something.com in the tree to the left
+Click Add account
+Enter info as the account address, set the password and click Save
+Specifying public host name
+For an email server to work properly, it needs to know its public name on the Internet. This is normally something like mail.something.com. Since there is no good way for software to automatically detect the public host name of the computer where it is running, you need to tell hMailServer what public hostname to use. While it's possible to run hMailServer without telling it its public hostname, some email servers will reject email from you if you don't specify it.
+
+Start hMailAdmin
+In the tree to the left, go to Settings -> Protocols -> SMTP
+To the right, the SMTP settings are now shown. Click on the Delivery of e-mail tab.
+Under host name, enter the public hostname of the computer where hMailServer is running.
+Save the change
+Specifying SMTP relayer
+Some internet service providers (the people that offer you the internet connection) block outgoing traffic on port 25. Since outgoing traffic on port 25 is required for email to work properly, you either need to convince your ISP to open up port 25 for you (if it's not open), or you need to configure hMailServer to forward all email through your ISP's email server.
+To determine whether port 25 is blocked, try typing telnet mail.hmailserver.com 25 on your command line. If you can connect, port 25 is not blocked; if you can't, port 25 is blocked.
+If you configure your ISP's email server as SMTP relayer, hMailServer will deliver all outgoing email to your ISP's email server, which in turn will deliver it to the correct destination. Since it's almost always possible to send email through your ISP's email server, this is a workaround if port 25 is blocked.
+
+Start hMailAdmin
+In the tree to the left, go to Settings -> Protocols -> SMTP
+To the right, the SMTP settings are now shown. Click on the Delivery of e-mail tab.
+In the SMTP Relayer field, enter the host name of your ISP's email server, along with your credentials on that server in case it demands authentication.
+Save your changes
+Please note that you should never specify localhost, 127.0.0.1, or your own hostname as the SMTP Relayer, since that would mean that hMailServer would try to forward messages to itself. That would result in an infinite loop. Also, you should leave this field empty if your ISP is not blocking port 25.
+
+LOL !
+
+
+Configuring IP ranges
+IP ranges are used in hMailServer to specify who should be allowed to send email through your server. For example, you can use the IP ranges to configure hMailServer such that only computers in your local network are allowed to use the server to send email. By default, hMailServer comes with 2 different IP ranges. These default IP ranges should be sufficient for almost all users. Unless you're using old email clients with a lack of features, you should never have to modify these. Do not modify them unless you are absolutely sure what you want to achieve using IP ranges, and how to achieve it.
+
+Advanced Configuration
+There are many guides on the forum that detail advanced configuration, from adding SpamAssassin to using Self-Signed SSL Certificates.
+
+Troubleshooting
+In most cases where users report problems with hMailServer installation and configuration, the problem is not in the hMailServer set-up but with network settings, firewalls, DNS configuration and other external software. This tutorial covers only hMailServer set-up so it is strongly recommended that you read the troubleshooting section in case you run into problem.
+
+
+--------------------------
+in case of 
+
+Single server, dynamic IP address
+Scenario:
+You have a single server which you wants to use as emails erver. You Internet service provider (ISP) has given you a dynamic IP address.
+
+Step 1: Checking the requirements
+Before you continue, you should check that your Internet service provider (ISP) allows you to run your own email server in your network. You should also check that your ISP has not blocked port 25 for incoming traffic. You also needs to know whether they are blocking outgoing traffic on port 25.
+
+Step 2: Setting up MX records
+To be able to receive email from other servers, you must set up MX records for your domain. The MX records are entries in the DNS server that tells other computers on the Internet which computer (host name) is hosting the email for your domain.
+
+Since you're using a dynamic IP address, you must register a host name which is automatically updated whenever your IP address changes. There are several companies that offers this service for free. The following tutorial assumes that you have registered a free subdomain at No-IP, called something.no-ip.com and that this host name points at your computers IP address. (No-IP offers a small (free) Windows utility that automatically updates the host name whenever your IP address changes.)
+
+If you have access to a web interface that lets you modify DNS settings, you can set up your MX records yourself. If you don't have access, you should contact the company that registered your domain and ask them to set up the MX records for your domain.
+
+So in this example, you should enter something.no-ip.com as MX record for your domain.
+
+Step 3: Changing firewall settings
+If you have a firewall (which you hopefully have) you need to modify its settings to allow hMailServer to receive email. Email is normally sent and received on TCP/IP port 25. This means that you must configure your firewall to allow incoming and outgoing traffic on TCP/IP port 25. If you're behind some kind of router, you need to configure the router to forward all traffic on port 25 to the computer where hMailServer is running.
+
+Step 4: Install hMailServer
+Download the latest hMailServer version
+Run through the installation wizard.
+Start hMailServer Administrator.
+Click Add Domain...
+Enter the name of your domain, something.no-ip.com, and click Save.
+Click Add account... and add a new email account.
+Go to Settings->Protocols->SMTP and choose the Delivery of email tab.
+In the Host name setting, enter the host name of your computer, in this example something.no-ip.com.
+Step 5: Configuring outgoing email
+If your Internet service provider is blocking outgoing traffic on port 25, hMailServer will not be able to deliver email to other servers since all SMTP servers normally only receives email on port 25. If your ISP is blocking outgoing traffic on port 25, the easiest solution is normally to configure hMailServer to forward all outgoing email through your ISP's SMTP server. To do this, follow these steps:
+
+Start hMailServer Administrator
+Go to the SMTP settings and choose Delivery of email.
+In the SMTP relayer setting, enter the name of your ISP's smtp server, for example smtp.myisp.com.
+If your ISP requires a username / password when sending email through their server, select Server requires authentication and enter the username and password.
+Step 6: Configuring your email client
+In your email client, add a new account. Enter the following information:
+
+Hostname - The host name or IP address of the computer where hMailServer runs
+Username - Your full email address. Same as the account address you added in hMailServer Administrator.
+Password - The password you defined in hMailServer Administrator
+---------------------------------
+
+
+Test: Collect server details
+hMailServer version: hMailServer 5.6.7-B2425
+Database type: MySQL
+
+Test: Test IPv6
+IPv6 support is available in operating system.
+
+Test: Test outbound port
+SMTP relayer not in use. Attempting mail.hmailserver.com:25...
+Trying to connect to host mail.hmailserver.com...
+Trying to connect to TCP/IP address 5.189.183.138 on port 25.
+ERROR: It was not possible to connect.
+
+Test: Test backup directory
+ERROR: Backup directory has not been specified.
+
+Test: Test MX records
+Trying to resolve MX records for mail.abcddomain...
+ERROR: MX records for domain mail.abcddomain could not be resolved
+
+Test: Test local connect
+Connecting to TCP/IP address in MX records for local domain domain mail.abcddomain...
+ERROR: MX records for local domain mail.abcddomain could not be resolved
+
+Test: Test message file locations
+Relative message paths are stored in the database for all messages.
+
+Test: Test IP range configuration
+No problems were found in the IP range configuration.
+
+
+SMTP Ports:
+
+Port 25:
+SMTP port 25 continues to be used primarily for SMTP relaying. SMTP relaying is the transmission of email from email server to email server.
+
+In most cases, modern SMTP email clients (Microsoft Outlook, Mail, Thunderbird, etc.) shouldn't use this port. It is traditionally blocked by residential ISPs and Cloud Hosting Providers, to curb the amount of spam that is relayed from compromised computers or servers. Unless you're specifically managing a mail server, you should have no traffic traversing this port on your computer or server. 
+
+Port 465:
+IANA has reassigned a new service to this port, and it should no longer be used for SMTP communications.
+
+However, because it was once recognized by IANA as valid, there may be legacy systems that are only capable of using this connection method. Typically, you will use this port only if your application demands it. A quick Google search, and you'll find many consumer Inbox Service Providers' (ISPs) articles that suggest port 465 as the recommended setup. However, we do not recommend it, as it is not RFC compliant.
+
+Port 587:
+This is the default mail submission port. When an email client or outgoing server is submitting an email to be routed by a proper mail server, it should always use SMTP port 587 as the default port.
+
+This port, coupled with TLS encryption, will ensure that email is submitted securely and following the guidelines set out by the IETF.
+
+All Mailgun customers should consider using port 587 as their default SMTP port unless you're explicitly blocked by your upstream network or hosting provider.
+
+Port 2525:
+This port is not endorsed by the IETF nor IANA. Instead, Mailgun provides it as an alternate port, which mirrors port 587, in the event the above ports are blocked. Because 2525 is a non-traditional high port number, it is typically allowed on consumer ISPs and Cloud Hosting providers, like Google Compute Engine. If you’ve tried the above ports, but experience connectivity issues, try port 2525. This port also supports TLS encryption.
+
+
+The Solution is to use a SMTP relay.
+Note that all EXTERNAL / EMAIL ON INTERNET / SERVER-TO-SERVER Uses Port 25 for mail transfers.
+
+port 587 is just a smtp submission port.
+
+to a relay service, your server is a local account. You need an account with them and a password. They will not accept mail on port 587, 465 or any custom port without authentication. But they (and everyone else) will receive all mail from all senders on port 25 without authentication.
+
+
+hMailServer
+
+built in database or external
+choose external
+
+cd /d C:\Program Files\mysql-8.0.20-winx64\bin
+mysqld --install
+mysqld --initialize
+
+change root password : 
+
+
+On Windows
+
+If you are using windows Open the Command Prompt and type
+
+To Stop MySQL Service
+
+net stop MySQL 
+To Start MySQL Service
+
+net start MySQL.
+
+net stop MySQL
+mysqld stop
+mysqld restart
+
+
+mysqld stop
+mysqld start
+net start MySQL
+
+----------------
+Additional Useful Mysqlcheck Options
+The following are some of the key options that you can use along with mysqlcheck.
+
+-A, –all-databases Consider all the databases
+-a, –analyze Analyze tables
+-1, –all-in-1 Use one query per database with tables listed in a comma separated way
+–auto-repair Repair the table automatically it if is corrupted
+-c, –check Check table errors
+-C, –check-only-changed Check tables that are changed since last check
+-g, –check-upgrade Check for version dependent changes in the tables
+-B, –databases Check more than one databases
+-F, –fast Check tables that are not closed properly
+–fix-db-names Fix DB names
+–fix-table-names Fix table names
+-f, –force Continue even when there is an error
+-e, –extended Perform extended check on a table. This will take a long time to execute.
+-m, –medium-check Faster than extended check option, but does most checks
+-o, –optimize Optimize tables
+-q, –quick Faster than medium check option
+-r, –repair Fix the table corruption
+------------------------------
+
+use all MySQL COMMANDS with -u -p parameter
+mysqladmin status -u root -p
+Uptime: 241  Threads: 2  Questions: 46  Slow queries: 0  Opens: 177  Flush tables: 3  Open tables: 98  Queries per second avg: 0.190
+----------------------------
+Starting with MySQL 8 you no longer can (implicitly) create a user using the GRANT command. Use CREATE USER instead, followed by the GRANT statement:
+
+mysql> CREATE USER 'root'@'%' IDENTIFIED BY 'root';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+
+---------------
+we are setting up smtp on MySQL on localhost, so hmail database will be on local computer, if we want to set it up professionally we should use some other way , cloud PC etc.
+----------------
+
+MySQL C Connector also have the required "libmysql.dll", and it can be downloaded as a ZIP file. If you don't want to install Workbench only for DLL, this will work for you.
+
+https://dev.mysql.com/downloads/connector/c/
+
+Select "Windows (x86, 32-bit), ZIP Archive", libmysql.dll is in /lib folder inside ZIP. Extract that and discard other files.
+---------------
+Authentication plugin 'caching_sha2_password' cannot be loaded: The specified module could not be found.
+
+https://stackoverflow.com/questions/49979089/authentication-plugin-caching-sha2-password-cannot-be-loaded-in-circleci-mysql
+https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html
+
+If you want to keep mysql 8, configure it this way
+
+- image: circleci/mysql:latest
+  # just add this:
+  command: [--default-authentication-plugin=mysql_native_password]
+  environment:
+    MYSQL_DATABASE: myapp_test
+
+ALTER USER 'hmail'@'%' IDENTIFIED WITH mysql_native_password BY 'ijfedshgwrjgf4w5ndfjs';
+
+----------
+hmail installed.
+----------
+connect to localhost , administrator.
+
+----------
+
+add domain : 
+
+https://support.happyfox.com/kb/article/499-how-to-configure-dmarc-and-spf-for-your-domain-to-use-with-happyfox/
+
+ 
+
+DMARC, which stands for “Domain-based Message Authentication, Reporting & Conformance”, is an email authentication protocol. It builds on the widely deployed SPF and DKIM protocols, adding a reporting function that allows senders and receivers to improve and monitor protection of the domain from fraudulent email.
+
+ 
+
+An SPF record is a type of Domain Name Service (DNS) record that identifies which mail servers are permitted to send email on behalf of your domain.
+
+-----------------
+An actual domain is not required to send emails. If you use a fake domain, be careful to enter a domain that does NOT exist. 
+
+---------------
+******************** END CREATE LOCAL SMTP SERVER ******************************
+
+SUMMARY : Port 25 is blocked.
+
+-----------------
+open outlook
+incoming localhost pop3 110
+outgoing localhost smtp 25
+
+send mail to any users created using the domain you created using hmailserver. 
+will work on localhost.. won't work outside network.
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+Types of Malicious traffic attacks - Denial Of Service
+
+https://www.malware-traffic-analysis.net/
+
+malicious traffic is of different types
+config problems , piece of h/w about to fail , and malicious traffic (seperate things)
+
+SYN flood
+hping3 -c 15000 -d 120 -S -w 64 -p 80 --flood --rand-source PRIVATE_IP
+
+We’re sending 15000 packets (-c 15000) at a size of 120 bytes (-d 120) each. We’re specifying that the SYN Flag (-S) should be enabled, with a TCP window size of 64 (-w 64). To direct the attack to our victum’s HTTP web server we specify port 80 (-p 80) and use the --flood flag to send packets as fast as possible. As you’d expect, the --rand-source flag generates spoofed IP addresses to disguise the real source and avoid detection but at the same time stop the victim’s SYN-ACK reply packets from reaching the attacker.
+
+----------------
+SYN flood
+detect syn flood attack using wireshark
+
+SYN flag is set
+since syn flag is the first step, we should get a syn,ack next.
+
+A system has a maximum number of connections until the connection buffer is filled.
+we also have a max number of half open connections, before the system rejects these half-open connections
+
+Client source sends syn
+Server destination sends syn,ack
+Client source sends ack
+
+
+in syn flood attack, the Client source will never send a ack back to server.
+because the source address is being spoofed. , multiple source addresses being spoofed.
+so there are a large number of half open connections
+which reach the maximum connection limit of server
+thus that machine cannot accept any more new connections
+this is DoS Denial-of-Service Attack.. its called SYN Flood
+
+A SYN flood is a form of denial-of-service attack in which an attacker sends a succession of SYN requests to a target's system in an attempt to consume enough server resources to make the system unresponsive to legitimate traffic. SYN flood is a protocol attack.
+
+Timers
+Buffer Sizes
+
+------------------------------------
+IP fragmentation 
+
+attacks are a common form of denial of service attack, in which the perpetrator overbears a network by exploiting datagram fragmentation mechanisms.
+Fragments
+Fragmented IP Protocol
+
+
+fragment offsets overlap
+
+messages are fragmented.
+
+when messages are put together, they are not reordered correctly.
+fragments overlap
+
+Operating systems crash due to this..
+because packets are being reordered and it crashes.
+---------------
+LAND Attack
+In a DoS land (Local Area Network Denial) attack, the attacker sends a TCP SYN spoofed packet where source and destination IPs and ports are set to be identical. When the target machine tries to reply, it enters a loop, repeatedly sending replies to itself which eventually causes the victim machine to crash.
+
+SRC,DST,PORTS are identical.
+so target machine enters a loop when replying to itself.
+machine crashes.
+------------------
+SMURF ATTACK
+Packet designed to do something bad to a system
+Protocol USED : ICMP
+
+if we use ping
+
+we can send ping with a really large byte count
+we can overwhelm the systems.
+
+
+ping -l (size) (ipaddress)
+ping -l 3310 192.168..
+
+theres no way to find out whos sending address
+we can spoof these addresses
+then send these ping requests with large byte sizes
+
+Most modern OS reject these broadcast ping requests
+
+in linux, we can do sysctl net.ipv4.icmp_echo_ignore_broadcasts=0 , in shell to enable broadcast address pings.
+
+If you want to perform host discovery, don't use broadcast pings, just simply ping each possible permutation for a given subnet. It sounds heavy, but it actually takes seconds (brackets are important):
+
+$ time ( s=192.168.0 ; for i in $(seq 1 254) ; do ( ping -n -c 1 -w 1 $s.$i 1>/dev/null 2>&1 && printf "%-16s %s\n" $s.$i responded ) & done ; wait ; echo )
+192.168.0.5      responded
+192.168.0.11     responded
+192.168.0.2      responded
+192.168.0.254    responded
+192.168.0.4      responded
+
+real    0m1.317s
+user    0m0.004s
+sys 0m0.084s
+
+---------------------------
+This Attack Is Called The Smurf Attack
+its useful if i can spoof source address ,  i can get the hosts replying to attacker rather than those replying to me.
+
+send messages to broadcast address, if the network is large it will overwhelm the network..
+
+most devices and modern os have configs that prevent pinging to broadcast addresses.
+on windows
+//FOR /L %i in (1,1,255) do @ping -n 1 192.168.100.%i | find "Reply" - hangs on find Reply.
+
+FOR /L %i in (1,1,255) do @ping -n 1 192.168.100.%i works..
+
+arp -a > filename.txt
+
+
+SMURF ATTACK USES ICMP
+-----------------------
+
+FRAGGLE ATTACK - uses UDP
+
+Fraggle Attack
+A Fraggle Attack is a denial-of-service (DoS) attack that involves sending a large amount of spoofed UDP traffic to a router’s broadcast address within a network. It is very similar to a Smurf Attack, which uses spoofed ICMP traffic rather than UDP traffic to achieve the same goal. Given those routers (as of 1999) no longer forward packets directed at their broadcast addresses, most networks are now immune to Fraggle (and Smurf) attacks.

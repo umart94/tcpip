@@ -1,0 +1,61 @@
+pings
+Start by opening the ONOS CLI console by double clicking on the ONOS CLI icon.
+No pings? Why?
+First, let's see whether two hosts can reach each other via ICMP ping. Go to your mininet prompt and type the following:
+mininet> h11 ping -c3 h41
+
+
+
+PING 10.0.0.16 (10.0.0.16) 56(84) bytes of data.
+
+--- 10.0.0.16 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2015ms
+
+Well, there are no flows installed on the data-plane, which forward the traffic appropriately. ONOS comes with a simple Reactive Forwarding app that installs forwarding flows on demand, but this application is not activated by default. To see apps that are presently active, type the apps -a -s command and you will see the following output:
+
+onos> apps -a -s
+*  36 org.onosproject.optical-model        1.15.0   Optical Network Model
+*  38 org.onosproject.openflow-base        1.15.0   OpenFlow Base Provider
+*  39 org.onosproject.lldpprovider         1.15.0   LLDP Link Provider
+*  40 org.onosproject.hostprovider         1.15.0   Host Location Provider
+*  44 org.onosproject.drivers              1.15.0   Default Drivers
+*  95 org.onosproject.openflow             1.15.0   OpenFlow Provider Suite
+* 248 org.onosproject.layout               1.15.0   UI Auto-Layout
+* 255 org.onosproject.proxyarp             1.15.0   Proxy ARP/NDP
+
+
+we need to enable reactive forwarding app
+
+In the same ONOS CLI window, type the following to active the Reactive Forwarding app:
+onos> app activate org.onosproject.fwd
+Activated org.onosproject.fwd
+
+app activate org.onosproject.fwd
+
+
+
+
+
+
+
+h11 ping h41
+PING 10.0.0.16 (10.0.0.16) 56(84) bytes of data.
+64 bytes from 10.0.0.16: icmp_seq=1 ttl=64 time=82.4 ms
+64 bytes from 10.0.0.16: icmp_seq=2 ttl=64 time=0.436 ms
+64 bytes from 10.0.0.16: icmp_seq=3 ttl=64 time=0.033 ms
+64 bytes from 10.0.0.16: icmp_seq=4 ttl=64 time=0.034 ms
+64 bytes from 10.0.0.16: icmp_seq=5 ttl=64 time=0.034 ms
+64 bytes from 10.0.0.16: icmp_seq=6 ttl=64 time=0.034 ms
+64 bytes from 10.0.0.16: icmp_seq=7 ttl=64 time=0.036 ms
+64 bytes from 10.0.0.16: icmp_seq=8 ttl=64 time=0.034 ms
+64 bytes from 10.0.0.16: icmp_seq=9 ttl=64 time=0.035 ms
+^C
+--- 10.0.0.16 ping statistics ---
+9 packets transmitted, 9 received, 0% packet loss, time 8002ms
+rtt min/avg/max/mdev = 0.033/9.237/82.458/25.887 ms
+
+You have now seen that you can activate applications into ONOS dynamically. Actually you can also deactivate applications while they are running so, for example, let's do this. Note that you can ommit the org.onosproject prefix and use fwd for short.
+onos> app deactivate fwd
+Observe that the ping has now stopped. This is because when the reactive forwarding application has withdrawn any flows it has installed before it stopped. We'll talk more about this in the next section. For now, let's activate the app again.
+onos> app activate fwd
+

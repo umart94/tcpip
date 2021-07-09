@@ -1,0 +1,29 @@
+Install and Configure FTP Secure (FTPS) or FTP-SSL using FileZilla
+
+in IP Filter Ban all Incoming IPS using wildcard *.*.*.*
+
+exclude following ips from list of disallowed ips
+
+space seperated
+e.g
+127.0.0.1
+
+passive mode
+enable matching peer ip address of control and data connection
+IPs must match exactly.
+
+Misc
+Don't show passwords in log
+hide welcome message in log
+start minimized
+
+enable , limit log file size , and delete older logs
+
+
+Force PROT P to encrypt file transfers when using FTP over TLS
+Require TLS Session resumption on data connection when using prot p
+
+PROT P refers to the data transfers. Communication with the server is always encrypted if you use FTP over TLS.
+Communication encrypted: PROT C, Communication+Data encrypted: PROT P.
+
+If PROT P isn't enforced, client could send PROT C and transfer files unencrypted. If PROT P is enforced, PROT C is rejected.

@@ -1,0 +1,252 @@
+network layer forwards packets from 1 network to another
+
+IPv4 PACKET HEADER is divided into FIELDS
+they occupy 32 BITS.
+
+and the minimum SIZE of an ipv4 header is 20 Bytes.
+
+
+-------------------------------------------------
+IP Headers
+
+Internet Protocol Version 4, Src: 10.118.10.1, Dst: 10.118.10.2
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+    Total Length: 100
+    Identification: 0x000f (15)
+    Flags: 0x0000
+    Fragment offset: 0
+    Time to live: 255
+    Protocol: ICMP (1)
+    Header checksum: 0x929b [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.118.10.1
+    Destination: 10.118.10.2
+
+
+Internet Control Message Protocol
+    Type: 8 (Echo (ping) request)
+    Code: 0
+    Checksum: 0xceb7 [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 3 (0x0003)
+    Identifier (LE): 768 (0x0300)
+    Sequence number (BE): 0 (0x0000)
+    Sequence number (LE): 0 (0x0000)
+    [Response frame: 2]
+    Data (72 bytes)
+
+
+-------------------------------------------------
+Version Number
+Note : each row is 1 portion ( shows the different fields ) of the entire header
+e.g .. if you click on version it shows in raw number 45
+this was 1 portion ( 1 byte )
+
+----------------------------------
+Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+
+used for Type of Service (ToS) , and Quality of Service
+more important traffic gets higher priority.
+( voice , video , gaming(not that much prioritized) )
+
+-------------------------------------
+Total Length
+of the packet including header and data
+100 bytes.
+
+Identification.
+IP id
+split message up and create fragments. then ip id helps in recombining
+
+---------------------------------
+Flags
+
+maximum transmission units
+
+in ethernet -> largest sized chunk of data that it can take is 1500 bytes. in any particular packet
+
+if data is more than 1500 bytes you fragment data in more fragments.
+
+reserved bit
+don't fragment
+more fragments
+
+if you select don't fragment , and mtu is smaller than what is supported by network then your message may get dropped
+
+fragment offset tells where in stream of data fragment is going to be
+time to live is in seconds.. this is a hop count..
+
+the number of network devices we go through is called hop
+everytime we go past a network boundary / router its called a hop
+we keep track the number of routers we go through
+-----------------------------
+TimeToLive TTL 10
+10 routers
+packet goes past that
+message is discarded
+its sent back to sender
+message expired in transit
+
+
+
+We have a lease line between two sites. When the line is down and I ping to the router on the other site, we normally get the answer "Request timed out," but now we get the answer "TTL expired in transit." What does it mean?
+
+The "Request timed out" error occurs when the computer you're pinging from doesn't ever get a response back. So, it would be symptomatic of a leased line that is simply down and can't reach the Internet. The "TTL expired in transit" error will only show up if a router that is forwarding the traffic sends an error message back to the computer you're pinging from.
+
+TTL (Time To Live) is a number that is used to track the number of hops or routers a particular packet crosses. If a packet crosses too many routers, an error is returned to the computer that sent the packet. This is to prevent routing loops where a packet is forwarded between two or more routers indefinitely. In short, it means you have a Layer 3 network problem instead of a Layer 1 network problem, and you should call whoever is responsible for your network infrastructure.
+
+------------------------------
+Protocol field : ICMP ( which ip protocol will transmit as payload / data in this ip packet)
+icmp is protocol 1
+raw byte shows 01
+---------------------------
+header checksum
+
+A check sum is basically a value that is computed from data packet to check its integrity. Through integrity, we mean a check on whether the data received is error free or not. This is because while traveling on network a data packet can become corrupt and there has to be a way at the receiving end to know that data is corrupted or not. This is the reason the checksum field is added to the header. At the source side, the checksum is calculated and set in header as a field. At the destination side, the checksum is again calculated and crosschecked with the existing checksum value in header to see if the data packet is OK or not.
+
+IP header checksum is : 16 bit one’s complement of the one’s complement sum of all 16 bit words in the header
+
+
+This means that if we divide the IP header is 16 bit words and sum each of them up and then finally do a one’s compliment of the sum then the value generated out of this operation would be the checksum.
+
+Now, the above is done at the source side which is sending the data packet. At the destination side which receives the data packet replaces the checksum value in the header with all zeros and then calculates the checksum based on the same algorithm as mentioned above. After a checksum value is obtained then this value is compared with the value that came in the header. This comparison decides whether the IP header is fine or corrupted.
+IP Header Checksum Example
+
+Since now we have enough theoretical knowledge on IP header checksum, lets take an IP header and actually try this algorithm out.
+
+Here is a IP header from an IP packet received at destination :
+
+4500 003c 1c46 4000 4006 b1e6 ac10 0a63 ac10 0a0c
+
+Lets first map these values with the header
+
+    ’45’ corresponds to the first two fields in the header ie  ‘4’ corresponds to the IP version and ‘5’ corresponds to the header length. Since header length is described in 4 byte words so actual header length comes out to be 5×4=20 bytes.
+    ’00’ corresponds to TOS or the type of service. This value of TOS indicated normal operation.
+    ‘003c’ corresponds to total length field of IP header. So in this case the total length of IP packet is 60.
+    ‘1c46’ corresponds to the identification field.
+    ‘4000’ can be divided into two bytes. These two bytes (divided into 3 bits and 13 bits respectively) correspond to the flags and fragment offset of IP header fields.
+    ‘4006’ can be divided into ’40’ and ’06’. The first byte ’40’ corresponds to the TTL field and the byte ’06’ corresponds to the protocol field of the IP header. ’06’ indicates that the protocol is TCP.
+    ‘be16’ corresponds to the checksum which is set at the source end (which sent the packet). Please note that as already discussed this field will be set to zero while computing the checksum at destination end.
+    The next set of bytes ‘ac10’ and ‘0a0c’ correspond to the source IP address and the destination IP address in the IP header.
+
+So now we have a basic idea as to what these fields map to in IP header. Lets convert all these values in binary :
+
+4500 -> 0100010100000000
+003c -> 0000000000111100
+1c46 -> 0001110001000110
+4000 -> 0100000000000000
+4006 -> 0100000000000110
+0000 -> 0000000000000000 // Note that the checksum is set to zero since we are computing checksum at destination end
+ac10 -> 1010110000010000
+0a63 -> 0000101001100011
+ac10 -> 1010110000010000
+0a0c -> 0000101000001100
+
+Now lets add these binary values one by one :
+
+4500 -> 0100010100000000
+003c -> 0000000000111100
+453C -> 0100010100111100  /// First result
+
+453C -> 0100010100111100  // First result plus next 16-bit word.
+1c46 -> 0001110001000110
+6182 -> 0110000110000010 // Second result.
+
+6182 -> 0110000110000010 // Second result plus next 16-bit word.
+4000 -> 0100000000000000
+A182 -> 1010000110000010 // Third result.
+
+A182 -> 1010000110000010 // Third result plus next 16-bit word.
+4006 -> 0100000000000110
+E188 -> 1110000110001000 // Fourth result.
+
+E188 -> 1110000110001000 // Fourth result plus next 16-bit word.
+AC10 -> 1010110000010000
+18D98 -> 11000110110011000 // One odd bit (carry),  add that odd bit to the result as we need to keep the checksum in 16 bits.
+
+18D98 -> 11000110110011000
+8D99 -> 1000110110011001 // Fifth result
+
+8D99 -> 1000110110011001 // Fifth result plus next 16-bit word.
+0A63 -> 0000101001100011
+97FC -> 1001011111111100 // Sixth result
+
+97FC -> 1001011111111100  // Sixth result plus next 16-bit word.
+AC10 -> 1010110000010000
+1440C -> 10100010000001100 // Again a carry, so we add it (as done before)
+
+1440C -> 10100010000001100
+440D -> 0100010000001101 // This is seventh result
+
+440D -> 0100010000001101 //Seventh result plus next 16-bit word
+0A0C -> 0000101000001100
+4E19 -> 0100111000011001 // Final result.
+
+So now 0100111000011001 is our final result of summing up all the 16 bit words in the header. As a last step we just need to do a one’s compliment of it to obtain the checksum.
+
+4E19 -> 0100111000011001
+B1E6 ->1011000111100110 // CHECKSUM
+
+Now if you compare this checksum with the one obtained in the packet you will find that both are exactly same and hence the IP header’s integrity was not lost.
+
+So this is the way we calculate IP header checksum to check the integrity of IP header.
+
+
+
+
+
+https://www.thegeekstuff.com/2012/05/ip-header-checksum/
+
+
+
+2 bytes for header checksum
+
+0x929b  92  9b
+
+it makes sure that data is not changed / altered
+when checksum matches. (sent and received packet)
+
+checksum is on the HEADER... AND not on the DATA .. so we know that no man in the middle altered the data.
+
+------------------------------------------
+source ip address
+4 octets = 8 bits.
+
+destination ip address
+4 octets = 8 bits.
+
+we have values from 0 to 255 in each octet. so 1 ipv4 address requires 4 octets.
+2^8 = 255
+0 to 255.
+1 octet = 8 bits.
+8.8.8.8
+255.255.255.255
+
+Src : 4 octets
+Dst : 4 octets
+
+
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

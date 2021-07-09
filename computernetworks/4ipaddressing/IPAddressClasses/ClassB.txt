@@ -1,0 +1,26 @@
+ClassB starts with Binary 10( one & zero not Ten)
+ClassB has the zero in 2nd bit position
+Binary Range:
+
+First Octet Binary		First Octet Decimal
+10000000					128 Start
+
+to
+
+10111111					191 End
+
+
+range: 128.0.0.0 to 191.255.255.255
+
+SO 16 Bits are reserved for Network Portion
+16 Bits reserved for host portion
+
+
+00000000.00000000.00000000.00000000
+network.network.host.host
+
+
+e.g
+
+172.16.1.1
+

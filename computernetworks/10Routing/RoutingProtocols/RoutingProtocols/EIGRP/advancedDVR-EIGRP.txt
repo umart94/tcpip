@@ -1,0 +1,13 @@
+Advanced distance vector
+These types of routing protocols are a mixture of link state and distance vector. The Enhanced Interior Gateway Routing Protocol (EIGRP) is a very good example of an ADV; it acts like a link state because it sends periodic hello messages to discover their neighbors and because it only sends partial updates when changes occur. Full updates only occur at the beginning when the routers are trying to converge.
+
+They are still a distance vector routing protocol, because they rely on their neighbors to learn about the network. But EIGRP is a very good protocol to use in a medium or even an enterprise network, due to all the features and tables they create as well. But that will be discussed in the EIGRP chapter.
+
+
+EIGRP is a mixture of link state and distance vector protocols in a single routing protocol. i.e
+
+it takes the best of both combined into a single routing protocol and gives us the power of link state with ease of distance vector.
+
+this is cisco proprietary.
+
+

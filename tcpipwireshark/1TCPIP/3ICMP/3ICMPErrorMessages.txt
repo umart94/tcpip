@@ -1,0 +1,66 @@
+tracert www.google.com.pk
+
+just for example
+
+for every hop, the number indicates the hop
+
+destination unreachable , port unreachable means that we are communicating with a  port that is not open on that system. (we reached system but cant connect to port)
+
+
+
+
+----------------------
+References
+ http://www.dordt.edu:457/NetAdminG/BOOKCHAPTER-8.html
+man pages for ping, traceroute
+
+---------------------------------------
+ICMP
+
+
+Routers exchange information to maintain the tables necessary using special IP packets called ICMP. These ICMP packets are sent back to the host which originated the packet that caused the 
+
+problem:
+
+
+dest unreachable - some problem delivering packet (16 different types of problem identified)
+time exceeded - sent when counter reaches 0 (indicates looping, or bad congestion)
+parameter problem - illegal header value
+source quench - a means of congestion control, not used anymore
+redirect - to correct routing problems
+echo, echo reply - request/response for debugging network routing problems, discovering topology (used by ping)
+timestamp, timestamp reply - same as echo, but with performance measurement
+ICMP messages contain the complete IP header and the first 8 bytes of the data field of the IP packet that caused the control message to be sent. This allows for the receiving host to figure out which protocol, which process should be alerted.
+The Internet Control Message Protocol is a cousin of IP. It lives in the network layer. ICMP messages are encapsulated in IP packets. The most important messages in ICMP are:
+ 
+message 	 description 
+
+
+destination unreachable 	sent when a packet could not be delivered to the dest IP address, or the 
+port isn't accepting packets, or  when the "don't fragment" bit is set and a 
+network with a smaller MTU must be traversed
+time exceeded	the TTL field reached 0 - too many hops taken
+source quench	crude congestion control done in IP; might make the problem worse, 
+so done in transport layer now
+redirect	message to sender that routing mistake was made
+echo request	are you alive?
+echo reply	what you say if you are
+timestamp request	like echo request but with timing info requested
+timestamp reply	like echo reply, but leave a timestamp on the packet
+ICMP is used by protocol stacks on hosts and routers to communicate problems to other hosts and routers. It can also be used by administrators to measure performance and detect problems in the network. The most commonly used tool which uses ICMP messages is ping.
+
+Commands which use ICMP
+
+Ping
+
+Ping sends ICMP Echo Request messages once a second. A ping packet also includes a timestamp from the sending host. When an Echo Reply is received the round-trip time is calculated and displayed. Ping is your first tool to determine if a network layer path exists between two hosts.
+The size of a ping request may be set; the default is 64 bytes. You might want to do this to check and see if there are problems getting packets of a certain size through to a host. For example, a router or link in the path might be configured for a small MTU, which screws up communication for a higher level protocol, even if 64 byte ICMP packets can get through.
+
+Ping may be used with broadcast and multicast addresses, so one request packet may get multiple response packets.
+
+Traceroute
+
+The traceroute command shows you the path of gateways (routers) used to reach a destination host. It does this by sending UDP datagrams with intentionally weird TTL and port numbers.
+Traceroute sends the first datagrams with a TTL of 1 (30 is the normal). This means that when the first hop on the path is reached, the TTL is decremented to 0, and the router sends an ICMP Time Exceeded packet back. Then traceroute sends its second round of datagrams out with a TTL of 2, reaching the second hop on the route. For each hop, traceroute sends three datagrams and measures the time each requires to elicit a response.
+
+When the UDP datagram finally reaches the destination host, the port number used by traceroute is intentionally un-listened for. This causes the host to generate a Destination Unreachable ICMP message back to traceroute.

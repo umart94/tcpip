@@ -1,0 +1,64 @@
+sudo apt-get install git-core
+
+Create two directories called ~/Downloads and ~/Applications. Download the Karaf 3.0.2 and Maven 3.2.3 binaries (the tar.gz versions of both) into ~/Downloads and extract it to ~/Applications. Keep the tar archives in ~/Downloads; we'll need that later.
+
+build:~$ cd; mkdir Downloads Applications
+build:~$ cd Downloads
+build:~$ wget http://download.nextag.com/apache/karaf/3.0.2/apache-karaf-3.0.2.tar.gz
+build:~$ wget https://archive.apache.org/dist/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
+build:~$ tar -zxvf apache-karaf-3.0.2.tar.gz -C ../Applications/
+build:~$ tar -zxvf apache-maven-3.2.3-bin.tar.gz -C ../Applications/ 
+
+
+
+tar -zxvf apache-karaf-3.0.5.tar.gz -C ../Applications/
+tar -zxvf apache-maven-3.2.3-bin.tar.gz -C ../Applications/ 
+
+we are using karaf : 3.0.5
+
+we are downloading apache maven : 3.2.3
+
+
+System Requirements
+Java Development Kit (JDK)	Maven 3.3+ require JDK 1.7 or above to execute - they still allow you to build against 1.3 and other JDK versions by Using Toolchains
+Memory	No minimum requirement
+Disk	Approximately 10MB is required for the Maven installation itself. In addition to that, additional disk space will be used for your local Maven repository. The size of your local repository will vary depending on usage but expect at least 500MB.
+Operating System	No minimum requirement. Start up scripts are included as shell scripts and Windows batch files.
+
+
+
+
+
+
+
+
+
+
+
+Next, install Oracle Java 8:
+
+build:~$ sudo apt-get install software-properties-common -y
+build:~$ sudo add-apt-repository ppa:webupd8team/java -y
+build:~$ sudo apt-get update
+build:~$ sudo apt-get install oracle-java8-installer oracle-java8-set-default -y
+
+sudo apt-get install oracle-java8-installer
+
+
+(This won't work, install openjdk)
+
+sudo apt-get install openjdk-8-jdk
+
+
+Verify the version of the JDK:
+java -version
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b09)
+OpenJDK 64-Bit Server VM (build 25.242-b09, mixed mode)
+If the correct version of Java is not being used, use the alternatives command to switch it:
+sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_version/bin/java
+Verify the version of the JDK:
+java -version
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b09)
+OpenJDK 64-Bit Server VM (build 25.242-b09, mixed mode)

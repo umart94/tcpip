@@ -1,0 +1,140 @@
+WiFi Protected Access
+
+WPA / WPA2 are also not perfect
+
+preshared key
+
+password / passphrase
+
+64 hex digits
+8 to 63 printable ascii characters
+
+enterprise mode -> login using username , password
+
+
+WPA personal
+WPA2 personal
+
+WPA enterprise
+WPA2 enterprise
+
+auth is username and password
+
+------------------------------------
+
+Wi-Fi Protected Access (WPA), Wi-Fi Protected Access II (WPA2), and Wi-Fi Protected Access 3 (WPA3) are three security and security certification programs developed by the Wi-Fi Alliance to secure wireless computer networks. The Alliance defined these in response to serious weaknesses researchers had found in the previous system, Wired Equivalent Privacy (WEP).[1]
+
+WPA (sometimes referred to as the draft IEEE 802.11i standard) became available in 2003. The Wi-Fi Alliance intended it as an intermediate measure in anticipation of the availability of the more secure and complex WPA2, which became available in 2004 and is a common shorthand for the full IEEE 802.11i (or IEEE 802.11i-2004) standard.
+
+In January 2018, Wi-Fi Alliance announced the release of WPA3 with several security improvements over WPA2.[2]
+
+----------------
+WPA
+The Wi-Fi Alliance intended WPA as an intermediate measure to take the place of WEP pending the availability of the full IEEE 802.11i standard. WPA could be implemented through firmware upgrades on wireless network interface cards designed for WEP that began shipping as far back as 1999. However, since the changes required in the wireless access points (APs) were more extensive than those needed on the network cards, most pre-2003 APs could not be upgraded to support WPA.
+
+The WPA protocol implements much of the IEEE 802.11i standard. Specifically, the Temporal Key Integrity Protocol (TKIP) was adopted for WPA. WEP used a 64-bit or 128-bit encryption key that must be manually entered on wireless access points and devices and does not change. TKIP employs a per-packet key, meaning that it dynamically generates a new 128-bit key for each packet and thus prevents the types of attacks that compromised WEP.[3]
+
+WPA also includes a Message Integrity Check, which is designed to prevent an attacker from altering and resending data packets. This replaces the cyclic redundancy check (CRC) that was used by the WEP standard. CRC's main flaw was that it did not provide a sufficiently strong data integrity guarantee for the packets it handled.[4] Well tested message authentication codes existed to solve these problems, but they required too much computation to be used on old network cards. WPA uses a message integrity check algorithm called TKIP to verify the integrity of the packets. TKIP is much stronger than a CRC, but not as strong as the algorithm used in WPA2. Researchers have since discovered a flaw in WPA that relied on older weaknesses in WEP and the limitations of the message integrity code hash function, named Michael, to retrieve the keystream from short packets to use for re-injection and spoofing.[5][6]
+
+WPA2
+Main article: IEEE 802.11i-2004
+WPA2 replaced WPA. WPA2, which requires testing and certification by the Wi-Fi Alliance, implements the mandatory elements of IEEE 802.11i. In particular, it includes mandatory support for CCMP, an AES-based encryption mode.[7] [8] Certification began in September, 2004; from March 13, 2006, WPA2 certification is mandatory for all new devices to bear the Wi-Fi trademark.[9]
+
+WPA3
+See also: Opportunistic Wireless Encryption
+In January 2018, the Wi-Fi Alliance announced WPA3 as a replacement to WPA2.[10][11]
+
+The new standard uses an equivalent 192-bit cryptographic strength in WPA3-Enterprise mode[12] (AES-256 in GCM mode with SHA-384 as HMAC), and still mandates the use of CCMP-128 (AES-128 in CCM mode) as the minimum encryption algorithm in WPA3-Personal mode.
+
+The WPA3 standard also replaces the Pre-Shared Key exchange with Simultaneous Authentication of Equals as defined in IEEE 802.11-2016 resulting in a more secure initial key exchange in personal mode[13][14] and forward secrecy.[15] The Wi-Fi Alliance also claims that WPA3 will mitigate security issues posed by weak passwords and simplify the process of setting up devices with no display interface.[2][16]
+
+Protection of management frames as specified in the IEEE 802.11w amendment is also enforced by the WPA3 specifications.
+-----------------------------
+Hardware support
+WPA has been designed specifically to work with wireless hardware produced prior to the introduction of WPA protocol,[17] which provides inadequate security through WEP. Some of these devices support WPA only after applying firmware upgrades, which are not available for some legacy devices.[17]
+
+Wi-Fi devices certified since 2006 support both the WPA and WPA2 security protocols. WPA2 may not work with some older network cards.
+
+WPA terminology
+Different WPA versions and protection mechanisms can be distinguished based on the target end-user (according to the method of authentication key distribution), and the encryption protocol used.
+
+Target users (authentication key distribution)
+WPA-Personal
+Also referred to as WPA-PSK (pre-shared key) mode, this is designed for home and small office networks and doesn't require an authentication server.[18] Each wireless network device encrypts the network traffic by deriving its 128-bit encryption key from a 256-bit shared key. This key may be entered either as a string of 64 hexadecimal digits, or as a passphrase of 8 to 63 printable ASCII characters.[19] If ASCII characters are used, the 256-bit key is calculated by applying the PBKDF2 key derivation function to the passphrase, using the SSID as the salt and 4096 iterations of HMAC-SHA1.[20] WPA-Personal mode is available with both WPA and WPA2.
+WPA-Enterprise
+Also referred to as WPA-802.1X mode, and sometimes just WPA (as opposed to WPA-PSK), this is designed for enterprise networks and requires a RADIUS authentication server. This requires a more complicated setup, but provides additional security (e.g. protection against dictionary attacks on short passwords). Various kinds of the Extensible Authentication Protocol (EAP) are used for authentication. WPA-Enterprise mode is available with both WPA and WPA2.
+Wi-Fi Protected Setup (WPS)
+This is an alternative authentication key distribution method intended to simplify and strengthen the process, but which, as widely implemented, creates a major security hole via WPS PIN recovery.
+Encryption protocol
+TKIP (Temporal Key Integrity Protocol)
+The RC4 stream cipher is used with a 128-bit per-packet key, meaning that it dynamically generates a new key for each packet. This is used by WPA.
+CCMP (CTR mode with CBC-MAC Protocol)
+The protocol used by WPA2, based on the Advanced Encryption Standard (AES) cipher along with strong message authenticity and integrity checking is significantly stronger in protection for both privacy and integrity than the RC4-based TKIP that is used by WPA. Among informal names are "AES" and "AES-CCMP". According to the 802.11n specification, this encryption protocol must be used to achieve fast 802.11n high bitrate schemes, though not all implementations[vague] enforce this.[21] Otherwise, the data rate will not exceed 54 Mbit/s.
+EAP extensions under WPA and WPA2 Enterprise
+Originally, only EAP-TLS (Extensible Authentication Protocol - Transport Layer Security) was certified by the Wi-Fi alliance. In April 2010, the Wi-Fi Alliance announced the inclusion of additional EAP[22] types to its WPA- and WPA2- Enterprise certification programs.[23] This was to ensure that WPA-Enterprise certified products can interoperate with one another.
+
+As of 2010 the certification program includes the following EAP types:
+
+EAP-TLS (previously tested)
+EAP-TTLS/MSCHAPv2 (April 2005[24])
+PEAPv0/EAP-MSCHAPv2 (April 2005)
+PEAPv1/EAP-GTC (April 2005)
+PEAP-TLS
+EAP-SIM (April 2005)
+EAP-AKA (April 2009[25])
+EAP-FAST (April 2009)
+802.1X clients and servers developed by specific firms may support other EAP types. This certification is an attempt for popular EAP types to interoperate; their failure to do so as of 2013 is one of the major issues preventing rollout of 802.1X on heterogeneous networks.
+
+Commercial 802.1X servers include Microsoft Internet Authentication Service and Juniper Networks Steelbelted RADIUS as well as Aradial Radius server.[26] FreeRADIUS is an open source 802.1X server.
+------------------------------------
+
+
+
+Security Issues:
+
+
+
+
+
+Security issues
+Weak password
+Pre-shared key WPA and WPA2 remain vulnerable to password cracking attacks if users rely on a weak password or passphrase. WPA passphrase hashes are seeded from the SSID name and its length; rainbow tables exist for the top 1,000 network SSIDs and a multitude of common passwords, requiring only a quick lookup to speed up cracking WPA-PSK.[27]
+
+Brute forcing of simple passwords can be attempted using the Aircrack Suite starting from the four-way authentication handshake exchanged during association or periodic re-authentication.[28][29][30][31][32]
+
+WPA3 replaces cryptographic protocols susceptible to off-line analysis with protocols that require interaction with the infrastructure for each guessed password, supposedly placing temporal limits on the number of guesses.[10] However, design flaws in WPA3 enable attackers to plausibly launch brute-force attacks (see Dragonblood attack).
+
+Lack of forward secrecy
+WPA and WPA2 don't provide forward secrecy, meaning that once an adverse person discovers the pre-shared key, they can potentially decrypt all packets encrypted using that PSK transmitted in the future and even past, which could be passively and silently collected by the attacker. This also means an attacker can silently capture and decrypt others' packets if a WPA-protected access point is provided free of charge at a public place, because its password is usually shared to anyone in that place. In other words, WPA only protects from attackers who don't have access to the password. Because of that, it's safer to use Transport Layer Security (TLS) or similar on top of that for the transfer of any sensitive data. However starting from WPA3, this issue has been addressed.[15]
+
+WPA packet spoofing and decryption
+Mathy Vanhoef and Frank Piessens[33] significantly improved upon the WPA-TKIP attacks of Erik Tews and Martin Beck.[34][35] They demonstrated how to inject an arbitrary number of packets, with each packet containing at most 112 bytes of payload. This was demonstrated by implementing a port scanner, which can be executed against any client using WPA-TKIP. Additionally they showed how to decrypt arbitrary packets sent to a client. They mentioned this can be used to hijack a TCP connection, allowing an attacker to inject malicious JavaScript when the victim visits a website. In contrast, the Beck-Tews attack could only decrypt short packets with mostly known content, such as ARP messages, and only allowed injection of 3 to 7 packets of at most 28 bytes. The Beck-Tews attack also requires Quality of Service (as defined in 802.11e) to be enabled, while the Vanhoef-Piessens attack does not. Neither attack leads to recovery of the shared session key between the client and Access Point. The authors say using a short rekeying interval can prevent some attacks but not all, and strongly recommend switching from TKIP to AES-based CCMP.
+
+Halvorsen and others show how to modify the Beck-Tews attack to allow injection of 3 to 7 packets having a size of at most 596 bytes.[36] The downside is that their attack requires substantially more time to execute: approximately 18 minutes and 25 seconds. In other work Vanhoef and Piessens showed that, when WPA is used to encrypt broadcast packets, their original attack can also be executed.[37] This is an important extension, as substantially more networks use WPA to protect broadcast packets, than to protect unicast packets. The execution time of this attack is on average around 7 minutes, compared to the 14 minutes of the original Vanhoef-Piessens and Beck-Tews attack.
+
+The vulnerabilities of TKIP are significant in that WPA-TKIP had been held to be an extremely safe combination; indeed, WPA-TKIP is still a configuration option upon a wide variety of wireless routing devices provided by many hardware vendors. A survey in 2013 showed that 71% still allow usage of TKIP, and 19% exclusively support TKIP.[33]
+
+WPS PIN recovery
+A more serious security flaw was revealed in December 2011 by Stefan Viehböck that affects wireless routers with the Wi-Fi Protected Setup (WPS) feature, regardless of which encryption method they use. Most recent models have this feature and enable it by default. Many consumer Wi-Fi device manufacturers had taken steps to eliminate the potential of weak passphrase choices by promoting alternative methods of automatically generating and distributing strong keys when users add a new wireless adapter or appliance to a network. These methods include pushing buttons on the devices or entering an 8-digit PIN.
+
+The Wi-Fi Alliance standardized these methods as Wi-Fi Protected Setup; however the PIN feature as widely implemented introduced a major new security flaw. The flaw allows a remote attacker to recover the WPS PIN and, with it, the router's WPA/WPA2 password in a few hours.[38] Users have been urged to turn off the WPS feature,[39] although this may not be possible on some router models. Also, the PIN is written on a label on most Wi-Fi routers with WPS, and cannot be changed if compromised.
+
+WPA3 introduces a new alternative for configuration of devices that lack sufficient user interface capabilities by allowing nearby devices to serve as an adequate UI for network provisioning purposes, thus mitigating the need for WPS.[10]
+
+MS-CHAPv2 and lack of AAA server CN validation
+Several weaknesses have been found in MS-CHAPv2, some of which severely reduce the complexity of brute-force attacks, making them feasible with modern hardware. In 2012 the complexity of breaking MS-CHAPv2 was reduced to that of breaking a single DES key, work by Moxie Marlinspike and Marsh Ray. Moxie advised: "Enterprises who are depending on the mutual authentication properties of MS-CHAPv2 for connection to their WPA2 Radius servers should immediately start migrating to something else."[40]
+
+Tunneled EAP methods using TTLS or PEAP which encrypt the MSCHAPv2 exchange are widely deployed to protect against exploitation of this vulnerability. However, prevalent WPA2 client implementations during the early 2000s were prone to misconfiguration by end users, or in some cases (e.g. Android), lacked any user-accessible way to properly configure validation of AAA server certificate CNs. This extended the relevance of the original weakness in MSCHAPv2 within MiTM attack scenarios.[41] Under stricter WPA2 compliance tests announced alongside WPA3, certified client software will be required to conform to certain behaviors surrounding AAA certificate validation.[10]
+
+Hole196
+Hole196 is a vulnerability in the WPA2 protocol that abuses the shared Group Temporal Key (GTK). It can be used to conduct man-in-the-middle and denial-of-service attacks. However, it assumes that the attacker is already authenticated against Access Point and thus in possession of the GTK.[42][43]
+
+Predictable Group Temporal Key (GTK)
+In 2016 it was shown that the WPA and WPA2 standards contain an insecure expository random number generator (RNG). Researchers showed that, if vendors implement the proposed RNG, an attacker is able to predict the group key (GTK) that is supposed to be randomly generated by the access point (AP). Additionally, they showed that possession of the GTK enables the attacker to inject any traffic into the network, and allowed the attacker to decrypt unicast internet traffic transmitted over the wireless network. They demonstrated their attack against an Asus RT-AC51U router that uses the MediaTek out-of-tree drivers, which generate the GTK themselves, and showed the GTK can be recovered within two minutes or less. Similarly, they demonstrated the keys generated by Broadcom access daemons running on VxWorks 5 and later can be recovered in four minutes or less, which affects, for example, certain versions of Linksys WRT54G and certain Apple AirPort Extreme models. Vendors can defend against this attack by using a secure RNG. By doing so, Hostapd running on Linux kernels is not vulnerable against this attack and thus routers running typical OpenWrt or LEDE installations do not exhibit this issue.[44]
+
+KRACK attack
+Main article: KRACK
+In October 2017, details of the KRACK (Key Reinstallation Attack) attack on WPA2 were published.[45][46] The KRACK attack is believed to affect all variants of WPA and WPA2; however, the security implications vary between implementations, depending upon how individual developers interpreted a poorly specified part of the standard. Software patches can resolve the vulnerability but are not available for all devices.[47]
+
+Dragonblood attack
+In April 2019, serious design flaws in WPA3 were found which allow attackers to perform downgrade attacks and side-channel attacks, enabling brute-forcing the passphrase, as well as launching denial-of-service attacks on Wi-Fi base stations.[48]

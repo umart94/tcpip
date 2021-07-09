@@ -1,0 +1,27 @@
+Higher cable categories have :
+more twists
+less susceptible the cable is to electromagnetic interference
+the more stringent specifications for cross talk and system noise
+
+CAT1 - Telephones and Modems - unshielded twisted pair cabling - not suitable for data transmissions - no longer used
+CAT2 - used for telephone and datanetworks upto 4mpbs - no longer used
+CAT3 - previously used for networks upto 10Mbps Now generally used for telephones. - no longer used
+CAT4 - defined upto 20Mhz with speeds upto 16 Mbps - no longer used
+CAT5- defined upto 100Mhz speeds of 10/100Mbps supported longer cable runs of 1Gbps an issue.
+CAT5e - improvement over cat5 defined upto 100Mhz supports 1 Gbps.
+CAT6 - defined upto 250Mhz supports 10Gbps - 55meters. - standardized cable for gigabit ethernet. - crosstalk and system noise.
+CAT6a - defined upto 500Mhz supports 10Gbps - 100meters.
+CAT7 - defined upto 600Mhz support 10Gbps - 100meters. - classF - classFA
+CAT7a - defined upto 1000Mhz, supports 100Gbps. 
+CAT8 - supports 40Gbps.
+CAT8.1 - backward compatible and interoperable with CAT6a
+CAT8.2 - interoperable with cat7
+
+generally - are used
+CAT6 - defined upto 250Mhz supports 10Gbps - 55meters. - standardized cable for gigabit ethernet. - crosstalk and system noise.
+CAT6a - defined upto 500Mhz supports 10Gbps - 100meters.
+CAT7 - defined upto 600Mhz support 10Gbps - 100meters. - classF - classFA
+
+
+
+

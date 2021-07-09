@@ -1,0 +1,19 @@
+Generate a Self Signed Certificate using Java Keytool
+Now that you know when to use a Keytool self signed certificate, let's create one using a simple Java Keytool command:
+
+Open the command console on whatever operating system you are using and navigate to the directory where keytool.exe is located (usually where the JRE is located, e.g. c:\Program Files\Java\jre6\bin on Windows machines).
+Run the following command (where validity is the number of days before the certificate will expire):
+keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
+Fill in the prompts for your organization information. When it asks for your first and last name, enter the domain name of the server that users will be entering to connect to your application (e.g. www.google.com)
+Java Keytool Self Signed Certificate command
+
+This will create a keystore.jks file containing a private key and your sparklingly fresh self signed certificate. Now you just need to configure your Java application to use the .jks file. If you are using Tomcat, you can follow our Tomcat SSL Installation Instructions.
+
+For more information on creating a Java Keytool Self Signed Certificate, see the following links:
+
+Keytool Self Signed Certificate Documentation
+The Most Common Java Keytool Keystore Commands
+
+https://docs.oracle.com/javase/1.5.0/docs/tooldocs/solaris/keytool.html
+
+https://www.sslshopper.com/article-most-common-java-keytool-keystore-commands.html

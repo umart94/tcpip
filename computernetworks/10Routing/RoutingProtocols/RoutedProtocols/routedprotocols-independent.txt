@@ -1,0 +1,12 @@
+in ipv4 in image, we cannot ping since the routers are in a different subnet.
+
+but using ipv6 we can ping these routers as they are in the same subnet.
+
+so we can see that routed protocols are independent, seperate and different from another routed protocol.
+
+routed protocols use different routing protocols
+
+OSPF v2 used in ipv4
+
+OSPF v3 used in ipv6
+

@@ -1,0 +1,125 @@
+southbound interface are the switches using openflow.
+
+Openflow is designed so that we have a simple common hardware.
+this can be used by network operating systems through virtualization
+
+we need control plane abstractions and data plane (forwarding abstractions)
+
+
+what is a flow ?
+
+a flow is classification of packets that have a logical association
+action and maintaining flow state
+flow based resource management
+
+Flow Identifiers :
+L4 : TCP destination port 80
+L3 : IP
+L2.5 : MPLS Label ID
+L2 : MAC source
+
+Flow abstraction and switch api
+
+network devices -> layer specific switching hardware abstracted away -> switch api
+
+switch api deals with 
+1. forwarding tables
+2. configuration
+3. control of forwarding
+4. monitoring
+
+
+2. state distribution abstraction
+the control program should not have to handle distributed state details.
+
+proposed abstraction : global network view
+
+this is abstracted away by network operating system:
+state collection
+dissemination and synchronization
+application isolation
+
+
+what is open flow ?
+
+in single flow table abstraction we have highest priority and lowest priority, 
+
+A packet can match only one rule.
+
+
+in openflow and sdn controller approach, we have multiple rules and ACLs.
+openflow defines three things :
+
+state : what can software configure to match packets, and how is it represented.
+
+behaviour: given a state, how can (and should) the switch forward or modify packets?
+
+control interface : how do i describe desired changes to the switch state ?
+
+
+issues with openflow version1 :
+. small table size
+
+
+
+. table space or flow space cross product problem.
+a condition where multiple independent header fields affect a packet's forwarding, which forces the use of many flow entries in a single table.
+
+
+. limited match options
+
+supported : mac,vlan,ip,l4 ports
+missing: ipv6,qinq,mpls,sctp,optical circuits.
+
+
+. limited forwarding options
+
+supported : broadcast, multicast, drop
+
+missing: packet spreading
+forwarding to a virtual port
+general byte modifications
+
+
+performance = control plane
+performance is not the forwarding rate
+
+performance depends primarily on 3 factors :
+usage, domain and switch architecture.
+
+
+
+key performance indicators :
+. flow setup delay
+. flow setup rate
+. control channel bandwidth.
+
+
+Switches can be either hardware or software
+
+hardware switches :
+
+chassis : junipermx, procurve 54xx
+top-of-rack : netgear 7324 , nec ip8800
+optical : ciena coredirector
+
+
+
+software switches :
+x86:
+open vswitch
+openflow reference
+
+wifi ap:
+pc engines 
+
+wimax bs:
+nec
+
+NetFPGA
+
+these were the choices in 2010, there are more choices available now
+
+
+
+

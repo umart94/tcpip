@@ -1,0 +1,38 @@
+straight through cables are used when we connect pC to a switch , hub , bridge.
+
+
+two pcs connection is made by crossover cable.
+
+in this case we have two mdi devices.
+example 10baset or 100baset.
+
+
+Straight through cable
+used when
+router to switch
+pc to switch
+pc to bridge
+pc to hub
+
+
+crossover cable
+router to router
+pc to pc
+hub to hub
+switch to switch
+bridge to switch
+pc to server
+hub to switch
+router to router
+
+Auto MDI / MDIX
+
+MDI devices are routers or PCS
+
+MDIX are medium dependent interface crossover devices (switches hubs)
+
+auto mdi / mdix allows for automatic switching once a cable is connected.
+auto detect cables types cross over / straight through
+no need to worry about cable types.
+
+a straight cable can be used between hubs for example.

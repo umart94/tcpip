@@ -1,0 +1,12 @@
+cisco devices do not support discontiguous subnet masks.
+
+11110000.11111111.00000110.11000000 = 240.255.3.191
+
+this example does not have continous 1's or continous 0's
+
+
+only continuous subnet masks are supported.
+
+11111111.11110000.00000000.00000000 = 255.240.0.0
+11111111.111111111.11000000.00000000 = 255.255.192.0
+ 

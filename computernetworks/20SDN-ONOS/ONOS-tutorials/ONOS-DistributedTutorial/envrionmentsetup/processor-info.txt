@@ -1,0 +1,7 @@
+cat /proc/cpuinfo
+
+
+uname -m
+x86_64
+
+you need to install the 64 bit linux binary, that uses x86_64 architecture.

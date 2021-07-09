@@ -1,0 +1,6 @@
+Direct Attachment Cable - DAC - cooper twinax
+
+upto 15 meters.
+has SFP on each end - hot pluggable transceiver. - 10Gbps connection between two devices.
+
+

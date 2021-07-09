@@ -1,0 +1,5 @@
+network interface cards used to convert data between interconnected devices.
+
+switches endpoints like pcs,fileservers,printers connect to switches.
+
+routers intelligently choose best paths

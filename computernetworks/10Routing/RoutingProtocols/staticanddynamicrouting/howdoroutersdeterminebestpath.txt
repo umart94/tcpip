@@ -1,0 +1,18 @@
+static routing - administrator decides best path
+RIP = hop count decides which is best path.
+OSPF = bandwidth decides which is best path.
+EIGRP = bandwidth and delay.
+
+
+when using RIP routing protocol - it would send the traffic directly from san francisco to san jose.
+it will not take bandwidth into account. as hop count is the metric here. rip will take direct path between those networks.
+
+
+OSPF would send traffic via new york because link speeds are greater. ospf makes better decisions.
+RIP does not make better decision, it just looks at number of hops.
+
+we will use either ospf or eigrp in modern networks.
+eigrp is a proprietary cisco routing protocol
+
+ospf is an industry standard, when we have a multi vendor network.
+

@@ -1,0 +1,320 @@
+Open Shortest Path First
+
+have multiple points in network
+which points are connected to other points
+GPS has a map
+based on which it builds structure to go from pointa to pointb
+
+---------------------------
+it is interior gateway protocol , routing is done within
+single routing domain or autonomous system
+
+
+----------------
+
+Open Shortest Path First - Hello Packet
+    OSPF Header
+        Version: 2
+        Message Type: Hello Packet (1)
+        Packet Length: 44
+        Source OSPF Router: 192.168.170.8
+        Area ID: 0.0.0.1
+        Checksum: 0x273b [correct]
+        Auth Type: Null (0)
+        Auth Data (none): 0000000000000000
+    OSPF Hello Packet
+        Network Mask: 255.255.255.0
+        Hello Interval [sec]: 10
+        Options: 0x02, (E) External Routing
+        Router Priority: 1
+        Router Dead Interval [sec]: 40
+        Designated Router: 192.168.170.8
+        Backup Designated Router: 0.0.0.0
+
+--------------------
+we send OSPF Hello Packet
+KeepAlive
+Designated Router: 192.168.170.8 ( where the hello message is coming from )
+
+-------------------------
+DB Description Packet
+defines topology of network from perspective of each individual router
+people who we are connected to
+these are the contents of my database.
+
+A database description packets are mainly sent by a slave after sending a database description packet by the master. 
+The OSPF router summarizes the DBD packets and local database carry the set of LSA belongs to the database.
+
+
+10	54.405712	192.168.170.8	192.168.170.2	OSPF	66	DB Description 
+
+
+Open Shortest Path First
+    OSPF Header
+        Version: 2
+        Message Type: DB Description (2)
+        Packet Length: 172
+        Source OSPF Router: 192.168.170.3
+        Area ID: 0.0.0.1
+        Checksum: 0xf067 [correct]
+        Auth Type: Null (0)
+        Auth Data (none): 0000000000000000
+    OSPF DB Description
+        Interface MTU: 1500
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        DB Description: 0x02, (M) More
+            .... 0... = (R) OOBResync: Not set
+            .... .0.. = (I) Init: Not set
+            .... ..1. = (M) More: Set
+            .... ...0 = (MS) Master: No
+        DD Sequence: 1098361214
+    LSA-type 1 (Router-LSA), len 48
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+
+
+
+Area ID: 0.0.0.1 - routing areas.
+
+
+LSA-Header
+
+LSA-type 1 (Router-LSA), len 48
+    .000 0000 0000 0001 = LS Age (seconds): 1
+    0... .... .... .... = Do Not Age Flag: 0
+    Options: 0x02, (E) External Routing
+        0... .... = DN: Not set
+        .0.. .... = O: Not set
+        ..0. .... = (DC) Demand Circuits: Not supported
+        ...0 .... = (L) LLS Data block: Not Present
+        .... 0... = (N) NSSA: Not supported
+        .... .0.. = (MC) Multicast: Not capable
+        .... ..1. = (E) External Routing: Capable
+        .... ...0 = (MT) Multi-Topology Routing: No
+    LS Type: Router-LSA (1)
+    Link State ID: 192.168.170.3
+    Advertising Router: 192.168.170.3
+    Sequence Number: 0x80000001
+    Checksum: 0x3a9c
+    Length: 48
+
+LS Age : 1 seconds
+LS request. topology database is out of date. Link State request. we get back LS Update.
+
+Link State ID: 192.168.170.3
+    Advertising Router: 192.168.170.3
+
+ .... ..1. = (E) External Routing: Capable
+
+-----------------------------------
+
+LS Update
+
+LS Update Packet
+    Number of LSAs: 6
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+        .000 0000 0000 0001 = LS Age (seconds): 1
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: AS-External-LSA (ASBR) (5)
+        Link State ID: 148.121.171.0
+        Advertising Router: 192.168.170.3
+        Sequence Number: 0x80000001
+        Checksum: 0x2eaa
+        Length: 36
+        Netmask: 255.255.255.0
+        1... .... = External Type: Type 2 (metric is larger than any other link state path)
+        .000 0000 = TOS: 0
+        Metric: 20
+        Forwarding Address: 192.168.170.1
+        External Route Tag: 0
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+        .000 0000 0000 0001 = LS Age (seconds): 1
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: AS-External-LSA (ASBR) (5)
+        Link State ID: 192.130.120.0
+        Advertising Router: 192.168.170.3
+        Sequence Number: 0x80000001
+        Checksum: 0xcd1e
+        Length: 36
+        Netmask: 255.255.255.0
+        1... .... = External Type: Type 2 (metric is larger than any other link state path)
+        .000 0000 = TOS: 0
+        Metric: 20
+        Forwarding Address: 0.0.0.0
+        External Route Tag: 0
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+        .000 0000 0000 0001 = LS Age (seconds): 1
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: AS-External-LSA (ASBR) (5)
+        Link State ID: 192.168.0.0
+        Advertising Router: 192.168.170.3
+        Sequence Number: 0x80000001
+        Checksum: 0x310d
+        Length: 36
+        Netmask: 255.255.255.0
+        1... .... = External Type: Type 2 (metric is larger than any other link state path)
+        .000 0000 = TOS: 0
+        Metric: 20
+        Forwarding Address: 0.0.0.0
+        External Route Tag: 0
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+        .000 0000 0000 0001 = LS Age (seconds): 1
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: AS-External-LSA (ASBR) (5)
+        Link State ID: 192.168.1.0
+        Advertising Router: 192.168.170.3
+        Sequence Number: 0x80000001
+        Checksum: 0x2617
+        Length: 36
+        Netmask: 255.255.255.0
+        1... .... = External Type: Type 2 (metric is larger than any other link state path)
+        .000 0000 = TOS: 0
+        Metric: 20
+        Forwarding Address: 0.0.0.0
+        External Route Tag: 0
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+        .000 0000 0000 0001 = LS Age (seconds): 1
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: AS-External-LSA (ASBR) (5)
+        Link State ID: 192.168.172.0
+        Advertising Router: 192.168.170.3
+        Sequence Number: 0x80000001
+        Checksum: 0x2d46
+        Length: 36
+        Netmask: 255.255.255.0
+        1... .... = External Type: Type 2 (metric is larger than any other link state path)
+        .000 0000 = TOS: 0
+        Metric: 20
+        Forwarding Address: 192.168.170.10
+        External Route Tag: 0
+    LSA-type 5 (AS-External-LSA (ASBR)), len 36
+        .000 0000 0000 0001 = LS Age (seconds): 1
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: AS-External-LSA (ASBR) (5)
+        Link State ID: 80.212.16.0
+        Advertising Router: 192.168.170.3
+        Sequence Number: 0x80000001
+        Checksum: 0x244e
+        Length: 36
+        Netmask: 255.255.255.255
+        1... .... = External Type: Type 2 (metric is larger than any other link state path)
+        .000 0000 = TOS: 0
+        Metric: 20
+        Forwarding Address: 0.0.0.0
+        External Route Tag: 0
+-------------------
+
+LS Update - Type Stub
+
+LS Update Packet
+    Number of LSAs: 1
+    LSA-type 1 (Router-LSA), len 36
+        .000 0011 1110 0010 = LS Age (seconds): 994
+        0... .... .... .... = Do Not Age Flag: 0
+        Options: 0x02, (E) External Routing
+            0... .... = DN: Not set
+            .0.. .... = O: Not set
+            ..0. .... = (DC) Demand Circuits: Not supported
+            ...0 .... = (L) LLS Data block: Not Present
+            .... 0... = (N) NSSA: Not supported
+            .... .0.. = (MC) Multicast: Not capable
+            .... ..1. = (E) External Routing: Capable
+            .... ...0 = (MT) Multi-Topology Routing: No
+        LS Type: Router-LSA (1)
+        Link State ID: 192.168.170.8
+        Advertising Router: 192.168.170.8
+        Sequence Number: 0x80000dc3
+        Checksum: 0x2506
+        Length: 36
+        Flags: 0x02, (E) AS boundary router
+        Number of Links: 1
+        Type: Stub     ID: 192.168.170.0   Data: 255.255.255.0   Metric: 10
+            Link ID: 192.168.170.0 - IP network/subnet number
+            Link Data: 255.255.255.0
+            Link Type: 3 - Connection to a stub network
+            Number of Metrics: 0 - TOS
+            0 Metric: 10
+
+if router database is out of date. we get LS Updates. we send out LS Acknowledgements
+which are responsible for building topology maps. and database.
+to get from 1 device/ router within network. and to other devices on other networks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

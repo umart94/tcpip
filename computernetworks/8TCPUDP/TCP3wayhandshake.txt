@@ -1,0 +1,62 @@
+PC A initiates a connection oriented session with PC B
+protocol software modules of host devices send messages across network to verify transmission is authorized 
+
+3 way handshake between host devices.
+
+
+Step1
+Host initiating transmission sends SYN flag to Host B and host a chooses a initial sequence number of suppose 100. with 
+
+control flag = syn = 1flag.
+this session also establishes the port number to connect to.
+
+
+Step2
+when syn is accepted by B, B sends SYN,ACK flags set. 
+
+control flag = SYN=1,ACK=1 B also sets initial sequence number to suppose 300.
+this 300 sequence number indicates that the next byte of data to be received will start here.
+
+Host B also sets acknowledgement flag to 101
+an acknowledgement flag indicates the next portion of data it will receive.
+
+
+Step3
+Host A receives SYN from host B
+sends back tcp segment session established
+CONTROL = ACK = 1 , and SYN=0
+
+ON HOST A
+ACK = 301
+SEQ = 101
+
+BECAUSE SYN FLAG IS UNSET, THIS CONFIRMS THAT 3 WAY HANDSHAKE COMPLETED SUCCESSFULLY.
+
+assuming that window size of 1 is used.
+it is max amount of data that receiver can recieve ( asssume that only 1 segment can be transmitted)
+
+
+A SEQ=5 -----------> B ACKNUM=6 , SEQ NUM = 10
+
+A SEQ NUM = 6 , ACK NUM= 11 -----------------> B
+
+A <------------------------------ B SEQ NUM = 11, ACK NUM = 7
+
+SEQUENCE NUMBERS MAY DIFFER
+ACKNOWLEDGEMENT NUMBERS INIDCATE NEXT SEQUENCE NUMBER THAT HOST EXPECT TO RECEIVE.
+
+
+fLOW CONTROL
+prevents the issue of a sender overflowing the buffers of a receiver.
+
+
+assume that window size is 3
+
+A can send 3 segments of data before getting acknowledgement. so throughput is increased and round trip time is decreased.
+
+receive buffer of B is full and B cannot handle the data being received.
+
+So B will send not ready flag and setting window size to 0.
+
+now B receive buffer is ready. B can send a ready indicator to tell a to resume sending of datagrams.
+

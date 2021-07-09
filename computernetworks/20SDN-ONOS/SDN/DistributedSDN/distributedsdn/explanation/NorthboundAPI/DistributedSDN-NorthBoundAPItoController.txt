@@ -1,0 +1,155 @@
+in Distributed SDN, logically we design the architecture in this way that there
+is A DISTRIBUTED CONTROL PLANE.
+
+INSIDE THE CONTROL PLANE, (CONTROL PLANE HERE MEANS ANY N NUMBER OF SDN CONTROLLERS INSIDE IT.)
+
+1. WE CAN HAVE HIERARCHICAL architecture of sdn controllers inside the control plane.
+2. we can simply have multiple sdn controllers inisde the control plane.
+3. we can logically have 1 sdn controller, that then talks to other (sub) SDN controllers. these are all linked together.
+
+these controllers are ALL LINKED TOGETHER LOGICALLY.
+
+THE LOGICALLY LINKED CONTROLLERS ARE AGAIN, INSIDE A SINGLE DISTRIBUTED CONTROL PLANE. (some slides refer to it as multiple control planes, what they mean is that there are multiple sdn controllers.)
+
+
+
+
+so that if any controller fails, the running apps would now run on the working controller. USING ROLES. master role or whatever is assigned as the leader controller.
+
+this depends on the type of architecture , logical algorithms used inside the code.
+
+we would need :
+
+load balancing
+scaling up
+scaling down
+
+this requires :
+load estimation at controllers
+switch migration protocol that will change role of switches from master to slave and vice versa.
+
+
+
+(northbound)
+i can create an application that sends a command through rest api to the controller
+which then updates the switches using openflow that now says that traffic arriving with mac address of A 
+going to mac address of B should flow around network through this path.(southbound)
+
+
+
+in open sdn and open flow
+
+networking devices no longer have seperate local control planes.
+
+centralized control plane with multiple hierarchical distributed sdn controllers.
+
+
+
+we communicate with the SDN Controller, USING NORTHBOUND APIS.
+NORTHBOUND-API
+1. RESTFUL-API
+2. JAVA API
+
+and the SDN Controller in turn , communicates with the Actual Network Hardware,
+Using Southbound APIS.
+
+SOUTHBOUND API
+OPENFLOW PROTOCOL TO ACCESS NETWORK DEVICE HARDWARE
+------------------------------------
+NETWORK HARDWARE.
+
+
+(bas sirf multiple sdn controllers hain instead of a single controller)
+
+
+------------------------
+
+From Controller point of view : will handle consensus algo and leader election
+High Availability (HA)
+switch migration protocol that will change role of switches from master to slave and vice versa.
+
+ROLES COULD BE :
+master
+slave
+equal
+
+
+1. leader election
+two instances : alive & backup
+if more than two instances, then we need the consensus algorithm.
+
+2. state synchronization
+configured state
+operational state
+
+------------------------------------------
+
+from switch  point of view
+assist in controller handoffs
+
+1. simultaneously connect to multiple controllers
+
+2. sdn controllers assign ROLEs to each connection
+
+2a. switches do not assign roles themselves
+2b. switches do not perform leader elections
+
+(the controllers handle this leader election)
+
+3. depending on connection ROLE, messages are allowed / denied.
+for e.g slave controller has read only access
+
+---------------------------------
+
+
+Multi-Master Controllers
+
+Typically used for scale-out but can be used for High availability as well
+
+state synchrnoization
+
+
+
+Master slave does not give scale : 
+. all data writes occur from master
+. replicate data to slave
+
+scale out comes from multi-master
+
+.writes can occur from any controller
+.performance scales with n # of controllers
+.consistency model controls replication
+
+
+
+scalable controller operations :
+
+1. mode of operation
+clustered
+hierarchical
+federated
+
+
+considerations
+
+1. exposing api
+2. failure modes : how to deal with failures across controllers
+3. CLI (network cli not switch cli) , fast , familiar, scale can be issue
+4. GUI
+5. orchestrator plugin
+e.g quantum plugins for openstack
+maybe used for limited visibility , typically for configuration
+
+
+
+Don't confuse sdn controllers with :
+
+1. orchestrators
+2. converted management systems
+3. cli replacements
+4. BGP
+
+
+
+ 
+

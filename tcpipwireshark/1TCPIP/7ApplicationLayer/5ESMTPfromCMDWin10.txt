@@ -1,0 +1,35 @@
+Extended SMTP
+
+open cmd
+telnet
+set LocalEcho
+set logfile d:\telnetesmtplogfile.txt
+
+OPEN PRIVATE_IP 25
+
+EHLO blahblah.com
+returns additional commands that we can use
+vrfy user@domain.com (email id)
+VRFY command is used to verify a user ID on a mail domain
+this command should be blocked through firewall rules and on smtp server.
+
+hackers use it to verify that a specific user exists and is valid on a smtp server.
+
+MAIL FROM: me@me.com
+250 OK
+RCPT TO: valid_smtp_email_address user@host
+
+correct code : 250 2.1.5 Recipient OK
+500 series.. an error
+
+--------------
+https://docs.microsoft.com/en-us/exchange/mail-flow/test-smtp-with-telnet?view=exchserver-2019
+----------
+SMTP needs authentication
+we specify commands line by line
+also , the authentication problem can be solved by relaying / using email clients / authenticated smtp server.
+
+------------------
+
+
+

@@ -1,0 +1,25 @@
+A Device can send a message to itself
+
+this is used to let a system send a message to itself
+this is useful to make sure that
+the tcp/ip stack is installed correctly on a machine.
+
+
+127.0.0.1 is a typical localloopbackaddress
+
+note that anything in 127 range is deemed a loopback address
+
+Class A Address
+
+so 127 range had 16 million addresses that could be allocated
+
+we lost these.
+
+in IPv6 ::1 is used as loopback
+
+Routers and switches also have loopback addresses
+
+ROUTER LOOPBACK INTERFACE
+---------
+The loopback interface is useful because it is an interface with an IP address which never goes down. OSPF, without a specifically defined Router ID, will pick a Router ID on its own. It chooses the Router ID from the IP addresses of the configured and enabled interfaces. A loopback is a good choice since the loopback interface is always up unless someone specifically shuts it down. Other interfaces may go down if there is a problem on the link.
+-----------

@@ -1,0 +1,70 @@
+firewall
+
+inbound rules
+
+
+outbound rules
+
+1.) program rules
+A rule based on a specific program or for all programs
+Only applies to desktop programs that end in .exe, not apps
+
+2.) port rules
+based on port numbers
+like port 80 for http traffic ( internet traffic)
+port 443 for https traffic ( secured internet traffic)
+21 for ftp
+
+
+3.) predefined rules
+remote shutdown
+homegroup
+hyper-v
+
+4.) custom rules
+
+connection security rules
+
+how connection occurs and under what circumstances
+
+1. Isolation
+restrict connections based on credentials
+-> domain membership
+-> computer status or health
+-> compliance policies
+-> etc.
+
+2.) Authentication Exemption
+a rule to state what connection types should be excluded from authentication
+
+allow an ip or ip range to connect without restriction
+
+based on:
+. single ip or ip range
+. subnet
+. set of computers such as dns or dhcp servers
+
+3.) Server-to-Server
+
+prevent certain computers from interacting
+
+. applies to named ip addresses
+. applies to all ip addresses
+. usually used to prevent specific computers,  possibly servers from interacting with each other
+
+
+4.) Tunnel
+
+a rule to authenticate connections between 2 computers when data needs to pass through an intermediate and untrusted network
+
+
+5.) Custom
+
+a rule you create from scratch if the previous rule types dont meet your needs
+
+
+
+
+
+
+

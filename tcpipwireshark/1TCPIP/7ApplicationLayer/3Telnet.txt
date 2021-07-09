@@ -1,0 +1,89 @@
+telnet www.google.com 80 ( connect to port 80 tcp connection )
+GET / 
+
+
+telnet connecting to a telnet server that runs on port 23
+telnet 23
+
+remote login , similiar to SSH
+
+telnet is plaintext
+
+telnet is a client , server and protocol.
+
+?	Calls up the help menu
+
+close	Ends the Telnet session
+
+display argument 
+Displays the various parameters for the current connection (port, terminal type, etc.)
+
+environ argument 
+Defines variables for the respective operating system environment
+
+logout
+Ends the current Telnet session as long as the remote host supports the logout option
+
+mode type 
+Specifies the transmission type (text file, binary file)
+
+open hostname
+Builds an additional connection to the selected host on top of the existing connection
+
+quit
+Ends the Telnet client connection including all active connections
+
+send argument
+Sends selected, typical Telnet character strings to the host
+
+set argument
+Changes the connection parameters
+unset
+Loads the pre-defined connection parameters
+
+-- Telnet packet capture : Do Echo
+
+the output is character by character, and in plaintext.. it will echo all the text.
+
+Server sends Data: Password:
+telnet sends the password character by character.
+some programs need input on a character by character basis.
+client only sends 1 character at a time.
+\r\n carriage return line feed.
+
+then server sends the welcome message, and we enter the prompt.(cmd) of other machine.
+
+
+on linux 
+ps auxww | grep telnet
+
+
+on windows CMD
+
+netstat -na | findstr "PORT"
+
+windows powershell
+netstat -na | Select-String "PORT"
+
+If a command in PowerShell returns some objects, before parsing, they should be converted to strings using the Out-String -Stream command:
+
+# Windows PowerShell
+PS C:\> Get-Alias | Out-String -Stream | Select-String "curl"
+Grep a file for a pattern that matches a regular expression (case insensitive):
+
+# Windows CMD
+C:\> findstr /i "^SEARCH.*STRING$" file.txt
+
+# Windows PowerShell
+PS C:\> Select-String "^SEARCH.*STRING$" file.txt
+Display help for the Windows grep command equivalents:
+
+# Windows CMD
+C:\> findstr /?
+
+# Windows PowerShell
+PS C:\> get-help Select-String
+
+--------------------
+telnet can only run if the system has an open connection
+there is no encryption.

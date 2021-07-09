@@ -1,0 +1,19 @@
+Host A sends transmission from source port of 1024 and destination port of 23. on Host B
+Host A sends 10 Bytes of data and initial sequence number of 10.
+
+Host B Acknowledges receipt of 10 bytes 
+
+source port 23, destination port 1024, sequence number 5, acknowledgement number 11
+
+Host B also sets initial seq num to 5.
+
+if A sends 250 bytes of data.
+
+
+HOST A
+source port 1024, destination port 23, sequence number 260, acknowledgement number 6
+
+HOST B
+source port 23, destination port 1024, sequence number 6, acknowledgement number 261
+
+10 + 250 = 260 bytes of data being sent by A.

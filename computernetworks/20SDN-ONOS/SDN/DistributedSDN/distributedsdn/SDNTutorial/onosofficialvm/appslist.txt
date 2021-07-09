@@ -1,0 +1,173 @@
+onos> apps -s
+    4 org.onosproject.route-service        1.15.0   Route Service Server
+    5 org.onosproject.pim                  1.15.0   Protocol Independent Multicast Emulation
+    6 org.onosproject.demo                 1.15.0   Flow Throughput Demo
+    7 org.onosproject.yang                 1.15.0   YANG Compiler and Runtime
+    8 org.onosproject.models.openroadm     1.15.0   Open ROADM YANG Models
+    9 org.onosproject.events               1.15.0   Event History
+   10 org.onosproject.restsb               1.15.0   REST Provider
+   11 org.onosproject.config               1.15.0   Dynamic Configuration
+   12 org.onosproject.faultmanagement      1.15.0   Fault Management
+   13 org.onosproject.netconf              1.15.0   NETCONF Provider
+   14 org.onosproject.netconfsb            1.15.0   NETCONF Protocol Subsystem
+   16 org.onosproject.drivers.netconf      1.15.0   Generic NETCONF Drivers
+   17 org.onosproject.models.common        1.15.0   Common YANG Models
+   18 org.onosproject.models.microsemi     1.15.0   Microsemi YANG Models
+   19 org.onosproject.cfm                  1.15.0   Layer 2 Monitoring CFM Application
+   20 org.onosproject.drivers.microsemi.ea1000 1.15.0   Microsemi Drivers EA1000
+   21 org.onosproject.protocols.xmpp       1.15.0   XMPP Core Protocol Subsystem
+   22 org.onosproject.xmpp.device          1.15.0   XMPP Device Provider
+   23 org.onosproject.bgpcep               1.15.0   BGPCEP Provider
+   24 org.onosproject.intentsynchronizer   1.15.0   Intent Synchronizer
+   25 org.onosproject.vpls                 1.15.0   VLAN L2 Broadcast Network
+   26 org.onosproject.models.polatis       1.15.0   Polatis YANG Model
+*  27 org.onosproject.optical-model        1.15.0   Optical Network Model
+   28 org.onosproject.drivers.polatis.netconf 1.15.0   Polatis Device Drivers
+*  29 org.onosproject.openflow-base        1.15.0   OpenFlow Base Provider
+*  30 org.onosproject.lldpprovider         1.15.0   LLDP Link Provider
+*  31 org.onosproject.hostprovider         1.15.0   Host Location Provider
+   32 org.onosproject.simplefabric         1.15.0   SONA SimpleFabric
+*  33 org.onosproject.drivers              1.15.0   Default Drivers
+   34 org.onosproject.metrics              1.15.0   Topology & Intent Metrics
+   35 org.onosproject.configsync           1.15.0   Dynamic Configuration Synchronizer
+   36 org.onosproject.models.tapi          1.15.0   ONF Transport API YANG Models
+   37 org.onosproject.models.ietf          1.15.0   IETF YANG Models
+   38 org.onosproject.models.openconfig    1.15.0   OpenConfig YANG Models
+   39 org.onosproject.models.openconfig-infinera 1.15.0   OpenConfig Infinera XT3300 YANG Models
+   40 org.onosproject.odtn-api             1.15.0   ODTN API & Utilities Application
+   41 org.onosproject.restconf             1.15.0   RESTCONF Application Module
+   42 org.onosproject.drivers.odtn-driver  1.15.0   ODTN Driver
+   43 org.onosproject.configsync-netconf   1.15.0   Dynamic Configuration Synchronizer for NETCONF
+   44 org.onosproject.protocols.restconfserver 1.15.0   RESTCONF Server Module
+   45 org.onosproject.odtn-service         1.15.0   ODTN Service Application
+   46 org.onosproject.flowanalyzer         1.15.0   Flow Space Analysis
+   47 org.onosproject.protocols.xmpp.pubsub 1.15.0   XMPP Publish/Subscribe protocol extension subsystem
+   48 org.onosproject.scalablegateway      1.15.0   Scalable Gateway
+   49 org.onosproject.ovsdb-base           1.15.0   OVSDB Provider
+   50 org.onosproject.drivers.ovsdb        1.15.0   Generic OVSDB Drivers
+   51 org.onosproject.openstacknode        1.15.0   OpenStack Node Bootstrap
+   52 org.onosproject.netcfg-monitor       1.15.0   Network Configuration Monitor Test
+   53 org.onosproject.sdnip                1.15.0   SDN-IP
+   54 org.onosproject.openstacknetworking  1.15.0   OpenStack Networking Application
+   55 org.onosproject.openstacknetworkingui 1.15.0   Openstack Networking UI
+   56 org.onosproject.linkdiscovery        1.15.0   Link Discovery Provider
+   57 org.onosproject.drivers.ciena.c5162  1.15.0   Ciena 5162 Drivers
+   58 org.onosproject.pcep-api             1.15.0   PCEP Protocol API
+   59 org.onosproject.hostprobingprovider  1.15.0   Host Probing Provider
+   61 org.onosproject.messaging-perf       1.15.0   Messaging Performance Test
+   62 org.onosproject.election             1.15.0   Master Election Test
+   64 org.onosproject.drivers.juniper      1.15.0   Juniper Drivers
+   66 org.onosproject.protocols.grpc       1.15.0   gRPC Protocol Subsystem
+   67 org.onosproject.protocols.p4runtime  1.15.0   P4Runtime Protocol Subsystem
+   68 org.onosproject.p4runtime            1.15.0   P4Runtime Provider
+*  69 org.onosproject.openflow             1.15.0   OpenFlow Provider Suite
+   71 org.onosproject.ovsdbhostprovider    1.15.0   OVSDB host Provider
+   72 org.onosproject.ovsdb                1.15.0   OVSDB Southbound Meta
+   73 org.onosproject.artemis              1.15.0   Artemis
+   75 org.onosproject.cord-support         1.15.0   CORD Support
+   77 org.onosproject.flow-perf            1.15.0   Flow Performance Test
+   80 org.onosproject.openflow-message     1.15.0   Control Message Stats Provider
+   81 org.onosproject.netcfghostprovider   1.15.0   Network Config Host Provider
+   82 org.onosproject.drivers.optical      1.15.0   Basic Optical Drivers
+   83 org.onosproject.drivers.ciena.waveserver 1.15.0   Ciena Waveserver Drivers
+   85 org.onosproject.flowspec-api         1.15.0   Flowspec API
+   86 org.onosproject.ofagent              1.15.0   OpenFlow Agent
+*  88 org.onosproject.mobility             1.15.0   Host Mobility
+   91 org.onosproject.kafka-integration    1.15.0   Kafka Integration
+   92 org.onosproject.snmp                 1.15.0   SNMP Provider
+   93 org.onosproject.fibinstaller         1.15.0   FIB Installer
+   95 org.onosproject.bgprouter            1.15.0   BGP Router
+   96 org.onosproject.generaldeviceprovider 1.15.0   General Device Provider
+   98 org.onosproject.drivers.p4runtime    1.15.0   P4Runtime Drivers
+   99 org.onosproject.drivers.barefoot     1.15.0   Barefoot Drivers
+  101 org.onosproject.roadm                1.15.0   ROADM
+  103 org.onosproject.pipelines.basic      1.15.0   Basic Pipelines
+  104 org.onosproject.pipelines.fabric     1.15.0   Fabric Pipeline
+  106 org.onosproject.drivers.mellanox     1.15.0   Mellanox Drivers
+  107 org.onosproject.cpr                  1.15.0   Control Plane Redirect
+  108 org.onosproject.yang-gui             1.15.0   YANG Runtime GUI
+  110 org.onosproject.packet-stats         1.15.0   Packet Statistics
+  111 org.onosproject.models.l3vpn         1.15.0   L3VPN YANG Models
+  112 org.onosproject.l3vpn                1.15.0   YANG L3VPN
+  113 org.onosproject.mfwd                 1.15.0   Multicast Forwarding
+  114 org.onosproject.virtualbng           1.15.0   Virtual Broadband Gateway
+  116 org.onosproject.influxdbmetrics      1.15.0   InfluxDB Report and Query
+  117 org.onosproject.powermanagement      1.15.0   Power Management
+  118 org.onosproject.workflow             1.15.0   Workflow
+  119 org.onosproject.models.huawei        1.15.0   Huawei YANG Models
+  120 org.onosproject.drivers.huawei       1.15.0   Huawei Drivers
+  121 org.onosproject.pi-ecmp              1.15.0   PI Demo ECMP Fabric
+  123 org.onosproject.drivermatrix         1.15.0   Driver Support Matrix
+  124 org.onosproject.dhcp                 1.15.0   DHCP Server
+  125 org.onosproject.tl1                  1.15.0   TL1 Provider
+  126 org.onosproject.models.ciena.waveserverai 1.15.0   Ciena Waveserver Ai YANG Models
+  129 org.onosproject.routescale           1.15.0   Route and Flow Scalability Test
+  130 org.onosproject.drivers.lumentum     1.15.0   Lumentum Drivers
+  131 org.onosproject.openstackvtap        1.15.0   Openstack Vtap Application
+  132 org.onosproject.fpm                  1.15.0   FIB Push Manager (FPM) Route Receiver
+  133 org.onosproject.vrouter              1.15.0   Virtual Router
+  134 org.onosproject.mcast                1.15.0   Multicast traffic control
+  136 org.onosproject.segmentrouting       1.15.0   Segment Routing
+  137 org.onosproject.network-troubleshoot 1.15.0   Network Troubleshooter
+  140 org.onosproject.evpn-route-service   1.15.0   EVPN Routing
+  142 org.onosproject.bgp                  1.15.0   BGP Provider
+  143 org.onosproject.pcep                 1.15.0   PCEP Provider
+  144 org.onosproject.pathpainter          1.15.0   Path Visualization
+  146 org.onosproject.gluon                1.15.0   Gluon Shim
+  147 org.onosproject.vtn                  1.15.0   OPNFV
+  149 org.onosproject.evpnopenflow         1.15.0   EVPN OpenFlow
+  150 org.onosproject.optical-rest         1.15.0   Optical Network Model REST API
+  151 org.onosproject.linkprops            1.15.0   Link Properties
+  153 org.onosproject.p4tutorial.pipeconf  1.15.0   P4 Tutorial Pipeconf
+  154 org.onosproject.graphitemetrics      1.15.0   Graphite Report and Query
+  156 org.onosproject.openstacktelemetry   1.15.0   OpenStack Telemetry Application
+  157 org.onosproject.imr                  1.15.0   Intent Monitoring and Rerouting
+  159 org.onosproject.drivers.flowspec     1.15.0   Generic Flow Spec Drivers
+  161 org.onosproject.tetopology           1.15.0   TE Topology Core
+  163 org.onosproject.primitiveperf        1.15.0   Primitive Performance Test
+  165 org.onosproject.drivers.arista       1.15.0   Arista Drivers
+  167 org.onosproject.isis                 1.15.0   ISIS Provider
+  168 org.onosproject.castor               1.15.0   Castor
+  170 org.onosproject.protocols.gnmi       1.15.0   gNMI Protocol Subsystem
+  171 org.onosproject.drivers.gnmi         1.15.0   gNMI Drivers
+  173 org.onosproject.dhcprelay            1.15.0   DHCP Relay Agent
+  175 org.onosproject.drivers.ciena.c5170  1.15.0   Ciena 5170 Drivers
+  176 org.onosproject.gangliametrics       1.15.0   Ganglia Report and Query
+  178 org.onosproject.newoptical           1.15.0   Packet/Optical Use-Case
+  179 org.onosproject.drivers.bmv2         1.15.0   BMv2 Drivers
+  180 org.onosproject.transaction-perf     1.15.0   Transaction Performance Test
+* 182 org.onosproject.layout               1.15.0   UI Auto-Layout
+  184 org.onosproject.drivers.polatis.openflow 1.15.0   Polatis OpenFlow Device Drivers
+  186 org.onosproject.cpman                1.15.0   Control Plane Manager
+* 187 org.onosproject.proxyarp             1.15.0   Proxy ARP/NDP
+  189 org.onosproject.rabbitmq             1.15.0   Rabbit MQ Integration
+  191 org.onosproject.drivers.server       1.15.0   Server Device Drivers
+  192 org.onosproject.openstacktroubleshoot 1.15.0   OpenStack Troubleshoot
+  194 org.onosproject.drivers.cisco.netconf 1.15.0   Cisco NETCONF Drivers
+  196 org.onosproject.lisp                 1.15.0   LISP Provider
+  198 org.onosproject.nodemetrics          1.15.0   Controller Monitor Application
+  199 org.onosproject.null                 1.15.0   Null Provider Suite
+  200 org.onosproject.inbandtelemetry      1.15.0   P4 In-band Network Telemetry Service
+  203 org.onosproject.netcfglinksprovider  1.15.0   Network Config Link Provider
+  205 org.onosproject.cip                  1.15.0   Cluster IP Alias
+* 207 org.onosproject.fwd                  1.15.0   Reactive Forwarding
+  210 org.onosproject.distributedprimitives 1.15.0   Distributed Primitives Test
+  211 org.onosproject.drivers.oplink       1.15.0   Oplink Drivers
+  213 org.onosproject.drivers.hp           1.15.0   HP Drivers
+  216 org.onosproject.drivers.ciena.waveserverai 1.15.0   Ciena Waveserver Ai Drivers
+  220 org.onosproject.cluster-ha           1.15.0   Cluster HA Test
+  221 org.onosproject.t3                   1.15.0   Trellis Troubleshooting Toolkit
+  223 org.onosproject.intentperf           1.15.0   Intent Performance Test
+  225 org.onosproject.p4tutorial.mytunnel  1.15.0   MyTunnel Demo App
+  227 org.onosproject.mappingmanagement    1.15.0   Mapping Management
+  229 org.onosproject.drivers.lisp         1.15.0   Generic LISP Drivers
+  231 org.onosproject.mlb                  1.15.0   Mastership Load Balancer
+  235 org.onosproject.openroadm            1.15.0   Open ROADM
+  238 org.onosproject.drivers.cisco.rest   1.15.0   Cisco REST Drivers
+  240 org.onosproject.drivers.fujitsu      1.15.0   Fujitsu Drivers
+  242 org.onosproject.loadtest             1.15.0   Distributed Load Test
+  244 org.onosproject.reactive-routing     1.15.0   SDN-IP Reactive Routing
+  247 org.onosproject.tetunnel             1.15.0   TE Tunnel Core
+  251 org.onosproject.routeradvertisement  1.15.0   IPv6 RA Generator
+  253 org.onosproject.acl                  1.15.0   Access Control Lists
+  255 org.onosproject.drivers.corsa        1.15.0   Corsa Drivers

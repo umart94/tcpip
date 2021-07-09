@@ -1,0 +1,8 @@
+Let's see what happens if we sever the link between Spine-2 (s2) and Leaf-1 (s11), you may have to teardown the link between s1 and s11 so pay attention to the flows command output. This can be done in mininet by running:
+mininet> link s2 s11 down
+After this, the GUI will show the link disappear. Selecting Leaf-1 and pressing V key again will show the newly established path which leads through the other spine switch:
+
+
+mininet> link s2 s11 down
+
+

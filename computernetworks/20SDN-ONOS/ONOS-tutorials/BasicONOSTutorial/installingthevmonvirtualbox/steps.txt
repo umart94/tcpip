@@ -1,0 +1,75 @@
+You will need a computer with at least 8GB of RAM and at least 20GB of free hard disk space. A faster processor or solid-state drive will speed up the virtual machine boot time, and a larger screen will help to manage multiple terminal windows.
+
+The computer can run Windows, Mac OS X, or Linux – all work fine with VirtualBox, the only software requirement.
+
+To install VirtualBox, you will need administrative access to the machine.
+
+download the ova file for onos
+
+first we will check using hyperv enabled.. and docker installed.
+
+so we will check if virtual box 6.1.16 is giving errors with hyperv enabled or not..
+
+install virtual box 6.1.16 ( it fixes some issues with hyperv)
+configure virtual box networking
+
+
+give the vm cpu and ram
+
+2/3 cpu and 4/8 gb
+
+
+my task manager shows 6 cores and 6 logical cores.
+
+that means that , i have to allocate in such a way that there is cpu available for host as well as guest..
+
+so 2 cpu
+and 4096 mb ram.
+
+do not change the mac address policy.
+
+import hard drive as vdi ( keep it as it is,)
+
+
+
+
+
+
+
+ When the import is finished 
+now just configure the display from vboxvga to vmsvga
+and change network to the natnetwork of your virtualbox. ( it will be preconfigured)
+
+start the VM and log in as SDN User (sdn) with password rocks
+
+Important Command Prompt Notes
+In this tutorial, commands are shown along with a command prompt to indicate the subsystem for which they are intended.
+For example,
+onos>
+indicates that you are in the ONOS command line, whereas
+mininet>
+indicates that you are in mininet.
+
+
+
+
+
+
+
+double click setup onos cluster... wait for it to finish..
+
+
+afterwards ... open onos gui
+Launch ONOS GUI
+ONOS has a web-based GUI which you can launch by clicking the provided ONOS GUI icon. Login as user onos with password rocks
+
+
+trust the link
+then 
+
+To start mininet with this topology, simply double click on the Spine Leaf Topology icon on your desktop. When ready to exit mininet, not now however, type Ctrl-D or exit in the mininet prompt.
+
+
+
+
+

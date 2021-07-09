@@ -1,0 +1,106 @@
+ipconfig
+
+ipconfig /all
+
+---------------
+physical networking medium accepts what size of data ?
+
+size of data we can send vs size of data network will accept
+
+Ethernet -> 1500 bytes with headers
+IP Packet -> 64K Bytes
+
+IP Packet / Datagram is fragmented.
+--------------------------------
+
+ping -h
+Bad option -h.
+
+Usage: ping [-t] [-a] [-n count] [-l size] [-f] [-i TTL] [-v TOS]
+            [-r count] [-s count] [[-j host-list] | [-k host-list]]
+            [-w timeout] [-R] [-S srcaddr] [-c compartment] [-p]
+            [-4] [-6] target_name
+
+Options:
+    -t             Ping the specified host until stopped.
+                   To see statistics and continue - type Control-Break;
+                   To stop - type Control-C.
+    -a             Resolve addresses to hostnames.
+    -n count       Number of echo requests to send.
+    -l size        Send buffer size.
+    -f             Set Don't Fragment flag in packet (IPv4-only).
+    -i TTL         Time To Live.
+    -v TOS         Type Of Service (IPv4-only. This setting has been deprecated
+                   and has no effect on the type of service field in the IP
+                   Header).
+    -r count       Record route for count hops (IPv4-only).
+    -s count       Timestamp for count hops (IPv4-only).
+    -j host-list   Loose source route along host-list (IPv4-only).
+    -k host-list   Strict source route along host-list (IPv4-only).
+    -w timeout     Timeout in milliseconds to wait for each reply.
+    -R             Use routing header to test reverse route also (IPv6-only).
+                   Per RFC 5095 the use of this routing header has been
+                   deprecated. Some systems may drop echo requests if
+                   this header is used.
+    -S srcaddr     Source address to use.
+    -c compartment Routing compartment identifier.
+    -p             Ping a Hyper-V Network Virtualization provider address.
+    -4             Force using IPv4.
+    -6             Force using IPv6.
+
+------------------------------------------
+l flag for size. 3100 is buffer size
+ping -l 3100 gateway
+
+Pinging gateway with 3100 bytes of data:
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for gateway:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+
+[3 IPv4 Fragments (3108 bytes): #1(1480), #2(1480), #3(148)]
+    [Frame: 1, payload: 0-1479 (1480 bytes)]
+    [Frame: 2, payload: 1480-2959 (1480 bytes)]
+    [Frame: 3, payload: 2960-3107 (148 bytes)]
+    [Fragment count: 3]
+    [Reassembled IPv4 length: 3108]
+    [Reassembled IPv4 data: ABC]
+
+
+----------------
+
+
+Internet Protocol Version 4, Src: abc, Dst: def
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+    Total Length: 1500
+    Identification: 0x65eb (26091)
+    Flags: 0x20b9, More fragments
+    Fragment offset: 1480
+    Time to live: 128
+    Protocol: ICMP (1)
+    Header checksum: 0xc7b7 [validation disabled]
+    [Header checksum status: Unverified]
+    Source: abc
+    Destination: def
+    Reassembled IPv4 in frame: 6
+
+
+---------------------------------------
+
+IP IDENTIFICATION NUMBER
+FRAGMENT OFFSET. 1480 bytes
+starts from 0
+1480 bytes went into 1
+next 1480 gives 2960 - with 20 bytes of header. and so on
+incremented with each size increase / (fragment offset)
+fragments are based on the maximum transmission unit of underlying networking protocol ( in this case ehternet.. mtu is 1500 bytes)
+
+
+
+
+

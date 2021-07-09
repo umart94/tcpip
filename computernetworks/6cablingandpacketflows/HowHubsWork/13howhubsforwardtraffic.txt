@@ -1,0 +1,30 @@
+mac address is 48 bits in length
+
+A is sending traffic to C
+
+SourceAddress :A , Destination: C
+
+hub is a multiport repeater - it amplifies the signal and sends signal out of all ports except the port on which it was received.
+
+after that the Network interface cards would check that what is the destination address in the signals / frames.
+
+other NICs would discard the frames.
+
+device C NIC would then send the ipv4 packet to the upper layers to process that handles ipv4 packet.
+
+So B and D will see all the frames sent between A and C
+
+
+So physically HUB topology is a star.
+but logically HUB topology is a bus.
+
+its a single collision domain as you increase the number of devices in the network the collisions will increase.
+
+
+Single broadcast domain
+broadcast will be received by everyone.
+
+10baseT
+10Mbps is not dedicated , it is shared
+
+so if there are 4 devices, 10 Mbps is shared = 10/4 * 30% = 0.75 Mbps.

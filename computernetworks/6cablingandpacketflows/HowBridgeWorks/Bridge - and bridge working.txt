@@ -1,0 +1,39 @@
+Bridge is a device that works on Layer 2 -  Data Link Layer
+Bridges are more intelligent than Hubs
+bridges use a mac address.
+Bridge has a mac address table.
+
+
+Switches use The CAM Table - switch is a layer 3 device - Network Layer - a  term used in switching and not bridging
+The CAM table allows information routed through the switch to be addressed to a single computer on the network, rather than to all networked computers. This increases the specificity of information traveling through the network, at the cost of an increase in vulnerability to network system hacking attempts.
+
+rather than repeating packets out of all the other ports , bridges maintain a MAC table
+
+The topology is still a star topology.
+
+bridges store mac addresses in mac table.. which is stored in software
+slower than switch.
+
+the work that bridge does in software, is done in switches through hardware level. ( increase in security)
+
+Switches use ASIC or Application Specific Integrated Circuit. ( high throughput , quick lookup in the mac / cam tables , and forwarding of traffic at line rate)
+
+
+
+when a bridge receives a frame
+
+source is A
+Destination is C
+
+SA : A , DA: C
+
+when frame arrives at port 1, Mac address of A is added in mac table
+
+MAC Address found at port 1.
+
+it does not know where C is, bridge sends frame out of all ports.
+
+both B and D receive a copy of frame but they will drop this frame. ( using destination address of frame )
+
+C reads frame, strip layer 2 headers, and passes frame to upper layers.
+

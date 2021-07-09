@@ -1,0 +1,49 @@
+7 layer model
+
+1. Physical Layer
+handles all physical definitions - connection types(coax,4-pair,fiber,etc)
+handles error connection and detection on the physical medium
+electrical signals of two message collisions causes garbage 
+
+2.) Data Link Layer
+Digital Data -> Physical Signal
+messages are sent across physical medium
+media access control
+flow control and access control (CSMA/CD) - MAC ADDRESS
+collisions - recover from collisions CSMA/CD - Ethernet way of avoiding collisions with random holdoff timer
+otherwise messages sent at same time and collisions random backoff / holdoff timer
+
+AppleTalk -> CSMA/CA collision avoidance
+
+
+3.) network layer sends data from 1 network to some other network this handles (routing)
+so data link layer works with Ethernet Wire and/or Physical Medium
+Network Layer works with 2/more than 2 seperate/different computers on different networks
+
+LAYER 3 - overview
+Internet -> Public IP Address -> Router -> NAT translation of Private IPs -> assigned to different devices at home
+
+
+4.) Transport layer handles end-to-end reliable data service
+in the case of tcp/ip , handles ports to differentiate traffic
+
+5.) Session Layer
+
+controls specific dialogs between two systems (session management)
+a bit more abstract than lower layers
+sometimes disagreement over which protocols land here (SSL/TLS , SSH , etc) - functionality overlaps NetBIOS , communication b/w two systems etc.
+
+6.) Presentation Layer
+how data is presented
+XML , JPG etc.
+
+7.) Application Layer -> HTTP,FTP,SMTP
+handle error control , session establishment , management of connections , emails , file transfers , 
+
+
+Layer to Layer
+one layer speaks to another layer
+each layer adds headers (encapsulation)
+each layer removes header info and subsequent packet information etc. and then sends it to other layers and finally it is sent through physical medium.
+then data is received from physical medium and by this process arrives at application layer and presented to user.
+data is just a series of headers that is extracted

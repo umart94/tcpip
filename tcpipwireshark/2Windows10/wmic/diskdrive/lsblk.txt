@@ -1,0 +1,2 @@
+On Linux
+The command lsblk –nodeps -o name,model,serial returns name, model and serial of all connected hard drives:

@@ -1,0 +1,14 @@
+sudo hping3 --scan 0-80 -S -V Interface Eth0 default gateway
+
+reset acknowledge flags
+port scans
+
+we can create packets using hping3
+
+sudo hping3 -L -F -U -V -p 80 IP
+
+hping3 
+we can set any piece of ip,tcp,udp to any other destination ip
+to see what kind of response we get back
+
+

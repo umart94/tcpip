@@ -1,0 +1,863 @@
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-distributed-primitives ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-distributed-primitives ---
+[INFO] Compiling 7 source files to /home/ubuntu/onos/apps/test/distributed-primitives/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-distributed-primitives ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/apps/test/distributed-primitives/target/classes/OSGI-INF/org.onosproject.distributedprimitives.DistributedPrimitivesTest.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-distributed-primitives ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/test/distributed-primitives/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-distributed-primitives ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-distributed-primitives ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-distributed-primitives ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/test/distributed-primitives/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-distributed-primitives ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-distributed-primitives ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/test/distributed-primitives/target/onos-app-distributed-primitives-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-distributed-primitives ---
+[INFO] Building ONOS application package for org.onosproject.distributedprimitives (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-distributed-primitives ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-distributed-primitives ---
+[INFO] Installing /home/ubuntu/onos/apps/test/distributed-primitives/target/onos-app-distributed-primitives-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-distributed-primitives/1.3.0-SNAPSHOT/onos-app-distributed-primitives-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/test/distributed-primitives/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-distributed-primitives/1.3.0-SNAPSHOT/onos-app-distributed-primitives-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/test/distributed-primitives/target/onos-app-distributed-primitives-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-distributed-primitives/1.3.0-SNAPSHOT/onos-app-distributed-primitives-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/test/distributed-primitives/target/onos-app-distributed-primitives-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-distributed-primitives/1.3.0-SNAPSHOT/onos-app-distributed-primitives-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-distributed-primitives ---
+[INFO] Installing org/onosproject/onos-app-distributed-primitives/1.3.0-SNAPSHOT/onos-app-distributed-primitives-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-app-segmentrouting 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-app-segmentrouting ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-app-segmentrouting ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/apps/segmentrouting/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-app-segmentrouting ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-segmentrouting ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-segmentrouting ---
+[INFO] Compiling 46 source files to /home/ubuntu/onos/apps/segmentrouting/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-segmentrouting ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/apps/segmentrouting/target/classes/OSGI-INF/org.onosproject.segmentrouting.SegmentRoutingManager.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-segmentrouting ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/segmentrouting/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-segmentrouting ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-segmentrouting ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-segmentrouting ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/segmentrouting/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-segmentrouting ---
+[WARNING] Bundle org.onosproject:onos-app-segmentrouting:bundle:1.3.0-SNAPSHOT : Unused Import-Package instructions: [org.apache.commons.lang.math.*, org.onlab.rest.*, org.jboss.netty.util.*] 
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-segmentrouting ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/segmentrouting/target/onos-app-segmentrouting-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-segmentrouting ---
+[INFO] Building ONOS application package for org.onosproject.segmentrouting (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-segmentrouting ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-segmentrouting ---
+[INFO] Installing /home/ubuntu/onos/apps/segmentrouting/target/onos-app-segmentrouting-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-segmentrouting/1.3.0-SNAPSHOT/onos-app-segmentrouting-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/segmentrouting/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-segmentrouting/1.3.0-SNAPSHOT/onos-app-segmentrouting-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/segmentrouting/target/onos-app-segmentrouting-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-segmentrouting/1.3.0-SNAPSHOT/onos-app-segmentrouting-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/segmentrouting/target/onos-app-segmentrouting-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-segmentrouting/1.3.0-SNAPSHOT/onos-app-segmentrouting-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-segmentrouting ---
+[INFO] Installing org/onosproject/onos-app-segmentrouting/1.3.0-SNAPSHOT/onos-app-segmentrouting-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-app-cordfabric 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-app-cordfabric ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-app-cordfabric ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/apps/cordfabric/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-app-cordfabric ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-cordfabric ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-cordfabric ---
+[INFO] Compiling 10 source files to /home/ubuntu/onos/apps/cordfabric/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-cordfabric ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/apps/cordfabric/target/classes/OSGI-INF/org.onosproject.cordfabric.CordFabricManager.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-cordfabric ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/cordfabric/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-cordfabric ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-cordfabric ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-cordfabric ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/cordfabric/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-cordfabric ---
+[WARNING] Bundle org.onosproject:onos-app-cordfabric:bundle:1.3.0-SNAPSHOT : Unused Import-Package instructions: [org.apache.commons.lang.math.*, org.onlab.rest.*, org.onlab.util.*, org.jboss.netty.util.*] 
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-cordfabric ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/cordfabric/target/onos-app-cordfabric-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-cordfabric ---
+[INFO] Building ONOS application package for org.onosproject.cordfabric (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-cordfabric ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-cordfabric ---
+[INFO] Installing /home/ubuntu/onos/apps/cordfabric/target/onos-app-cordfabric-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-cordfabric/1.3.0-SNAPSHOT/onos-app-cordfabric-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/cordfabric/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-cordfabric/1.3.0-SNAPSHOT/onos-app-cordfabric-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/cordfabric/target/onos-app-cordfabric-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-cordfabric/1.3.0-SNAPSHOT/onos-app-cordfabric-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/cordfabric/target/onos-app-cordfabric-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-cordfabric/1.3.0-SNAPSHOT/onos-app-cordfabric-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-cordfabric ---
+[INFO] Installing org/onosproject/onos-app-cordfabric/1.3.0-SNAPSHOT/onos-app-cordfabric-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-app-olt 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-app-olt ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-app-olt ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/apps/olt/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-app-olt ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-olt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/olt/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-olt ---
+[INFO] Compiling 2 source files to /home/ubuntu/onos/apps/olt/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-olt ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/apps/olt/target/classes/OSGI-INF/org.onosproject.olt.OLT.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-olt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/olt/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-olt ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-olt ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-olt ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/olt/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-olt ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-olt ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/olt/target/onos-app-olt-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-olt ---
+[INFO] Building ONOS application package for org.onosproject.olt (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-olt ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-olt ---
+[INFO] Installing /home/ubuntu/onos/apps/olt/target/onos-app-olt-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-olt/1.3.0-SNAPSHOT/onos-app-olt-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/olt/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-olt/1.3.0-SNAPSHOT/onos-app-olt-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/olt/target/onos-app-olt-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-olt/1.3.0-SNAPSHOT/onos-app-olt-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/olt/target/onos-app-olt-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-olt/1.3.0-SNAPSHOT/onos-app-olt-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-olt ---
+[INFO] Installing org/onosproject/onos-app-olt/1.3.0-SNAPSHOT/onos-app-olt-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-app-flowanalyzer 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-app-flowanalyzer ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-app-flowanalyzer ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/apps/flowanalyzer/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-app-flowanalyzer ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-flowanalyzer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/flowanalyzer/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-flowanalyzer ---
+[INFO] Compiling 1 source file to /home/ubuntu/onos/apps/flowanalyzer/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-flowanalyzer ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/apps/flowanalyzer/target/classes/OSGI-INF/org.onosproject.flowanalyzer.FlowAnalyzer.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-flowanalyzer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/flowanalyzer/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-flowanalyzer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-flowanalyzer ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-flowanalyzer ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/flowanalyzer/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-flowanalyzer ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-flowanalyzer ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/flowanalyzer/target/onos-app-flowanalyzer-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-flowanalyzer ---
+[INFO] Building ONOS application package for org.onosproject.flowanalyzer (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-flowanalyzer ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-flowanalyzer ---
+[INFO] Installing /home/ubuntu/onos/apps/flowanalyzer/target/onos-app-flowanalyzer-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-flowanalyzer/1.3.0-SNAPSHOT/onos-app-flowanalyzer-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/flowanalyzer/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-flowanalyzer/1.3.0-SNAPSHOT/onos-app-flowanalyzer-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/flowanalyzer/target/onos-app-flowanalyzer-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-flowanalyzer/1.3.0-SNAPSHOT/onos-app-flowanalyzer-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/flowanalyzer/target/onos-app-flowanalyzer-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-flowanalyzer/1.3.0-SNAPSHOT/onos-app-flowanalyzer-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-flowanalyzer ---
+[INFO] Installing org/onosproject/onos-app-flowanalyzer/1.3.0-SNAPSHOT/onos-app-flowanalyzer-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-app-vtnrsc 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-app-vtnrsc ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-app-vtnrsc ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/apps/vtnrsc/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-app-vtnrsc ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-vtnrsc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/vtnrsc/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-vtnrsc ---
+[INFO] Compiling 18 source files to /home/ubuntu/onos/apps/vtnrsc/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-vtnrsc ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/apps/vtnrsc/target/classes/OSGI-INF/org.onosproject.app.vtnrsc.virtualport.impl.VirtualPortManager.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-vtnrsc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/vtnrsc/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-vtnrsc ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-vtnrsc ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-vtnrsc ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/vtnrsc/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-vtnrsc ---
+[WARNING] Bundle org.onosproject:onos-app-vtnrsc:bundle:1.3.0-SNAPSHOT : Unused Import-Package instructions: [org.apache.commons.lang.math.*, org.onlab.rest.*, org.jboss.netty.util.*] 
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-vtnrsc ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/vtnrsc/target/onos-app-vtnrsc-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-vtnrsc ---
+[INFO] Building ONOS application package for org.onosproject.vtnrsc (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-vtnrsc ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-vtnrsc ---
+[INFO] Installing /home/ubuntu/onos/apps/vtnrsc/target/onos-app-vtnrsc-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtnrsc/1.3.0-SNAPSHOT/onos-app-vtnrsc-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/vtnrsc/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtnrsc/1.3.0-SNAPSHOT/onos-app-vtnrsc-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/vtnrsc/target/onos-app-vtnrsc-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtnrsc/1.3.0-SNAPSHOT/onos-app-vtnrsc-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/vtnrsc/target/onos-app-vtnrsc-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtnrsc/1.3.0-SNAPSHOT/onos-app-vtnrsc-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-vtnrsc ---
+[INFO] Installing org/onosproject/onos-app-vtnrsc/1.3.0-SNAPSHOT/onos-app-vtnrsc-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-app-vtn 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-app-vtn ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-app-vtn ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/apps/vtn/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-app-vtn ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-app-vtn ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/vtn/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-app-vtn ---
+[INFO] Compiling 2 source files to /home/ubuntu/onos/apps/vtn/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-app-vtn ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-app-vtn ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/apps/vtn/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-app-vtn ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-app-vtn ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-app-vtn ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/apps/vtn/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-app-vtn ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-app-vtn ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/apps/vtn/target/onos-app-vtn-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-app-vtn ---
+[INFO] Building ONOS application package for org.onosproject.vtn (v1.3.0-SNAPSHOT)
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-app-vtn ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-app-vtn ---
+[INFO] Installing /home/ubuntu/onos/apps/vtn/target/onos-app-vtn-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtn/1.3.0-SNAPSHOT/onos-app-vtn-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/apps/vtn/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtn/1.3.0-SNAPSHOT/onos-app-vtn-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/apps/vtn/target/onos-app-vtn-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtn/1.3.0-SNAPSHOT/onos-app-vtn-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/apps/vtn/target/onos-app-vtn-1.3.0-SNAPSHOT.oar to /home/ubuntu/.m2/repository/org/onosproject/onos-app-vtn/1.3.0-SNAPSHOT/onos-app-vtn-1.3.0-SNAPSHOT.oar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-app-vtn ---
+[INFO] Installing org/onosproject/onos-app-vtn/1.3.0-SNAPSHOT/onos-app-vtn-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-incubator-net 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-incubator-net ---
+[INFO] Deleting /home/ubuntu/onos/incubator/net/target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-incubator-net ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/incubator/net/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-incubator-net ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-incubator-net ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/incubator/net/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-incubator-net ---
+[INFO] Compiling 9 source files to /home/ubuntu/onos/incubator/net/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-incubator-net ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/net/target/classes/OSGI-INF/org.onosproject.incubator.net.config.impl.BasicNetworkConfigs.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/net/target/classes/OSGI-INF/org.onosproject.incubator.net.config.impl.NetworkConfigManager.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/net/target/classes/OSGI-INF/org.onosproject.incubator.net.config.impl.NetworkConfigLoader.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/net/target/classes/OSGI-INF/org.onosproject.incubator.net.resource.label.impl.LabelResourceManager.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/net/target/classes/OSGI-INF/org.onosproject.incubator.net.impl.PortStatisticsManager.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/net/target/classes/OSGI-INF/org.onosproject.incubator.net.tunnel.impl.TunnelManager.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-incubator-net ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/incubator/net/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-incubator-net ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-incubator-net ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-incubator-net ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/incubator/net/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-incubator-net ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-incubator-net ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/incubator/net/target/onos-incubator-net-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-incubator-net ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-incubator-net ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-incubator-net ---
+[INFO] Installing /home/ubuntu/onos/incubator/net/target/onos-incubator-net-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-incubator-net/1.3.0-SNAPSHOT/onos-incubator-net-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/incubator/net/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-incubator-net/1.3.0-SNAPSHOT/onos-incubator-net-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/incubator/net/target/onos-incubator-net-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-incubator-net/1.3.0-SNAPSHOT/onos-incubator-net-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-incubator-net ---
+[INFO] Installing org/onosproject/onos-incubator-net/1.3.0-SNAPSHOT/onos-incubator-net-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-incubator-store 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-incubator-store ---
+[INFO] Deleting /home/ubuntu/onos/incubator/store/target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-incubator-store ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/incubator/store/target/jacoco.exec
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:cfg (cfg) @ onos-incubator-store ---
+[INFO] Generating ONOS component configuration catalogues...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-incubator-store ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/incubator/store/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-incubator-store ---
+[INFO] Compiling 7 source files to /home/ubuntu/onos/incubator/store/target/classes
+[INFO] 
+[INFO] --- maven-scr-plugin:1.20.0:scr (generate-scr-srcdescriptor) @ onos-incubator-store ---
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/store/target/classes/OSGI-INF/org.onosproject.incubator.store.config.impl.DistributedNetworkConfigStore.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/store/target/classes/OSGI-INF/org.onosproject.incubator.store.resource.impl.DistributedLabelResourceStore.xml
+[INFO] Writing 1 Service Component Descriptors to /home/ubuntu/onos/incubator/store/target/classes/OSGI-INF/org.onosproject.incubator.store.tunnel.impl.DistributedTunnelStore.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-incubator-store ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/incubator/store/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-incubator-store ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-incubator-store ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-incubator-store ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/incubator/store/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-incubator-store ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-incubator-store ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/incubator/store/target/onos-incubator-store-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- onos-maven-plugin:1.4:app (app) @ onos-incubator-store ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-incubator-store ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-incubator-store ---
+[INFO] Installing /home/ubuntu/onos/incubator/store/target/onos-incubator-store-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-incubator-store/1.3.0-SNAPSHOT/onos-incubator-store-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/incubator/store/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-incubator-store/1.3.0-SNAPSHOT/onos-incubator-store-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/incubator/store/target/onos-incubator-store-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-incubator-store/1.3.0-SNAPSHOT/onos-incubator-store-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-incubator-store ---
+[INFO] Installing org/onosproject/onos-incubator-store/1.3.0-SNAPSHOT/onos-incubator-store-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-features 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-features ---
+[INFO] Deleting /home/ubuntu/onos/features/target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-features ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/features/target/jacoco.exec
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-features ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/features/target/jacoco.exec
+[INFO] 
+[INFO] --- replacer:1.5.3:replace (default) @ onos-features ---
+[INFO] Replacement run on 1 file.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-features ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/features/target/onos-features-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9:attach-artifact (attach-artifacts) @ onos-features ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-features ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ onos-features ---
+[INFO] Installing /home/ubuntu/onos/features/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-features/1.3.0-SNAPSHOT/onos-features-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/features/target/onos-features-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-features/1.3.0-SNAPSHOT/onos-features-1.3.0-SNAPSHOT-tests.jar
+[INFO] Installing /home/ubuntu/onos/features/target/features.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-features/1.3.0-SNAPSHOT/onos-features-1.3.0-SNAPSHOT-features.xml
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-archetypes 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-archetypes ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ onos-archetypes ---
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-archetypes/1.3.0-SNAPSHOT/onos-archetypes-1.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-api-archetype 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-api-archetype ---
+[INFO] Deleting /home/ubuntu/onos/tools/package/archetypes/api/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ onos-api-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ onos-api-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:jar (default-jar) @ onos-api-archetype ---
+[INFO] Building archetype jar: /home/ubuntu/onos/tools/package/archetypes/api/target/onos-api-archetype-1.3.0-SNAPSHOT
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:integration-test (default-integration-test) @ onos-api-archetype ---
+[INFO] Processing Archetype IT project: basic
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: onos-api-archetype:1.3.0-SNAPSHOT
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: packageInPathFormat, Value: it/pkg
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] project created from Archetype in dir: /home/ubuntu/onos/tools/package/archetypes/api/target/test-classes/projects/basic/project/basic
+[INFO] No post-archetype-generation goals to invoke.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-api-archetype ---
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/api/target/onos-api-archetype-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-api-archetype/1.3.0-SNAPSHOT/onos-api-archetype-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/api/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-api-archetype/1.3.0-SNAPSHOT/onos-api-archetype-1.3.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:update-local-catalog (default-update-local-catalog) @ onos-api-archetype ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-bundle-archetype 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-bundle-archetype ---
+[INFO] Deleting /home/ubuntu/onos/tools/package/archetypes/bundle/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ onos-bundle-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ onos-bundle-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:jar (default-jar) @ onos-bundle-archetype ---
+[INFO] Building archetype jar: /home/ubuntu/onos/tools/package/archetypes/bundle/target/onos-bundle-archetype-1.3.0-SNAPSHOT
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:integration-test (default-integration-test) @ onos-bundle-archetype ---
+[INFO] Processing Archetype IT project: basic
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: onos-bundle-archetype:1.3.0-SNAPSHOT
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: packageInPathFormat, Value: it/pkg
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] project created from Archetype in dir: /home/ubuntu/onos/tools/package/archetypes/bundle/target/test-classes/projects/basic/project/basic
+[INFO] No post-archetype-generation goals to invoke.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-bundle-archetype ---
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/bundle/target/onos-bundle-archetype-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-bundle-archetype/1.3.0-SNAPSHOT/onos-bundle-archetype-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/bundle/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-bundle-archetype/1.3.0-SNAPSHOT/onos-bundle-archetype-1.3.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:update-local-catalog (default-update-local-catalog) @ onos-bundle-archetype ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-cli-archetype 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-cli-archetype ---
+[INFO] Deleting /home/ubuntu/onos/tools/package/archetypes/cli/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ onos-cli-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ onos-cli-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:jar (default-jar) @ onos-cli-archetype ---
+[INFO] Building archetype jar: /home/ubuntu/onos/tools/package/archetypes/cli/target/onos-cli-archetype-1.3.0-SNAPSHOT
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:integration-test (default-integration-test) @ onos-cli-archetype ---
+[INFO] Processing Archetype IT project: basic
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: onos-cli-archetype:1.3.0-SNAPSHOT
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: packageInPathFormat, Value: it/pkg
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] project created from Archetype in dir: /home/ubuntu/onos/tools/package/archetypes/cli/target/test-classes/projects/basic/project/basic
+[INFO] No post-archetype-generation goals to invoke.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-cli-archetype ---
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/cli/target/onos-cli-archetype-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-cli-archetype/1.3.0-SNAPSHOT/onos-cli-archetype-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/cli/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-cli-archetype/1.3.0-SNAPSHOT/onos-cli-archetype-1.3.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:update-local-catalog (default-update-local-catalog) @ onos-cli-archetype ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-ui-archetype 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-ui-archetype ---
+[INFO] Deleting /home/ubuntu/onos/tools/package/archetypes/ui/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ onos-ui-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ onos-ui-archetype ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:jar (default-jar) @ onos-ui-archetype ---
+[INFO] Building archetype jar: /home/ubuntu/onos/tools/package/archetypes/ui/target/onos-ui-archetype-1.3.0-SNAPSHOT
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:integration-test (default-integration-test) @ onos-ui-archetype ---
+[INFO] Processing Archetype IT project: basic
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: onos-ui-archetype:1.3.0-SNAPSHOT
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: packageInPathFormat, Value: it/pkg
+[INFO] Parameter: version, Value: 0.1-SNAPSHOT
+[INFO] Parameter: package, Value: it.pkg
+[INFO] Parameter: groupId, Value: archetype.it
+[INFO] Parameter: artifactId, Value: basic
+[INFO] project created from Archetype in dir: /home/ubuntu/onos/tools/package/archetypes/ui/target/test-classes/projects/basic/project/basic
+[INFO] No post-archetype-generation goals to invoke.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-ui-archetype ---
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/ui/target/onos-ui-archetype-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-ui-archetype/1.3.0-SNAPSHOT/onos-ui-archetype-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/tools/package/archetypes/ui/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-ui-archetype/1.3.0-SNAPSHOT/onos-ui-archetype-1.3.0-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.2:update-local-catalog (default-update-local-catalog) @ onos-ui-archetype ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building onos-branding 1.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ onos-branding ---
+[INFO] Deleting /home/ubuntu/onos/tools/package/branding/target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (default-prepare-agent) @ onos-branding ---
+[INFO] argLine set to -javaagent:/home/ubuntu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/home/ubuntu/onos/tools/package/branding/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ onos-branding ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ onos-branding ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ onos-branding ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ubuntu/onos/tools/package/branding/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ onos-branding ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ onos-branding ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:report (default-report) @ onos-branding ---
+[INFO] Skipping JaCoCo execution due to missing execution data file:/home/ubuntu/onos/tools/package/branding/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ onos-branding ---
+[WARNING] Bundle org.onosproject:onos-branding:bundle:1.3.0-SNAPSHOT : Unused Private-Package instructions, no such package(s) on the class path: [!*]
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.1:test-jar (default) @ onos-branding ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/ubuntu/onos/tools/package/branding/target/onos-branding-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (validate-checkstyle) @ onos-branding ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ onos-branding ---
+[INFO] Installing /home/ubuntu/onos/tools/package/branding/target/onos-branding-1.3.0-SNAPSHOT.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-branding/1.3.0-SNAPSHOT/onos-branding-1.3.0-SNAPSHOT.jar
+[INFO] Installing /home/ubuntu/onos/tools/package/branding/pom.xml to /home/ubuntu/.m2/repository/org/onosproject/onos-branding/1.3.0-SNAPSHOT/onos-branding-1.3.0-SNAPSHOT.pom
+[INFO] Installing /home/ubuntu/onos/tools/package/branding/target/onos-branding-1.3.0-SNAPSHOT-tests.jar to /home/ubuntu/.m2/repository/org/onosproject/onos-branding/1.3.0-SNAPSHOT/onos-branding-1.3.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:install (default-install) @ onos-branding ---
+[INFO] Installing org/onosproject/onos-branding/1.3.0-SNAPSHOT/onos-branding-1.3.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] onos ............................................... SUCCESS [  3.691 s]
+[INFO] onlab-utils ........................................ SUCCESS [  1.250 s]
+[INFO] onlab-junit ........................................ SUCCESS [  4.317 s]
+[INFO] onlab-misc ......................................... SUCCESS [  5.457 s]
+[INFO] onlab-osgi ......................................... SUCCESS [  0.724 s]
+[INFO] onlab-rest ......................................... SUCCESS [  0.940 s]
+[INFO] onos-core .......................................... SUCCESS [  0.562 s]
+[INFO] onos-api ........................................... SUCCESS [  6.376 s]
+[INFO] onlab-netty ........................................ SUCCESS [  0.945 s]
+[INFO] onlab-nio .......................................... SUCCESS [  1.032 s]
+[INFO] onlab-thirdparty ................................... SUCCESS [  1.929 s]
+[INFO] onlab-stc .......................................... SUCCESS [  1.830 s]
+[INFO] jdvue .............................................. SUCCESS [  1.866 s]
+[INFO] onlab-jnc-osgi ..................................... SUCCESS [  0.645 s]
+[INFO] onos-core-common ................................... SUCCESS [  2.882 s]
+[INFO] onos-incubator ..................................... SUCCESS [  0.401 s]
+[INFO] onos-incubator-api ................................. SUCCESS [  1.274 s]
+[INFO] onos-core-net ...................................... SUCCESS [  4.310 s]
+[INFO] onos-core-store .................................... SUCCESS [  0.456 s]
+[INFO] onos-core-serializers .............................. SUCCESS [  0.923 s]
+[INFO] onos-core-dist ..................................... SUCCESS [  4.891 s]
+[INFO] onos-security ...................................... SUCCESS [  0.386 s]
+[INFO] onos-security-impl ................................. SUCCESS [  1.009 s]
+[INFO] onos-web ........................................... SUCCESS [  0.418 s]
+[INFO] onos-gui ........................................... SUCCESS [  3.074 s]
+[INFO] onos-rest .......................................... SUCCESS [  1.267 s]
+[INFO] onos-cli ........................................... SUCCESS [  2.616 s]
+[INFO] onos-of ............................................ SUCCESS [  0.430 s]
+[INFO] onos-of-api ........................................ SUCCESS [ 13.370 s]
+[INFO] onos-providers ..................................... SUCCESS [  0.384 s]
+[INFO] onos-of-providers .................................. SUCCESS [  0.374 s]
+[INFO] onos-of-provider-device ............................ SUCCESS [  1.087 s]
+[INFO] onos-of-provider-packet ............................ SUCCESS [  1.006 s]
+[INFO] onos-of-provider-flow .............................. SUCCESS [  1.225 s]
+[INFO] onos-of-provider-group ............................. SUCCESS [  0.985 s]
+[INFO] onos-of-provider-meter ............................. SUCCESS [  0.783 s]
+[INFO] onos-of-ctl ........................................ SUCCESS [  1.643 s]
+[INFO] onos-ovsdb ......................................... SUCCESS [  0.386 s]
+[INFO] onos-ovsdb-api ..................................... SUCCESS [  0.593 s]
+[INFO] onos-drivers ....................................... SUCCESS [  1.551 s]
+[INFO] onos-lldp-provider ................................. SUCCESS [  0.972 s]
+[INFO] onos-host-provider ................................. SUCCESS [  0.858 s]
+[INFO] onos-openflow ...................................... SUCCESS [  1.993 s]
+[INFO] onos-netconf-providers ............................. SUCCESS [  0.837 s]
+[INFO] onos-netconf-provider-device ....................... SUCCESS [  2.133 s]
+[INFO] onos-netconf ....................................... SUCCESS [  0.790 s]
+[INFO] onos-null-provider ................................. SUCCESS [  0.989 s]
+[INFO] onos-apps .......................................... SUCCESS [  0.947 s]
+[INFO] onos-app-pcep-api .................................. SUCCESS [  0.781 s]
+[INFO] onos-pcep-providers ................................ SUCCESS [  0.440 s]
+[INFO] onos-pcep-provider-topology ........................ SUCCESS [  0.682 s]
+[INFO] onos-pcep-provider-tunnel .......................... SUCCESS [  0.644 s]
+[INFO] onos-pcep .......................................... SUCCESS [  0.383 s]
+[INFO] onos-ovsdb-providers ............................... SUCCESS [  0.390 s]
+[INFO] onos-ovsdb-provider-device ......................... SUCCESS [  0.684 s]
+[INFO] onos-ovsdb-provider-host ........................... SUCCESS [  0.707 s]
+[INFO] onos-ovsdb-provider-tunnel ......................... SUCCESS [  0.675 s]
+[INFO] onos-app-xos-integration ........................... SUCCESS [  0.818 s]
+[INFO] onos-app-aaa ....................................... SUCCESS [  0.798 s]
+[INFO] onos-app-acl ....................................... SUCCESS [  1.001 s]
+[INFO] onos-app-fwd ....................................... SUCCESS [  0.754 s]
+[INFO] onos-app-mobility .................................. SUCCESS [  0.615 s]
+[INFO] onos-app-proxyarp .................................. SUCCESS [  0.673 s]
+[INFO] onos-app-config .................................... SUCCESS [  0.631 s]
+[INFO] onos-app-routing-api ............................... SUCCESS [  0.743 s]
+[INFO] onos-app-routing ................................... SUCCESS [  1.524 s]
+[INFO] onos-app-sdnip ..................................... SUCCESS [  0.906 s]
+[INFO] onos-app-optical ................................... SUCCESS [  0.932 s]
+[INFO] onos-app-metrics ................................... SUCCESS [  0.756 s]
+[INFO] onos-app-reactive-routing .......................... SUCCESS [  0.588 s]
+[INFO] onos-app-virtualbng ................................ SUCCESS [  0.911 s]
+[INFO] onos-app-bgprouter ................................. SUCCESS [  0.738 s]
+[INFO] onos-apps-test ..................................... SUCCESS [  0.381 s]
+[INFO] onos-app-election .................................. SUCCESS [  0.619 s]
+[INFO] onos-app-intent-perf ............................... SUCCESS [  0.850 s]
+[INFO] onos-app-messaging-perf ............................ SUCCESS [  0.653 s]
+[INFO] onos-app-demo ...................................... SUCCESS [  0.756 s]
+[INFO] onos-app-distributed-primitives .................... SUCCESS [  0.696 s]
+[INFO] onos-app-segmentrouting ............................ SUCCESS [  1.478 s]
+[INFO] onos-app-cordfabric ................................ SUCCESS [  0.701 s]
+[INFO] onos-app-olt ....................................... SUCCESS [  0.764 s]
+[INFO] onos-app-flowanalyzer .............................. SUCCESS [  0.590 s]
+[INFO] onos-app-vtnrsc .................................... SUCCESS [  0.697 s]
+[INFO] onos-app-vtn ....................................... SUCCESS [  0.558 s]
+[INFO] onos-incubator-net ................................. SUCCESS [  0.974 s]
+[INFO] onos-incubator-store ............................... SUCCESS [  1.010 s]
+[INFO] onos-features ...................................... SUCCESS [  1.662 s]
+[INFO] onos-archetypes .................................... SUCCESS [  0.062 s]
+[INFO] onos-api-archetype ................................. SUCCESS [  1.169 s]
+[INFO] onos-bundle-archetype .............................. SUCCESS [  0.137 s]
+[INFO] onos-cli-archetype ................................. SUCCESS [  0.133 s]
+[INFO] onos-ui-archetype .................................. SUCCESS [  0.142 s]
+[INFO] onos-branding ...................................... SUCCESS [  0.526 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:04 min
+[INFO] Finished at: 2020-12-17T00:50:01-08:00
+[INFO] Final Memory: 149M/483M
+[INFO] ------------------------------------------------------------------------
+ubuntu@sdnhubvm:~/onos[00:50] (master)$ 

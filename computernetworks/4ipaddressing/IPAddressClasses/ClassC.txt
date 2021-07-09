@@ -1,0 +1,31 @@
+
+Class C has the zero in third bit position
+Starts with Binary 110
+
+Binary Range :
+
+First Octet BINARY 			First Octet DECIMAL
+11000000					192 (START)
+
+TO
+
+11011111					223 (END)
+
+
+192.0.0.0 to 223.255.255.255
+
+First two octets for network
+last two octets for Host
+
+24 Bits Reserved for network and 8 bits for host
+
+
+
+00000000.00000000.00000000.00000000
+NETWORK.NETWORK.NETWORK.Host
+
+
+192.168.1.4
+
+network = 192.168.1
+host = 4

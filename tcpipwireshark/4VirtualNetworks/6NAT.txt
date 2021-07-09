@@ -1,0 +1,86 @@
+Network Address Translation is default for all VirtualBox Network Adapters.
+
+VirtualBox Shields VM behind a Host IP.
+VM connects to external world by translating it's own IP to the HOST IP using it as a proxy.
+
+in NAT, VirtualBox creates an INTERNAL NETWORK For Each VM.
+it will then map the IP addresses of the VMs to the Host IP using
+VirtualBox NAT engine whenever the VM needs to contact the outside world.
+
+Virtual Machine -> VM NAT Network Adapter(10.0.2.4) ->  (Gateway)VirtualBoxNAT Engine 10.0.2.2 -> Address Translated To Host IP -> PC Host Adapter (192.168.100.4) acts as device on host.
+
+
+enp0s3 is the internal network created by virtualbox.... it has a ip 10.0.2.4 which is mapped to
+192.168.100.4 (shown above)
+
+The VirtualBOXNat Engine acts as a Virtualized Router. IT RUNS ON THE HOST !!!! it translates this IP Address
+Assigned BY VM NAT Network Adapter to a HOST IP on PC Host Adapter (192.168.100.4) acts as device on host.
+
+if there are multiple virtual machines, for each virtual machine there will be seperate internal NAT Networks. and Seperate NAT Adapters.
+
+In this NAT NETWORKING MODE THERE WILL BE :
+1. No Access from Outside Network Into This Virtual Machine.
+2. No Network Between Host And Virtual Machine.
+3. No Network Between Virtual Machines Themselves.
+
+THERE WILL ONLY BE :
+4. [YES] Access the Outside network using host as proxy.
+
+
+---------------------------
+
+
+To ACCESS THE VIRTUAL MACHINE IN NAT NETWORKING MODE THROUGH : 
+1. HOST
+2. EXTERNAL NETWORK
+
+
+WE NEED TO USE PORT FORWARDING.
+
+when we ENABLE PORT FORWARDING, VIRTUALBOXNAT ENGINE KNOWS THAT : 
+
+Whenever the host adapter receives a packet on a predefined port number, it has to forward that packet TO THE VM
+BY REVERSE TRANSLATING THAT IP AND PORT NUMBER.
+
+so for example we NEED TO SSH INTO A VIRTUAL MACHINE FROM HOST TO VIRTUAL MACHINE.
+
+go to Virtual machine settings -> network -> nat -> port forwarding -> rules -> add rule.
+
+Rule1
+Name
+Protocol : TCP
+Host IP : 
+Host Port : 1234
+GuestIP : 
+Guest Port : 22
+
+
+So we are on Windows Host using PuTTy
+and in Virtual machine we have SSH service running on port 22 , The standard TCP port for SSH is 22
+
+
+in the SSH connection : 
+
+1. All packets are sent to IP:PORT i.e 192.168.100.4:1234 through PC Host Adapter.
+2. the PC Host Adapter forwards it to the VirtualBoxNAT engine on the HOST.
+3. The VirtualBoxNat Engine forwards these packets to port 22 on IP ADDRESS assigned to the Virtual Machine
+
+i.e 10.0.2.4:22
+
+Layer 4 is Application Layer : we are using SSH and TCP port 22
+ICMP is Layer 3 protocol : ping is on layer 3 (ICMP)
+ping wont work. but we use layer4 ssh connection.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

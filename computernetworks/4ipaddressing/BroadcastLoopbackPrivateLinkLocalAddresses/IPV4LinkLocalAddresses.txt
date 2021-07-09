@@ -1,0 +1,28 @@
+Dynamic configuration of ipv4 link local addresses
+RFC3927
+
+APIPA
+
+used when PC configured for DHCP but no server is available
+
+
+this allows PCs to use link local addresses for communication
+range
+
+169.254.0.0/16
+255.255.0.0
+
+in the old windows versions , we had to
+allocate address using dhcp
+and manually configure the ip address
+so 2 pcs can communicate.
+
+
+so we can communicate between two devices through ethernet cable
+
+the hosts can communicate on the local link , but the traffic will
+not be routed
+
+only for communication on the local net this method will work
+
+but for devices on other subnets, other networks this will not work

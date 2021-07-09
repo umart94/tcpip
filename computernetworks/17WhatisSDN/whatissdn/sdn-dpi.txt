@@ -1,0 +1,2 @@
+Relationship to DPI
+DPI Deep Packet Inspection provides network with application-awareness, while SDN provides applications with network-awareness.[68] Although SDN will radically change the generic network architectures, it should cope with working with traditional network architectures to offer high interoperability. The new SDN based network architecture should consider all the capabilities that are currently provided in separate devices or software other than the main forwarding devices (routers and switches) such as the DPI, security appliances [69]

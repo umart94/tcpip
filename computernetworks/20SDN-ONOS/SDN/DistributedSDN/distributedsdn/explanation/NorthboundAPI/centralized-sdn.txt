@@ -1,0 +1,71 @@
+NETWORK
+--------------
+APPLICATION    [APPLICATION LAYER]
+---------------
+NORTHBOUND-API
+1. RESTFUL-API
+2. JAVA API
+---------------
+CONTROLLER [CONTROL LAYER]
+---------------
+SOUTHBOUND API       [INFRASTRUCTURE LAYER]
+OPENFLOW PROTOCOL TO ACCESS NETWORK DEVICE HARDWARE (flow tables of switches)
+------------------------------------
+NETWORK HARDWARE. (routers,swithces,firewalls,other devices)
+
+
+
+
+in an openflow sdn environment we have a controller
+
+previously , without sdn, we had local control plane on each seperate device
+
+using openflow and opensdn, we now have a single controller that will control
+all the networking devices.
+
+
+this provides a centralized device for centralized control, policies and management.
+
+
+previously we had 100 seperate autonomous access points. (each with local control plane)
+
+now we have lots of lightweight access points, controlled by a central controller.
+
+
+its easier to manage 100 access points using a centralized controller.
+
+
+centralized controller pushing policies or config changes to network devices.
+
+we can have an application, we send commands using that application to the controller
+
+that sends the commands update flow tables on switches which in turn manipulate the flow of traffic
+on the network. (diagram above)
+
+i can create an application that sends a command through rest api to the controller
+which then updates the switches using openflow that now says that traffic arriving with mac address of A 
+going to mac address of B should flow around network through this path.
+
+
+
+in open sdn and open flow
+
+networking devices no longer have seperate local control planes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

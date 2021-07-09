@@ -1,0 +1,2 @@
+adapter enables a device to connect to a network
+e.g usb adapters

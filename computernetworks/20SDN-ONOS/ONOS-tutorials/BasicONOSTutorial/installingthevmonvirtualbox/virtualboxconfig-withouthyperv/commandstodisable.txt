@@ -1,0 +1,41 @@
+run powershell as administrator.
+
+uninstall docker for desktop
+remove the wsl2 and hyperv features from command prompt.
+
+then,
+
+disable hyperv first, from elevated cmd or powershell:
+Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
+
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+double check by running each powershell command to disable these things.
+
+
+bcdedit.exe /set nx AlwaysOff
+
+Disable Data Execution Prevention (DEP) completely  (Windows 2008)
+Open a Command Prompt using Run as Administrator or disable UAC.
+
+Execute the following command:
+bcdedit.exe /set nx AlwaysOff
+
+Restart the Windows system.
+
+Reference: http://msdn.microsoft.com/en-us/library/ff542275.aspx
+
+Confirm that DEP has been disabled
+To confirm that DEP has been disabled:
+
+Select Start, and right-click Computer.
+
+Under Tasks, select Advanced system settings.
+
+In the System Properties window, in the Advanced tab, in the Performance section, select Settings.
+
+In the Performance Options window, select the Data Execution Prevention tab.
+
+Ensure that the DEP options are greyed out.
+
+Close the Performance Options, System Properties, and System windows.

@@ -1,0 +1,53 @@
+the issue is that, if we have hyperv enabled, then the virtualbox will have issues in creating the network adapters.
+
+either due to UAC of windows
+or due to driver cache corruption
+or due to it interfering with hyperv virtual switches..
+
+the natnetwork was working.
+
+but host only or bridged or other modes were not..
+
+
+so in order to fix this problem we have to now disable hyperv and all other options. (see commands file.) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Querying NetCfgInstanceId failed (0x00000002).
+
+
+Result Code: 
+E_FAIL (0x80004005)
+Component: 
+HostNetworkInterfaceWrap
+Interface: 
+IHostNetworkInterface {455f8c45-44a0-a470-ba20-27890b96dba9}
+
+
+
+12.6.5. Bridged Networking Adapters Missing
+If no bridged adapters show up in the Networking section of the VM settings, this typically means that the bridged networking driver was not installed properly on your host. This could be due to the following reasons:
+
+The maximum allowed filter count was reached on the host. In this case, the MSI log would mention the 0x8004a029 error code returned on NetFlt network component install, as follows:
+
+VBoxNetCfgWinInstallComponent: Install failed, hr (0x8004a029)
+You can try to increase the maximum filter count in the Windows registry using the following key:
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Network\MaxNumFilters
+The maximum number allowed is 14. After a reboot, try to reinstall Oracle VM VirtualBox.
+
+The INF cache is corrupt. In this case, the install log at %windir%\inf\setupapi.dev.log would typically mention the failure to find a suitable driver package for either the sun_VBoxNetFlt or sun_VBoxNetFltmp components. The solution then is to uninstall Oracle VM VirtualBox, remove the INF cache (%windir%\inf\INFCACHE.1), reboot and try to reinstall Oracle VM VirtualBox.
+
+12.6.6. Host-Only Networking Adapters Cannot be Created
+If a host-only adapter cannot be created, either with the VirtualBox Manager or the VBoxManage command, then the INF cache is probably corrupt. In this case, the install log at %windir%\inf\setupapi.dev.log would typically mention the failure to find a suitable driver package for the sun_VBoxNetAdp component. Again, as with the bridged networking problem described above, the solution is to uninstall Oracle VM VirtualBox, remove the INF cache (%windir%\inf\INFCACHE.1), reboot and try to reinstall Oracle VM VirtualBox.

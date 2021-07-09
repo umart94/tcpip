@@ -1,0 +1,30 @@
+LAN - Physical Networks and Devices
+
+VLAN - (Physical Networks) but instead of physical hardware we use
+physical isolation between network segments
+
+1 large switch -> connect computers -> set up different ports on the switch so
+different PCS will be on different
+
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 118
+    000. .... .... .... = Priority: Best Effort (default) (0)
+    ...0 .... .... .... = DEI: Ineligible
+    .... 0000 0111 0110 = ID: 118
+    Type: 802.1Q Virtual LAN (0x8100)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 10
+Internet Protocol Version 4, Src: 10.118.10.1, Dst: 10.118.10.2
+Internet Control Message Protocol
+
+802.1Q tag (tagged / flagged vlans as being part of this tag -> switch knows which packet belongs to which vlan tag)
+118 is number of the vlan
+give ids to different vlans
+
+departmentwise
+department1 gets 118
+department2 gets 2
+department3 gets 10
+
+so vlan tag 118 sends to vlan tag 10
+the broadcast / unicast traffic is handled by switch / through ports that belong to those vlans
+
+etc.

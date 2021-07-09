@@ -1,0 +1,8 @@
+In this case, the GUI reconnected to the 3rd cluster node and the two devices previously mastered by the node which is now shutdown have been adopted by the 3rd node as well. Otherwise, all operation should proceed as normal; this includes the GUI.
+
+Note that since the node is set to autostart, it will come back and rejoin the cluster shortly. There is nothing required on your part to do that. If you wish to rebalance the mastership again, you can use the GUI or the following CLI command:
+
+onos> balance-masters
+You can also activate the Master Load Balancer app to periodically re-balance the mastership automatically.
+
+onos> app activate mlb

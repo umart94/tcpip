@@ -1,0 +1,36 @@
+Hub - 10BaseT
+
+Hub is a layer 1 device
+CAT5 unshielded twisted pair cable to connect laptop to a port on hub
+
+Wireless works on the same way as a physical hub would.
+
+multiple devices can be 
+
+
+4 Devices connected to a hub from ports 1 through 4
+
+devices are A,B,C,D -- hub is not intelligent -- it doesnt understand frames going through it
+it is a multiport repeater.
+
+frames received at 1 port are repeated at all other ports.
+
+
+physical topology is star
+
+devices hanging off that central device.
+
+if A wants to communicate to B traffic goes through hub.
+
+if a cable breaks - it would only affect that device.
+
+other devices can still communicate.
+
+Bus topology is limited in size.
+
+
+distance between device and Hub in the hub star topology needs to be 100 meters.
+we can extend distance by adding another multiport repeater - and repeat the signal - to distances greater than 100 meters.
+
+
+

@@ -1,0 +1,6 @@
+CIDR replaces classful IP Addressing
+CIDR introduces variable length subnet masks (VLSM)
+
+10.0.0.0/8 notation
+
+rather than 10.0.0.0 255.0.0.0 notation.

@@ -1,0 +1,31 @@
+for e.g. a company has 3 switches or 3 routers each device has a local control 
+plane and local data plane
+
+a device with a local control plane has a local routing table
+local rib
+protocols like ospf are configured on these devices to update the routing table
+
+OSPF is a distributed routing protocol that is run on each device and exchanges routes
+between the devices to allow them to work out what the topology of the
+network looks like.
+
+
+in a traditional environment, the control plane runs locally on each seperate device
+each device has a local control plane.
+
+this is a complex way and there is no single device that has an overview
+of the entire network.
+
+each device has to work out independently what the network looks like.
+
+and together they synchronize a link state database which is the state of
+the topology at a given point in time.
+
+if we have multiple networking devices from a management point of view using
+the Command Line interface we would have to CONNECT TO EACH SEPERATE DEVICE USING CLI AND CONFIGURE EACH 
+SEPERATE DEVICE ON THE NETWORK.
+
+each device also has a local data plane, a data plane is how the network packets
+are forwarded through the device.
+
+

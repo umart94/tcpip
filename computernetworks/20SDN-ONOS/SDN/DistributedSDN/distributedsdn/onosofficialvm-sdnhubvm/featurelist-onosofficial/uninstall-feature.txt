@@ -1,0 +1,1 @@
+You can stop any of these features by issuing the command “feature:uninstall”.

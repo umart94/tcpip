@@ -1,0 +1,364 @@
+What is SSL?
+SSL, or Secure Sockets Layer, is an encryption-based Internet security protocol. It was first developed by Netscape in 1995 for the purpose of ensuring privacy, authentication, and data integrity in Internet communications. SSL is the predecessor to the modern TLS encryption used today.
+
+
+How does SSL/TLS work?
+In order to provide a high degree of privacy, SSL encrypts data that is transmitted across the web. This means that anyone who tries to intercept this data will only see a garbled mix of characters that’s nearly impossible to decrypt.
+SSL initiates an authentication process called a handshake between two communicating devices to ensure that both devices are really who they claim to be.
+SSL also digitally signs data in order to provide data integrity, verifying that the data is not tampered with before reaching its intended recipient.
+There have been several iterations of SSL, each more secure than the last. In 1999 SSL was updated to become TLS.
+
+Are SSL and TLS the same thing?
+SSL is the direct predecessor of another protocol called TLS (transport layer security). In 1999 the Internet Engineering Task Force (IETF) proposed an update to SSL. Since this update was being developed by the IETF and Netscape was no longer involved, the name was changed to TLS. The differences between the final version of SSL (3.0) and the first version of TLS are not drastic, the name change was applied to signify the change in ownership.
+
+Since they are so closely related the two terms are often used interchangeably and confused. Some people still use SSL to refer to TLS, others use the term ‘SSL/TLS encryption’ because SSL still has so much name recognition.
+
+Is SSL still up to date?
+SSL has not been updated since SSL 3.0 in 1996 and is now considered to be deprecated. There are several known vulnerabilities in the SSL protocol and security experts recommend discontinuing its use. In fact, most modern web browsers no longer support SSL at all.
+
+TLS is the up-to-date encryption protocol that is still being implemented online, even though many people still refer to it as ‘SSL encryption’. This can be a source of confusion for consumers shopping for security solutions. The truth is that any vendor offering ‘SSL’ these days is almost certainly providing TLS protection, which has been an industry standard for nearly twenty years. But since many folks are still searching for ‘SSL protection’, the term is still featured prominently on many product pages.
+
+Cloudflare offers one-click setup for the latest SSL encryption on every website and service on our platform.
+
+More about SSL/TLS
+For a more in-depth explanation of how SSL/TLS encryption works, see What Is TLS? Use the Cloudflare Diagnostic Center to check if a website is properly implementing SSL/TLS encryption.
+
+
+
+
+
+
+
+
+-----------------------------
+WHAT IS OPENSSL
+
+OpenSSL is a software library for applications that secure communications over computer networks against eavesdropping or need to identify the party at the other end. It is widely used by Internet servers, including the majority of HTTPS websites.
+
+OpenSSL contains an open-source implementation of the SSL and TLS protocols. The core library, written in the C programming language, implements basic cryptographic functions and provides various utility functions. Wrappers allowing the use of the OpenSSL library in a variety of computer languages are available.
+
+The OpenSSL Software Foundation (OSF) represents the OpenSSL project in most legal capacities including contributor license agreements, managing donations, and so on. OpenSSL Software Services (OSS) also represents the OpenSSL project, for Support Contracts.
+
+OpenSSL is available for most Unix-like operating systems (including Linux, macOS, and BSD) and Microsoft Windows.
+
+
+--------------------------------
+
+OpenSSL Vulnerabilities.
+
+Notable vulnerabilities
+Timing attacks on RSA Keys
+On March 14, 2003, a timing attack on RSA keys was discovered, indicating a vulnerability within OpenSSL versions 0.9.7a and 0.9.6. This vulnerability was assigned the identifier CAN-2003-0147 by the Common Vulnerabilities and Exposures (CVE) project. RSA blinding was not turned on by default by OpenSSL, since it is not easily possible to when providing SSL or TLS using OpenSSL.
+
+Denial of Service ASN.1 parsing
+OpenSSL 0.9.6k had a bug where certain ASN.1 sequences triggered a large number of recursions on Windows machines, discovered on November 4, 2003. Windows could not handle large recursions correctly, so OpenSSL would crash as a result. Being able to send arbitrary large numbers of ASN.1 sequences would cause OpenSSL to crash as a result.
+
+OCSP stapling vulnerability
+When creating a handshake, the client could send an incorrectly formatted ClientHello message, leading to OpenSSL parsing more than the end of the message. Assigned the identifier CVE-2011-0014 by the CVE project, this affected all OpenSSL versions 0.9.8h to 0.9.8q and OpenSSL 1.0.0 to 1.0.0c. Since the parsing could lead to a read on an incorrect memory address, it was possible for the attacker to cause a DoS. It was also possible that some applications expose the contents of parsed OCSP extensions, leading to an attacker being able to read the contents of memory that came after the ClientHello.[33]
+
+ASN.1 BIO vulnerability
+When using Basic Input/Output (BIO)[34] or FILE based functions to read untrusted DER format data, OpenSSL is vulnerable. This vulnerability was discovered on April 19, 2012, and was assigned the CVE identifier CVE-2012-2110. While not directly affecting the SSL/TLS code of OpenSSL, any application that was using ASN.1 functions (particularly d2i_X509 and d2i_PKCS12) were also not affected.[35]
+
+SSL, TLS and DTLS Plaintext Recovery Attack
+In handling CBC cipher-suites in SSL, TLS, and DTLS, OpenSSL was found vulnerable to a timing attack during the MAC processing. Nadhem Alfardan and Kenny Paterson discovered the problem, and published their findings[36] on February 5, 2013. The vulnerability was assigned the CVE identifier CVE-2013-0169.
+
+Predictable private keys (Debian-specific)
+OpenSSL's pseudo-random number generator acquires entropy using complex programming methods. To keep the Valgrind analysis tool from issuing associated warnings, a maintainer of the Debian distribution applied a patch to the Debian's variant of the OpenSSL suite, which inadvertently broke its random number generator by limiting the overall number of private keys it could generate to 32,768.[37][38] The broken version was included in the Debian release of September 17, 2006 (version 0.9.8c-1), also compromising other Debian-based distributions, for example Ubuntu. Ready-to-use exploits are easily available.[39]
+
+The error was reported by Debian on May 13, 2008. On the Debian 4.0 distribution (etch), these problems were fixed in version 0.9.8c-4etch3, while fixes for the Debian 5.0 distribution (lenny) were provided in version 0.9.8g-9.[40]
+
+Heartbleed
+Main article: Heartbleed
+
+A logo representing the Heartbleed bug
+OpenSSL versions 1.0.1 through 1.0.1f had a severe memory handling bug in their implementation of the TLS Heartbeat Extension that could be used to reveal up to 64 KB of the application's memory with every heartbeat[41][42] (CVE-2014-0160). By reading the memory of the web server, attackers could access sensitive data, including the server's private key.[43] This could allow attackers to decode earlier eavesdropped communications if the encryption protocol used does not ensure perfect forward secrecy. Knowledge of the private key could also allow an attacker to mount a man-in-the-middle attack against any future communications.[citation needed] The vulnerability might also reveal unencrypted parts of other users' sensitive requests and responses, including session cookies and passwords, which might allow attackers to hijack the identity of another user of the service.[44]
+
+At its disclosure on April 7, 2014, around 17% or half a million of the Internet's secure web servers certified by trusted authorities were believed to have been vulnerable to the attack.[45] However, Heartbleed can affect both the server and client.
+
+CCS Injection Vulnerability
+CCS Injection Vulnerability (CVE-2014-0224) is a security bypass vulnerability that exists in OpenSSL. The vulnerability is due to a weakness in OpenSSL methods used for keying material.[46]
+
+This vulnerability can be exploited through the use of a man-in-the-middle attack,[47] where an attacker may be able to decrypt and modify traffic in transit. A remote unauthenticated attacker could exploit this vulnerability by using a specially crafted handshake to force the use of weak keying material. Successful exploitation could lead to a security bypass condition where an attacker could gain access to potentially sensitive information. The attack can only be performed between a vulnerable client and server.
+
+OpenSSL clients are vulnerable in all versions of OpenSSL before the versions 0.9.8za, 1.0.0m and 1.0.1h. Servers are only known to be vulnerable in OpenSSL 1.0.1 and 1.0.2-beta1. Users of OpenSSL servers earlier than 1.0.1 are advised to upgrade as a precaution.[48]
+
+ClientHello sigalgs DoS
+This vulnerability (CVE-2015-0291) allows anyone to take a certificate, read its contents and modify it accurately to abuse the vulnerability causing a certificate to crash a client or server. If a client connects to an OpenSSL 1.0.2 server and renegotiates with an invalid signature algorithms extension, a null-pointer dereference occurs. This can cause a DoS attack against the server.
+
+A Stanford Security researcher, David Ramos, had a private exploit and presented it before the OpenSSL team where they patched the issue.
+
+OpenSSL classified the bug as a high-severity issue, noting version 1.0.2 was found vulnerable.[49]
+
+Key Recovery Attack on Diffie Hellman small subgroups
+This vulnerability (CVE-2016-0701) allows, when some particular circumstances are met, to recover the OpenSSL server's private Diffie–Hellman key. An Adobe System Security researcher, Antonio Sanso, privately reported the vulnerability.
+
+OpenSSL classified the bug as a high-severity issue, noting only version 1.0.2 was found vulnerable.[50]
+
+
+--------------------
+
+Using OpenSSL’s s_client command with web servers using Server Name Indication (SNI)
+One of the handiest tools in the OpenSSL toolbox is s_client. You can quickly view lots of details about the SSL certificates installed on a particular server and diagnose problems. For example, use this command to look at Google’s SSL certificates:
+
+openssl s_client -connect encrypted.google.com:443
+You’ll see the chain of certificates back to the original certificate authority where Google bought its certificate at the top, a copy of their SSL certificate in plain text in the middle, and a bunch of session-related information at the bottom.
+
+This works really well when a site has one SSL certificate installed per IP address (this used to be a hard requirement). With Server Name Indication (SNI), a web server can have multiple SSL certificates installed on the same IP address. SNI-capable browsers will specify the hostname of the server they’re trying to reach during the initial handshake process. This allows the web server to determine the correct SSL certificate to use for the connection.
+
+If you try to connect to rackerhacker.com with s_client, you’ll find that you receive the default SSL certificate installed on my server and not the one for this site:
+
+$ openssl s_client -connect rackerhacker.com:443
+Certificate chain
+ 0 s:/C=US/ST=Texas/L=San Antonio/O=MHTX Enterprises/CN=*.mhtx.net
+   i:/C=US/O=SecureTrust Corporation/CN=SecureTrust CA
+ 1 s:/C=US/O=SecureTrust Corporation/CN=SecureTrust CA
+   i:/C=US/O=Entrust.net/OU=www.entrust.net/CPS incorp. by ref. (limits liab.)/OU=(c) 1999 Entrust.net Limited/CN=Entrust.net Secure Server Certification Authority
+Add on the -servername argument and s_client will do the additional SNI negotiation step for you:
+
+$ openssl s_client -connect rackerhacker.com:443 -servername rackerhacker.com
+Certificate chain
+ 0 s:/OU=Domain Control Validated/OU=PositiveSSL/CN=rackerhacker.com
+   i:/C=GB/ST=Greater Manchester/L=Salford/O=Comodo CA Limited/CN=PositiveSSL CA
+ 1 s:/C=GB/ST=Greater Manchester/L=Salford/O=Comodo CA Limited/CN=PositiveSSL CA
+   i:/C=US/ST=UT/L=Salt Lake City/O=The USERTRUST Network/OU=http://www.usertrust.com/CN=UTN-USERFirst-Hardware
+ 2 s:/C=US/ST=UT/L=Salt Lake City/O=The USERTRUST Network/OU=http://www.usertrust.com/CN=UTN-USERFirst-Hardware
+   i:/C=SE/O=AddTrust AB/OU=AddTrust External TTP Network/CN=AddTrust External CA Root
+ 3 s:/C=SE/O=AddTrust AB/OU=AddTrust External TTP Network/CN=AddTrust External CA Root
+   i:/C=SE/O=AddTrust AB/OU=AddTrust External TTP Network/CN=AddTrust External CA Root
+You may be asking yourself this question:
+
+Why doesn’t the web server just use the Host: header that my browser sends already to figure out which SSL certificate to use?
+
+Keep in mind that the SSL negotiation must occur prior to sending the HTTP request through to the remote server. That means that the browser and the server have to do the certificate exchange earlier in the process and the browser wouldn’t get the opportunity to specify which site it’s trying to reach. SNI fixes that by allowing a Host: header type of exchange during the SSL negotiation process.
+
+
+-------------------
+openssl
+OpenSSL> s_client -connect www.google.com:443
+
+and another command
+
+openssl s_client -connect encrypted.google.com:443
+
+Public key certificate
+
+In cryptography, a public key certificate, also known as a digital certificate or identity certificate, is an electronic document used to prove the ownership of a public key.[1] The certificate includes information about the key, information about the identity of its owner (called the subject), and the digital signature of an entity that has verified the certificate's contents (called the issuer). If the signature is valid, and the software examining the certificate trusts the issuer, then it can use that key to communicate securely with the certificate's subject. In email encryption, code signing, and e-signature systems, a certificate's subject is typically a person or organization. However, in Transport Layer Security (TLS) a certificate's subject is typically a computer or other device, though TLS certificates may identify organizations or individuals in addition to their core role in identifying devices. TLS, sometimes called by its older name Secure Sockets Layer (SSL), is notable for being a part of HTTPS, a protocol for securely browsing the web.
+
+In a typical public-key infrastructure (PKI) scheme, the certificate issuer is a certificate authority (CA), usually a company that charges customers to issue certificates for them. By contrast, in a web of trust scheme, individuals sign each other's keys directly, in a format that performs a similar function to a public key certificate.
+
+The most common format for public key certificates is defined by X.509.[2] Because X.509 is very general, the format is further constrained by profiles defined for certain use cases, such as Public Key Infrastructure (X.509) as defined in RFC 5280.
+
+
+Types of certificate
+
+The roles of root certificate, intermediate certificate and end-entity certificate as in the chain of trust.
+TLS/SSL server certificate
+In TLS (an updated replacement for SSL), a server is required to present a certificate as part of the initial connection setup. A client connecting to that server will perform the certification path validation algorithm:
+
+The subject of the certificate matches the hostname (i.e. domain name) to which the client is trying to connect;
+The certificate is signed by a trusted certificate authority.
+The primary hostname (domain name of the website) is listed as the Common Name in the Subject field of the certificate. A certificate may be valid for multiple hostnames (multiple websites). Such certificates are commonly called Subject Alternative Name (SAN) certificates or Unified Communications Certificates (UCC). These certificates contain the field Subject Alternative Name, though many CAs will also put them into the Subject Common Name field for backward compatibility. If some of the hostnames contain an asterisk (*), a certificate may also be called a wildcard certificate.
+
+A TLS server may be configured with a self-signed certificate. When that is the case, clients will generally be unable to verify the certificate, and will terminate the connection unless certificate checking is disabled.
+
+As per the applications, SSL Certificates can be classified into three types:[3]
+
+Domain Validation SSL;
+Organization Validation SSL;
+Extended Validation SSL.
+TLS/SSL client certificate
+Client certificates are less common than server certificates, and are used to authenticate the client connecting to a TLS service, for instance to provide access control. Because most services provide access to individuals, rather than devices, most client certificates contain an email address or personal name rather than a hostname. Also, because authentication is usually managed by the service provider, client certificates are not usually issued by a public CA that provides server certificates. Instead, the operator of a service that requires client certificates will usually operate their own internal CA to issue them. Client certificates are supported by many web browsers, but most services use passwords and cookies to authenticate users, instead of client certificates.
+
+Client certificates are more common in RPC systems, where they are used to authenticate devices to ensure that only authorized devices can make certain RPC calls.
+
+Email certificate
+In the S/MIME protocol for secure email, senders need to discover which public key to use for any given recipient. They get this information from an email certificate. Some publicly trusted certificate authorities provide email certificates, but more commonly S/MIME is used when communicating within a given organization, and that organization runs its own CA, which is trusted by participants in that email system.
+
+EMV certificate
+EMV payment cards are preloaded with EMV Certificate, Card Issuer Certificate, signed by EMV Certificate Authority[4] to validate authenticity of the payment card during the payment transaction. EMV CA Certificate public key is loaded on ATM or POS and used for validating Card Issuer Certificate.
+
+Code signing certificate
+Main article: Code signing
+Certificates can also be used to validate signatures on programs to ensure they were not tampered with during delivery.
+
+Qualified certificate
+Main article: Qualified digital certificate
+A certificate identifying an individual, typically for electronic signature purposes. These are most commonly used in Europe, where the eIDAS regulation standardizes them and requires their recognition.
+
+Root certificate
+Main article: Root certificate
+A self-signed certificate used to sign other certificates. Also sometimes called a trust anchor.
+
+Intermediate certificate
+A certificate used to sign other certificates. An intermediate certificate must be signed by another intermediate certificate, or a root certificate.
+
+End-entity or leaf certificate
+Any certificate that cannot be used to sign other certificates. For instance, TLS/SSL server and client certificates, email certificates, code signing certificates, and qualified certificates are all end-entity certificates.
+
+Self-signed certificate
+Main article: Self-signed certificate
+A certificate with a subject that matches its issuer, and a signature that can be verified by its own public key. Most types of certificate can be self-signed. Self-signed certificates are also often called snake oil certificates to emphasize their untrustworthiness.
+
+---------------------------
+Common fields
+See also: X.509 § Structure of a certificate
+These are some of the most common fields in certificates. Most certificates contain a number of fields not listed here. Note that in terms of a certificate's X.509 representation, a certificate is not "flat" but contains these fields nested in various structures within the certificate.
+
+Serial Number: Used to uniquely identify the certificate within a CA's systems. In particular this is used to track revocation information.
+Subject: The entity a certificate belongs to: a machine, an individual, or an organization.
+Issuer: The entity that verified the information and signed the certificate.
+Not Before: The earliest time and date on which the certificate is valid. Usually set to a few hours or days prior to the moment the certificate was issued, to avoid clock skew problems.
+Not After: The time and date past which the certificate is no longer valid.
+Key Usage: The valid cryptographic uses of the certificate's public key. Common values include digital signature validation, key encipherment, and certificate signing.
+Extended Key Usage: The applications in which the certificate may be used. Common values include TLS server authentication, email protection, and code signing.
+Public Key: A public key belonging to the certificate subject.
+Signature Algorithm: The algorithm used to sign the public key certificate.
+Signature: A signature of the certificate body by the issuer's private key.
+
+
+-------------
+
+Sample certificate
+This is an example of a decoded SSL/TLS certificate retrieved from SSL.com's website. The issuer's common name (CN) is shown as SSL.com EV SSL Intermediate CA RSA R3, identifying this as an Extended Validation (EV) certificate. Validated information about the website's owner (SSL Corp) is located in the Subject field. The X509v3 Subject Alternative Name field contains a list of domain names covered by the certificate. The X509v3 Extended Key Usage and X509v3 Key Usage fields show all appropriate uses.
+
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            72:14:11:d3:d7:e0:fd:02:aa:b0:4e:90:09:d4:db:31
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=Texas, L=Houston, O=SSL Corp, CN=SSL.com EV SSL Intermediate CA RSA R3
+        Validity
+            Not Before: Apr 18 22:15:06 2019 GMT
+            Not After : Apr 17 22:15:06 2021 GMT
+        Subject: C=US, ST=Texas, L=Houston, O=SSL Corp/serialNumber=NV20081614243, CN=www.ssl.com/postalCode=77098/businessCategory=Private Organization/street=3100 Richmond Ave/jurisdictionST=Nevada/jurisdictionC=US
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:ad:0f:ef:c1:97:5a:9b:d8:1e ...
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Authority Key Identifier: 
+                keyid:BF:C1:5A:87:FF:28:FA:41:3D:FD:B7:4F:E4:1D:AF:A0:61:58:29:BD
+
+            Authority Information Access: 
+                CA Issuers - URI:http://www.ssl.com/repository/SSLcom-SubCA-EV-SSL-RSA-4096-R3.crt
+                OCSP - URI:http://ocsps.ssl.com
+
+            X509v3 Subject Alternative Name: 
+                DNS:www.ssl.com, DNS:answers.ssl.com, DNS:faq.ssl.com, DNS:info.ssl.com, DNS:links.ssl.com, DNS:reseller.ssl.com, DNS:secure.ssl.com, DNS:ssl.com, DNS:support.ssl.com, DNS:sws.ssl.com, DNS:tools.ssl.com
+            X509v3 Certificate Policies: 
+                Policy: 2.23.140.1.1
+                Policy: 1.2.616.1.113527.2.5.1.1
+                Policy: 1.3.6.1.4.1.38064.1.1.1.5
+                  CPS: https://www.ssl.com/repository
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication, TLS Web Server Authentication
+            X509v3 CRL Distribution Points:
+
+                Full Name:
+                  URI:http://crls.ssl.com/SSLcom-SubCA-EV-SSL-RSA-4096-R3.crl
+
+            X509v3 Subject Key Identifier: 
+                E7:37:48:DE:7D:C2:E1:9D:D0:11:25:21:B8:00:33:63:06:27:C1:5B
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            CT Precertificate SCTs: 
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 87:75:BF:E7:59:7C:F8:8C:43:99 ...
+                    Timestamp : Apr 18 22:25:08.574 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:40:51:53:90:C6:A2 ...
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : A4:B9:09:90:B4:18:58:14:87:BB ...
+                    Timestamp : Apr 18 22:25:08.461 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:43:80:9E:19:90:FD ...
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 55:81:D4:C2:16:90:36:01:4A:EA ...
+                    Timestamp : Apr 18 22:25:08.769 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:21:00:C1:3E:9F:F0:40 ...
+    Signature Algorithm: sha256WithRSAEncryption
+         36:07:e7:3b:b7:45:97:ca:4d:6c ...
+
+----------------------------------
+
+Certificate authorities
+Main article: Certificate authority
+
+The procedure of obtaining a Public key certificate
+In the X.509 trust model, a certificate authority (CA) is responsible for signing certificates. These certificates act as an introduction between two parties, which means that a CA acts as a trusted third party. A CA processes requests from people or organizations requesting certificates (called subscribers), verifies the information, and potentially signs an end-entity certificate based on that information. To perform this role effectively, a CA needs to have one or more broadly trusted root certificates or intermediate certificates and the corresponding private keys. CAs may achieve this broad trust by having their root certificates included in popular software, or by obtaining a cross-signature from another CA delegating trust. Other CAs are trusted within a relatively small community, like a business, and are distributed by other mechanisms like Windows Group Policy.
+
+Certificate authorities are also responsible for maintaining up-to-date revocation information about certificates they have issued, indicating whether certificates are still valid. They provide this information through Online Certificate Status Protocol (OCSP) and/or Certificate Revocation Lists (CRLs). Some of the larger certificate authorities in the market include IdenTrust, DigiCert, and Sectigo.[5]
+
+--------------------------------------
+
+Root programs
+Some major software contain a list of certificate authorities that are trusted by default. This makes it easier for end-users to validate certificates, and easier for people or organizations that request certificates to know which certificate authorities can issue a certificate that will be broadly trusted. This is particularly important in HTTPS, where a web site operator generally wants to get a certificate that is trusted by nearly all potential visitors to their web site.
+
+The policies and processes a provider uses to decide which certificate authorities their software should trust are called root programs. The most influential root programs are:
+
+Microsoft Root Program
+Apple Root Program
+Mozilla Root Program
+Oracle Java root program
+Adobe AATL Adobe Approved Trust List and EUTL root programs (used for document signing)
+Browsers other than Firefox generally use the operating system's facilities to decide which certificate authorities are trusted. So, for instance, Chrome on Windows trusts the certificate authorities included in the Microsoft Root Program, while on macOS or iOS, Chrome trusts the certificate authorities in the Apple Root Program.[6] Edge and Safari use their respective operating system trust stores as well, but each is only available on a single OS. Firefox uses the Mozilla Root Program trust store on all platforms.
+
+The Mozilla Root Program is operated publicly, and its certificate list is part of the open source Firefox web browser, so it is broadly used outside Firefox. For instance, while there is no common Linux Root Program, many Linux distributions, like Debian,[7] include a package that periodically copies the contents of the Firefox trust list, which is then used by applications.
+
+Root programs generally provide a set of valid purposes with the certificates they include. For instance, some CAs may be considered trusted for issuing TLS server certificates, but not for code signing certificates. This is indicated with a set of trust bits in a root certificate storage system.
+
+--------------------------------------------
+
+Certificates and website security
+The most common use of certificates is for HTTPS-based web sites. A web browser validates that an HTTPS web server is authentic, so that the user can feel secure that his/her interaction with the web site has no eavesdroppers and that the web site is who it claims to be. This security is important for electronic commerce. In practice, a web site operator obtains a certificate by applying to a certificate authority with a certificate signing request. The certificate request is an electronic document that contains the web site name, company information and the public key. The certificate provider signs the request, thus producing a public certificate. During web browsing, this public certificate is served to any web browser that connects to the web site and proves to the web browser that the provider believes it has issued a certificate to the owner of the web site.
+
+As an example, when a user connects to https://www.example.com/ with their browser, if the browser does not give any certificate warning message, then the user can be theoretically sure that interacting with https://www.example.com/ is equivalent to interacting with the entity in contact with the email address listed in the public registrar under "example.com", even though that email address may not be displayed anywhere on the web site. No other surety of any kind is implied. Further, the relationship between the purchaser of the certificate, the operator of the web site, and the generator of the web site content may be tenuous and is not guaranteed. At best, the certificate guarantees uniqueness of the web site, provided that the web site itself has not been compromised (hacked) or the certificate issuing process subverted.
+
+A certificate provider can opt to issue three types of certificates, each requiring its own degree of vetting rigor. In order of increasing rigor (and naturally, cost) they are: Domain Validation, Organization Validation and Extended Validation. These rigors are loosely agreed upon by voluntary participants in the CA/Browser Forum.
+
+Validation levels
+Domain validation
+Main article: Domain-validated certificate
+A certificate provider will issue a Domain Validation (DV) class certificate to a purchaser if the purchaser can demonstrate one vetting criterion: the right to administratively manage a domain name.
+
+Organization validation
+A certificate provider will issue an Organization Validation (OV) class certificate to a purchaser if the purchaser can meet two criteria: the right to administratively manage the domain name in question, and perhaps, the organization's actual existence as a legal entity. A certificate provider publishes its OV vetting criteria through its Certificate Policy.
+
+Extended validation
+Main article: Extended Validation Certificate
+To acquire an Extended Validation (EV) certificate, the purchaser must persuade the certificate provider of its legal identity, including manual verification checks by a human. As with OV certificates, a certificate provider publishes its EV vetting criteria through its Certificate Policy.
+
+Browsers will generally offer users a visual indication of the legal identity when a site presents an EV certificate. Most browsers show the legal name before the domain, and use a bright green color to highlight the change. In this way, the user can see the legal identity of the owner has been verified.
+
+Weaknesses
+A web browser will give no warning to the user if a web site suddenly presents a different certificate, even if that certificate has a lower number of key bits, even if it has a different provider, and even if the previous certificate had an expiry date far into the future.[citation needed] However a change from an EV certificate to a non-EV certificate will be apparent as the green bar will no longer be displayed. Where certificate providers are under the jurisdiction of governments, those governments may have the freedom to order the provider to generate any certificate, such as for the purposes of law enforcement. Subsidiary wholesale certificate providers also have the freedom to generate any certificate.
+
+All web browsers come with an extensive built-in list of trusted root certificates, many of which are controlled by organizations that may be unfamiliar to the user.[1] Each of these organizations is free to issue any certificate for any web site and have the guarantee that web browsers that include its root certificates will accept it as genuine. In this instance, end users must rely on the developer of the browser software to manage its built-in list of certificates and on the certificate providers to behave correctly and to inform the browser developer of problematic certificates. While uncommon, there have been incidents in which fraudulent certificates have been issued: in some cases, the browsers have detected the fraud; in others, some time passed before browser developers removed these certificates from their software.[8][9]
+
+The list of built-in certificates is also not limited to those provided by the browser developer: users (and to a degree applications) are free to extend the list for special purposes such as for company intranets.[10] This means that if someone gains access to a machine and can install a new root certificate in the browser, that browser will recognize websites that use the inserted certificate as legitimate.
+
+For provable security, this reliance on something external to the system has the consequence that any public key certification scheme has to rely on some special setup assumption, such as the existence of a certificate authority.[11]
+
+Usefulness versus unsecured web sites
+In spite of the limitations described above, certificate-authenticated TLS is considered mandatory by all security guidelines whenever a web site hosts confidential information or performs material transactions. This is because, in practice, in spite of the weaknesses described above, web sites secured by public key certificates are still more secure than unsecured http:// web sites.[12]
+
+Standards
+The National Institute of Standards and Technology(NIST) Computer Security Division[13] provides guidance documents for Public Key Certificates:
+
+SP 800-32 Introduction to Public Key Technology and the Federal PKI Infrastructure[14]
+SP 800-25 Federal Agency Use of Public Key Technology for Digital Signatures and Authentication[15]
+
+
+
+

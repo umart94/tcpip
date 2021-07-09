@@ -1,0 +1,29 @@
+In Switch , traffic is not shared.
+
+10Mbps means that each device gets dedicated 10Mbps bandwidth.
+
+we can increase the speed using duplex.
+
+
+half duplex - only 1 party can talk at one time. - end with the word over. - walkie talkie.
+Full Duplex means that we can send and receive traffic at the same time. - landline telephone
+
+switches use full duplex
+hubs use half duplex
+
+when we use full duplex. we dont need collision detection - it is disabled - and csma is used only and not CD. (in csma/cd)
+
+this causes issues when we use half on one side and full on other side.
+
+
+speed can be negotiated
+
+pcs have gig ports. bandwidth increases from 0.75 mbps to 2 gbps when using a hub.
+
+throughput of switch is greater, so switches are used.
+
+in wireless networks access points tend to act like hubs, in shared infrastructure. which means shared bandwidth.
+
+in switches we have dedicated bandwidth.
+
+

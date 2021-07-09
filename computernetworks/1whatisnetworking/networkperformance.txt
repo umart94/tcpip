@@ -1,0 +1,29 @@
+Batch applications : 
+FTP and trivial FTP
+little or no user interaction
+file copies
+software downloads
+bandwidth is important , but not critical.
+
+----------------
+
+Interactive applications
+Inventory updates inquiries
+Database Updates
+Human Intervention required
+wait for response - important
+bandwidth not available, transaction takes long time to complete.
+
+-----------------
+Real-time applications - voice and video
+very good quality of service required.
+very low delay.
+
+Human to Human
+
+latency
+delivery of data - critical
+data should not be lost during transmission
+
+there should be enough bandwidth to allow the transmission to continue.
+QoS and other mechanisms are used to protect voice and video transmissions.

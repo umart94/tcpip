@@ -1,0 +1,57 @@
+used by hosts to send data to all devices on a specific network
+Entire host portion filled with binary 1s
+
+
+so 255 means that the entire octet filled with 1s
+
+
+We are working with Octets
+
+1 Octet = 8 Bits.
+
+if you use 2^8 that is 256
+if you fill all 1s that value is in decimal 255 and in binary 11111111
+
+
+256 takes 9 bits. = 100000000
+this is why we do not use 256 value in networking
+
+so we are limited to 8 bits per octet.
+
+172.31.11111111.11111111
+
+ClassB network
+network = 172.31
+host = 0.0
+Network 172.31.0.0
+directed broadcast = 172.31.255.255
+device = 172.31.0.1
+
+
+
+
+
+
+
+Routers can route directed broadcast
+but this is disabled by default.
+
+this address is used in DoS attacks , if we enable the routing 
+on directed broadcast address... so forwarding of directed broadcasts is disabled.
+
+if forwarding of directed broadcast was enabled on the router then
+
+e.g that attacker is on subnet 172.16.0.0
+ip of device of victim is 172.16.0.1
+ip of device of attacker is 172.16.0.10
+
+attacker is on same network as victim.
+
+from 172.16.0.10 attacker sends directed broadcasts to 172.31.255.255 address which is broadcast address of another network. With a changed source address of 172.16.0.1
+
+
+All devices on 172.31.0.0 would then reply to the device 172.16.0.1
+causing DoS attack on that device.
+
+
+

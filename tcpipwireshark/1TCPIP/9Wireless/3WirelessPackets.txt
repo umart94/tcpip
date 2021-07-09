@@ -1,0 +1,199 @@
+promiscuous mode
+all traffic on current NIC card.
+
+monitor mode
+lower layers ,
+802.11 plus radiotapheader -> buffer size
+
+---------------
+Beacon frame
+it tells wireless receiver , that there is an access point available.
+
+Frame control header
+v0
+
+management frame
+
+flags
+
+--------------------
+In IEEE 802.11 wireless local area networking standards (including Wi-Fi), a service set (also known as extended service set or ESS)  is a group of wireless network devices which are identified by the same SSID (service set identifier). SSIDs serve as "network names" and are typically natural language labels. A service set forms a logical network -- that is operating with the same level 2 networking parameters -- they are on the same logical network segment (e.g., IP subnet or VLAN).
+
+Basic service sets (BSS) are a subgroup of devices within a service set which are additionally also operating with the same physical layer medium access characteristics (i.e. radio frequency, modulation scheme, security settings etc.) such that they are wirelessly networked. Devices within basic service sets are identified by BSSIDs (basic service set identifiers), which are 48-bit labels that conform to MAC-48 conventions. While devices may have multiple BSSIDs, usually each BSSID is associated with at most one basic service set at a time.[1] There are two classes of basic service sets: those that are formed by an infrastructure mode redistribution point (access points or mesh nodes), and those that are formed by independent stations in a peer-to-peer ad hoc topology (an Independent Basic Service Set or IBSS.)
+
+
+A basic service set should not to be confused with the coverage area of an access point, known as the 'basic service area' (BSA).
+
+Basic Service Set Identifier (BSSID)
+
+Infrastructure mode
+An infrastructure mode wireless network basic service set (BSS) consists of one redistribution point — typically an access point (WAP or AP) — together with one or more "client" stations that are associated with (i.e. connected to) that redistribution point.[3] The operating parameters of the infrastructure-BSS are defined by the redistribution point. Stations communicate only with the redistribution point that they are associated with, and all traffic within the infrastructure-BSS is routed through/bridged by that redistribution point.
+
+Each basic service set has its own unique identifier, a BSSID, which is a unique 48-bit identifier that follows MAC address conventions.[4] An infrastructure-BSSID is usually non-configurable, in which case it is either preset during manufacture, or mathematically derived from a preset value such as a serial number, the MAC address of the LAN connection, etc. As with the MAC addresses used for Ethernet devices, infrastructure-BSSIDs are a combination of a 24-bit Organization Unique Identifier (OUI, the manufacturer's identity) and a 24-bit serial number. A BSSID with a value of all 1s is used to indicate the wildcard BSSID, usable only during probe requests or for communications that take place outside the context of a BSS.[5]
+
+Mesh basic service set
+From the point of view of a wireless clients, IEEE 802.11s wireless mesh networks appear as a conventional infrastructure mode topology, and are centrally configured as such. The formation of the mesh's BSS, as well as wireless traffic management (including path selection and forwarding) is negotiated between the nodes (redistribution points) of the mesh infrastructure. The mesh's BSS is distinct from the networks (which may also be wireless) used by a mesh's redistribution points to communicate with one another.
+
+Ad hoc
+In contrast to the stations in an infrastructure-mode network, the stations in a wireless ad hoc network communicate directly with one another, i.e. without a dependence on a distribution point to relay traffic between them.[6] In this form of peer-to-peer wireless networking, the peers form an independent basic service set (IBSS).[7] Some of the responsibilities of a distribution point — such as defining network parameters and other "beaconing" functions — are established by the first station in an ad-hoc network. But that station does not relay traffic between the other stations; instead, the peers communicate directly with one another. Like infrastructure-BSSs, independent-BSSs also have a 48-bit MAC address-like identifier. But unlike infrastructure-BSS identifiers, independent-BSSs identifiers are not necessarily unique: the individual/group bit of the address is always set to 0 (individual), the universal/local bit of the address is always set to 1 (local), and the remaining 46 bits are randomly generated.[5]
+
+
+
+
+
+
+
+
+
+Service Set Identifier (SSID)
+
+
+
+
+
+Service set ID (WiFi)
+The SSID is broadcast by stations in beacon packets to announce the presence of a network.
+
+Unlike basic service set identifiers, SSIDs are usually customizable.[8] These SSIDs can be zero to 32 octets (32 bytes) long,[9] and are, for convenience, usually in a natural language, such as English. The 802.11 standards prior to the 2012 edition did not define any particular encoding/representation for SSIDs, which were expected to be treated and handled as an arbitrary sequence of 0–32 octets that are not limited to printable characters. The IEEE 802.11-2012 defines a tag that the SSID is UTF-8 encoded and when interpreting could contain any non-ISO basic Latin characters within it.[10] Wireless network stacks must still be prepared to handle arbitrary values in the SSID field.
+
+Since the contents of an SSID field are arbitrary, the 802.11 standard permits devices to advertise the presence of a wireless network with beacon packets in which the SSID field is set to null.[11][n 1] A null SSID (the SSID element's 'length' field is set to zero[9]) is called a "wildcard SSID" in IEEE 802.11 standards documents,[12] and as a "no broadcast SSID" or "hidden SSID" in the context of beacon announcements,[11][13] and can be used, for example, in enterprise and mesh networks to steer a client to a particular (e.g. less utilized) access point.[11] A station may also likewise transmit packets in which the SSID field is set to null; this prompts an associated access point to send the station a list of supported SSIDs.[14] Once a device has associated with a basic service set, for efficiency, the SSID is not sent within packet headers; only BSSIDs are used for addressing.
+
+
+
+Extended Service Set Identifier (ESSID)
+
+Extended service sets (ESSs)
+Formally, there is no distinct ESSID in the 802.11 standards.[15]cf. [16] In 802.11 standard documents, the logical network (ESS or independent-BSS) service set identifier is simply abbreviated SSID,[9] irrespective of whether an SSID identifies an infrastructure-BSS's ESS, or the peer-to-peer network of an independent-BSS.
+
+An extended service set (ESS) is a set of one or more infrastructure basic service sets on a common logical network segment (i.e. same IP subnet and VLAN).[17] Key to the concept is that the participating basic service sets appear as a single network to the logical link control layer.[17][18] Thus, from the perspective of the logical link control layer, stations within an ESS may communicate with one another, and mobile stations may move transparently from one participating BSS to another (within the same ESS).[18] Extended service sets make possible distribution services such as centralized authentication and seamless roaming between infrastructure-BSSs. From the perspective of the link layer, all stations within an ESS are all on the same link, and transfer from one BSS to another is transparent to logical link control.[19]
+
+The basic service sets formed in wireless ad hoc networks are, by definition, independent from other BSSs, and an independent-BSS cannot therefore be part of an extended infrastructure.[20] In that formal sense an independent-BSS has no extended service set. However, the network packets of both independent-BSSs and infrastructure-BSSs have a logical network service set identifier (described below), and the logical link control does not distinguish between the use of that field to name an ESS network, and the use of that field to name a peer-to-peer ad hoc network. The two are effectively indistinguishable at the logical link control layer level.[19]
+
+---------------------
+Timestamp
+Beacon Interval
+Capabilities Information
+Tagged parameters - 216 bytes
+SSID Broadcast
+Data Rates - Supported
+
+Current Channel
+whether it will support 802.11n and extended support rates.
+----------------------
+Action frame
+hopping parameters in the wireless lan management frame.
+---------------
+Frequency-hopping spread spectrum
+Frequency-hopping spread spectrum (FHSS) is a method of transmitting radio signals by rapidly changing the carrier frequency among many distinct frequencies occupying a large spectral band. The changes are controlled by a code known to both transmitter and receiver. FHSS is used to avoid interference, to prevent eavesdropping, and to enable code-division multiple access (CDMA) communications.
+
+The available frequency band is divided into smaller sub-bands. Signals rapidly change ("hop") their carrier frequencies among the center frequencies of these sub-bands in a predetermined order. Interference at a specific frequency will only affect the signal during a short interval. [1]
+
+FHSS offers three main advantages over a fixed-frequency transmission:
+
+FHSS signals are highly resistant to narrowband interference because the signal hops to a different frequency band.
+Signals are difficult to intercept if the frequency-hopping pattern is not known.
+FHSS transmissions can share a frequency band with many types of conventional transmissions with minimal mutual interference. FHSS signals add minimal interference to narrowband communications, and vice versa.
+
+
+Military use
+Spread-spectrum signals are highly resistant to deliberate jamming, unless the adversary has knowledge of the frequency-hopping pattern. Military radios generate the frequency-hopping pattern under the control of a secret Transmission Security Key (TRANSEC) that the sender and receiver share in advance. This key is generated by devices such as the KY-57 Speech Security Equipment. U.S. military radios that use frequency hopping include the JTIDS/MIDS family, the HAVE QUICK Aeronautical Mobile communications system, and the SINCGARS Combat Net Radio, Link-16.
+
+
+---------------
+Civilian use
+In the US, since the Federal Communications Commission (FCC) amended rules to allow FHSS systems in the unregulated 2.4 GHz band, many consumer devices in that band have employed various FHSS modes. eFCC CFR 47 part 15.247 covers the regulations in the US for 902-928 MHz, 2400-2483.5 MHz, and 5725-5850 MHz bands, and the requirements for frequency hopping [2]
+
+Some walkie-talkies that employ FHSS technology have been developed for unlicensed use on the 900 MHz band. FHSS technology is also used in many hobby radio-controlled transmitters and receivers used for model cars, airplanes, and drones. A type of multiple access is achieved allowing hundreds of transmitter/receiver pairs to be operated simultaneously on the same band in contrast to previous FM or AM radio-controlled systems that had limited simultaneous channels.
+---------
+Direct-sequence spread spectrum
+
+In telecommunications, direct-sequence spread spectrum (DSSS) is a spread-spectrum modulation technique primarily used to reduce overall signal interference. The direct-sequence modulation makes the transmitted signal wider in bandwidth than the information bandwidth. After the despreading or removal of the direct-sequence modulation in the receiver, the information bandwidth is restored, while the unintentional and intentional interference is substantially reduced.[1]
+
+With DSSS, the message bits are modulated by a pseudorandom bit sequence known as a spreading sequence. Each spreading-sequence bit, which is known as a chip, has a much shorter duration (larger bandwidth) than the original message bits. The modulation of the message bits scrambles and spreads the pieces of data, and thereby results in a bandwidth size nearly identical to that of the spreading sequence. The smaller the chip duration, the larger the bandwidth of the resulting DSSS signal; more bandwidth multiplexed to the message signal results in better resistance against interference.[1][2]
+
+Some practical and effective uses of DSSS include the code-division multiple access (CDMA) method, the IEEE 802.11b specification used in Wi-Fi networks, and the Global Positioning System.[3][4]
+--
+Features
+DSSS phase-shifts a sine wave pseudorandomly with a continuous string of chips, each of which has a much shorter duration than an information bit. That is, each information bit is modulated by a sequence of much faster chips. Therefore, the chip rate is much higher than the information bit rate.
+DSSS uses a signal structure in which the spreading sequence produced by the transmitter is already known by the receiver. The receiver can then use the same spreading sequence to counteract its effect on the received signal in order to reconstruct the information signal.
+
+Transmission method
+Direct-sequence spread-spectrum transmissions multiply the data being transmitted by a pseudorandom spreading sequence that has a much higher bit rate than the original data rate. The resulting transmitted signal resembles bandlimited white noise, like an audio recording of "static". However, this noise-like signal is used to exactly reconstruct the original data at the receiving end, by multiplying it by the same spreading sequence (because 1 × 1 = 1, and −1 × −1 = 1). This process, known as despreading, is mathematically a correlation of the transmitted spreading sequence with the spreading sequence that the receiver already knows the transmitter is using. After the despreading, the signal-to-noise ratio is approximately increased by the spreading factor, which is the ratio of the spreading-sequence rate to the data rate.
+
+While a transmitted DSSS signal occupies a much wider bandwidth than a simple modulation of the original signal would require, its frequency spectrum can be somewhat restricted for spectrum economy by a conventional analog bandpass filter to give a roughly bell-shaped envelope centered on the carrier frequency. In contrast, frequency-hopping spread spectrum pseudorandomly retunes the carrier and requires a uniform frequency response since any bandwidth shaping would cause amplitude modulation of the signal by the hopping code.
+
+If an undesired transmitter transmits on the same channel but with a different spreading sequence (or no sequence at all), the despreading process reduces the power of that signal. This effect is the basis for the code division multiple access (CDMA) property of DSSS, which allows multiple transmitters to share the same channel within the limits of the cross-correlation properties of their spreading sequences.
+
+Benefits
+Resistance to unintended or intended jamming
+Sharing of a single channel among multiple users
+Reduced signal/background-noise level hampers interception
+Determination of relative timing between transmitter and receiver
+
+---------------------------
+Orthogonal frequency-division multiple access
+Orthogonal frequency-division multiple access (OFDMA) is a multi-user version of the popular orthogonal frequency-division multiplexing (OFDM) digital modulation scheme. Multiple access is achieved in OFDMA by assigning subsets of subcarriers to individual users. This allows simultaneous low-data-rate transmission from several users.
+
+
+Key points
+The advantages and disadvantages summarized below are further discussed in the Characteristics and principles of operation section. See also the list of OFDM key features.
+
+Claimed advantages over OFDM with time-domain statistical multiplexing
+Allows simultaneous low-data-rate transmission from several users.
+Pulsed carrier can be avoided.
+Lower maximal transmission power for low-data-rate users.
+Shorter delay and constant delay.
+Contention-based multiple access (collision avoidance) is simplified.
+Further improves OFDM robustness to fading and interference.
+Combat narrow-band interference.
+Claimed OFDMA advantages
+Flexibility of deployment across various frequency bands with little needed modification to the air interface.[1]
+Averaging interferences from neighbouring cells, by using different basic carrier permutations between users in different cells.
+Interferences within the cell are averaged by using allocation with cyclic permutations.
+Enables single-frequency network coverage, where coverage problem exists and gives excellent coverage.
+Offers frequency diversity by spreading the carriers all over the used spectrum.
+Allows per-channel or per-subchannel power.
+Recognised disadvantages of OFDMA
+Higher sensitivity to frequency offsets and phase noise.[1]
+Asynchronous data communication services such as web access are characterised by short communication bursts at high data rate. Few users in a base station cell are transferring data simultaneously at low constant data rate.
+The complex OFDM electronics, including the FFT algorithm and forward error correction, are constantly active independent of the data rate, which is inefficient from power-consumption point of view, while OFDM combined with data packet scheduling may allow FFT algorithm to hibernate during certain time intervals.
+The OFDM diversity gain and resistance to frequency-selective fading may partly be lost if very few sub-carriers are assigned to each user, and if the same carrier is used in every OFDM symbol. Adaptive sub-carrier assignment based on fast feedback information about the channel, or sub-carrier frequency hopping, is therefore desirable.
+Dealing with co-channel interference from nearby cells is more complex in OFDM than in CDMA. It would require dynamic channel allocation with advanced coordination among adjacent base stations.
+The fast channel feedback information and adaptive sub-carrier assignment is more complex than CDMA fast power control.
+-----------
+Characteristics and principles of operation
+Based on feedback information about the channel conditions, adaptive user-to-subcarrier assignment can be achieved.[2] If the assignment is done sufficiently fast, this further improves the OFDM robustness to fast fading and narrow-band cochannel interference, and makes it possible to achieve even better system spectral efficiency.
+
+Different numbers of sub-carriers can be assigned to different users, in view to support differentiated Quality of Service (QoS), i.e. to control the data rate and error probability individually for each user.
+
+OFDMA can be seen as an alternative to combining OFDM with time-division multiple access (TDMA) or time-domain statistical multiplexing communication. Low-data-rate users can send continuously with low transmission power instead of using a "pulsed" high-power carrier. Constant delay, and shorter delay, can be achieved.
+
+OFDMA can also be described as a combination of frequency-domain and time-domain multiple access, where the resources are partitioned in the time–frequency space, and slots are assigned along the OFDM symbol index, as well as OFDM sub-carrier index.
+
+OFDMA is considered as highly suitable for broadband wireless networks, due to advantages including scalability and use of multiple antennas (MIMO)-friendliness, and ability to take advantage of channel frequency selectivity.[1]
+
+In spectrum sensing cognitive radio, OFDMA is a possible approach to filling free radio frequency bands adaptively. Timo A. Weiss and Friedrich K. Jondral of the University of Karlsruhe proposed a spectrum pooling system in which free bands sensed by nodes were immediately filled by OFDMA subbands.
+
+-------------------
+OFDMA is used in:
+
+the mobility mode of the IEEE 802.16 Wireless MAN standard, commonly referred to as WiMAX,
+the wireless LAN (WLAN) standard IEEE 802.11ax,
+the IEEE 802.20 mobile Wireless MAN standard, commonly referred to as MBWA,
+MoCA 2.0,
+the downlink of the 3GPP Long-Term Evolution (LTE) fourth-generation mobile broadband standard. The radio interface was formerly named High Speed OFDM Packet Access (HSOPA), now named Evolved UMTS Terrestrial Radio Access (E-UTRA).
+the downlink and the uplink of the 3GPP 5G New Radio (NR) fifth-generation mobile network standard. 5G NR is the successor to LTE.
+the Qualcomm Flarion Technologies Mobile Flash-OFDM
+the now defunct Qualcomm/3GPP2 Ultra Mobile Broadband (UMB) project, intended as a successor of CDMA2000, but replaced by LTE.
+OFDMA is also a candidate access method for the IEEE 802.22 Wireless Regional Area Networks (WRAN), a cognitive radio technology which uses white spaces in the television (TV) frequency spectrum, and the proposed access method for DECT-5G specification which aims to fulfill IMT-2020 requirements for high-throughput mobile broadband (eMMB) and ultra reliable low latency(URLLC) applications.
+
+----------------
+since frequencies change
+there is safety, because they change periodically so the network traffic is secure.
+-------------------------
+
+
+
+
+
+

@@ -1,0 +1,159 @@
+if receiver doesn't get an ack , we cannot know for sure that the packet was received
+
+HTTP
+for an http example use 188.184.100.82
+http://info.cern.ch
+
+1.SYN Packet
+Transmission Control Protocol, Src Port: 50923, Dst Port: 80, Seq: 0, Len: 0
+    Source Port: 50923
+    Destination Port: 80
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 0    (relative sequence number)
+    Sequence number (raw): 3101388061
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 0
+    Acknowledgment number (raw): 0
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x002 (SYN)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...0 .... = Acknowledgment: Not set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..1. = Syn: Set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ··········S·]
+    Window size value: 64240
+    [Calculated window size: 64240]
+    Checksum: 0x40c4 [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    Options: (12 bytes), Maximum segment size, No-Operation (NOP), Window scale, No-Operation (NOP), No-Operation (NOP), SACK permitted
+        TCP Option - Maximum segment size: 1460 bytes
+        TCP Option - No-Operation (NOP)
+        TCP Option - Window scale: 8 (multiply by 256)
+        TCP Option - No-Operation (NOP)
+        TCP Option - No-Operation (NOP)
+        TCP Option - SACK permitted
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.000000000 seconds]
+        [Time since previous frame in this TCP stream: 0.000000000 seconds]
+
+
+2. SYN ACK
+
+Transmission Control Protocol, Src Port: 80, Dst Port: 50923, Seq: 0, Ack: 1, Len: 0
+    Source Port: 80
+    Destination Port: 50923
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 0    (relative sequence number)
+    Sequence number (raw): 44201533
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Acknowledgment number (raw): 3101388062
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x012 (SYN, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..1. = Syn: Set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······A··S·]
+    Window size value: 14600
+    [Calculated window size: 14600]
+    Checksum: 0x89ed [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    Options: (12 bytes), Maximum segment size, No-Operation (NOP), No-Operation (NOP), SACK permitted, No-Operation (NOP), Window scale
+        TCP Option - Maximum segment size: 1412 bytes
+        TCP Option - No-Operation (NOP)
+        TCP Option - No-Operation (NOP)
+        TCP Option - SACK permitted
+        TCP Option - No-Operation (NOP)
+        TCP Option - Window scale: 7 (multiply by 128)
+    [SEQ/ACK analysis]
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.174557000 seconds]
+        [Time since previous frame in this TCP stream: 0.174557000 seconds]
+
+
+
+3. ACK
+
+
+Transmission Control Protocol, Src Port: 50923, Dst Port: 80, Seq: 1, Ack: 1, Len: 0
+    Source Port: 50923
+    Destination Port: 80
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 1    (relative sequence number)
+    Sequence number (raw): 3101388062
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Acknowledgment number (raw): 44201534
+    0101 .... = Header Length: 20 bytes (5)
+    Flags: 0x010 (ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······A····]
+    Window size value: 512
+    [Calculated window size: 131072]
+    [Window size scaling factor: 256]
+    Checksum: 0x0198 [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    [SEQ/ACK analysis]
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.174607000 seconds]
+        [Time since previous frame in this TCP stream: 0.000050000 seconds]
+
+TCP	54	50923 → 80 [ACK] Seq=1 Ack=1 Win=131072 Len=0
+
+before the GET / HTTP/1.1 , and after the 3 way handshake.. we have SEQ=1,ACK=1
+
+After
+4. HTTP GET.
+
+we have
+
+TCP	60	80 → 50923 [ACK] Seq=1 Ack=420 Win=15744 Len=0
+
+AFTER HTTP/1.1 200 OK we have
+[Next sequence number: 888    (relative sequence number)]
+
+then we get a FIN closing packet. with 
+TCP	60	80 → 50923 [FIN, ACK] Seq=888 Ack=420 Win=15744 Len=0
+
+
+/*
+
+A TCP implementation might send a standalone FIN in the first closing segment. However, it can also send a FIN ACK, instead.
+
+The latter is strictly better: the implementation can bundle a "free" ACK with the FIN segment without making it longer. This is because, if you don't ACK, there is still room in the segment for the ACK number, which will be ignored, and waste bandwidth. Hence the last-sent ACK is simply re-sent, just in case the receiver missed it.
+
+This is true for all TCP segments. Hence, except for the very first SYN segment, where the sender has no information about the ACK number, all the other segments will usually have the ACK flag on.
+
+
+*/
+
+
+

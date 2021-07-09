@@ -1,0 +1,241 @@
+how to subdivide a network when given : 
+
+- specific number of hosts required.
+- specific number of subnets required.
+
+
+head office allocated
+
+
+allocated 192.168.1.0/24 for us
+
+
+we want more subnets.
+
+but we are only given 1 subnet
+so we have to divide that further into different subnets.
+
+suppose 1 segment has 3 hosts. = 1,2, and 3 = Network 1
+1 segment has 2 hosts. = 4 and 5 = Network 2
+
+
+in a scenario when the hosts are less we can use 192.168.1.0 easily because
+this class C address allows us.
+
+
+Class A : 255.0.0.0
+Class B : 255.255.0.0
+Class C : 255.255.255.0
+
+
+class c , for a network we can have upto 254 hosts.
+we have requirement for 3 hosts on 1 segment
+and 2 hosts on 1 segment.
+
+we can subdivide in this case.
+
+
+suppose if the address was Class A.. e.g 10.0.0.0/28
+
+this gives us 16,777,214 hosts per subnet.
+if we have all hosts on 1 segment , the network would not work.
+amount of broadcasts would increase, not practically possible 
+
+maximum of 254 hosts on a subnet.
+
+we would subnet down to a classC subnet.
+
+Class A network supports 16,777,214 hosts per subnet
+Class B network supports 16,382 hosts per subnet
+Class C network supports 254 hosts per subnet.
+
+
+Formula is : 2^n -2 ( how many hosts are supported on a subnet)
+
+where N is the number of binary bits in host portion
+
+Class A Address = 32 bits. 8 bits network , 24 bits host.
+
+2^24 = 16777216 - 2 = 16777214
+
+1 for network
+1 for broadcast
+
+subtracted.
+
+---------------------------------------------
+Binary Method:
+
+
+When asked for number of hosts : Hosts = 2^n - 2
+n = number of host bits.
+
+count host bits from right to left.
+
+
+we lose 2 addresses, 1 for subnet and 1 for broadcast.
+
+
+-------------------------------------------
+When asked for number of networks : 2^N
+
+count network bits from left to right.
+
+2 to the power of 10 = 1024.
+
+
+n 	2n 		
+0 	1 	
+1 	2 	
+2 	4 	
+3 	8 	
+4 	16 
+5 	32 	
+6 	64 	
+7 	128 	
+8 	256 	
+9 	512 	
+10 	1,024 	
+
+
+
+Allocated subnet 10.1.1.0/24
+
+split subnet into smaller subnets , where each subnet needs to support 14 machines.
+
+decide which formula to use:
+
+we are asked for number of hosts.
+
+we use 2^n -2 
+
+count from right to left.
+
+14 in decimal equals 1110 in binary.
+we need 4 bits. for host.
+
+from host portion, take 4 bits and allocate to network portion.
+
+
+Hosts = 2^n - 2
+Hosts = 2^4 - 2
+Hosts = 16 - 2
+Hosts = 14
+
+
+convert host portion of original network into binary : 
+
+10.1.1.0/24
+or
+10.1.1.0
+255.255.255.0
+
+Network 10.1.1
+Host 0
+
+network 10.1.1 Host = 00000000
+
+Now from right hand side, give 4 bits to HOST, and the 4 bits are given to subnet/network.
+
+Network = 10.1.1
+Subnet = 0000
+Host = 0000
+
+
+work out the new subnet mask
+
+count number of bits that are network or subnet ( DO NOT Count HOST BITS)
+
+8+8+8+4 = 28 for network
+4 bits for host.
+
+
+now work out new subnet by binary combinations. applied to the subnet 4 bits.
+
+i.e 0000
+1st network subnet bits : 0001 = 2^4 - 2 = 14 bits supported on every subnet
+2nd network subnet bits : 0010
+....
+last network subnet bits  : 1111 
+
+
+how many subnets we created ?  2^n 2^4 = 16 subnets.
+
+16 combinations for the 4 bits.
+
+
+
+
+---------------------------------
+
+subnet 10.128.192.0/18
+30 subnets
+
+
+2^?
+
+
+n 	2n 		
+0 	1 	
+1 	2 	
+2 	4 	
+3 	8 	
+4 	16 
+5 	32 	
+6 	64 	
+7 	128 	
+8 	256 	
+9 	512 	
+10 	1,024 
+
+2^5 = 32
+
+we require 5 bits. from host portion
+
+
+
+10.128.192.0/18
+
+or
+10.128.192.0/18
+255.255.192.0 , 3rd octet split
+
+convert 192 to binary we have
+11000000
+2 bits are 1
+6 bits are 0
+
+
+
+network     Network/host    Host 
+10.128.			192		     0
+
+so we have 2 bits that identify subnet
+and 6 bits are host.
+8+8+2 /18
+
+so we had 10.128.192.0/18
+
+we require 5 bits from the host for subnet.
+
+so from the 6 bits we take 5
+
+so the 2 bits and 5 bits gives 7 bits in 3rd octet.
+and from last bit of 3rd octet + 4th octet gives us the split ( new subnet calculation)
+
+10.128.11 00000 0 . 00000000
+
+subnet mask = number of bits in network / subnet portion of address.
+
+
+8+8+2+5 = 16+7 = 23 bits.
+
+
+Work out new subnets
+
+
+
+
+
+
+

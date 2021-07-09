@@ -1,0 +1,30 @@
+Distance Vector
+routing by rumor.
+
+they determine direction and distance to a destination
+direction is known as vector
+distance such as hopcount is determined to any destination in the network.
+
+RIP - hopcount to determine cost / distance to a network.
+
+easy to configure.
+
+major disadvantage to distance vector routing is that they have limited visibility.
+
+its possible that routers may make incorrect decision based on routers of their neighbours.
+
+this requires that a router inform its neighbours about changes detected in network periodically.
+
+RIP updates routing table every 30 seconds.
+
+distance vector means that routers advertise routes as a vector of distance and direction.
+
+direction is represented by next hop address and local exit interface.
+
+distance uses a metric such as hopcount in rip.
+
+DVR do not have knowledge of entire path.
+
+routing loops increase. thus multiple features have been introduced to stop routing loops.
+router only knows the direction. and distance.
+

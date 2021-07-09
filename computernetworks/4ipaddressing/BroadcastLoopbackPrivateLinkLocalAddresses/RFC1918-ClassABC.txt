@@ -1,0 +1,27 @@
+three blocks of ip addresses
+
+1 class a network
+16 class b networks
+256 class c networks
+
+
+private addresses ranges:
+
+
+The RFC1918 ranges are:
+
+    10.0.0.0 - 10.255.255.255 (10/8 prefix)
+    172.16.0.0 - 172.31.255.255 (172.16/12 prefix)
+    192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+
+------------------------
+
+our private ip address has to be network address translated to
+a PUBLIC IP ADDRESS
+whenever we want to connect to google.com
+
+Unless an ISP forgot to use access lists to block the traffic 
+from these IP Addresses.
+
+
+

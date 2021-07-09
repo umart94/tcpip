@@ -1,0 +1,28 @@
+subnet masks are different
+
+Router4 is learning about the network 10.1.1.0/27 (RIP v2) AD of 120 from router 1 via Rip V2 --> RIPV2 detects (10.1.1.0/27)
+
+
+Router4 is learning about the network 10.1.1.32/27 (RIP v2) AD of 200 from router 2 via BGP --> BGP detects (10.1.0.0/16)
+
+
+
+Router4 is learning about the network 10.1.1.64/27 (RIP v2) AD of 110 from router 3 via OSPF --> OSPF detects 10.0.0.0/8
+
+which way will router 4 send traffic if we ping 10.1.1.1 on router 4
+
+Note that OSPF has lowest AD
+
+in case of different subnet masks, the length of the route takes precedence over the administrative distance
+
+AD is only used if multiple routing protocols are trying to put same route in routing table.
+
+out of all three, network 10.1.1.0/27 is chosen as it has the longest match, 
+
+the ping from router4 will go via router1 as it is longest match. ( taking subnet mask length into account)
+
+even though it has higher AD than router3
+
+if the subnet masks were same , then lowest AD will be chosen , i.e router 3
+
+

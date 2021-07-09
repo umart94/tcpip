@@ -1,0 +1,68 @@
+Why use a layer 2 address ?
+
+tcp.stream eq 10
+
+tcp.stream eq 8
+It indicates that this is the 8th TCP or UDP stream found in the trace.
+
+Before we had stream numbers a filter to identify the stream would specify a pair of IP addresses and port numbers, 
+resulting in much longer display filters.
+
+When tcp.stream was implemented, the number had no significance and would show some gaps. 
+In recent (development) versions of Wireshark the number represents order in which wireshark detected tcp streams,
+ the first gets tcp.stream==0, the next tcp.stream==1 etc.
+
+----------------------------------------------------
+to differentiate 1 object from another
+
+e.g letter
+address on the outside of envelope
+
+ethernet header = envelope
+there is an address
+if it is not delivered - it needs to come back
+
+in ethernet - MAC Address - Physical Address - burned on NIC
+used locally to deliver messages (LAN)
+
+we will not use ip addresses, because we want to use other protocols
+not those protocols that use ips
+
+so that Layer2 uses different protocols and Layer 3 uses different protocols
+-------------------------------------------------
+
+
+to capture http traffic.. just go to any http website
+http://info.cern.ch/hypertext/WWW/TheProject.html
+
+48 bit address
+
+3 bytes = vendor
+3 bytes = NIC Address
+
+Bluetooth uses MAC Addresses
+802.11 wifi
+fiber interfaces
+
+--------------------------------------
+this is not the same as automated teller machine different abbreviation
+
+Asynchronous transfer mode (ATM) is a switching technique used by telecommunication networks that uses asynchronous time-division multiplexing to encode data into small,
+ fixed-sized cells. This is different from Ethernet or internet, which use variable packet sizes for data or frames.
+ ATM is the core protocol used over the synchronous optical network (SONET) backbone of the integrated digital services network (ISDN). 
+
+ATM Applications :
+ATM Applications:
+
+    ATM WANs –
+    It can be used as a WAN to send cells over long distances, router serving as a end-point between ATM network and other networks, which has two stacks of protocol.
+    Multimedia virtual private networks and managed services –
+    It helps in managing ATM, LAN, voice and video services and is capable of full-service virtual private-networking, which includes integrated access of multimedia.
+    Frame relay backbone –
+    Frame relay services are used as a networking infrastructure for a range of data services and enabling frame relay ATM service to Internetworking services.
+    Residential broadband networks –
+    ATM is by choice provides the networking infrastructure for the establishment of residential broadband services in search for highly scalable solutions.
+    Carrier infrastructure for telephone and private line networks –
+    To make more effective use of SONET/SDH fiber infrastructures by building the ATM infrastructure for carrying the telephonic and private-line traffic.
+
+

@@ -1,0 +1,26 @@
+we still configure ospf in same way as we did in the past.
+PCs, or servers
+
+write an application that uses network.
+ for an OS that uses windows or linux or some os.
+
+this OS abstracts the physical hardware from the application developer.
+
+suppose the app runs in
+
+hp laptops
+dell laptops
+vms
+
+we dont need to be aware of NIC used on these machines
+we write an app that uses an api used by the operating system.
+
+os hides complexities of nic, memory, and other physical characteristics of hardware.
+
+virtual machine portability from 1 os and 1 platform to another
+
+for example we can convert a vmware vmx and virtual disk virtual machine to some other operating system and use it there
+
+
+
+this type of portability does not exist inside a networking environment , yet..

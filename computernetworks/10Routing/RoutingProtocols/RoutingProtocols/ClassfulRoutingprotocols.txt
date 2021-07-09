@@ -1,0 +1,44 @@
+classful routing protocols do not advertise subnet masks
+
+example 
+they would advertise network 10.0.0.0 only and not its subnet mask.
+
+other routers would not know if network is 10.0.0.0/8 or 10.0.0.0/24
+
+if 
+
+pcA = 10.1.1.1
+pcB = 10.1.2.1
+
+are they on same subnet ?
+that depends on mask
+if /8 is used, then on same subnet
+if /24 then not on same subnet
+
+
+in classful routing protocols, the consistency of subnet masks is automatically assumed i.e
+all networks are assumed to have same subnet masks. i.e
+the router will assume that the other routers were also using the same mask as received in routing update.
+
+
+if classful routing protocols receive the routing updates with network of  10.0.0.0 on an interface where ip address is configured with a /24 mask
+the router will assume that the other routers were also using a /24 mask.
+
+this is very dangerous
+
+routers assume network consistency , so router assumes that everyone is using same mask and all masks are the same
+this is not scalable or deployable in networks today
+
+so classful routing protocols are not used e.g rip v1
+
+
+classful routing protocols also summarize routes across classful boundaries.
+
+so when we go from class a subnet to class b, routers will automatically summarize these routes to classful boundaries
+
+in other words
+
+classA = 10.1.1.0/24 will be summarized to 10.0.0.0/8
+
+examples are ripv1 and igrp ( replaced by eigrp)
+

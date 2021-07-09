@@ -1,0 +1,59 @@
+router is a layer 3 device - network layer
+route decisions made on IP Addresses.
+
+routers still use mac addresses on ethernet interfaces.
+decision making based on ip addresses.
+
+router also has serial and ethernet interfaces
+
+serial interface - uses PPP
+ethernet uses - MAC addresses.
+
+PC A - MAC ADDRESS A - IP 10.1.1.1
+ROUTER 2 INTERFACES - FIRSTETHERNET 0/0 - MAC ADDRESS G - IP ADDRESS 10.1.1.100
+FIRSTETHERNET 0/1 - IP ADDRESS OF 10.1.2.100 - MAC ADDRESS H
+
+SUBNET MASK OF /24 
+
+255.255.255.0
+
+BOTH PC A AND PC C ARE CONNECTED TO HUB CONNECTED TO ROUTER FA 0/0
+
+PC B AND D CONNECTED TO HUB CONNECTED TO ROUTER
+ROUTER INTERFACE IS FA 0/1
+
+
+SUBNET OF A AND C IS SAME
+
+SUBNET OF B AND D IS SAME
+
+using ip address command subnet mask is set.
+
+
+Routing table
+
+TO SEND NETWORK TO THIS NETWORK- IP of 10.1.1.0/24 - PACKETS NEED TO BE SENT OUT OF THIS INTERFACE (FAST ETHERNET 0/0) F 0/0
+TO SEND NETWORK TO THIS NETWORK- IP of 10.1.2.0/24 - PACKETS NEED TO BE SENT OUT OF THIS INTERFACE (FAST ETHERNET 0/1) F 0/1
+
+
+------------------------------------
+
+Device A sends traffic to device C - i.e. ping 10.1.1.2
+
+but device a needs to know the mac address of device c
+
+first device a checks local arp cache to see if there is a mapping of device c ip to mac address.
+
+device a sends arp request message to network segment called a broadcast
+
+
+SA: A,DA: FFFFFFFF
+
+
+255.255.255.255       ff-ff-ff-ff-ff-ff     static
+this is a broadcast address.
+equivalent layer2 address is 8 Fs
+
+
+
+

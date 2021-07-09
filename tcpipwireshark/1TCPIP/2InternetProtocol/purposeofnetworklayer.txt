@@ -1,0 +1,27 @@
+Why use IP Addresses ?
+
+Src:
+
+Dst:
+
+suppose 2 ips on same network.. we send messages between 2 machines on same network
+
+incase of seperate networks -> this layer forwards packets from 1 network to another
+WITH different gateways / different IP Addresses / Different Subnets Etc.
+
+routing / forwarding of packets / and addressing
+----------------------------------------------
+
+IP Address = logical address and
+MAC Address = Physical Address
+
+
+MAC Addresses are globally unique
+they are all different and unique depending on vendors (MANUFACTURERS)
+
+first 3 segments same in an ipaddress means they are on same network
+
+-----------
+L2
+
+MAC Addresses don't have this (Logical) definition of addresses. we can work locally but not on seperate networks (L2)

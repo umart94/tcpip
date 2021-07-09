@@ -1,0 +1,36 @@
+WAN Protocols - Sonet - ATM - Frame Relay
+
+--------------------------------------------
+protocols for sending huge amounts of data
+
+Synchronous Optical Networking - SONET
+Its optical
+rather than headers and payload
+
+headers are interleaved with payload
+
+--------------------------------------------
+
+Asynchronous Transfer Mode
+ISDN
+ISDN is a circuit-switched telephone network system, 
+which also provides access to packet switched networks, 
+designed to allow digital transmission of voice and data over ordinary telephone copper wires,
+ resulting in potentially better voice quality than an analog phone can provide
+
+FIXED LENGTH CELLS INSTEAD OF VARIABLE LENGTH PACKETS
+
+small sized cells
+5byte header
+48 byte payload
+53 byte cell
+
+
+--------------------------------------------
+
+Frame Relay - Network Provider / Phone Company
+connect to their frame relay switches and they handle communication
+DTE Routers and DCE devices - WAN networking protocols - protocol data units / flag,address,information,frame check sequence fields
+
+frame relay network adds these header bits
+frame relay also does congestion control

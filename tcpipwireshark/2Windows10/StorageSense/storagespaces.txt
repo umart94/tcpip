@@ -1,0 +1,28 @@
+multiple disks usb scsi iscsi -> combine them as a single disk
+
+divide pool into spaces
+
+video tutorials
+pictures
+my files
+etc.
+
+
+2tb
+2tb
+physical
+
+10tb virtual storage space
+
+if any disk fails... all disks and other disks data is lost
+
+
+2 way mirroring
+3 way mirroring
+parity mode
+resiliency options
+
+windows storage spaces allow
+easily expandable storage pools
+connection of usb sata or sas disks
+thin provisioning; resiliency to failures

@@ -1,0 +1,55 @@
+two ways in which routes get added to routing tables of routers
+
+1. static routes - in which adminstrator manually enters route.
+advantage is that no overhead on the network, no keep alives, no constant routing updates.
+
+RIP sends entire routing table every 30 seconds.
+when using static routes this overhead is removed
+
+EIGRP and OSPF. remove this constant updating,
+but they still send hellos and keep alives
+
+static routing removes this
+
+but admin has to update routing table if we have a large network. and if there is a topology change.
+
+overhead is on administrator.
+static routes do not scale when network becomes large, amount of work is too great. when lots of topology changes are present.
+
+requires extra configuration and extra mechanisms.
+
+
+static route = default static route.
+home adsl cable router has a static route default to isp
+home router does not know routes of the network
+
+it simply forwards the traffic to isp
+a default route in routers routing table that
+when we dont have a specific network path, simply send packets to default gateway default static route.
+
+
+Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : 192.168.100.115
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.100.1
+
+
+PC will send traffic to default gateway for any ip addresses not in the 192.168.100.0 subnet.
+
+
+e.g C means directly connected networks
+
+
+0.0.0.0 0.0.0.0 192.168.56.1
+
+we are adding a default static route to ip routing table of router,  with gateway of last resort being 192.168.56.1 , for any networks not in its routing table.
+
+The local router forwarded traffic to 192.168.56.1 ( the gateway ) to get to dns server 8.8.8.8 and to ping google.com
+
+
+
+2. dynamic routing protocols
+
+
+
+

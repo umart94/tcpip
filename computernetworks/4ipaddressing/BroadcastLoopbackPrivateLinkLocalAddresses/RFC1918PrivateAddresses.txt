@@ -1,0 +1,4 @@
+these private addresses are non routable on the internet
+
+these cannot be used for sending traffic over the internet.
+

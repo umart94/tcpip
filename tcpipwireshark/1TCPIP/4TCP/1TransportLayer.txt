@@ -1,0 +1,222 @@
+used for multiplexing
+if we have a logical ip address, and i want to communicate with a second ip address
+how will we differentiate who are we talking with ?
+whether we are connecting through some Web service or Email Service.
+we do multiplexing through Source and Destination Ports.
+
+User Datagram Protocol (UDP) is simplest Transport Layer communication protocol available in TCP/IP Suite.
+
+ports enable us to use multiple applications using the protocol at the same time and end-to-end communication.
+there is some verification. such as checksum
+
+
+-------------------
+tcp headers
+
+Source Port: 50443
+Destination Port: 443 .. wireshark indicates whether its http / https
+Stream Index: 
+Sequence Number: 0 .. relative sequence number.. if syn bit is set, this is the initial sequence number, otherwise its used to reorder packets in the correct order.
+used at the receiving end
+Header Length: 44 bytes.
+
+------------------------
+how tcp works..
+we want to access https://www.google.com.pk
+
+
+1.) A client sends the server a SYN packet—a connection request from its source port to a server’s destination port.
+
+Transmission Control Protocol, Src Port: 50504, Dst Port: 443, Seq: 0, Len: 0
+    Source Port: 50504
+    Destination Port: 443
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 0    (relative sequence number)
+    Sequence number (raw): 2699307568
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 0
+    Acknowledgment number (raw): 0
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x002 (SYN)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...0 .... = Acknowledgment: Not set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..1. = Syn: Set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ··········S·]
+    Window size value: 64240
+    [Calculated window size: 64240]
+    Checksum: 0xfaee [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    Options: (12 bytes), Maximum segment size, No-Operation (NOP), Window scale, No-Operation (NOP), No-Operation (NOP), SACK permitted
+        TCP Option - Maximum segment size: 1460 bytes
+            Kind: Maximum Segment Size (2)
+            Length: 4
+            MSS Value: 1460
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Window scale: 8 (multiply by 256)
+            Kind: Window Scale (3)
+            Length: 3
+            Shift count: 8
+            [Multiplier: 256]
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - SACK permitted
+            Kind: SACK Permitted (4)
+            Length: 2
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.000000000 seconds]
+        [Time since previous frame in this TCP stream: 0.000000000 seconds]
+
+---------------------------
+
+2.) The server responds with a SYN/ACK packet, acknowledging the receipt of the connection request.
+
+
+
+Transmission Control Protocol, Src Port: 443, Dst Port: 50504, Seq: 0, Ack: 1, Len: 0
+    Source Port: 443
+    Destination Port: 50504
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 0    (relative sequence number)
+    Sequence number (raw): 4153136725
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Acknowledgment number (raw): 2699307569
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x012 (SYN, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..1. = Syn: Set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······A··S·]
+    Window size value: 60720
+    [Calculated window size: 60720]
+    Checksum: 0x3b0c [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    Options: (12 bytes), Maximum segment size, No-Operation (NOP), No-Operation (NOP), SACK permitted, No-Operation (NOP), Window scale
+        TCP Option - Maximum segment size: 1380 bytes
+            Kind: Maximum Segment Size (2)
+            Length: 4
+            MSS Value: 1380
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - SACK permitted
+            Kind: SACK Permitted (4)
+            Length: 2
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Window scale: 8 (multiply by 256)
+            Kind: Window Scale (3)
+            Length: 3
+            Shift count: 8
+            [Multiplier: 256]
+    [SEQ/ACK analysis]
+        [This is an ACK to the segment in frame: 181]
+        [The RTT to ACK the segment was: 0.033990000 seconds]
+        [iRTT: 0.034095000 seconds]
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.033990000 seconds]
+        [Time since previous frame in this TCP stream: 0.033990000 seconds]
+
+
+
+---------------
+
+3.) The client receives the SYN/ACK packet and responds with an ACK packet of its own.
+
+Transmission Control Protocol, Src Port: 50504, Dst Port: 443, Seq: 1, Ack: 1, Len: 0
+    Source Port: 50504
+    Destination Port: 443
+    [Stream index: 0]
+    [TCP Segment Len: 0]
+    Sequence number: 1    (relative sequence number)
+    Sequence number (raw): 2699307569
+    [Next sequence number: 1    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Acknowledgment number (raw): 4153136726
+    0101 .... = Header Length: 20 bytes (5)
+    Flags: 0x010 (ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 0... = Push: Not set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······A····]
+    Window size value: 512
+    [Calculated window size: 131072]
+    [Window size scaling factor: 256]
+    Checksum: 0x66c0 [unverified]
+    [Checksum Status: Unverified]
+    Urgent pointer: 0
+    [SEQ/ACK analysis]
+        [This is an ACK to the segment in frame: 188]
+        [The RTT to ACK the segment was: 0.000105000 seconds]
+        [iRTT: 0.034095000 seconds]
+    [Timestamps]
+        [Time since first frame in this TCP stream: 0.034095000 seconds]
+        [Time since previous frame in this TCP stream: 0.000105000 seconds]
+
+
+---------------------------------
+
+in addition to sequence number there is also an acknowledgement number used to acknowledge a sequence number
+if ack bit is set then the acknowledgement number is the next sequence number expected.
+
+packets 1 2 3 4
+
+arrive in for e.g. 3 4 1 2
+
+we re-order them at receiving end using seq and ack number.
+
+
+--------------------
+Data Offset / within the packet where the data starts / header length is in 32 bit words
+in this case it is 32 bytes.. 80 .. 32 bytes are being used for header.
+
+-------------
+
+flags
+
+Urgent : Urgent Data gets received more quickly
+Acknowledgement
+Push : make sure whatever data is received is pushed to application. and data does not remain in buffer until application gets the buffer read.
+it makes sure that data is sent to app immediately.
+Reset : reset communication
+Syn : synchronize communications, if we want to start connection with another end-point.
+is used in the
+3 way tcp - handshake
+
+we are closing a connection if we use fin flag.
+
+window size = number of bytes that can be sent without getting an acknowledgement back.
+we can keep sending data without getting acknowledgement. / retransmit data.
+
+
+checksum tells us if something is altered or nothing is altered based on its calculation.
+

@@ -1,0 +1,71 @@
+In our VM installation, we have pre-loaded certain features by including it in ~/onos/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg file in the featuresBoot key. This runs the single-instance (trivial) ONOS core, simple L2 forwarding, and Web GUI modules.
+
+
+in featuresBootkey , add the features
+
+afterwards go through building onos again using mvn command
+
+2. Running ONOS
+Setting the environment variables for ONOS and Karaf execution
+$ cd onos
+$ source ./tools/dev/bash_profile 
+$ echo $KARAF_ROOT
+
+Optionally, you can compile the controller using the commands:
+$ mvn clean install -nsu -DskipIT -DskipTests
+
+
+Running the controller involves loading the required modules. If everything went well, you will see the ONOS banner printed on the screen. At this point, the controller listens on port 8181 for UI, and ports [6633, 6635 and 6635] for OpenFlow
+
+
+$ karaf clean
+Welcome to Open Network Operating System (ONOS)!
+     ____  _  ______  ____   
+    / __ \/ |/ / __ \/ __/    
+   / /_/ /    / /_/ /\ \       
+   \____/_/|_/\____/___/      
+                             
+Hit '' for a list of available commands
+and '[cmd] --help' for help on a specific command.
+Hit '' or type 'system:shutdown' or 'logout' to shutdown ONOS.
+ 
+onos>
+
+
+In our VM installation, we have pre-loaded certain features by including it in ~/onos/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg file in the featuresBoot key. This runs the single-instance (trivial) ONOS core, simple L2 forwarding, and Web GUI modules.
+
+
+You can verify if all those were loaded by executing this command on the Karaf console.
+
+feature:list
+feature:list -i
+
+
+Save and close the file. Now we are ready to build ONOS with Maven:
+
+build:~$ cd ~/onos
+build:~$ mvn clean install
+
+mci command wont work its an alias..
+
+use mvn clean install command from onos directory.
+
+we need these two :
+
+onos-openflow        | 1.1.0-SNAPSHOT   | x         | onos-1.1.0-SNAPSHOT     | ONOS OpenFlow API, Controller & Providers         
+onos-app-fwd         | 1.1.0-SNAPSHOT   | x         | onos-1.1.0-SNAPSHOT     | ONOS sample forwarding application                
+
+
+these will appear when we edited the karaf cfg file, saved it
+then run mvn clean install command 
+
+run it few times , remember to close the onos cluster before 
+
+then the features will show in onos.
+
+
+Since we have the OpenFlow feature and L2 forwarding feature started already, we can connect one or more switches to the controller, and manage the forwarding. In the tutorial VM, you can start mininet to emulate a network of switches and hosts using this command:
+
+
+
+
